@@ -7,8 +7,8 @@
 
 (declaim (special +standard-chars+ *cl-symbols-vector*))
 
-(defvar *maximum-random-int-bits*
-  (max 36 (1+ (integer-length most-positive-fixnum))))
+(defvar *maximum-random-int-bits* 36)
+  ;; (max 36 (1+ (integer-length most-positive-fixnum))))
 
 (defun random-from-seq (seq)
   "Generate a random member of a sequence."
@@ -294,11 +294,11 @@
 (defun positive-integer-qualifier-p (qualifiers)
   (typep qualifiers '(cons (integer 1) null)))
 
-(define-method-combination randomized nil ((method-list positive-integer-qualifier-p))
-  (assert method-list)
-  (let ((clauses (mapcar #'(lambda (method)
-                             (let ((weight (car (method-qualifiers method))))
-                               `(,weight (call-method ,method))))
-                         method-list)))
-  `(loop (catch 'fail (return (rcase ,@clauses))))))
+;; (define-method-combination randomized nil ((method-list positive-integer-qualifier-p))
+;;   (assert method-list)
+;;   (let ((clauses (mapcar #'(lambda (method)
+;;                              (let ((weight (car (method-qualifiers method))))
+;;                                `(,weight (call-method ,method))))
+;;                          method-list)))
+;;   `(loop (catch 'fail (return (rcase ,@clauses))))))
 

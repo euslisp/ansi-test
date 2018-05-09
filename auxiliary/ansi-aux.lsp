@@ -3,9 +3,12 @@
 ;;;; Created:  Sat Mar 28 17:10:18 1998
 ;;;; Contains: Aux. functions for CL-TEST
 
-
-
-(declaim (optimize (safety 3)))
+(defun multiple-value-list (vls) (if (atom vls) (list vls) vls))
+(defmacro locally (declaration &rest body) `(progn ,@body))
+(defmacro declare (&rest args))
+(defmacro declaim (&rest args))
+(defmacro handler-case (form &rest args) form)
+(defun typep (obj type) (eq (class obj) (symbol-value type)))
 
 ;;; A function for coercing truth values to BOOLEAN
 
@@ -15,29 +18,18 @@
   `(notnot-mv-fn (multiple-value-list ,form)))
 
 (defun notnot-mv-fn (results)
-  (if (null results)
-      (values)
-    (apply #'values
-           (not (not (first results)))
-           (rest results))))
+  (not (not (first results))))
 
 (defmacro not-mv (form)
   `(not-mv-fn (multiple-value-list ,form)))
 
 (defun not-mv-fn (results)
-  (if (null results)
-      (values)
-    (apply #'values
-           (not (first results))
-           (rest results))))
-
-(declaim (ftype (function (t) function) to-function))
+  (not (first results)))
 
 (defun to-function (fn)
-  (etypecase fn
-    (function fn)
-    (symbol (symbol-function fn))
-    ((cons (eql setf) (cons symbol null)) (fdefinition fn))))
+  (if (symbolp fn)
+      (symbol-function fn)
+      (eval `(function ,fn))))
 
 ;;; Macro to check that a function is returning a specified number of values
 ;;; (defaults to 1)
@@ -61,87 +53,40 @@
 Results: ~A~%" expected-number form n results))))
 
 ;;; Do multiple-value-bind, but check # of arguments
-(defmacro multiple-value-bind* ((&rest vars) form &body body)
+(defmacro multiple-value-bind* (vars form &rest body)
   (let ((len (length vars))
         (v (gensym)))
     `(let ((,v (multiple-value-list ,form)))
        (check-values-length ,v ,len ',form)
-       (destructuring-bind ,vars ,v ,@body))))
+       (multiple-value-bind ,vars ,v ,@body))))
+
 
 ;;; Comparison functions that are like various builtins,
 ;;; but are guaranteed to return T for true.
 
-(defun eqt (x y)
-  "Like EQ, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (eq x y)))))
-
-(defun eqlt (x y)
-  "Like EQL, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (eql x y)))))
-
-(defun equalt (x y)
-  "Like EQUAL, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (equal x y)))))
-
-(defun equalpt (x y)
-  "Like EQUALP, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (equalp x y)))))
+(setf (symbol-function 'eqt) #'eq
+      (symbol-function 'eqlt) #'eql
+      (symbol-function 'equalt) #'equal
+      (symbol-function 'equalpt) #'equal
+      (symbol-function 'string=t) #'string=
+      (symbol-function '=t) #'=
+      (symbol-function '<=t) #'<=)
 
 (defun equalpt-or-report (x y)
   "Like EQUALPT, but return either T or a list of the arguments."
   (or (equalpt x y) (list x y)))
 
-(defun string=t (x y)
-  (notnot-mv (string= x y)))
-
-(defun =t (x &rest args)
-  "Like =, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (apply #'=  x args)))))
-
-(defun <=t (x &rest args)
-  "Like <=, but guaranteed to return T for true."
-  (apply #'values (mapcar #'notnot (multiple-value-list (apply #'<=  x args)))))
-
 (defun make-int-list (n)
   (loop for i from 0 below n collect i))
 
 (defun make-int-array (n &optional (fn #'make-array))
-  (when (symbolp fn)
-    (assert (fboundp fn))
-    (setf fn (symbol-function (the symbol fn))))
-  (let ((a (funcall (the function fn) n)))
-    (declare (type (array * *) a))
-    (loop for i from 0 below n do (setf (aref a i) i))
-    a))
+  (make-array n :initial-contents (make-int-list n)))
 
 ;;; Return true if A1 and A2 are arrays with the same rank
 ;;; and dimensions whose elements are EQUAL
 
 (defun equal-array (a1 a2)
-  (and (typep a1 'array)
-       (typep a2 'array)
-       (= (array-rank a1) (array-rank a2))
-       (if (= (array-rank a1) 0)
-           (equal (regression-test::my-aref a1) (regression-test::my-aref a2))
-         (let ((ad (array-dimensions a1)))
-           (and (equal ad (array-dimensions a2))
-                (locally
-                 (declare (type (array * *) a1 a2))
-                 (if (= (array-rank a1) 1)
-                     (let ((as (first ad)))
-                       (loop
-                        for i from 0 below as
-                        always (equal (regression-test::my-aref a1 i)
-                                      (regression-test::my-aref a2 i))))
-                   (let ((as (array-total-size a1)))
-                     (and (= as (array-total-size a2))
-                          (loop
-                           for i from 0 below as
-                           always
-                           (equal
-                            (regression-test::my-row-major-aref a1 i)
-                            (regression-test::my-row-major-aref a2 i))
-                           ))))))))))
+  (equal a1 a1))
 
 ;;; *universe* is defined elsewhere -- it is a list of various
 ;;; lisp objects used when stimulating things in various tests.
@@ -155,6 +100,7 @@ Results: ~A~%" expected-number form n results))))
 ;;; always return T if type1 is truly a subtype of type2,
 ;;; but may return T even if this is not the case.
 
+#|
 (defun empirical-subtypep (type1 type2)
   (multiple-value-bind (sub good)
       (subtypep* type1 type2)
@@ -220,6 +166,7 @@ Results: ~A~%" expected-number form n results))))
       (throw 'continue-failed nil))
      (r (invoke-restart r))
      (t (throw 'continue-failed nil)))))
+|#
 
 #|
 (defun safe (fn &rest args)
@@ -233,7 +180,7 @@ Results: ~A~%" expected-number form n results))))
 |#
 
 ;;; Use the next macro in place of SAFE
-
+#|
 (defmacro catch-type-error (form)
 "Evaluate form in safe mode, returning its value if there is no error.
 If an error does occur, return type-error on TYPE-ERRORs, or the error
@@ -399,11 +346,15 @@ the condition to go uncaught if it cannot be classified."
      (handler-case (and (stringp (write-to-string obj)) t)
                    (condition (c) (declare (ignore c)) nil)))))
 
+|#
 ;;;
 ;;; The function SUBTYPEP should return two generalized booleans.
 ;;; This auxiliary function returns booleans instead
 ;;; (which makes it easier to write tests).
 ;;;
+(defun subtypep (type1 type2)
+  (derivedp (symbol-value type1) (symbol-value type2)))
+
 (defun subtypep* (type1 type2)
   (apply #'values
          (mapcar #'notnot
@@ -469,16 +420,16 @@ the condition to go uncaught if it cannot be classified."
 (defparameter +standard-chars+
   (coerce
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()_+|\\=-`{}[]:\";'<>?,./
- " 'simple-base-string))
+ " string))
 
 (defparameter
   +base-chars+ #.(coerce
-                  (concatenate 'string
+                  (concatenate string
                                "abcdefghijklmnopqrstuvwxyz"
                                "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                "0123456789"
                                "<,>.?/\"':;[{]}~`!@#$%^&*()_-+= \\|")
-                  'simple-base-string))
+                  string))
 
 
 (declaim (type simple-base-string +base-chars+))
@@ -492,24 +443,21 @@ the condition to go uncaught if it cannot be classified."
 (defparameter +digit-chars+ "0123456789")
 (defparameter +extended-digit-chars+ (coerce
                                       "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                      'simple-base-string))
+                                      string))
 
 (declaim (type simple-base-string +alpha-chars+ +lower-case-chars+
                +upper-case-chars+ +alphanumeric-chars+ +extended-digit-chars+
                +standard-chars+))
 
 (defparameter +code-chars+
-  (coerce (loop for i from 0 below 256
-                for c = (code-char i)
-                when c collect c)
-          'simple-string))
+  (coerce (make-int-list 256) string))
 
 (declaim (type simple-string +code-chars+))
 
 (defparameter +rev-code-chars+ (reverse +code-chars+))
 
 ;;; Used in checking for continuable errors
-
+#|
 (defun has-non-abort-restart (c)
   (throw 'handled
          (if (position 'abort (the list (compute-restarts c))
@@ -521,6 +469,8 @@ the condition to go uncaught if it cannot be classified."
   `(catch 'handled
      (handler-bind ((error #'has-non-abort-restart))
                    ,@body)))
+|#
+
 
 ;;; used in elt.lsp
 (defun elt-v-6-body ()
@@ -545,7 +495,7 @@ the condition to go uncaught if it cannot be classified."
             (unless (eql i (elt a i)) (return nil))
           finally (return t)))))
 
-(defparameter *displaced* (make-int-array 100000))
+(defparameter *displaced* (make-int-array 1000))
 
 (defun make-displaced-array (n displacement)
   (make-array n :displaced-to *displaced*
@@ -680,15 +630,6 @@ the condition to go uncaught if it cannot be classified."
          (reader-error parse-error)
          (reader-error stream-error)
          )))
-  (when (subtypep* 'character 'base-char)
-    (setq table
-          (append
-           '((character base-char)
-             ;; (string base-string)
-             ;; (simple-string simple-base-string)
-             )
-           table)))
-
   table))
 
 (defparameter *disjoint-types-list*
@@ -696,14 +637,15 @@ the condition to go uncaught if it cannot be classified."
       number character hash-table function readtable package
       pathname stream random-state condition restart))
 
+#|
 (defparameter *disjoint-types-list2*
   `((cons (cons t t) (cons t (cons t t)) (eql (nil)))
     (symbol keyword boolean null (eql a) (eql nil) (eql t) (eql *))
     (array vector simple-array simple-vector string simple-string
            base-string simple-base-string (eql #()))
-    (character base-char standard-char (eql #\a)
-               ,@(if (subtypep 'character 'base-char) nil
-                   (list 'extended-char)))
+    ;; (character base-char standard-char (eql #\a)
+    ;;            ,@(if (subtypep 'character 'base-char) nil
+    ;;                (list 'extended-char)))
     (function compiled-function generic-function standard-generic-function
               (eql ,#'car))
     (package (eql ,(find-package "COMMON-LISP")))
@@ -723,6 +665,7 @@ the condition to go uncaught if it cannot be classified."
 
 (defparameter *types-list3*
   (reduce #'append *disjoint-types-list2* :from-end t))
+|#
 
 (defun trim-list (list n)
   (let ((len (length list)))
@@ -738,11 +681,11 @@ the condition to go uncaught if it cannot be classified."
   (typep type 'built-in-class))
 
 (defun even-size-p (a)
-  (some #'evenp (array-dimensions a)))
+  (some #'evenp (a . length)))
 
 
-(defun safe-elt (x n)
-  (classify-error* (elt x n)))
+;; (defun safe-elt (x n)
+;;   (classify-error* (elt x n)))
 
 (defmacro defstruct* (&body args)
   `(eval-when (:load-toplevel :compile-toplevel :execute)
@@ -773,6 +716,7 @@ the condition to go uncaught if it cannot be classified."
 
 (defconstant +fail-count-limit+ 20)
 
+#|
 (defun frob-simple-condition (c expected-fmt &rest expected-args)
   "Try out the format control and format arguments of a simple-condition C,
    but make no assumptions about what they print as, only that they
@@ -793,6 +737,7 @@ the condition to go uncaught if it cannot be classified."
   (and (typep c 'simple-warning)
        (apply #'frob-simple-condition c expected-fmt expected-args)))
 
+|#
 (defparameter *array-element-types*
   '(t (integer 0 0)
       bit (unsigned-byte 8) (unsigned-byte 16)
@@ -804,7 +749,7 @@ the condition to go uncaught if it cannot be classified."
   "Collect all the properties in plist for a property prop."
   (loop for e on plist by #'cddr
         when (eql (car e) prop)
-        collect (cadr e)))
+     collect (cadr e)))
 
 (defmacro def-macro-test (test-name macro-form)
   (let ((macro-name (car macro-form)))
@@ -824,13 +769,14 @@ the condition to go uncaught if it cannot be classified."
 (defun typep* (element type)
   (not (not (typep element type))))
 
-(defun applyf (fn &rest args)
-  (etypecase fn
-    (symbol
+(defun applyf (fn &rest args)  
+  (cond
+    ((symbolp fn)
      #'(lambda (&rest more-args) (apply (the symbol fn) (append args more-args))))
-    (function
+    ((functionp fn)
      #'(lambda (&rest more-args) (apply (the function fn) (append args more-args))))))
 
+#|
 (defun slot-boundp* (object slot)
   (notnot (slot-boundp object slot)))
 
@@ -853,6 +799,7 @@ the condition to go uncaught if it cannot be classified."
   (and (slot-exists-p object slot-name)
        (slot-boundp object slot-name)
        (slot-value object slot-name)))
+|#
 
 (defun is-noncontiguous-sublist-of (list1 list2)
   (loop
@@ -905,94 +852,18 @@ the condition to go uncaught if it cannot be classified."
   (let ((*similarity-list* nil))
     (is-similar* x y)))
 
-(defgeneric is-similar* (x y))
-
-(defmethod is-similar* ((x number) (y number))
-  (and (eq (class-of x) (class-of y))
-       (= x y)
-       t))
-
-(defmethod is-similar* ((x character) (y character))
-  (and (char= x y) t))
-
-(defmethod is-similar* ((x symbol) (y symbol))
-  (if (null (symbol-package x))
-      (and (null (symbol-package y))
-           (is-similar* (symbol-name x) (symbol-name y)))
-    ;; I think the requirements for interned symbols in
-    ;; 3.2.4.2.2 boils down to EQ after the symbols are in the lisp
-    (eq x y))
-  t)
-
-(defmethod is-similar* ((x random-state) (y random-state))
-  (let ((copy-of-x (make-random-state x))
-        (copy-of-y (make-random-state y))
-        (bound (1- (ash 1 24))))
-    (and
-     ;; Try 50 values, and assume the random state are the same
-     ;; if all the values are the same.  Assuming the RNG is not
-     ;; very pathological, this should be acceptable.
-     (loop repeat 50
-           always (eql (random bound copy-of-x)
-                       (random bound copy-of-y)))
-     t)))
-
-(defmethod is-similar* ((x cons) (y cons))
-  (or (and (eq x y) t)
-      (and (loop for (x2 . y2) in *similarity-list*
-                 thereis (and (eq x x2) (eq y y2)))
-           t)
-      (let ((*similarity-list*
-             (cons (cons x y) *similarity-list*)))
-        (and (is-similar* (car x) (car y))
-             ;; If this causes stack problems,
-             ;; convert to a loop
-             (is-similar* (cdr x) (cdr y))))))
-
-(defmethod is-similar* ((x vector) (y vector))
-  (or (and (eq x y) t)
-      (and
-       (or (not (typep x 'simple-array))
-           (typep x 'simple-array))
-       (= (length x) (length y))
-       (is-similar* (array-element-type x)
-                    (array-element-type y))
-       (loop for i below (length x)
-             always (is-similar* (aref x i) (aref y i)))
-       t)))
-
-(defmethod is-similar* ((x array) (y array))
-  (or (and (eq x y) t)
-      (and
-       (or (not (typep x 'simple-array))
-           (typep x 'simple-array))
-       (= (array-rank x) (array-rank y))
-       (equal (array-dimensions x) (array-dimensions y))
-       (is-similar* (array-element-type x)
-                    (array-element-type y))
-       (let ((*similarity-list*
-              (cons (cons x y) *similarity-list*)))
-         (loop for i below (array-total-size x)
-               always (is-similar* (row-major-aref x i)
-                                   (row-major-aref y i))))
-       t)))
-
-(defmethod is-similar* ((x hash-table) (y hash-table))
-  ;; FIXME  Add similarity check for hash tables
-  (error "Sorry, we're not computing this yet."))
-
-(defmethod is-similar* ((x pathname) (y pathname))
-  (and
-   (is-similar* (pathname-host x) (pathname-host y))
-   (is-similar* (pathname-device x) (pathname-device y))
-   (is-similar* (pathname-directory x) (pathname-directory y))
-   (is-similar* (pathname-name x) (pathname-name y))
-   (is-similar* (pathname-type x) (pathname-type y))
-   (is-similar* (pathname-version x) (pathname-version y))
-   t))
-
-(defmethod is-similar* ((x t) (y t))
-  (and (eql x y) t))
+(defun is-similar* (x y)
+  (cond
+    ((and (symbolp x) (symbolp y))
+     (if (null (symbol-package x))
+	 (and (null (symbol-package y))
+	      (is-similar* (symbol-name x) (symbol-name y)))
+	 ;; I think the requirements for interned symbols in
+	 ;; 3.2.4.2.2 boils down to EQ after the symbols are in the lisp
+	 (eq x y))
+     t)
+    ((and (numberp x) (numberp y)) (= x y))
+    (t (equal x y))))
 
 (defparameter *initial-print-pprint-dispatch* (if (boundp '*print-pprint-dispatch*)
                                                   *print-pprint-dispatch*
@@ -1031,20 +902,20 @@ the condition to go uncaught if it cannot be classified."
     (if displace
         (let ((s0 (make-array (+ len2 5)
                               :initial-contents
-                              (concatenate 'string
+                              (concatenate string
                                            (make-string 2 :initial-element #\X)
                                            string
                                            (make-string (if fill 7 3)
                                                         :initial-element #\Y))
                               :element-type etype)))
           (make-array len2 :element-type etype
-                      :adjustable adjust
+            n          :adjustable adjust
                       :fill-pointer (if fill len nil)
                       :displaced-to s0
                       :displaced-index-offset 2))
       (make-array len2 :element-type etype
                   :initial-contents
-                  (if fill (concatenate 'string string "ZZZZ") string)
+                  (if fill (concatenate string string "ZZZZ") string)
                   :fill-pointer (if fill len nil)
                   :adjustable adjust))))
 
@@ -1076,7 +947,7 @@ the condition to go uncaught if it cannot be classified."
     (if displace
         (let ((s0 (make-array (+ len2 5)
                               :initial-contents
-                              (concatenate 'list
+                              (concatenate cons
                                            (make-list 2 :initial-element
                                                       (if (typep 0 etype) 0 min))
                                            contents
@@ -1091,13 +962,14 @@ the condition to go uncaught if it cannot be classified."
                       :displaced-index-offset 2))
       (make-array len2 :element-type etype
                   :initial-contents
-                  (if fill (concatenate 'list
+                  (if fill (concatenate cons
                                         contents
                                         (make-list 4 :initial-element
                                                    (if (typep 2 etype) 2 (floor (+ min max) 2))))
                     contents)
                   :fill-pointer (if fill len nil)
                   :adjustable adjust))))
+#|
 
 (defmacro do-special-integer-vectors ((var vec-form &optional ret-form) &body forms)
   (let ((vector (gensym))
@@ -1117,7 +989,7 @@ the condition to go uncaught if it cannot be classified."
                             :fill ,fill :adjust ,adjust
                             :etype ,etype :displace ,displace)))
                  ,@forms))))))))
-
+|#
 ;;; Return T if arg X is a string designator in this implementation
 
 (defun string-designator-p (x)
@@ -1185,3 +1057,17 @@ the condition to go uncaught if it cannot be classified."
 
 (defmacro expand-in-current-env (macro-form &environment env)
   (macroexpand macro-form env))
+
+;; (defmacro report-and-ignore-errors (form)
+;;   `(unwind-protect
+;;        (let ((lisp::*max-callstack-depth* 0))
+;;          (labels ((hook (form env) (catch 0 (evalhook form #'hook))))
+;;            (lisp::install-error-handler
+;; 	    #'(lambda (code msg1 form &optional (msg2))
+;; 		(format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48)   *program-name* msg1)
+;; 		(if msg2 (format *error-output* " ~A" msg2))
+;; 		(if form (format *error-output* " in ~s" form))
+;; 		(format *error-output* "~C[0m~%"  #x1b)
+;; 		(reset)))
+;;            (catch 0 (evalhook ',form #'hook))))
+;;      (lisp::install-error-handler *error-handler*)))
