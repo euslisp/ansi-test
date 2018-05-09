@@ -463,10 +463,9 @@
       (macrolet.51))
    :good)
 
-(define-compiler-macro macrolet.52 (&whole form)
-  :bad)
-
 (deftest macrolet.52
+    (define-compiler-macro macrolet.52 (&whole form)
+      :bad)
    (macrolet ((macrolet.52 () :good))
       (macrolet.52))
    :good)

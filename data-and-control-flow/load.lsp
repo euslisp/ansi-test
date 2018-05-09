@@ -29,7 +29,7 @@
   (load "compiled-function-p.lsp")
   (load "complement.lsp")
   (load "cond.lsp")
-  (load "constantly.lsp")
+  ;;(load "constantly.lsp") ** UNSUPPORTED **
   (load "ctypecase.lsp")
   (load "defconstant.lsp")
   (load "define-modify-macro.lsp")

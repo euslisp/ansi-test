@@ -418,7 +418,7 @@
 (deftest symbol-ftruncate (test-if-not-in-cl-package "ftruncate") nil)
 (deftest symbol-ftype (test-if-not-in-cl-package "ftype") nil)
 (deftest symbol-funcall (test-if-not-in-cl-package "funcall") nil)
-(deftest symbol-function (test-if-not-in-cl-package "function") nil)
+(deftest symbol-function-test (test-if-not-in-cl-package "function") nil)
 (deftest symbol-function-keywords (test-if-not-in-cl-package "function-keywords") nil)
 (deftest symbol-function-lambda-expression (test-if-not-in-cl-package "function-lambda-expression") nil)
 (deftest symbol-functionp (test-if-not-in-cl-package "functionp") nil)
@@ -994,17 +994,14 @@
 ;;; Standardized packages have the right names, nicknames
 
 (deftest keyword-package-nicknames
-  :notes :standardized-package-nicknames
   (package-nicknames (find-package "KEYWORD"))
   nil)
 
 (deftest common-lisp-package-nicknames
-  :notes :standardized-package-nicknames
   (package-nicknames (find-package "COMMON-LISP"))
   ("CL"))
 
 (deftest common-lisp-user-package-nicknames
-  :notes :standardized-package-nicknames
   (package-nicknames (find-package "COMMON-LISP-USER"))
   ("CL-USER"))
 

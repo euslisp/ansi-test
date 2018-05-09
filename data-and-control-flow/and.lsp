@@ -6,7 +6,8 @@
 
 
 (deftest and.1
-  (and)
+    (error "segmentation fault")
+  ;; (and)
   t)
 
 (deftest and.2

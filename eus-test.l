@@ -100,4 +100,12 @@
 (load "auxiliary/ansi-aux.lsp")
 (load "auxiliary/random-aux.lsp")
 
-;; (run-all-tests)
+(load "symbols/load.lsp")
+(load "eval-and-compile/load.lsp")
+(load "data-and-control-flow/load.lsp")
+(load "iteration/load.lsp")
+;; (load "objects/load.lsp") **UNSUPPORTED**
+(load "conditions/load.lsp")
+(load "cons/load.lsp")
+
+(run-all-tests)
