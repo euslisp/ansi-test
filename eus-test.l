@@ -68,11 +68,12 @@
 (send (find-package "LISP") :set-val 'names (list "LISP" "CL"))
 (send (find-package "USER") :set-val 'names (list "USER" "CL-TEST"))
 
+
 (set-macro-character #\% nil)
-(set-dispatch-macro-character #\# #\C 'complex)
-(defun complex (s n c)
-  (let ((lst (read s)))
-    (make-instance complex :real (car lst) :imaginary (cadr lst))))
+(set-dispatch-macro-character #\# #\C #'(lambda (s n c)
+					  (multiple-value-bind (r i) (read s)
+					    (complex r i))))
+(defun complex (real img) (make-instance complex :real real :imaginary img))
 
 (defun find-class (obj &optional error-p) (class obj))
 (defun compile-and-load (file)

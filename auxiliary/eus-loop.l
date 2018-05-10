@@ -70,6 +70,10 @@
 	      (send self :iterate))))))
 
 
+(defun function-form-p (form)
+  (and (consp form) (eq (car form) 'FUNCTION)
+       (consp (cdr form)) (null (cddr form))))
+
 (defvar *keyword-table*
   (let ((ht (make-hash-table :test 'equal)))
     (mapc #'(lambda (s) (setf (gethash (symbol-name s) ht) s))
@@ -897,7 +901,7 @@
                                                (case (next-kw)
                                                  ((IN OF) (pop body-rest)
                                                   (let ((pkg (parse-form preposition)))
-						    (if (stringp pkg)
+						    (if (or (stringp pkg) (symbolp pkg))
 							(find-package pkg)
 							pkg)))
                                                  (t '*package*))))
