@@ -28,12 +28,10 @@
   nil)
 
 (deftest equalp.5
-  :notes (:allow-nil-arrays)
   (equalpt (make-array '(0) :element-type nil) #())
   t)
 
 (deftest equalp.6
-  :notes (:allow-nil-arrays)
   (equalpt (make-array '(0) :element-type nil) "")
   t)
 
@@ -282,7 +280,7 @@
                   (not (equalp ht1 ht2))))))
   (0 0 0 0))
 
-(defclass equalp-class-36 () ((slot1 :initarg :slot1) (slot2 :initarg :slot2)))
+;;(defclass equalp-class-36 () ((slot1 :initarg :slot1) (slot2 :initarg :slot2)))
 
 ;;; If structure is backed up by an instance, it may happen that
 ;;; instances are compared like structures for `equalp' - slot by

@@ -323,8 +323,9 @@
   t)
 
 (deftest labels.40
-  (let ((x (labels ((f () #'f)) #'f)))
-    (eqlt x (funcall x)))
+    (error "segmentation fault")
+  ;; (let ((x (labels ((f () #'f)) #'f)))
+  ;;   (eqlt x (funcall x)))
   t)
 
 ;;; Test that free declarations do not affect argument forms
@@ -426,12 +427,11 @@
       (labels.51))
    :good)
 
-(define-compiler-macro labels.52 (&whole form)
-   :bad)
 
 (deftest labels.52
+    (define-compiler-macro labels.52 (&whole form)
+      :bad)
    (labels ((labels.52 () :good))
      (labels.52))
    :good)
 
-   

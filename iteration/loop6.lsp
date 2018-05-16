@@ -47,13 +47,13 @@
 (defparameter *loop.6.hash.6*
   (let ((table (make-hash-table :test #'eq)))
     (loop for (key . val) in *loop.6.alist*
-          do (setf (gethash key table) (coerce val 'float)))
+          do (setf (gethash key table) val))
     table))
 
 (defparameter *loop.6.hash.7*
   (let ((table (make-hash-table :test #'equal)))
     (loop for (val . key) in *loop.6.alist.3*
-          do (setf (gethash (coerce key 'float) table) val))
+          do (setf (gethash key table) val))
     table))
 
 (defparameter *loop.6.alist.8*

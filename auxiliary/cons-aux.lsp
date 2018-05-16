@@ -21,10 +21,10 @@
   "Make a tree that will be used to check if a tree has been changed."
   (if
       (consp x)
-      (make-scaffold :node x
+      (make-instance scaffold :node x
                      :car (make-scaffold-copy (car x))
                      :cdr (make-scaffold-copy (cdr x)))
-    (make-scaffold :node x
+    (make-instance scaffold :node x
                    :car nil
                    :cdr nil)))
 

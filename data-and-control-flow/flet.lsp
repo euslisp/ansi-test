@@ -576,10 +576,10 @@
      (flet.73))
    :good)
 
-(define-compiler-macro flet.74 (&whole form)
-   :bad)
 
 (deftest flet.74
+    (define-compiler-macro flet.74 (&whole form)
+      :bad)
    (flet ((flet.74 () :good))
      (flet.74))
    :good)

@@ -31,11 +31,12 @@
   (a b c d e f))
 
 (deftest nconc.5
-  (let ((x (list 'a 'b 'c)))
-    (nconc x x)
-    (and
-     (eqt (cdddr x) x)
-     (null (list-length x))))
+    (error "infinite loop")
+  ;; (let ((x (list 'a 'b 'c)))
+  ;;   (nconc x x)
+  ;;   (and
+  ;;    (eqt (cdddr x) x)
+  ;;    (null (list-length x))))
   t)
 
 (deftest nconc.6

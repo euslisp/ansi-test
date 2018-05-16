@@ -18,9 +18,10 @@
   :bar)
 
 (deftest get.4
-  (let ((sym (gensym)))
-    (setf (symbol-plist sym) (list :foo 1 :bar 2 :foo 3))
-    (values (get sym :foo) (get sym :bar)))
+    (error "segmentation fault")
+  ;; (let ((sym (gensym)))
+  ;;   (setf (symbol-plist sym) (list :foo 1 :bar 2 :foo 3))
+  ;;   (values (get sym :foo) (get sym :bar)))
   1 2)
 
 (deftest get.5
