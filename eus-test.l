@@ -1,5 +1,7 @@
 (require :unittest "lib/llib/unittest.l")
 
+(defvar *signals-error* t)
+
 (defun single (lst) (and (consp lst) (not (cdr lst))))
 (defun sym-class (type)
   (cond
@@ -10,13 +12,14 @@
 ;; OVERWRITES
 
 (defun unittest-error (code msg1 form &optional (msg2))
-  (format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48) *program-name* msg1)
-  (if msg2 (format *error-output* " ~A" msg2))
-  (if form (format *error-output* " in ~s" form))
+  (when *signals-error*
+    (format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48) *program-name* msg1)
+    (if msg2 (format *error-output* " ~A" msg2))
+    (if form (format *error-output* " in ~s" form))
+    (format *error-output* "~C[0m~%" #x1b)
 
-  ;; set failure on errors
-  (send *unit-test* :increment-failure code msg1 nil)
-  (format *error-output* "~C[0m~%" #x1b)
+    ;; set failure on errors
+    (send *unit-test* :increment-failure code msg1 nil))
   (reset))
 
 (defun unittest-sigint-handler (sig code)
@@ -95,7 +98,7 @@
   `(progn
      ,@(mapcar #'(lambda (sym) `(defmacro ,sym (&rest args))) syms)))
 
-(ignore in-package declaim handler-bind report-and-ignore-errors ignore-errors)
+(ignore in-package declare declaim handler-bind report-and-ignore-errors ignore-errors)
 
 (load "auxiliary/eus-loop.l")
 (load "auxiliary/ansi-aux.lsp")
@@ -109,4 +112,5 @@
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
 
+(terpri)
 (run-all-tests)

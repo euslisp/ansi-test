@@ -4,9 +4,7 @@
 ;;;; Contains: Aux. functions for CL-TEST
 
 (defun multiple-value-list (vls) (if (atom vls) (list vls) vls))
-(defmacro locally (declaration &rest body) `(progn ,@body))
-(defmacro declare (&rest args))
-(defmacro declaim (&rest args))
+(defmacro locally (&rest body) `(progn ,@body))
 (defmacro handler-case (form &rest args) form)
 (defun typep (obj type) (eq (class obj) (symbol-value type)))
 
@@ -230,63 +228,17 @@ the condition to go uncaught if it cannot be classified."
 
 ;;; The above is badly designed, since it fails when some signals
 ;;; may be in more than one class/
+|#
 
-(defmacro signals-error (form error-name &key (safety 3) (name nil name-p) (inline nil))
-  `(handler-bind
-    ((warning #'(lambda (c) (declare (ignore c))
-                              (muffle-warning))))
-    (proclaim '(optimize (safety 3)))
-    (handler-case
-     (apply #'values
-            nil
-            (multiple-value-list
-             ,(cond
-               (inline form)
-               (regression-test::*compile-tests*
-                `(funcall (compile nil '(lambda ()
-                                          (declare (optimize (safety ,safety)))
-                                          ,form))))
-               (t `(eval ',form)))))
-     (,error-name (c)
-                  (cond
-                   ,@(case error-name
-                       (type-error
-                        `(((typep (type-error-datum c)
-                                  (type-error-expected-type c))
-                           (values
-                            nil
-                            (list (list 'typep (list 'quote
-                                                     (type-error-datum c))
-                                        (list 'quote
-                                              (type-error-expected-type c)))
-                                  "==> true")))))
-                       ((undefined-function unbound-variable)
-                        (and name-p
-                             `(((not (eq (cell-error-name c) ',name))
-                                (values
-                                 nil
-                                 (list 'cell-error-name "==>"
-                                       (cell-error-name c)))))))
-                       ((stream-error end-of-file reader-error)
-                        `(((not (streamp (stream-error-stream c)))
-                           (values
-                            nil
-                            (list 'stream-error-stream "==>"
-                                  (stream-error-stream c))))))
-                       (file-error
-                        `(((not (pathnamep (pathname (file-error-pathname c))))
-                           (values
-                            nil
-                            (list 'file-error-pathname "==>"
-                                  (file-error-pathname c))))))
-                       (t nil))
-                   (t (printable-p c)))))))
+(defmacro signals-error (form &rest ignore)
+  `(let (*signals-error*) (not (catch 0 ,form t))))
 
 (defmacro signals-error-always (form error-name)
   `(values
     (signals-error ,form ,error-name)
     (signals-error ,form ,error-name :safety 0)))
 
+#|
 (defmacro signals-type-error (var datum-form form &key (safety 3) (inline nil))
   (let ((lambda-form
          `(lambda (,var)
