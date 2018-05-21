@@ -1,4 +1,7 @@
+#!/opt/ros/indigo/bin/roseus
 (require :unittest "lib/llib/unittest.l")
+
+(defvar *signals-error* t)
 
 (defun single (lst) (and (consp lst) (not (cdr lst))))
 (defun sym-class (type)
@@ -10,24 +13,36 @@
 ;; OVERWRITES
 
 (defun unittest-error (code msg1 form &optional (msg2))
-  (format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48) *program-name* msg1)
-  (if msg2 (format *error-output* " ~A" msg2))
-  (if form (format *error-output* " in ~s" form))
+  (when *signals-error*
+    ;; set failure on errors
+    (send *unit-test* :increment-failure code msg1 nil)
 
-  ;; set failure on errors
-  (send *unit-test* :increment-failure code msg1 nil)
-  (format *error-output* "~C[0m~%" #x1b)
+    (format *error-output* "~C[1;3~Cm~ ~A" #x1b (+ 1 48) msg1)
+    (if msg2 (format *error-output* " ~A" msg2))
+    (if form (format *error-output* " in ~s" form))
+    (format *error-output* "~C[0m~%" #x1b))
   (reset))
 
 (defun unittest-sigint-handler (sig code)
   (format *error-output* "unittest-sigint-handler ~A~%" sig)
   (reset))
 
-(setf (symbol-function '=run-test) #'run-test)
 (defun run-test (func-sym)
   (catch 0 (=run-test func-sym) (return-from run-test))
   (unless (unit-test-result-failures (car (send *unit-test* :result)))
     (catch 0 (error "fatal error")))) ;; catch errors
+
+;; PRINTING RELATED
+(defun =run-test (func-sym)
+  (let ((func (symbol-function func-sym)) tm)
+    ;; initilize result
+    (send *unit-test* :init-result func-sym)
+    (send *unit-test* :increment-test func-sym)
+    (setq tm (instance mtimer :init))
+    (send tm :start)
+    (funcall func)
+    (format t "~A~%" func-sym)
+    (send *unit-test* :set-time-to-current-result (send tm :stop))))
 
 (defmethod unit-test-container
   (:print-normal-result (&optional (strm t))
@@ -43,7 +58,14 @@
       ;; only print failures
       (dolist (r (reverse (remove-if-not #'(lambda (obj) (unit-test-result-failures obj)) result)))
 	(warning-message 1 "~A " (unit-test-result-name r)))
-      (format strm "~%~%"))))
+      (format strm "~%~%")))
+  (:increment-failure
+   (test msg trace)
+   (when result
+     (push (list test msg trace) (unit-test-result-failures (car result)))
+     (warning-message 1 "[ERROR] At ~S: " (unit-test-result-name (car result)))
+     (when trace
+       (format *error-output* "~C[3~Cmassert failed in ~A.~C[0m~%" #x1b 49 test #x1b)))))
 
 (defmacro deftest (name clause &rest res)
   `(progn
@@ -95,7 +117,7 @@
   `(progn
      ,@(mapcar #'(lambda (sym) `(defmacro ,sym (&rest args))) syms)))
 
-(ignore in-package declaim handler-bind report-and-ignore-errors ignore-errors)
+(ignore in-package declare declaim handler-bind report-and-ignore-errors ignore-errors)
 
 (load "auxiliary/eus-loop.l")
 (load "auxiliary/ansi-aux.lsp")
@@ -109,4 +131,5 @@
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
 
+(terpri)
 (run-all-tests)
