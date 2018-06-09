@@ -1,4 +1,4 @@
-#!/opt/ros/indigo/bin/roseus
+#!/usr/bin/env roseus
 (require :unittest "lib/llib/unittest.l")
 
 (defvar *signals-error* t)
