@@ -1,19 +1,20 @@
-(defvar magic (cons 'multiple 'values))
+(defvar magical (cons 'multiple 'values))
+(defvar is-mv-on nil)
 
-
-(defun magicp (x)
-  (and (consp x) (eq (car x) magic)))
+(defun magicalp (x)
+  (and (consp x) (eq (car x) magical)))
 
 (defun list-values (&rest args)
   "Takes a multiple-arguments return of values and make it a - simple - list"
-  (if (magicp (car args))
+  (if (magicalp (car args))
       (cdr (car args))
       (car args)))
 
 (defun values (&rest args)
-  (if (and (not (null args))(null (cdr args)))
+  (if (or (and (not (null args))(null (cdr args)))
+          (not is-mv-on))
       (car args)
-      (cons magic args)))
+      (cons magical args)))
 
 (defun values-list (list)
   "All of the values of list are returned as multiple values"
@@ -22,21 +23,31 @@
 (defun call-with-values (producer consumer)
   "Producer is a no-arguments function whose return values are fed to consumer"
   (let ((x (funcall producer)))
-    (if (magicp x)
+    (if (magicalp x)
         (apply consumer (cdr x))
         (funcall consumer x))))
 
 
 (defmacro multiple-value-call (fun &rest forms)
   "Reunites the return values for each form in form and applies fun to them"
-    `(call-with-values #'(lambda()
-                           (let ((form-values (list ,@forms)))
-                             (values-list
-                              (loop for el in form-values append (list-values
-                                                                  (if (consp el)
-                                                                      el
-                                                                      (list el)))))))
-                               ,fun))
+  `(call-with-values #'(lambda()
+                         (setq is-mv-on t)
+                         (let ((form-values (list ,@forms)))
+                           (progn
+                             (setq is-mv-on nil)
+                             (cons magical        ;; *magically* makes it 'values'-like
+                              (labels ((f (vals)
+                                         (if (null vals)
+                                             '()
+                                             (append
+                                              (list-values
+                                               (if (consp (car vals))
+                                                   (car vals)
+                                                   (list (car vals))))
+                                              (f (cdr vals))))))
+                                (f form-values))))))
+                     ,fun))
+
 
 
 ;;
