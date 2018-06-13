@@ -1,3 +1,6 @@
+(make-package :mv-interface)
+(in-package :mv-interface)
+
 (defvar magical (cons 'multiple 'values))
 (defvar is-mv-on nil)
 
