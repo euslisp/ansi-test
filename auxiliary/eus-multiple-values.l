@@ -4,8 +4,10 @@
 (defvar magical (cons 'multiple 'values))
 (defvar is-mv-on nil)
 
+(in-package :lisp)
+
 (defun magicalp (x)
-  (and (consp x) (eq (car x) magical)))
+  (and (consp x) (eq (car x) mv-interface::magical)))
 
 (defun list-values (&rest args)
   "Takes a multiple-arguments return of values and make it a - simple - list"
@@ -14,10 +16,10 @@
       (car args)))
 
 (defun values (&rest args)
-  (if (or (and (not (null args))(null (cdr args)))
-          (not is-mv-on))
+  (if (or (and args (null (cdr args)))
+          (not mv-interface::is-mv-on))
       (car args)
-      (cons magical args)))
+      (cons mv-interface::magical args)))
 
 (defun values-list (list)
   "All of the values of list are returned as multiple values"
@@ -34,11 +36,11 @@
 (defmacro multiple-value-call (fun &rest forms)
   "Reunites the return values for each form in form and applies fun to them"
   `(call-with-values #'(lambda()
-                         (setq is-mv-on t)
+                         (setq mv-interface::is-mv-on t)
                          (let ((form-values (list ,@forms)))
                            (progn
-                             (setq is-mv-on nil)
-                             (cons magical        ;; *magically* makes it 'values'-like
+                             (setq mv-interface::is-mv-on nil)
+                             (cons mv-interface::magical        ;; *magically* makes it 'values'-like
                               (labels ((f (vals)
                                          (if (null vals)
                                              '()
@@ -59,6 +61,7 @@
 
 
 (defmacro multiple-value-list (value-form)
+  "Takes value-form's multiple values return and turn them into a list"
   `(multiple-value-call #'list ,value-form))
 
 
@@ -70,9 +73,10 @@
 ;; 	   ,value-form))))
 
 (defmacro multiple-value-bind (varlist value-form &rest body)
+  "Sets each variable in varlist to respective value returned by value-form and subsequently executes body"
   `(multiple-value-call #'(lambda (,@varlist)
-                               ,@body)
-                           ,value-form))
+                            ,@body)
+     ,value-form))
 
 ;; (defmacro multiple-value-setq (varlist value-form)
 ;;   (if varlist
@@ -80,5 +84,6 @@
 ;;       `(values ,value-form)))
 
 (defmacro multiple-value-prog1 (form &rest forms)
-  `(progn ,@forms ,form))
-     
+  "Executes form and forms, yielding the value of form"
+  (setq mv-interface::is-mv-on t)
+  `(prog1 ,form ,@forms (setq mv-interface::is-mv-on nil)))
