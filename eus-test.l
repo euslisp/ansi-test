@@ -12,6 +12,13 @@
 
 ;; OVERWRITES
 
+(defun init-unit-test ()
+  (lisp::install-error-handler 'unittest-error)
+  (unix:signal unix::sigint 'unittest-sigint-handler)
+  (unix:signal unix::sighup 'unittest-sigint-handler)
+  t)
+
+
 (defun unittest-error (code msg1 form &optional (msg2))
   (when *signals-error*
     ;; set failure on errors
@@ -79,12 +86,8 @@
 
 ;; PREPARE TESTS
 
-(init-unit-test)
-
 (defvar *load-pathname* nil)
-(setq *error-handler* 'unittest-error
-      *exit-on-fatal-error* nil
-      lisp::*max-callstack-depth* 0
+(setq lisp::*max-callstack-depth* 0
       call-arguments-limit 4611686018427387903)
 
 (send (find-package "LISP") :set-val 'names (list "LISP" "CL"))
@@ -119,10 +122,22 @@
 
 (ignore in-package declare declaim handler-bind report-and-ignore-errors ignore-errors)
 
+(defmacro assert (pred &optional (message "") &rest args)
+  (with-gensyms (ret)
+    `(let* (failure (ret ,pred))
+       (if (not ret)
+	   ;; escape <> for xml
+	   (send *unit-test* :increment-failure ',pred (format nil ,message ,@args) nil)))))
+
+;; *UNIT-TEST*
+(setq *unit-test* (instance unit-test-container :init))
+
+;; LOAD AUXILIARY
 (load "auxiliary/eus-loop.l")
 (load "auxiliary/ansi-aux.lsp")
 (load "auxiliary/random-aux.lsp")
 
+;; LOAD TESTS
 (load "symbols/load.lsp")
 (load "eval-and-compile/load.lsp")
 (load "data-and-control-flow/load.lsp")
@@ -130,6 +145,9 @@
 ;; (load "objects/load.lsp") **UNSUPPORTED**
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
+
+;; RUN TESTS
+(init-unit-test)
 
 (terpri)
 (run-all-tests)
