@@ -1,10 +1,12 @@
+;;
+;; Hidden vars and functions
+;;
+
 (make-package :mv-interface)
 (in-package :mv-interface)
 
 (defvar magical (cons 'multiple 'values))
 (defvar is-mv-on nil)
-
-(in-package :lisp)
 
 (defun magicalp (x)
   (and (consp x) (eq (car x) mv-interface::magical)))
@@ -14,6 +16,12 @@
   (if (magicalp (car args))
       (cdr (car args))
       (car args)))
+
+;;
+;; Public functions and macros
+;;
+
+(in-package :lisp)
 
 (defun values (&rest args)
   (if (or (and args (null (cdr args)))
@@ -28,7 +36,7 @@
 (defun call-with-values (producer consumer)
   "Producer is a no-arguments function whose return values are fed to consumer"
   (let ((x (funcall producer)))
-    (if (magicalp x)
+    (if (mv-interface::magicalp x)
         (apply consumer (cdr x))
         (funcall consumer x))))
 
@@ -45,7 +53,7 @@
                                          (if (null vals)
                                              '()
                                              (append
-                                              (list-values
+                                              (mv-interface::list-values
                                                (if (consp (car vals))
                                                    (car vals)
                                                    (list (car vals))))
@@ -53,12 +61,9 @@
                                 (f form-values))))))
                      ,fun))
 
-
-
 ;;
 ;; Common Lisp standard multiple-value macros (based on multiple-value-call)
 ;;
-
 
 (defmacro multiple-value-list (value-form)
   "Takes value-form's multiple values return and turn them into a list"
@@ -83,7 +88,10 @@
 ;;       `(values (setf (values ,@varlist) ,value-form))
 ;;       `(values ,value-form)))
 
-(defmacro multiple-value-prog1 (form &rest forms)
-  "Executes form and forms, yielding the value of form"
-  (setq mv-interface::is-mv-on t)
-  `(prog1 ,form ,@forms (setq mv-interface::is-mv-on nil)))
+(defmacro multiple-value-prog1 (&rest args)
+  "Evaluates first form in args, evaluates the other forms and yields the values yielded by the first form"
+  (let ((first (gensym "PROG1")))
+    `(let ((,first ,(car args)))
+         (progn . ,(cdr args)) ,first)))
+
+(export '(values values-list multiple-value-call multiple-value-bind multiple-value-list))
