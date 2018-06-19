@@ -1,0 +1,55 @@
+#+STARTUP: content
+#+TITLE: Resumed report
+#+SEQ_TODO: TODO(t) WAITING(w) | CANCELLED(c) DONE(d)
+
+* Milestones
+** 1
+*** Data Types
+*** Scope and Extent
+*** Type specifiers
+*** Program Structure (Forms, Functions, Top-Level Forms)
+*** Predicates (Logical Values, Data Type Predicates, Equality Predicates, Logical Operators)
+*** Control Structure (Constants and Variables, Generalized Variables, Function Invocation, Simple Sequencing, Establishing New Variable Bindings, Conditions, Blocks and Exists, Iteration, Structure Traversal and Side Effects, Multiple Values, Dynamic Non-Local Exists)
+**** eval-and-compile
+****  data-and-control-flow
+****  iteration
+****  conditions
+*** Macros
+**** environment
+*** Declarations
+*** Symbols
+**** symbols
+*** Packages
+**** packages
+*** Numbers
+**** numbers
+**** random
+*** Characters
+**** characters
+*** Sequences
+**** sequences
+*** Lists
+**** cons
+*** Hash Tables
+**** hash-tables
+*** Arrays
+**** arrays
+*** Strings
+**** strings
+*** Structures
+**** structures
+*** The Evaluator
+*** Streams
+****   streams
+*** Input/Output
+****   printer
+****   reader
+*** File System Interface
+****   pathnames
+****   files
+
+
+* Results
+*** TEST-NUM: 5557
+*** PASSED:   3002
+*** FAILURE:  255
