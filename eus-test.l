@@ -1,6 +1,8 @@
 #!/usr/bin/env roseus
 (require :unittest "lib/llib/unittest.l")
 
+(load "auxiliary/eus-multiple-values.l")
+
 (defvar *signals-error* t)
 
 (defun single (lst) (and (consp lst) (not (cdr lst))))
@@ -142,9 +144,30 @@
 (load "eval-and-compile/load.lsp")
 (load "data-and-control-flow/load.lsp")
 (load "iteration/load.lsp")
-;; (load "objects/load.lsp") **UNSUPPORTED**
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
+
+;; (load "arrays/load.lsp")
+;; (load "beyond-ansi/load.lsp")
+;; (load "characters/load.lsp")
+;; (load "environment/load.lsp")
+;; (load "files/load.lsp")
+;; (load "hash-tables/load.lsp")
+;; (load "misc/load.lsp")
+;; (load "numbers/load.lsp")
+;; (load "packages/load.lsp")
+;; (load "pathnames/load.lsp")
+;; (load "printer/load.lsp")
+;; (load "random/load.lsp")
+;; (load "reader/load.lsp")
+;; (load "sandbox/load.lsp")
+;; (load "sequences/load.lsp")
+;; (load "streams/load.lsp")
+;; (load "strings/load.lsp")
+;; (load "structures/load.lsp")
+;; (load "system-construction/load.lsp")
+;; (load "types-and-classes/load.lsp")
+;; (load "objects/load.lsp") **UNSUPPORTED**
 
 ;; RUN TESTS
 (init-unit-test)

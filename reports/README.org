@@ -1,9 +1,36 @@
 #+STARTUP: content
 #+TITLE: Resumed report
-#+SEQ_TODO: TODO(t) WAITING(w) | CANCELLED(c) DONE(d)
+#+SEQ_TODO: TODO(t) WAITING(w) CURRENT(r) | CANCELLED(c) DONE(d)
+#+TAGS: CURRENT(r)
+
+*USAGE*
+****** These .org files are intended to be used with emacs.
+****** In order to FOLD or UNFOLD a list or sublist, use TAB.
+****** SHIFT TAB folds/unfolds whole levels.
+****** In border to change the state of a task, use C-c C-t.
+****** In order to toggle the state of a checklist, use C-c on the checklist.
+****** In order to update statistics on the whole file (useful after an automatic update on REPORTS.org), use C-u C-c #.
+****** If you use linum for line numbers, you might want to either disable them, or disable them for org-mode only:
+******  add [[https://www.emacswiki.org/emacs/linum-off.el][this]] file to your .emacs.d and then (require 'linum-off) to your init.el
+****** In order to update REPORT.org, please check update-report.py
 
 * Milestones
-** 1
+** CURRENT 1
+   - [ ] Pass multiple-values tests
+    - [ ]  See data-and-control-flow folder, multiple-value* tests
+   - [ ] Fix changes that were made in order to be able to run the tests
+** TODO 2
+   - [ ] Pass Environment tests
+    - [ ] Check out environment folder
+** WAITING 3
+   - [ ] Pass packages tests
+    - [ ] Implement parse-def-macro
+    - [ ] //        destructuring-bind
+    - [ ] //        defpackage
+
+
+
+* Outline
 *** Data Types
 *** Scope and Extent
 *** Type specifiers
@@ -49,7 +76,13 @@
 ****   files
 
 
+
 * Results
-*** TEST-NUM: 5557
-*** PASSED:   3002
-*** FAILURE:  255
+
+
+        | Tests-version | Test-num | Passed | Failure |
+        |---------------+----------+--------+---------|
+        |             1 |     5557 |   3002 |     255 |
+        |---------------+----------+--------+---------|
+        |               |          |        |         |
+
