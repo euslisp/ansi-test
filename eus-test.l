@@ -1,7 +1,9 @@
 #!/usr/bin/env roseus
 (require :unittest "lib/llib/unittest.l")
 
+;; LOAD CL-compatibility libraries
 (load "auxiliary/eus-multiple-values.l")
+(load "auxiliary/eus-loop.l")
 
 (defvar *signals-error* t)
 
@@ -135,7 +137,6 @@
 (setq *unit-test* (instance unit-test-container :init))
 
 ;; LOAD AUXILIARY
-(load "auxiliary/eus-loop.l")
 (load "auxiliary/ansi-aux.lsp")
 (load "auxiliary/random-aux.lsp")
 
