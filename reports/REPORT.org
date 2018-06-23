@@ -2201,17 +2201,17 @@
   - [X] (deftest call-arguments-limit.3
   - [ ] (deftest call-arguments-limit.4
   - [ ] (deftest call-arguments-limit.5
-**** multiple-value-prog1.lsp [0%]
-  - [ ] (deftest multiple-value-prog1.1
-  - [ ] (deftest multiple-value-prog1.2
-  - [ ] (deftest multiple-value-prog1.3
-  - [ ] (deftest multiple-value-prog1.4
-  - [ ] (deftest multiple-value-prog1.5
-  - [ ] (deftest multiple-value-prog1.6
-  - [ ] (deftest multiple-value-prog1.7
+**** multiple-value-prog1.lsp [75%]
+  - [X] (deftest multiple-value-prog1.1
+  - [X] (deftest multiple-value-prog1.2
+  - [X] (deftest multiple-value-prog1.3
+  - [X] (deftest multiple-value-prog1.4
+  - [X] (deftest multiple-value-prog1.5
+  - [X] (deftest multiple-value-prog1.6
+  - [X] (deftest multiple-value-prog1.7
   - [ ] (deftest multiple-value-prog1.8
-  - [ ] (deftest multiple-value-prog1.9
-  - [ ] (deftest multiple-value-prog1.10
+  - [X] (deftest multiple-value-prog1.9
+  - [X] (deftest multiple-value-prog1.10
   - [ ] (deftest multiple-value-prog1.11
   - [ ] (deftest multiple-value-prog1.12
 **** progv.lsp [0%]
@@ -3893,55 +3893,6 @@
   - [ ] (deftest make-pathname-error-relative-wild-inferiors-up
   - [ ] (deftest make-pathname-error-absolute-wild-inferiors-back
   - [ ] (deftest make-pathname-error-relative-wild-inferiors-back
-*** auxiliary [0%]
-**** floor-aux.lsp [0%]
-**** types-aux.lsp [0%]
-**** reader-aux.lsp [0%]
-**** truncate-aux.lsp [0%]
-**** fceiling-aux.lsp [0%]
-**** define-condition-aux.lsp [0%]
-**** division-aux.lsp [0%]
-**** ansi-aux.lsp [0%]
-**** printer-aux.lsp [0%]
-  - [ ] (def-random-write-test-fun random-write-test nil #'write)
-  - [ ] (def-random-write-test-fun random-prin1-test (:escape t) #'prin1)
-  - [ ] (def-random-write-test-fun random-princ-test (:escape nil :readably nil) #'princ)
-  - [ ] (def-random-write-test-fun random-print-test (:escape t) #'print :prefix (string #\Newline) :suffix " ")
-  - [ ] (def-random-write-test-fun random-pprint-test (:escape t :pretty t)
-  - [ ] (def-random-write-to-string-test-fun random-write-to-string-test nil #'write-to-string)
-  - [ ] (def-random-write-to-string-test-fun random-prin1-to-string-test (:escape t)
-  - [ ] (def-random-write-to-string-test-fun random-princ-to-string-test (:escape nil :readably nil)
-**** ffloor-aux.lsp [0%]
-**** string-aux.lsp [0%]
-**** ftruncate-aux.lsp [0%]
-**** cl-symbols-aux.lsp [0%]
-**** remove-aux.lsp [0%]
-**** char-aux.lsp [0%]
-**** bit-aux.lsp [0%]
-**** hash-table-aux.lsp [0%]
-**** exp-aux.lsp [0%]
-**** random-class-aux.lsp [0%]
-**** backquote-aux.lsp [0%]
-**** round-aux.lsp [0%]
-**** eus-multiple-values.l [0%]
-**** array-aux.lsp [0%]
-**** fround-aux.lsp [0%]
-**** cons-aux.lsp [0%]
-**** subseq-aux.lsp [0%]
-**** search-aux.lsp [0%]
-**** pathnames-aux.lsp [0%]
-**** sort-aux.lsp [0%]
-**** gcd-aux.lsp [0%]
-**** ceiling-aux.lsp [0%]
-**** remove-duplicates-aux.lsp [0%]
-**** packages00-aux.lsp [0%]
-**** package-aux.lsp [0%]
-**** eus-loop.l [0%]
-**** times-aux.lsp [0%]
-**** numbers-aux.lsp [0%]
-**** ansi-aux-macros.lsp [0%]
-**** random-aux.lsp [0%]
-**** defclass-aux.lsp [0%]
 *** system-construction [0%]
 **** load-file.lsp [0%]
   - [ ] (deftest load.1
@@ -8600,37 +8551,6 @@
   - [ ] (deftest array-in-bounds-p.25
   - [ ] (deftest array-in-bounds-p.order.1
   - [ ] (deftest array-in-bounds-p.error.1
-*** sandbox [0%]
-**** class-precedence-lists.txt [0%]
-**** compile-file-test-file-3.lsp [0%]
-**** file-position.txt [0%]
-**** truename.txt [0%]
-**** directory-namestring.txt [0%]
-**** load-test-file-2.lsp [0%]
-**** compile-file-test-file-2a.lsp [0%]
-**** enough-namestring.txt [0%]
-**** output-stream-p.txt [0%]
-**** ensure-directories-exist.txt [0%]
-**** compile-file-test-file-2.lsp [0%]
-**** listen.txt [0%]
-**** compile-file-test-file.lsp [0%]
-**** pathname.txt [0%]
-**** load-test-file.lsp [0%]
-**** file-length.txt [0%]
-**** probe-file.txt [0%]
-**** logical-pathname.txt [0%]
-**** file-write-date.txt [0%]
-**** modules8a.lsp [0%]
-**** file-error.txt [0%]
-**** compile-file-test-file-4.lsp [0%]
-**** file-author.txt [0%]
-**** host-namestring.txt [0%]
-**** modules7.lsp [0%]
-**** open-stream-p.txt [0%]
-**** modules8b.lsp [0%]
-**** input-stream-p.txt [0%]
-**** file-namestring.txt [0%]
-**** compile-file-test-file-5.lsp [0%]
 *** symbols [0%]
 **** make-symbol.lsp [47%]
   - [X] (deftest make-symbol.1
