@@ -3,7 +3,6 @@
 ;;;; Created:  Sat Mar 28 17:10:18 1998
 ;;;; Contains: Aux. functions for CL-TEST
 
-(defun multiple-value-list (vls) (if (atom vls) (list vls) vls))
 (defmacro locally (&rest body) `(progn ,@body))
 (defmacro handler-case (form &rest args) form)
 (defun typep (obj type) (eq (class obj) (symbol-value type)))
@@ -15,14 +14,26 @@
 (defmacro notnot-mv (form)
   `(notnot-mv-fn (multiple-value-list ,form)))
 
+;; (defun notnot-mv-fn (results)
+;;  (not (not (first results))))
 (defun notnot-mv-fn (results)
-  (not (not (first results))))
+  (if (null results)
+      (values)
+    (apply #'values
+           (not (not (first results)))
+           (rest results))))
 
 (defmacro not-mv (form)
   `(not-mv-fn (multiple-value-list ,form)))
 
+;; (defun not-mv-fn (results)
+;;   (not (first results)))
 (defun not-mv-fn (results)
-  (not (first results)))
+  (if (null results)
+      (values)
+    (apply #'values
+           (not (first results))
+           (rest results))))
 
 (defun to-function (fn)
   (if (symbolp fn)

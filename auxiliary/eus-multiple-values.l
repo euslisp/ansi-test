@@ -94,4 +94,4 @@
     `(let ((,first ,(car args)))
          (progn . ,(cdr args)) ,first)))
 
-(export '(values values-list multiple-value-call multiple-value-bind multiple-value-list))
+(export '(values values-list multiple-value-call multiple-value-bind multiple-value-list multiple-value-prog1))
