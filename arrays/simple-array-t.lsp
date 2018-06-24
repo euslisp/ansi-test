@@ -11,9 +11,9 @@
   (notnot-mv (typep #() '(simple-array t)))
   t)
 
-(deftest simple-array-t.2.2
-  (notnot-mv (typep #0aX '(simple-array t)))
-  t)
+;; (deftest simple-array-t.2.2
+;;   (notnot-mv (typep #0aX '(simple-array t)))
+;;   t)
 
 (deftest simple-array-t.2.3
   (notnot-mv (typep #2a(()) '(simple-array t)))
@@ -37,9 +37,9 @@
   (notnot-mv (typep #() '(simple-array t nil)))
   nil)
 
-(deftest simple-array-t.3.2
- (notnot-mv (typep #0aX '(simple-array t nil)))
-  t)
+;; (deftest simple-array-t.3.2
+;;  (notnot-mv (typep #0aX '(simple-array t nil)))
+;;   t)
 
 (deftest simple-array-t.3.3
   (typep #2a(()) '(simple-array t nil))
@@ -64,9 +64,9 @@
   (notnot-mv (typep #() '(simple-array t 1)))
   t)
 
-(deftest simple-array-t.4.2
-  (typep #0aX '(simple-array t 1))
-  nil)
+;; (deftest simple-array-t.4.2
+;;   (typep #0aX '(simple-array t 1))
+;;   nil)
 
 (deftest simple-array-t.4.3
   (typep #2a(()) '(simple-array t 1))
@@ -90,9 +90,9 @@
   (typep #() '(simple-array t 0))
   nil)
 
-(deftest simple-array-t.5.2
-  (notnot-mv (typep #0aX '(simple-array t 0)))
-  t)
+;; (deftest simple-array-t.5.2
+;;   (notnot-mv (typep #0aX '(simple-array t 0)))
+;;   t)
 
 (deftest simple-array-t.5.3
   (typep #2a(()) '(simple-array t 0))
@@ -116,9 +116,9 @@
   (notnot-mv (typep #() '(simple-array t *)))
   t)
 
-(deftest simple-array-t.6.2
-  (notnot-mv (typep #0aX '(simple-array t *)))
-  t)
+;; (deftest simple-array-t.6.2
+;;   (notnot-mv (typep #0aX '(simple-array t *)))
+;;   t)
 
 (deftest simple-array-t.6.3
   (notnot-mv (typep #2a(()) '(simple-array t *)))
@@ -142,9 +142,9 @@
   (typep #() '(simple-array t 2))
   nil)
 
-(deftest simple-array-t.7.2
-  (typep #0aX '(simple-array t 2))
-  nil)
+;; (deftest simple-array-t.7.2
+;;   (typep #0aX '(simple-array t 2))
+;;   nil)
 
 (deftest simple-array-t.7.3
   (notnot-mv (typep #2a(()) '(simple-array t 2)))

@@ -29,9 +29,9 @@
   (vectorp '(a b))
   nil)
 
-(deftest vectorp.7
-  (vectorp #0aT)
-  nil)
+;; (deftest vectorp.7
+;;   (vectorp #0aT)
+;;   nil)
 
 (deftest vectorp.8
   (vectorp #2a((a b)(c d)))

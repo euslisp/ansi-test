@@ -7,9 +7,9 @@
 
 ;;; The tests in make-array.lsp also test this function
 
-(deftest array-dimensions.1
-  (array-dimensions #0aX)
-  nil)
+;; (deftest array-dimensions.1
+;;   (array-dimensions #0aX)
+;;   nil)
 
 (deftest array-dimensions.2
   (array-dimensions #(a b c d))

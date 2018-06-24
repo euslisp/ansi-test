@@ -148,7 +148,7 @@
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
 
-;; (load "arrays/load.lsp")
+(load "arrays/load.lsp")
 ;; (load "beyond-ansi/load.lsp")
 ;; (load "characters/load.lsp")
 ;; (load "environment/load.lsp")
@@ -170,7 +170,7 @@
 ;; (load "types-and-classes/load.lsp")
 ;; (load "objects/load.lsp") **UNSUPPORTED**
 
-;; RUN TESTS
+;; ;; RUN TESTS
 (init-unit-test)
 
 (terpri)

@@ -5,9 +5,9 @@
 ;;; Many tests are in other files, incidental to testing of
 ;;; other things
 
-(deftest array-has-fill-pointer-p.1
-  (array-has-fill-pointer-p #0a1)
-  nil)
+;; (deftest array-has-fill-pointer-p.1
+;;   (array-has-fill-pointer-p #0a1)
+;;   nil)
 
 (deftest array-has-fill-pointer-p.2
   (array-has-fill-pointer-p #2a((a b)(c d)))
