@@ -11,11 +11,11 @@
   (load "apropos.lsp")
   (load "apropos-list.lsp")
   (load "describe.lsp")
-  (load "disassemble.lsp")
+;;   (load "disassemble.lsp") -- NOT SUPPORTED as of now
   (load "environment-functions.lsp")
   (load "room.lsp")
   (load "time.lsp")
-  (load "trace.lsp") ;; and untrace
+;;  (load "trace.lsp") ;; and untrace
   (load "user-homedir-pathname.lsp")
 
   (load "decode-universal-time.lsp")
@@ -25,7 +25,7 @@
   (load "get-internal-time.lsp")
 
   (load "documentation.lsp")
-  #-lispworks (load "inspect.lsp")
+;;   #-lispworks (load "inspect.lsp")
   (load "dribble.lsp")
   (load "ed.lsp")
-)
+  )

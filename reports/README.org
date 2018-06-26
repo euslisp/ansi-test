@@ -84,6 +84,36 @@
        - strange loop error yielding "unbound variable for in".
          remember having seen it before, think it has to do with scoping.
 
+** CURRENT 5 Environment
+*** Caveats
+    - Type issues ("symbol expected in ...", "symbol expected ...")
+    - (seemingly) scope issues ("unbound variable *universe* in ...")
+    - A few class issues ("class expected")
+    - Dissassemble is undefined (and its tests not run)
+    - "Undefined function" errors:
+      - search
+      - macrolet
+      - defpackage
+      - short-site-name
+      - long-site-name
+      - machine-instance
+      - machine-type
+      - machine-version
+      - software-type
+      - software-version
+      - room
+      - usr-homedir-pathname
+      - decode-universal-time
+      - nth-value ** this one should come with the mv-interface
+      - encode-universal-time
+      - get-universal-time
+      - sleep ** this one is defined as unix:sleep
+      - define-compiler-macro
+      - defgeneric
+      - define-setf-expander
+      - define-method-combination
+      - deftype
+
 
 
 * Outline
