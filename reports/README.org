@@ -3,26 +3,45 @@
 #+SEQ_TODO: TODO(t) WAITING(w) CURRENT(r) | CANCELLED(c) DONE(d)
 #+TAGS: CURRENT(r)
 
-*USAGE*
+* USAGE
 ****** These .org files are intended to be used with emacs.
 ****** In order to FOLD or UNFOLD a list or sublist, use TAB.
 ****** SHIFT TAB folds/unfolds whole levels.
 ****** In border to change the state of a task, use C-c C-t.
 ****** In order to toggle the state of a checklist, use C-c on the checklist.
 ****** In order to update statistics on the whole file (useful after an automatic update on REPORTS.org), use C-u C-c #.
+****** In order to kill an entire subtree, use C-c C-x C-w
 ****** If you use linum for line numbers, you might want to either disable them, or disable them for org-mode only:
 ******  add [[https://www.emacswiki.org/emacs/linum-off.el][this]] file to your .emacs.d and then (require 'linum-off) to your init.el
 ****** In order to update REPORT.org, please check update-report.py
 
 * Milestones
-** CURRENT 1
-   - [ ] Pass multiple-values tests
-    - [ ]  See data-and-control-flow folder, multiple-value* tests
+** CURRENT 1 - Multiple values
+   - [X] Pass multiple-values tests *Mostly*
+     - [X]  See data-and-control-flow folder, multiple-value* tests
    - [ ] Fix changes that were made in order to be able to run the tests
-** TODO 2
+     Depends upon a few functions update to return multiple values (postponed).
+*** Caveats:
+   - In sum, what was added is a modest implementation of multiple values.
+   -  It has a few important differences from the common lisp specification, namely that
+      1. it doesn't supply nil values when needed;
+      2. it doesn't silently discard exceeding values when required (note that this point, along with the previous one,
+         makes this implementation notably less flexible with respect to multiple values);
+      3. the rules regarding the passing of multiple values were largely overlooked.
+   - However, if a function is defined to return multiple values but is called without the multiple-value apparatus
+     (that is, outside of functions or macros built with multiple-value-call), it returns only one value.
+     This was thought so that operations like (setq a (floor 4 5)), for instance, which are constantly used,
+     wouldn't yield too weird results (or oblige us to keep them single-valued).
+   - Another important point is that not all common lisp functions defined as working with multiple values were updated.
+     For that reason, prog1 might return multiple values, for instance.
+     It seems to be more practical to update each one upon testing its set (so, for instance, update number related
+     functions when testing numbers) than to try to do all at once.
+   - This implementation might deserve to be rethought at some time.
+
+** TODO 2 - Environment tests
    - [ ] Pass Environment tests
     - [ ] Check out environment folder
-** WAITING 3
+** WAITING 3 - Package tests
    - [ ] Pass packages tests
     - [ ] Implement parse-def-macro
     - [ ] //        destructuring-bind
@@ -82,7 +101,6 @@
 
         | Tests-version | Test-num | Passed | Failure |
         |---------------+----------+--------+---------|
-        |             1 |     5557 |   2984 |    2573 |
+        |             1 |     5557 |   2983 |    2574 |
         |---------------+----------+--------+---------|
         |               |          |        |         |
-
