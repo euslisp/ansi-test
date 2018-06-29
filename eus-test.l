@@ -11,6 +11,7 @@
 (defun sym-class (type)
   (cond
     ((eql type 'list) cons)
+    ((memq type '(simple-string simple-base-string)) string)
     ((symbolp type) (symbol-value type))
     (t type)))
 
