@@ -119,6 +119,18 @@
 (defun coerce (obj type)
   (=coerce obj (sym-class type)))
 
+(setf (symbol-function '=make-array) #'make-array)
+(defun make-array (dim &rest args &key element-type &allow-other-keys)
+  (if (consp element-type) (setq element-type (car element-type)))
+  (let* ((element-str (string-upcase element-type))
+	 (elmt (cond ((substringp "CHAR" element-str) :character)
+		     ((substringp "FLOAT" element-str) :float)
+		     ((substringp "BIT" element-str) :bit)
+		     ((or (substringp "FIXNUM" element-str)
+			  (substringp "BYTE" element-str)) :integer)
+		     (t 'vector))))
+    (apply #'=make-array dim :element-type elmt args)))
+
 (setf (symbol-function '=in-package) #'in-package)
 
 (defmacro ignore (&rest syms)
@@ -139,7 +151,6 @@
 
 ;; LOAD AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
-(load "auxiliary/random-aux.lsp")
 
 ;; LOAD TESTS
 (load "symbols/load.lsp")
@@ -148,24 +159,21 @@
 (load "iteration/load.lsp")
 (load "conditions/load.lsp")
 (load "cons/load.lsp")
+(load "strings/load.lsp")
+(load "characters/load.lsp")
+(load "pathnames/load.lsp")
+(load "files/load.lsp")
+(load "hash-tables/load.lsp")
 
 ;; (load "arrays/load.lsp")
-;; (load "beyond-ansi/load.lsp")
-;; (load "characters/load.lsp")
 ;; (load "environment/load.lsp")
-;; (load "files/load.lsp")
-;; (load "hash-tables/load.lsp")
 ;; (load "misc/load.lsp")
 ;; (load "numbers/load.lsp")
 ;; (load "packages/load.lsp")
-;; (load "pathnames/load.lsp")
 ;; (load "printer/load.lsp")
-;; (load "random/load.lsp")
 ;; (load "reader/load.lsp")
-;; (load "sandbox/load.lsp")
 ;; (load "sequences/load.lsp")
 ;; (load "streams/load.lsp")
-;; (load "strings/load.lsp")
 ;; (load "structures/load.lsp")
 ;; (load "system-construction/load.lsp")
 ;; (load "types-and-classes/load.lsp")

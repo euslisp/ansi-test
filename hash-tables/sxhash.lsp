@@ -115,6 +115,7 @@
 ;;  t)
 
 (deftest sxhash.15
+  (error "segmentation fault")
   (let* ((package-name
           (loop for i from 0
                 for name = (format nil "PACKAGE-~A" i)

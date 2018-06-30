@@ -50,6 +50,7 @@
 
 (deftest nstring-downcase.9
   (let ((s "ABCDEF"))
+     (error "at nstring-downcase: number expected at :end")
      (loop for i from 0 to 6
            collect (nstring-downcase (copy-seq s) :start i :end nil)))
   ("abcdef" "Abcdef" "ABcdef" "ABCdef" "ABCDef" "ABCDEf" "ABCDEF"))

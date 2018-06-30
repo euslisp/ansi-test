@@ -145,10 +145,12 @@
   "")
 
 (deftest string-left-trim.16
+  (error "at string-left-trim: string expected")
   (string-left-trim "a" #\a)
   "")
 
 (deftest string-left-trim.17
+  (error "at string-left-trim: string expected")
   (string-left-trim "b" #\a)
   "a")
 
