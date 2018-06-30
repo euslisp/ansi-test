@@ -46,12 +46,10 @@
   t)
 
 (deftest stringp.9
-  :notes (:nil-vectors-are-strings)
   (notnot-mv (stringp (make-array '(0) :element-type nil)))
   t)
 
 (deftest stringp.10
-  :notes (:nil-vectors-are-strings)
   (notnot-mv (stringp (make-array '(37) :element-type nil)))
   t)
 

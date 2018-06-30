@@ -16,7 +16,6 @@
   (""))
 
 (deftest write-line.2
-  :notes (:nil-vectors-are-strings)
   (let (result)
     (values
      (with-output-to-string

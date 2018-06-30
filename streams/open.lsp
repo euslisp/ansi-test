@@ -75,7 +75,6 @@
             ))))
 
   `(deftest ,name
-     ,@(when notes-p `(:notes ,notes))
      (let ((pn ,pathname))
        (delete-all-versions pn)
        ,build-form
@@ -551,7 +550,6 @@
           (s pn :direction :input)
           (values (read-line s nil))))
   ("wxyz")
-  :notes (:open-if-exists-new-version-no-error)
   )
 
 (def-open-test open.output.22 (:if-exists :rename :direction :output)
@@ -632,7 +630,6 @@
 ;;; of the filespec is :newest
 
 (deftest open.output.30
-  :notes (:open-if-exists-new-version-no-error)
   (let ((pn (make-pathname :name "tmp" :type "dat" :version :newest)))
     (or (not (eql (pathname-version pn) :newest))
         (progn
@@ -885,7 +882,6 @@
          (file-position s :start)
          (values (read-line s nil)))
   ("wxyz")
-  :notes (:open-if-exists-new-version-no-error)
   )
 
 (def-open-test open.io.22 (:if-exists :rename :direction :io)
@@ -954,7 +950,6 @@
 ;;; of the filespec is :newest
 
 (deftest open.io.30
-  :notes (:open-if-exists-new-version-no-error)
   (let ((pn (make-pathname :name "tmp" :type "dat" :version :newest)))
     (or (not (eql (pathname-version pn) :newest))
         (progn

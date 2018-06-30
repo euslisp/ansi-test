@@ -69,7 +69,6 @@
    ("abcde" "abcdE")))
 
 (deftest nstring-downcase.11
-  :notes (:nil-vectors-are-strings)
   (nstring-downcase (make-array '(0) :element-type nil))
   "")
 

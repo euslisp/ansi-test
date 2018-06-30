@@ -29,7 +29,6 @@
   nil)
 
 (deftest file-length.error.4
-  :notes (:assume-no-simple-streams :assume-no-gray-streams)
   (signals-error (with-input-from-string (s "abc") (file-length s))
                  type-error)
   t)
@@ -78,13 +77,11 @@
   t)
 
 (deftest file-length.error.11
-  :notes (:assume-no-simple-streams :assume-no-gray-streams)
   (signals-type-error s (make-string-input-stream "abcde")
                       (unwind-protect (file-length s) (close s)))
   t)
 
 (deftest file-length.error.12
-  :notes (:assume-no-simple-streams :assume-no-gray-streams)
   (signals-type-error s (make-string-output-stream)
                       (unwind-protect (file-length s) (close s)))
   t)

@@ -70,7 +70,6 @@
   t t t t nil)
 
 (deftest with-input-from-string.10
-  :notes (:nil-vectors-are-strings)
   (with-input-from-string
    (s (make-array 0 :element-type nil))
    (values

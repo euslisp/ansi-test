@@ -36,7 +36,6 @@
   t t nil t t)
 
 (deftest make-string-output-stream.4
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-string-output-stream :element-type nil)))
     (values
      (notnot (typep s 'stream))
@@ -100,13 +99,11 @@
   "abcdef")
 
 (deftest make-string-output-stream.11
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-string-output-stream :element-type nil)))
     (get-output-stream-string s))
   "")
 
 (deftest make-string-output-stream.12
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-string-output-stream :element-type nil)))
     (typep #\a (array-element-type (get-output-stream-string s))))
   nil)

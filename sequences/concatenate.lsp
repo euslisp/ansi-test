@@ -217,12 +217,10 @@
   nil)
 
 (deftest concatenate.31
-  :notes (:nil-vectors-are-strings)
   (concatenate 'string "abc" (make-array '(0) :element-type nil) "def")
   "abcdef")
 
 (deftest concatenate.32
-  :notes (:nil-vectors-are-strings)
   (concatenate '(array nil (*)))
   "")
 
@@ -323,7 +321,6 @@
   t)
 
 (deftest concatenate.error.6
-  :notes (:result-type-element-type-by-subtype)
   (let ((type '(or (vector bit) (vector t))))
     (if (subtypep type 'vector)
         (eval `(signals-error-always (concatenate ',type '(0 1 0) '(1 1 0)) error))

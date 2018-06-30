@@ -49,7 +49,6 @@
   t)
 
 (deftest intern.3
-  :notes (:nil-vectors-are-strings)
   (let ((cl-user-package (find-package "CL-USER")))
     (eqt (intern "" cl-user-package)
          (intern (make-array 0 :element-type nil) cl-user-package)))

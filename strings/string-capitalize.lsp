@@ -85,7 +85,6 @@
   "ABCDEF")
 
 (deftest string-capitalize.11
-  :notes (:nil-vectors-are-strings)
   (string-capitalize (make-array '(0) :element-type nil))
   "")
 

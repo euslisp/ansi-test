@@ -63,7 +63,6 @@
   t)
 
 (deftest sxhash.8
-  :notes (:nil-vectors-are-strings)
   (eqlt (sxhash (make-array 0 :element-type nil))
         (sxhash ""))
   t)
@@ -153,7 +152,6 @@
 ;;; This may be a spec bug, so I've added a note.
 
 (deftest sxhash.17
-  :notes (:negative-zero-is-similar-to-positive-zero)
   (loop for c1 in '(0.0s0 0.0f0 0.0d0 0.0l0)
         for c2 in '(-0.0s0 -0.0f0 -0.0d0 -0.0l0)
         for t1 = (type-of c1)
@@ -167,7 +165,6 @@
   nil)
 
 (deftest sxhash.18
-  :notes (:negative-zero-is-similar-to-positive-zero)
   (loop for r1 in '(0.0s0 0.0f0 0.0d0 0.0l0)
         for c1 = (complex r1)
         for r2 in '(-0.0s0 -0.0f0 -0.0d0 -0.0l0)
@@ -183,7 +180,6 @@
   nil)
 
 (deftest sxhash.19
-  :notes (:negative-zero-is-similar-to-positive-zero)
   (loop for r1 in '(0.0s0 0.0f0 0.0d0 0.0l0)
         for c1 = (complex 0 r1)
         for r2 in '(-0.0s0 -0.0f0 -0.0d0 -0.0l0)

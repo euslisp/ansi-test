@@ -47,12 +47,10 @@
 ;;;  nil)
 
 (deftest simple-string-p.8
-  :notes (:nil-vectors-are-strings)
   (notnot-mv (simple-string-p (make-array '(0) :element-type nil)))
   t)
 
 (deftest simple-string-p.9
-  :notes (:nil-vectors-are-strings)
   (notnot-mv (simple-string-p (make-array '(37) :element-type nil)))
   t)
 

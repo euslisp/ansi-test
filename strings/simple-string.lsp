@@ -34,32 +34,26 @@
   t t)
 
 (deftest simple-string.8
-  :notes (:nil-vectors-are-strings)
   (subtypep* 'simple-string '(simple-array character (*)))
   nil t)
 
 (deftest simple-string.9
-  :notes (:nil-vectors-are-strings)
   (subtypep* 'simple-string '(simple-array base-char (*)))
   nil t)
 
 (deftest simple-string.10
-  :notes (:nil-vectors-are-strings)
   (subtypep* 'simple-string 'simple-base-string)
   nil t)
 
 (deftest simple-string.11 
-  :notes (:nil-vectors-are-strings)
   (subtypep* '(simple-array nil (*)) 'simple-string)
   t t)
 
 (deftest simple-string.12
-  :notes (:nil-vectors-are-strings)
   (typep* (make-array '(0) :element-type nil) 'simple-string)
   t)
 
 (deftest simple-string.13
-  :notes (:nil-vectors-are-strings)
   (typep* (make-array '(12) :element-type nil) 'simple-string)
   t)
 
