@@ -84,7 +84,7 @@
      (defun ,name ()
        (assert  ,(if (single res)
 		     `(equal ,clause ',@res)
-		     `(equal ,clause (apply #'values ',res)))))
+		     `(equal (multiple-value-list ,clause) ',res))))
      (send *unit-test* :add-function ',name)
      ',name))
 
