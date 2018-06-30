@@ -137,6 +137,7 @@
   :good)
 
 (deftest sxhash.16
+  (error "infinite loop")
   (let ((c1 (list 'a))
         (c2 (list 'a)))
     (setf (cdr c1) c1)
