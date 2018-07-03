@@ -154,17 +154,23 @@
     (and (symbolp a) a))
   nil)
 
-;; (deftest make-array.10
+(deftest make-array.10
 ;;   (make-array-with-checks nil :initial-element 1)
-;;   #0a1)
+    ;;   #0a1)
+    (error "segmentation fault")
+  )
 
-;; (deftest make-array.11
+(deftest make-array.11
 ;;   (make-array-with-checks nil :initial-contents 2)
-;;   #0a2)
+    ;;   #0a2)
+    (error "segmentation fault")
+  )
 
-;; (deftest make-array.12
+(deftest make-array.12
 ;;   (make-array-with-checks nil :element-type 'bit :initial-contents 1)
-;;   #0a1)
+    ;;   #0a1)
+    (error "segmentation fault")
+  )
 
 (deftest make-array.12a
   (make-array-with-checks 10 :element-type 'bit :initial-contents '(1 0 0 1 1 0 0 1 0 0)
@@ -329,9 +335,11 @@
                          :initial-element 6)
  #(6 6 6 6))
 
-;; (deftest make-array.adjustable.3
+(deftest make-array.adjustable.3
 ;;   (make-array-with-checks nil :adjustable t :initial-element 7)
-;;   #0a7)
+    ;;   #0a7)
+    (error "segmentation fault")
+  )
 
 (deftest make-array.adjustable.4
   (make-array-with-checks '(2 3) :adjustable t :initial-element 7)

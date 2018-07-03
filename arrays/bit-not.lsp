@@ -5,37 +5,49 @@
 
 
 
-;; (deftest bit-not.1
+(deftest bit-not.1
 ;;   (let ((a1 (make-array nil :element-type 'bit :initial-element 0)))
 ;;     (values (bit-not a1) a1))
-;;   #0a1 #0a0)
+    ;;   #0a1 #0a0)
+    (error "segmentation fault")
+  )
 
-;; (deftest bit-not.2
+(deftest bit-not.2
 ;;   (let ((a1 (make-array nil :element-type 'bit :initial-element 1)))
 ;;     (values (bit-not a1) a1))
-;;   #0a0 #0a1)
+    ;;   #0a0 #0a1)
+    (error "segmentation fault")
+  )
 
-;; (deftest bit-not.3
+(deftest bit-not.3
 ;;   (let ((a1 (make-array nil :element-type 'bit :initial-element 0)))
 ;;     (values (bit-not a1 t) a1))
-;;   #0a1 #0a1)
+    ;;   #0a1 #0a1)
+    (error "segmentation fault")
+  )
 
-;; (deftest bit-not.4
+(deftest bit-not.4
 ;;   (let ((a1 (make-array nil :element-type 'bit :initial-element 1)))
 ;;     (values (bit-not a1 t) a1))
-;;   #0a0 #0a0)
+    ;;   #0a0 #0a0)
+    (error "segmentation fault")
+  )
 
-;; (deftest bit-not.5
+(deftest bit-not.5
 ;;   (let* ((a1 (make-array nil :element-type 'bit :initial-element 1))
 ;;          (a2 (make-array nil :element-type 'bit :initial-element 1))
 ;;          (result (bit-not a1 a2)))
 ;;     (values a1 a2 (eqt a2 result)))
-;;   #0a1 #0a0 t)
+    ;;   #0a1 #0a0 t)
+    (error "segmentation fault")
+  )
 
-;; (deftest bit-not.6
+(deftest bit-not.6
 ;;   (let ((a1 (make-array nil :element-type 'bit :initial-element 0)))
 ;;     (values (bit-not a1 nil) a1))
-;;   #0a1 #0a0)
+    ;;   #0a1 #0a0)
+    (error "segmentation fault")
+  )
 
 ;;; Tests on bit vectors
 

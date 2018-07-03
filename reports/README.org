@@ -53,7 +53,6 @@
    - [ ] Define undefined functions/macros
    - [ ] Think about what can be done about the other issues
 *** Caveats
-    - #0a is not defined in general.
     - symbol-value cannot retrieve values from lexical (local) variables.
     - "Symbol expected in (symbol-value type)" (should demand a few changes)
     - (seemingly) scope issues ("unbound variable in ...")
@@ -137,8 +136,10 @@
 * Results
 
 
-        | Tests-version | Test-num | Passed | Failure |
-        |---------------+----------+--------+---------|
-        |             1 |     5557 |   2983 |    2574 |
-        |---------------+----------+--------+---------|
-        |               |          |        |         |
+        | Tests-version        | Test-num | Passed | Failure |
+        |----------------------+----------+--------+---------|
+        | 1                    |     5557 |   2983 |    2574 |
+        |----------------------+----------+--------+---------|
+        | 2 - Add Arrays tests |     6297 |   3087 |    3210 |
+        |----------------------+----------+--------+---------|
+        |                      |          |        |         |

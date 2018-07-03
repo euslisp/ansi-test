@@ -177,6 +177,7 @@
 ;;   (nil)
 ;;   #0ax)
 
+
 ;; (def-adjust-array-test adjust-array.18
 ;;   (nil :initial-element 'x)
 ;;   (nil :initial-contents 'y)
@@ -187,12 +188,14 @@
 ;;   (nil :initial-element 'y)
 ;;   #0ax)
 
-;; (deftest adjust-array.20
+(deftest adjust-array.20
 ;;   (let* ((a0 (make-array nil :initial-element 'x))
 ;;          (a1 (make-array nil :displaced-to a0))
 ;;          (a2 (adjust-array a1 nil)))
 ;;     a2)
-;;   #0ax)
+    ;;   #0ax)
+    (error "segmentation fault")
+  )
 
 ;; 2-d arrays
 

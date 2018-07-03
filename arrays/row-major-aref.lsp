@@ -15,9 +15,11 @@
   (loop for i from 0 to 5 collect (row-major-aref #2a((a b c d)(e f g h)) i))
   (a b c d e f))
 
-;; (deftest row-major-aref.3
+(deftest row-major-aref.3
 ;;   (row-major-aref #0a100 0)
-;;   100)
+    ;;   100)
+    (error "segmentation fault")
+  )
 
 (deftest row-major-aref.4
   (loop for i from 0 to 5 collect (row-major-aref #*011100 i))
@@ -27,14 +29,16 @@
   (loop for i from 0 to 5 collect (row-major-aref "abcdef" i))
   (#\a #\b #\c #\d #\e #\f))
 
-;; (deftest row-major-aref.6
+(deftest row-major-aref.6
 ;;   (let ((a (make-array nil :initial-element 'x)))
 ;;     (values
 ;;      (aref a)
 ;;      (setf (row-major-aref a 0) 'y)
 ;;      (aref a)
 ;;      a))
-;;   x y y #0ay)
+    ;;   x y y #0ay)
+    (error "segmentation fault")
+  )
 
 (deftest row-major-aref.7
   (let ((a (make-array '(4) :initial-element 'x)))
