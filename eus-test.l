@@ -11,6 +11,7 @@
 (defun sym-class (type)
   (cond
     ((eql type 'list) cons)
+    ((memq type '(simple-string simple-base-string)) string)
     ((symbolp type) (symbol-value type))
     (t type)))
 
@@ -83,7 +84,7 @@
      (defun ,name ()
        (assert  ,(if (single res)
 		     `(equal ,clause ',@res)
-		     `(equal ,clause (apply #'values ',res)))))
+		     `(equal (multiple-value-list ,clause) ',res))))
      (send *unit-test* :add-function ',name)
      ',name))
 
