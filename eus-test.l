@@ -151,7 +151,7 @@
 (load "arrays/load.lsp")
 ;; (load "beyond-ansi/load.lsp")
 ;; (load "characters/load.lsp")
-;; (load "environment/load.lsp")
+(load "environment/load.lsp")
 ;; (load "files/load.lsp")
 ;; (load "hash-tables/load.lsp")
 ;; (load "misc/load.lsp")

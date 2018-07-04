@@ -15240,20 +15240,20 @@
   - [ ] (deftest hash-table-count.error.1
   - [ ] (deftest hash-table-count.error.2
 *** environment [0%]
-**** get-universal-time.lsp [0%]
+**** get-universal-time.lsp [57%]
   - [ ] (deftest get-universal-time.1
   - [ ] (deftest get-universal-time.2
   - [ ] (deftest get-universal-time.3
-  - [ ] (deftest get-universal-time.error.1
-  - [ ] (deftest get-universal-time.error.2
-  - [ ] (deftest get-decoded-time.error.1
-  - [ ] (deftest get-decoded-time.error.2
-**** room.lsp [0%]
+  - [X] (deftest get-universal-time.error.1
+  - [X] (deftest get-universal-time.error.2
+  - [X] (deftest get-decoded-time.error.1
+  - [X] (deftest get-decoded-time.error.2
+**** room.lsp [20%]
   - [ ] (deftest room.1
   - [ ] (deftest room.2
   - [ ] (deftest room.3
   - [ ] (deftest room.4
-  - [ ] (deftest room.errpr.1
+  - [X] (deftest room.errpr.1
 **** disassemble.lsp [0%]
   - [ ] (deftest disassemble.1
   - [ ] (deftest disassemble.2
@@ -15269,18 +15269,18 @@
   - [ ] (deftest disassemble.error.1
   - [ ] (deftest disassemble.error.2
   - [ ] (deftest disassemble.error.3
-**** get-internal-time.lsp [0%]
+**** get-internal-time.lsp [50%]
   - [ ] (deftest get-internal-real-time.1
   - [ ] (deftest get-internal-real-time.2
-  - [ ] (deftest get-internal-real-time.error.1
-  - [ ] (deftest get-internal-real-time.error.2
+  - [X] (deftest get-internal-real-time.error.1
+  - [X] (deftest get-internal-real-time.error.2
   - [ ] (deftest get-internal-run-time.1
   - [ ] (deftest get-internal-run-time.2
-  - [ ] (deftest get-internal-run-time.error.1
-  - [ ] (deftest get-internal-run-time.error.2
-  - [ ] (deftest internal-time-units-per-second.1
+  - [X] (deftest get-internal-run-time.error.1
+  - [X] (deftest get-internal-run-time.error.2
+  - [X] (deftest internal-time-units-per-second.1
   - [ ] (deftest internal-time-units-per-second.2
-**** decode-universal-time.lsp [0%]
+**** decode-universal-time.lsp [14%]
   - [ ] (deftest decode-universal-time.1
   - [ ] (deftest decode-universal-time.2
   - [ ] (deftest decode-universal-time.3
@@ -15293,8 +15293,8 @@
   - [ ] (deftest decode-universal-time.10
   - [ ] (deftest decode-universal-time.11
   - [ ] (deftest decode-universal-time.12
-  - [ ] (deftest decode-universal-time.error.1
-  - [ ] (deftest decode-universal-time.error.2
+  - [X] (deftest decode-universal-time.error.1
+  - [X] (deftest decode-universal-time.error.2
 **** trace.lsp [0%]
   - [ ] (deftest trace.1
   - [ ] (deftest trace.2
@@ -15311,32 +15311,32 @@
   - [ ] (deftest trace.13
   - [ ] (deftest trace.14
   - [ ] (deftest trace.15
-**** ed.lsp [0%]
-  - [ ] (deftest ed.error.1
-**** user-homedir-pathname.lsp [0%]
+**** ed.lsp [100%]
+  - [X] (deftest ed.error.1
+**** user-homedir-pathname.lsp [14%]
   - [ ] (deftest user-homedir-pathname.1
   - [ ] (deftest user-homedir-pathname.2
   - [ ] (deftest user-homedir-pathname.3
   - [ ] (deftest user-homedir-pathname.4
   - [ ] (deftest user-homedir-pathname.5
   - [ ] (deftest user-homedir-pathname.7
-  - [ ] (deftest user-homedir-pathname.error.1
-**** encode-universal-time.lsp [0%]
+  - [X] (deftest user-homedir-pathname.error.1
+**** encode-universal-time.lsp [40%]
   - [ ] (deftest encode-universal-time.1
   - [ ] (deftest encode-universal-time.2
   - [ ] (deftest encode-universal-time.3
-  - [ ] (deftest encode-universal-time.error.1
-  - [ ] (deftest encode-universal-time.error.2
-**** dribble.lsp [0%]
-  - [ ] (deftest dribble.error.1
-**** describe.lsp [0%]
+  - [X] (deftest encode-universal-time.error.1
+  - [X] (deftest encode-universal-time.error.2
+**** dribble.lsp [100%]
+  - [X] (deftest dribble.error.1
+**** describe.lsp [28%]
   - [ ] (deftest describe.1
   - [ ] (deftest describe.2
   - [ ] (deftest describe.3
   - [ ] (deftest describe.4
   - [ ] (deftest describe.5
-  - [ ] (deftest describe.error.1
-  - [ ] (deftest describe.error.2
+  - [X] (deftest describe.error.1
+  - [X] (deftest describe.error.2
 **** environment-functions.lsp [0%]
   - [ ] (def-env-tests lisp-implementation-type)
   - [ ] (def-env-tests lisp-implementation-version)
@@ -15347,7 +15347,7 @@
   - [ ] (def-env-tests machine-version)
   - [ ] (def-env-tests software-type)
   - [ ] (def-env-tests software-version)
-**** apropos-list.lsp [0%]
+**** apropos-list.lsp [18%]
   - [ ] (deftest apropos-list.1
   - [ ] (deftest apropos-list.2
   - [ ] (deftest apropos-list.3
@@ -15357,8 +15357,8 @@
   - [ ] (deftest apropos-list.7
   - [ ] (deftest apropos-list.8
   - [ ] (deftest apropos-list.9
-  - [ ] (deftest apropos-list.error.1
-  - [ ] (deftest apropos-list.error.2
+  - [X] (deftest apropos-list.error.1
+  - [X] (deftest apropos-list.error.2
 **** inspect.lsp [0%]
   - [ ] (deftest inspect.error.1
   - [ ] (deftest inspect.error.2
@@ -15372,7 +15372,7 @@
   - [ ] (deftest time.7
   - [ ] (deftest time.8
   - [ ] (deftest time.9
-**** sleep.lsp [0%]
+**** sleep.lsp [12%]
   - [ ] (deftest sleep.1
   - [ ] (deftest sleep.2
   - [ ] (deftest sleep.3
@@ -15386,10 +15386,10 @@
   - [ ] (deftest sleep.11
   - [ ] (deftest sleep.12
   - [ ] (deftest sleep.13
-  - [ ] (deftest sleep.error.1
-  - [ ] (deftest sleep.error.2
+  - [X] (deftest sleep.error.1
+  - [X] (deftest sleep.error.2
   - [ ] (deftest sleep.error.3
-**** documentation.lsp [0%]
+**** documentation.lsp [3%]
   - [ ] (deftest documentation.function.t.1
   - [ ] (deftest documentation.function.t.2
   - [ ] (deftest documentation.function.t.3
@@ -15414,9 +15414,9 @@
   - [ ] (deftest documentation.list.function.2
   - [ ] (deftest documentation.list.compiler-macro.1
   - [ ] (deftest documentation.list.compiler-macro.2
-  - [ ] (deftest documentation.symbol.function.1
+  - [X] (deftest documentation.symbol.function.1
   - [ ] (deftest documentation.symbol.function.2
-  - [ ] (deftest documentation.symbol.function.3
+  - [X] (deftest documentation.symbol.function.3
   - [ ] (deftest documentation.symbol.function.4
   - [ ] (deftest documentation.symbol.function.5
   - [ ] (deftest documentation.symbol.function.6
@@ -15448,8 +15448,8 @@
   - [ ] (deftest documentation.symbol.variable.5
   - [ ] (deftest documentation.symbol.variable.6
   - [ ] (deftest documentation.new-method.1
-**** apropos.lsp [0%]
-  - [ ] (deftest apropos.1
+**** apropos.lsp [25%]
+  - [X] (deftest apropos.1
   - [ ] (deftest apropos.2
   - [ ] (deftest apropos.3
   - [ ] (deftest apropos.4
@@ -15459,8 +15459,8 @@
   - [ ] (deftest apropos.8
   - [ ] (deftest apropos.9
   - [ ] (deftest apropos.10
-  - [ ] (deftest apropos.error.1
-  - [ ] (deftest apropos.error.2
+  - [X] (deftest apropos.error.1
+  - [X] (deftest apropos.error.2
 *** random [0%]
 **** random-type-prop-tests-07.lsp [0%]
   - [ ] (def-type-prop-test simple-string-p 'simple-string-p '(t) 1)
