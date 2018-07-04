@@ -12,6 +12,7 @@
   (load "array-t.lsp")
   (load "array-as-class.lsp")
   (load "simple-array.lsp")
+
   (load "simple-array-t.lsp")
   (load "bit-vector.lsp")
   (load "simple-bit-vector.lsp")
@@ -29,6 +30,7 @@
   (load "array-row-major-index.lsp")
   (load "array-total-size.lsp")
   (load "arrayp.lsp")
+  
   (load "fill-pointer.lsp")
   (load "row-major-aref.lsp")
   (load "simple-vector-p.lsp")

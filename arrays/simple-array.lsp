@@ -12,8 +12,10 @@
   t)
 
 (deftest simple-array.1.2
-  (notnot-mv (typep #0aX 'simple-array))
-  t)
+;;   (notnot-mv (typep #0aX 'simple-array))
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.1.3
   (notnot-mv (typep #2a(()) 'simple-array))
@@ -66,8 +68,10 @@
   t)
 
 (deftest simple-array.2.2
-  (notnot-mv (typep #0aX '(simple-array *)))
-  t)
+;;   (notnot-mv (typep #0aX '(simple-array *)))
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.2.3
   (notnot-mv (typep #2a(()) '(simple-array *)))
@@ -92,8 +96,10 @@
   nil)
 
 (deftest simple-array.3.2
- (notnot-mv (typep #0aX '(simple-array * nil)))
-  t)
+;;  (notnot-mv (typep #0aX '(simple-array * nil)))
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.3.3
   (typep #2a(()) '(simple-array * nil))
@@ -119,8 +125,10 @@
   t)
 
 (deftest simple-array.4.2
-  (typep #0aX '(simple-array * 1))
-  nil)
+;;   (typep #0aX '(simple-array * 1))
+    ;;   nil)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.4.3
   (typep #2a(()) '(simple-array * 1))
@@ -145,8 +153,10 @@
   nil)
 
 (deftest simple-array.5.2
-  (notnot-mv (typep #0aX '(simple-array * 0)))
-  t)
+;;   (notnot-mv (typep #0aX '(simple-array * 0)))
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.5.3
   (typep #2a(()) '(simple-array * 0))
@@ -171,8 +181,10 @@
   t)
 
 (deftest simple-array.6.2
-  (notnot-mv (typep #0aX '(simple-array * *)))
-  t)
+;;   (notnot-mv (typep #0aX '(simple-array * *)))
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.6.3
   (notnot-mv (typep #2a(()) '(simple-array * *)))
@@ -197,8 +209,10 @@
   nil)
 
 (deftest simple-array.7.2
-  (typep #0aX '(simple-array * 2))
-  nil)
+;;   (typep #0aX '(simple-array * 2))
+    ;;   nil)
+    (error "segmentation fault")
+  )
 
 (deftest simple-array.7.3
   (notnot-mv (typep #2a(()) '(simple-array * 2)))
