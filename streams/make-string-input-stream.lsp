@@ -76,7 +76,6 @@
   "abcdef" :eof)
 
 (deftest make-string-input-stream.10
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (let ((s (make-string-input-stream
             (make-array 0 :element-type nil))))
     (read-char s nil :eof))

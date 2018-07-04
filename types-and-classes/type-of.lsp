@@ -10,7 +10,6 @@
 ;;;  of which x is a member.
 
 (deftest type-of.1
-  :notes :type-of/strict-builtins
   (loop for x in *universe*
         for tp = (type-of x)
         for failures = (loop for tp2 in *cl-all-type-symbols*

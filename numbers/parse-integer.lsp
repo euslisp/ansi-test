@@ -176,7 +176,6 @@
   nil 0)
 
 (deftest parse-integer.21
-  :notes (:nil-vectors-are-strings)
   (parse-integer (make-array 0 :element-type nil) :junk-allowed t)
   nil 0)
 

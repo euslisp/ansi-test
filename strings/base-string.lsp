@@ -22,11 +22,9 @@
   t t)
 
 (deftest base-string.5
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (subtypep* '(array nil (*)) 'base-string)
   nil t)
 
 (deftest base-string.6
-  :notes (:nil-vectors-are-strings)
   (subtypep* 'string 'base-string)
   nil t)

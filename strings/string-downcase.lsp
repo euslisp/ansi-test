@@ -81,7 +81,6 @@
   "ABCDE")
 
 (deftest string-downcase.11
-  :notes (:nil-vectors-are-strings)
   (string-downcase (make-array '(0) :element-type nil))
   "")
 

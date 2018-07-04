@@ -174,7 +174,6 @@
 ;;; Nil vectors
 
 (deftest read-sequence.nil-vector.1
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-array 0 :element-type nil)))
     (with-input-from-string
      (is "abcde")

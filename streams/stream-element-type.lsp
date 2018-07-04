@@ -62,7 +62,6 @@
 
 
 (deftest stream-element-type.5
-  :notes (:assume-no-simple-streams)
   (let ((pn "foo.txt"))
     (delete-all-versions pn)
     (let ((s (open pn :direction :output)))
@@ -74,7 +73,6 @@
   nil)
 
 (deftest stream-element-type.6
-  :notes (:assume-no-simple-streams)
   (let ((pn "foo.txt"))
     (delete-all-versions pn)
     (let ((s (open pn :direction :output

@@ -77,7 +77,6 @@
   "[2]")
 
 (deftest pprint-logical-block.7
-  :notes (:nil-vectors-are-strings)
   (with-standard-io-syntax
    (let ((*print-pretty* t)
          (*print-right-margin* 100)

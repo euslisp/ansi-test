@@ -40,17 +40,14 @@
   nil)
 
 (deftest string.8
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (subtypep* '(array nil (*)) 'string)
   t t)
 
 (deftest string.9
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (subtypep* '(array nil 1) 'string)
   t t)
 
 (deftest string.10
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (string (make-array '(0) :element-type nil))
   "")
 
@@ -59,12 +56,10 @@
   t)
 
 (deftest string.12
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (typep* (make-array '(17) :element-type nil) 'string)
   t)
 
 (deftest string.13
-  :notes (:allow-nil-arrays :nil-vectors-are-strings)
   (typep* (make-array '(0) :element-type nil) 'string)
   t)
 

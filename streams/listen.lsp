@@ -64,7 +64,6 @@
 ;;; Error tests
 
 (deftest listen.error.1
-  :notes (:assume-no-simple-streams)
   (signals-error (listen *standard-input* nil) program-error)
   t)
 

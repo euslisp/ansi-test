@@ -208,7 +208,6 @@
   "abc")
 
 (deftest map.48
-  :notes (:result-type-element-type-by-subtype)
   (let ((type '(or (vector t 10) (vector t 5))))
     (if (subtypep type '(vector t))
         (equalpt (map type #'identity '(1 2 3 4 5)) #(1 2 3 4 5))
@@ -259,7 +258,6 @@
   t)
 
 (deftest map.error.10
-  :notes (:result-type-element-type-by-subtype)
   (let ((type '(or (vector bit) (vector t))))
     (if (subtypep type 'vector)
         (eval `(signals-error-always (map ',type #'identity '(1 0 1)) error))

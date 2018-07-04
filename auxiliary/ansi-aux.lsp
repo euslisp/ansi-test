@@ -85,11 +85,28 @@ Results: ~A~%" expected-number form n results))))
   "Like EQUALPT, but return either T or a list of the arguments."
   (or (equalpt x y) (list x y)))
 
+(defun string=t (x y)
+  (notnot-mv (string= x y)))
+
+(defun =t (x &rest args)
+  "Like =, but guaranteed to return T for true."
+  (apply #'values (mapcar #'notnot (multiple-value-list (apply #'=  x args)))))
+
+(defun <=t (x &rest args)
+  "Like <=, but guaranteed to return T for true."
+  (apply #'values (mapcar #'notnot (multiple-value-list (apply #'<=  x args)))))
+
 (defun make-int-list (n)
   (loop for i from 0 below n collect i))
 
 (defun make-int-array (n &optional (fn #'make-array))
-  (make-array n :initial-contents (make-int-list n)))
+  (when (symbolp fn)
+    (assert (fboundp fn))
+    (setf fn (symbol-function fn)))
+  (let ((a (funcall fn n)))
+    (declare (type (array * *) a))
+    (loop for i from 0 below n do (setf (aref a i) i))
+    a))
 
 ;;; Return true if A1 and A2 are arrays with the same rank
 ;;; and dimensions whose elements are EQUAL
@@ -458,7 +475,7 @@ the condition to go uncaught if it cannot be classified."
             (unless (eql i (elt a i)) (return nil))
           finally (return t)))))
 
-(defparameter *displaced* (make-int-array 1000))
+(defparameter *displaced* (make-int-array 100000))
 
 (defun make-displaced-array (n displacement)
   (make-array n :displaced-to *displaced*
@@ -712,7 +729,7 @@ the condition to go uncaught if it cannot be classified."
   "Collect all the properties in plist for a property prop."
   (loop for e on plist by #'cddr
         when (eql (car e) prop)
-     collect (cadr e)))
+        collect (cadr e)))
 
 (defmacro def-macro-test (test-name macro-form)
   (let ((macro-name (car macro-form)))
@@ -732,7 +749,7 @@ the condition to go uncaught if it cannot be classified."
 (defun typep* (element type)
   (not (not (typep element type))))
 
-(defun applyf (fn &rest args)  
+(defun applyf (fn &rest args)
   (cond
     ((symbolp fn)
      #'(lambda (&rest more-args) (apply (the symbol fn) (append args more-args))))
@@ -872,7 +889,7 @@ the condition to go uncaught if it cannot be classified."
                                                         :initial-element #\Y))
                               :element-type etype)))
           (make-array len2 :element-type etype
-            n          :adjustable adjust
+                      :adjustable adjust
                       :fill-pointer (if fill len nil)
                       :displaced-to s0
                       :displaced-index-offset 2))

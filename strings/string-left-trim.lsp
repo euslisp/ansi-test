@@ -145,10 +145,12 @@
   "")
 
 (deftest string-left-trim.16
+  (error "at string-left-trim: string expected")
   (string-left-trim "a" #\a)
   "")
 
 (deftest string-left-trim.17
+  (error "at string-left-trim: string expected")
   (string-left-trim "b" #\a)
   "a")
 
@@ -161,12 +163,10 @@
   "")
 
 (deftest string-left-trim.20
-  :notes (:nil-vectors-are-strings)
   (string-left-trim "abcd" (make-array '(0) :element-type nil))
   "")
 
 (deftest string-left-trim.21
-  :notes (:nil-vectors-are-strings)
   (string-left-trim (make-array '(0) :element-type nil) "abcd")
   "abcd")
 

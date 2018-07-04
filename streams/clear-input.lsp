@@ -42,12 +42,10 @@
 ;;; Error cases
 
 (deftest clear-input.error.1
-  :notes (:assume-no-simple-streams)
   (signals-error (clear-input t nil) program-error)
   t)
 
 (deftest clear-input.error.2
-  :notes (:assume-no-simple-streams)
   (signals-error (clear-input nil nil) program-error)
   t)
 

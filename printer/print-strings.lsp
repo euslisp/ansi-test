@@ -129,13 +129,11 @@
 ;;; The ever-popular nil string
 
 (deftest print.string.nil.1
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-array '(0) :element-type nil)))
     (write-to-string s :escape nil :readably nil))
   "")
 
 (deftest print.string.nil.2
-  :notes (:nil-vectors-are-strings)
   (let ((s (make-array '(0) :element-type nil)))
     (write-to-string s :escape t :readably nil))
   "\"\"")
