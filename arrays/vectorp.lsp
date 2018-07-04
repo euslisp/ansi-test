@@ -30,8 +30,10 @@
   nil)
 
 (deftest vectorp.7
-  (vectorp #0aT)
-  nil)
+;;   (vectorp #0aT)
+    ;;   nil)
+    (error "segmentation fault")
+  )
 
 (deftest vectorp.8
   (vectorp #2a((a b)(c d)))

@@ -8,8 +8,10 @@
 ;;; AREF is also tested in many other places
 
 (deftest aref.1
-  (aref #0aT)
-  T)
+;;   (aref #0aT)
+    ;;   T)
+    (error "segmentation fault")
+  )
 
 (deftest aref.2
   (aref #(1 2 3 4) 2)
@@ -77,11 +79,13 @@
   #(1 2 z 4))
 
 (deftest setf-aref.2
-  (let ((a (make-array nil :initial-element 1)))
-    (values
-     (setf (aref a) 'z)
-     a))
-  z #0az)
+;;   (let ((a (make-array nil :initial-element 1)))
+;;     (values
+;;      (setf (aref a) 'z)
+;;      a))
+    ;;   z #0az)
+    (error "segmentation fault")
+  )
 
 (deftest setf-aref.3
   (let ((a (make-array '(2 3) :initial-element 'a)))
@@ -133,7 +137,7 @@
      i x y z))
   z #(a b z d) 3 1 2 3)
 
-;;; To add: aref on displaced arrays, arrays with fill pointers, etc.
+;; ;;; To add: aref on displaced arrays, arrays with fill pointers, etc.
 
 (deftest aref.special-integer.1
   (do-special-integer-vectors
@@ -156,7 +160,7 @@
    (assert (eql (aref s 4) #\E)))
   nil)
 
-;;; Error tests
+;; ;;; Error tests
 
 (deftest aref.error.1
   (signals-error (aref) program-error)

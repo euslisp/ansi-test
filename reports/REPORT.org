@@ -7180,32 +7180,32 @@
   - [ ] (deftest struct-include.6
   - [ ] (deftest struct-include.7
 *** arrays [0%]
-**** fill-pointer.lsp [0%]
-  - [ ] (deftest fill-pointer.1
-  - [ ] (deftest fill-pointer.2
-  - [ ] (deftest fill-pointer.3
-  - [ ] (deftest fill-pointer.order.1
-  - [ ] (deftest fill-pointer.order.2
-  - [ ] (deftest fill-pointer.error.1
-  - [ ] (deftest fill-pointer.error.2
+**** fill-pointer.lsp [83%]
+  - [X] (deftest fill-pointer.1
+  - [X] (deftest fill-pointer.2
+  - [X] (deftest fill-pointer.3
+  - [X] (deftest fill-pointer.order.1
+  - [X] (deftest fill-pointer.order.2
+  - [X] (deftest fill-pointer.error.1
+  - [X] (deftest fill-pointer.error.2
   - [ ] (deftest fill-pointer.error.3
-  - [ ] (deftest fill-pointer.error.4
-  - [ ] (deftest fill-pointer.error.5
+  - [X] (deftest fill-pointer.error.4
+  - [X] (deftest fill-pointer.error.5
   - [ ] (deftest fill-pointer.error.6
-  - [ ] (deftest fill-pointer.error.7
-**** array-dimension.lsp [0%]
+  - [X] (deftest fill-pointer.error.7
+**** array-dimension.lsp [50%]
   - [ ] (deftest array-dimension.1
   - [ ] (deftest array-dimension.2
-  - [ ] (deftest array-dimension.3
-  - [ ] (deftest array-dimension.4
-  - [ ] (deftest array-dimension.5
+  - [X] (deftest array-dimension.3
+  - [X] (deftest array-dimension.4
+  - [X] (deftest array-dimension.5
   - [ ] (deftest array-dimension.6
   - [ ] (deftest array-dimension.7
   - [ ] (deftest array-dimension.8
   - [ ] (deftest array-dimension.order.1
-  - [ ] (deftest array-dimension.error.1
-  - [ ] (deftest array-dimension.error.2
-  - [ ] (deftest array-dimension.error.3
+  - [X] (deftest array-dimension.error.1
+  - [X] (deftest array-dimension.error.2
+  - [X] (deftest array-dimension.error.3
 **** bit-nand.lsp [0%]
   - [ ] (deftest bit-nand.1
   - [ ] (deftest bit-nand.2
@@ -7264,21 +7264,21 @@
   - [ ] (deftest bit-orc2.error.1
   - [ ] (deftest bit-orc2.error.2
   - [ ] (deftest bit-orc2.error.3
-**** array-misc.lsp [0%]
-  - [ ] (deftest array-dimension-limit.1
+**** array-misc.lsp [33%]
+  - [X] (deftest array-dimension-limit.1
   - [ ] (deftest array-dimension-limit.2
   - [ ] (deftest array-total-size-limit.1
   - [ ] (deftest array-total-size-limit.2
-  - [ ] (deftest array-rank-limit.1
+  - [X] (deftest array-rank-limit.1
   - [ ] (deftest array-rank-limit.2
-**** make-array.lsp [0%]
+**** make-array.lsp [4%]
 
-  - [ ] (deftest make-array.1
+  - [X] (deftest make-array.1
   - [ ] (deftest make-array.1a
-  - [ ] (deftest make-array.2
-  - [ ] (deftest make-array.2a
-  - [ ] (deftest make-array.2b
-  - [ ] (deftest make-array.2c
+  - [X] (deftest make-array.2
+  - [X] (deftest make-array.2a
+  - [X] (deftest make-array.2b
+  - [X] (deftest make-array.2c
   - [ ] (deftest make-array.2d
   - [ ] (deftest make-array.3
   - [ ] (deftest make-array.4
@@ -7391,11 +7391,11 @@
   - [ ] (deftest make-array.error.6
   - [ ] (deftest make-array.order.1
   - [ ] (deftest make-array.order.2
-**** array-element-type.lsp [0%]
+**** array-element-type.lsp [33%]
   - [ ] (deftest array-element-type.1
   - [ ] (deftest array-element-type.order.1
-  - [ ] (deftest array-element-type.error.1
-  - [ ] (deftest array-element-type.error.2
+  - [X] (deftest array-element-type.error.1
+  - [X] (deftest array-element-type.error.2
   - [ ] (deftest array-element-type.error.3
   - [ ] (deftest array-element-type.error.4
 **** bit-and.lsp [0%]
@@ -7427,7 +7427,7 @@
   - [ ] (deftest bit-and.error.1
   - [ ] (deftest bit-and.error.2
   - [ ] (deftest bit-and.error.3
-**** upgraded-array-element-type.lsp [0%]
+**** upgraded-array-element-type.lsp [18%]
   - [ ] (deftest upgraded-array-element-type.1
   - [ ] (deftest upgraded-array-element-type.2
   - [ ] (deftest upgraded-array-element-type.3
@@ -7437,10 +7437,10 @@
   - [ ] (deftest upgraded-array-element-type.7
   - [ ] (deftest upgraded-array-element-type.8
   - [ ] (deftest upgraded-array-element-type.nil.1
-  - [ ] (deftest upgraded-array-element-type.error.1
-  - [ ] (deftest upgraded-array-element-type.error.2
-**** sbit.lsp [0%]
-  - [ ] (deftest sbit.1
+  - [X] (deftest upgraded-array-element-type.error.1
+  - [X] (deftest upgraded-array-element-type.error.2
+**** sbit.lsp [11%]
+  - [X] (deftest sbit.1
   - [ ] (deftest sbit.2
   - [ ] (deftest sbit.3
   - [ ] (deftest sbit.4
@@ -7465,44 +7465,44 @@
   - [ ] (deftest array-as-class.13
   - [ ] (deftest array-as-class.14
   - [ ] (deftest array-as-class.15
-**** array-rank.lsp [0%]
-  - [ ] (deftest array-rank.1
+**** array-rank.lsp [44%]
+  - [X] (deftest array-rank.1
   - [ ] (deftest array-rank.2
   - [ ] (deftest array-rank.3
   - [ ] (deftest array-rank.order.1
-  - [ ] (deftest array-rank.error.1
-  - [ ] (deftest array-rank.error.2
+  - [X] (deftest array-rank.error.1
+  - [X] (deftest array-rank.error.2
   - [ ] (deftest array-rank.error.3
-  - [ ] (deftest array-rank.error.4
+  - [X] (deftest array-rank.error.4
   - [ ] (deftest array-rank.error.5
-**** vector-pop.lsp [0%]
-  - [ ] (deftest vector-pop.1
-  - [ ] (deftest vector-pop.error.1
+**** vector-pop.lsp [80%]
+  - [X] (deftest vector-pop.1
+  - [X] (deftest vector-pop.error.1
   - [ ] (deftest vector-pop.error.2
-  - [ ] (deftest vector-pop.error.3
-  - [ ] (deftest vector-pop.error.4
-**** array-row-major-index.lsp [0%]
+  - [X] (deftest vector-pop.error.3
+  - [X] (deftest vector-pop.error.4
+**** array-row-major-index.lsp [14%]
   - [ ] (deftest array-row-major-index.1
   - [ ] (deftest array-row-major-index.2
   - [ ] (deftest array-row-major-index.3
   - [ ] (deftest array-row-major-index.4
   - [ ] (deftest array-row-major-index.5
   - [ ] (deftest array-row-major-index.order.1
-  - [ ] (deftest array-row-major-index.error.1
-**** aref.lsp [0%]
+  - [X] (deftest array-row-major-index.error.1
+**** aref.lsp [52%]
   - [ ] (deftest aref.1
-  - [ ] (deftest aref.2
-  - [ ] (deftest aref.3
-  - [ ] (deftest aref.4
-  - [ ] (deftest aref.5
-  - [ ] (deftest aref.6
-  - [ ] (deftest aref.7
-  - [ ] (deftest aref.order.1
-  - [ ] (deftest aref.order.2
-  - [ ] (deftest setf-aref.1
+  - [X] (deftest aref.2
+  - [X] (deftest aref.3
+  - [X] (deftest aref.4
+  - [X] (deftest aref.5
+  - [X] (deftest aref.6
+  - [X] (deftest aref.7
+  - [X] (deftest aref.order.1
+  - [X] (deftest aref.order.2
+  - [X] (deftest setf-aref.1
   - [ ] (deftest setf-aref.2
-  - [ ] (deftest setf-aref.3
-  - [ ] (deftest setf-aref.4
+  - [X] (deftest setf-aref.3
+  - [X] (deftest setf-aref.4
   - [ ] (deftest setf-aref.5
   - [ ] (deftest setf-aref.6
   - [ ] (deftest setf-aref.7
@@ -7528,16 +7528,16 @@
   - [ ] (deftest simple-bit-vector.15
   - [ ] (deftest simple-bit-vector.16
   - [ ] (deftest simple-bit-vector.17
-**** vector.lsp [0%]
-  - [ ] (deftest vector.type.1
-  - [ ] (deftest vector.type.2
-  - [ ] (deftest vector.type.3
-  - [ ] (deftest vector.type.4
-  - [ ] (deftest vector.type.5
-  - [ ] (deftest vector.type.6
-  - [ ] (deftest vector.type.7
-  - [ ] (deftest vector.type.8
-  - [ ] (deftest vector.type.9
+**** vector.lsp [24%]
+  - [X] (deftest vector.type.1
+  - [X] (deftest vector.type.2
+  - [X] (deftest vector.type.3
+  - [X] (deftest vector.type.4
+  - [X] (deftest vector.type.5
+  - [X] (deftest vector.type.6
+  - [X] (deftest vector.type.7
+  - [X] (deftest vector.type.8
+  - [X] (deftest vector.type.9
   - [ ] (deftest vector.type.10
   - [ ] (deftest vector.type.11
   - [ ] (deftest vector.type.12
@@ -7569,11 +7569,11 @@
   - [ ] (deftest vector.type.38
   - [ ] (deftest vector.type.39
   - [ ] (deftest vector.type.40
-  - [ ] (deftest vector.type.41
-  - [ ] (deftest vector.type.42
-  - [ ] (deftest vector.type.43
-  - [ ] (deftest vector.type.44
-  - [ ] (deftest vector-as-class.1
+  - [X] (deftest vector.type.41
+  - [X] (deftest vector.type.42
+  - [X] (deftest vector.type.43
+  - [X] (deftest vector.type.44
+  - [X] (deftest vector-as-class.1
   - [ ] (deftest vector-as-class.2
   - [ ] (deftest vector-as-class.3
   - [ ] (deftest vector-as-class.4
@@ -7591,17 +7591,17 @@
   - [ ] (deftest vector-as-class.16
   - [ ] (deftest vector-as-class.17
   - [ ] (deftest vector-as-class.18
-  - [ ] (deftest vector.1
-  - [ ] (deftest vector.2
+  - [X] (deftest vector.1
+  - [X] (deftest vector.2
   - [ ] (deftest vector.3
   - [ ] (deftest vector.4
   - [ ] (deftest vector.5
   - [ ] (deftest vector.6
   - [ ] (deftest vector.7
   - [ ] (deftest vector.8
-  - [ ] (deftest vector.9
+  - [X] (deftest vector.9
   - [ ] (deftest vector.10
-  - [ ] (deftest vector.order.1
+  - [X] (deftest vector.order.1
 **** array-dimensions.lsp [0%]
   - [ ] (deftest array-dimensions.1
   - [ ] (deftest array-dimensions.2
@@ -7657,7 +7657,7 @@
   - [ ] (deftest simple-vector-p.12
   - [ ] (deftest simple-vector-p.error.1
   - [ ] (deftest simple-vector-p.error.2
-**** array-displacement.lsp [0%]
+**** array-displacement.lsp [14%]
   - [ ] (deftest array-displacement.7
   - [ ] (deftest array-displacement.8
   - [ ] (deftest array-displacement.9
@@ -7668,8 +7668,8 @@
   - [ ] (deftest array-displacement.14
   - [ ] (deftest array-displacement.15
   - [ ] (deftest array-displacement.order.1
-  - [ ] (deftest array-displacement.error.1
-  - [ ] (deftest array-displacement.error.2
+  - [X] (deftest array-displacement.error.1
+  - [X] (deftest array-displacement.error.2
   - [ ] (deftest array-displacement.error.3
   - [ ] (deftest array-displacement.error.4
 **** simple-array-t.lsp [0%]
@@ -7842,9 +7842,9 @@
   - [ ] (deftest simple-array.9.11
   - [ ] (deftest simple-array.9.12
   - [ ] (deftest simple-array.9.13
-**** arrayp.lsp [0%]
-  - [ ] (deftest arrayp.1
-  - [ ] (deftest arrayp.2
+**** arrayp.lsp [20%]
+  - [X] (deftest arrayp.1
+  - [X] (deftest arrayp.2
   - [ ] (deftest arrayp.3
   - [ ] (deftest arrayp.4
   - [ ] (deftest arrayp.5
@@ -7870,8 +7870,8 @@
   - [ ] (deftest bit-vector-p.order.2
   - [ ] (deftest bit-vector-p.error.1
   - [ ] (deftest bit-vector-p.error.2
-**** bit.lsp [0%]
-  - [ ] (deftest bit.1
+**** bit.lsp [9%]
+  - [X] (deftest bit.1
   - [ ] (deftest bit.2
   - [ ] (deftest bit.3
   - [ ] (deftest bit.4
@@ -7882,16 +7882,16 @@
   - [ ] (deftest bit.order.1
   - [ ] (deftest bit.order.2
   - [ ] (deftest bit.error.1
-**** vectorp.lsp [0%]
-  - [ ] (deftest vectorp.1
-  - [ ] (deftest vectorp.2
-  - [ ] (deftest vectorp.3
-  - [ ] (deftest vectorp.4
-  - [ ] (deftest vectorp.5
-  - [ ] (deftest vectorp.6
+**** vectorp.lsp [47%]
+  - [X] (deftest vectorp.1
+  - [X] (deftest vectorp.2
+  - [X] (deftest vectorp.3
+  - [X] (deftest vectorp.4
+  - [X] (deftest vectorp.5
+  - [X] (deftest vectorp.6
   - [ ] (deftest vectorp.7
-  - [ ] (deftest vectorp.8
-  - [ ] (deftest vectorp.9
+  - [X] (deftest vectorp.8
+  - [X] (deftest vectorp.9
   - [ ] (deftest vectorp.10
   - [ ] (deftest vectorp.11
   - [ ] (deftest vectorp.12
@@ -7900,14 +7900,14 @@
   - [ ] (deftest vectorp.15
   - [ ] (deftest vectorp.error.1
   - [ ] (deftest vectorp.error.2
-**** vector-push-extend.lsp [0%]
-  - [ ] (deftest vector-push-extend.1
-  - [ ] (deftest vector-push-extend.2
-  - [ ] (deftest vector-push-extend.3
+**** vector-push-extend.lsp [10%]
+  - [X] (deftest vector-push-extend.1
+  - [X] (deftest vector-push-extend.2
+  - [X] (deftest vector-push-extend.3
   - [ ] (deftest vector-push-extend.4
-  - [ ] (deftest vector-push-extend.5
+  - [X] (deftest vector-push-extend.5
   - [ ] (deftest vector-push-extend.6
-  - [ ] (deftest vector-push-extend.7
+  - [X] (deftest vector-push-extend.7
   - [ ] (deftest vector-push-extend.8
   - [ ] (deftest vector-push-extend.9
   - [ ] (deftest vector-push-extend.10
@@ -7948,14 +7948,14 @@
   - [ ] (deftest vector-push-extend.error.15
   - [ ] (deftest vector-push-extend.error.16
   - [ ] (deftest vector-push-extend.error.17
-**** vector-push.lsp [0%]
-  - [ ] (deftest vector-push.1
+**** vector-push.lsp [11%]
+  - [X] (deftest vector-push.1
   - [ ] (deftest vector-push.2
-  - [ ] (deftest vector-push.3
+  - [X] (deftest vector-push.3
   - [ ] (deftest vector-push.4
-  - [ ] (deftest vector-push.5
+  - [X] (deftest vector-push.5
   - [ ] (deftest vector-push.6
-  - [ ] (deftest vector-push.7
+  - [X] (deftest vector-push.7
   - [ ] (deftest vector-push.8
   - [ ] (deftest vector-push.9
   - [ ] (deftest vector-push.10
@@ -8299,29 +8299,29 @@
   - [ ] (deftest bit-ior.error.1
   - [ ] (deftest bit-ior.error.2
   - [ ] (deftest bit-ior.error.3
-**** array-has-fill-pointer-p.lsp [0%]
+**** array-has-fill-pointer-p.lsp [20%]
   - [ ] (deftest array-has-fill-pointer-p.1
   - [ ] (deftest array-has-fill-pointer-p.2
   - [ ] (deftest array-has-fill-pointer-p.3
   - [ ] (deftest array-has-fill-pointer-p.4
   - [ ] (deftest array-has-fill-pointer-p.5
   - [ ] (deftest array-has-fill-pointer-p.order.1
-  - [ ] (deftest array-has-fill-pointer-p.error.1
-  - [ ] (deftest array-has-fill-pointer-p.error.2
+  - [X] (deftest array-has-fill-pointer-p.error.1
+  - [X] (deftest array-has-fill-pointer-p.error.2
   - [ ] (deftest array-has-fill-pointer-p.error.3
   - [ ] (deftest array-has-fill-pointer-p.error.4
-**** svref.lsp [0%]
-  - [ ] (deftest svref.1
-  - [ ] (deftest svref.2
-  - [ ] (deftest svref.order.1
-  - [ ] (deftest svref.order.2
-  - [ ] (deftest svref.error.1
-  - [ ] (deftest svref.error.2
-  - [ ] (deftest svref.error.3
-  - [ ] (deftest svref.error.4
-**** row-major-aref.lsp [0%]
+**** svref.lsp [100%]
+  - [X] (deftest svref.1
+  - [X] (deftest svref.2
+  - [X] (deftest svref.order.1
+  - [X] (deftest svref.order.2
+  - [X] (deftest svref.error.1
+  - [X] (deftest svref.error.2
+  - [X] (deftest svref.error.3
+  - [X] (deftest svref.error.4
+**** row-major-aref.lsp [7%]
   - [ ] (deftest row-major-aref.1
-  - [ ] (deftest row-major-aref.2
+  - [X] (deftest row-major-aref.2
   - [ ] (deftest row-major-aref.3
   - [ ] (deftest row-major-aref.4
   - [ ] (deftest row-major-aref.5
@@ -8333,7 +8333,7 @@
   - [ ] (deftest row-major-aref.order.1
   - [ ] (deftest row-major-aref.order.2
   - [ ] (deftest row-major-aref.error.1
-**** adjustable-array-p.lsp [0%]
+**** adjustable-array-p.lsp [30%]
   - [ ] (deftest adjustable-array-p.1
   - [ ] (deftest adjustable-array-p.2
   - [ ] (deftest adjustable-array-p.3
@@ -8341,12 +8341,12 @@
   - [ ] (deftest adjustable-array-p.5
   - [ ] (deftest adjustable-array-p.6
   - [ ] (deftest adjustable-array-p.order.1
-  - [ ] (deftest adjustable-array-p.error.1
-  - [ ] (deftest adjustable-array-p.error.2
+  - [X] (deftest adjustable-array-p.error.1
+  - [X] (deftest adjustable-array-p.error.2
   - [ ] (deftest adjustable-array-p.error.3
   - [ ] (deftest adjustable-array-p.error.4
-  - [ ] (deftest adjustable-array-p.error.5
-  - [ ] (deftest adjustable-array-p.error.6
+  - [X] (deftest adjustable-array-p.error.5
+  - [X] (deftest adjustable-array-p.error.6
 **** bit-xor.lsp [0%]
   - [ ] (deftest bit-xor.1
   - [ ] (deftest bit-xor.2
@@ -8376,8 +8376,8 @@
   - [ ] (deftest bit-xor.error.1
   - [ ] (deftest bit-xor.error.2
   - [ ] (deftest bit-xor.error.3
-**** array-total-size.lsp [0%]
-  - [ ] (deftest array-total-size.1
+**** array-total-size.lsp [8%]
+  - [X] (deftest array-total-size.1
   - [ ] (deftest array-total-size.2
   - [ ] (deftest array-total-size.3
   - [ ] (deftest array-total-size.4
@@ -8389,18 +8389,18 @@
   - [ ] (deftest array-total-size.error.3
   - [ ] (deftest array-total-size.error.4
   - [ ] (deftest array-total-size.error.5
-**** bit-vector.lsp [0%]
-  - [ ] (deftest bit-vector.1
-  - [ ] (deftest bit-vector.2
-  - [ ] (deftest bit-vector.3
-  - [ ] (deftest bit-vector.4
-  - [ ] (deftest bit-vector.5
-  - [ ] (deftest bit-vector.6
-  - [ ] (deftest bit-vector.7
-  - [ ] (deftest bit-vector.8
-  - [ ] (deftest bit-vector.9
-  - [ ] (deftest bit-vector.10
-  - [ ] (deftest bit-vector.11
+**** bit-vector.lsp [40%]
+  - [X] (deftest bit-vector.1
+  - [X] (deftest bit-vector.2
+  - [X] (deftest bit-vector.3
+  - [X] (deftest bit-vector.4
+  - [X] (deftest bit-vector.5
+  - [X] (deftest bit-vector.6
+  - [X] (deftest bit-vector.7
+  - [X] (deftest bit-vector.8
+  - [X] (deftest bit-vector.9
+  - [X] (deftest bit-vector.10
+  - [X] (deftest bit-vector.11
   - [ ] (deftest bit-vector.12
   - [ ] (deftest bit-vector.13
   - [ ] (deftest bit-vector.14
@@ -8417,20 +8417,20 @@
   - [ ] (deftest bit-vector.class.9
   - [ ] (deftest bit-vector.class.10
   - [ ] (deftest bit-vector.class.11
-**** array.lsp [0%]
-  - [ ] (deftest array.1.1
+**** array.lsp [14%]
+  - [X] (deftest array.1.1
   - [ ] (deftest array.1.2
   - [ ] (deftest array.1.3
-  - [ ] (deftest array.1.4
-  - [ ] (deftest array.1.5
-  - [ ] (deftest array.1.6
-  - [ ] (deftest array.1.7
-  - [ ] (deftest array.1.8
-  - [ ] (deftest array.1.9
-  - [ ] (deftest array.1.10
-  - [ ] (deftest array.1.11
-  - [ ] (deftest array.1.12
-  - [ ] (deftest array.1.13
+  - [X] (deftest array.1.4
+  - [X] (deftest array.1.5
+  - [X] (deftest array.1.6
+  - [X] (deftest array.1.7
+  - [X] (deftest array.1.8
+  - [X] (deftest array.1.9
+  - [X] (deftest array.1.10
+  - [X] (deftest array.1.11
+  - [X] (deftest array.1.12
+  - [X] (deftest array.1.13
   - [ ] (deftest array.2.1
   - [ ] (deftest array.2.2
   - [ ] (deftest array.2.3
@@ -15240,20 +15240,20 @@
   - [ ] (deftest hash-table-count.error.1
   - [ ] (deftest hash-table-count.error.2
 *** environment [0%]
-**** get-universal-time.lsp [0%]
+**** get-universal-time.lsp [57%]
   - [ ] (deftest get-universal-time.1
   - [ ] (deftest get-universal-time.2
   - [ ] (deftest get-universal-time.3
-  - [ ] (deftest get-universal-time.error.1
-  - [ ] (deftest get-universal-time.error.2
-  - [ ] (deftest get-decoded-time.error.1
-  - [ ] (deftest get-decoded-time.error.2
-**** room.lsp [0%]
+  - [X] (deftest get-universal-time.error.1
+  - [X] (deftest get-universal-time.error.2
+  - [X] (deftest get-decoded-time.error.1
+  - [X] (deftest get-decoded-time.error.2
+**** room.lsp [20%]
   - [ ] (deftest room.1
   - [ ] (deftest room.2
   - [ ] (deftest room.3
   - [ ] (deftest room.4
-  - [ ] (deftest room.errpr.1
+  - [X] (deftest room.errpr.1
 **** disassemble.lsp [0%]
   - [ ] (deftest disassemble.1
   - [ ] (deftest disassemble.2
@@ -15269,18 +15269,18 @@
   - [ ] (deftest disassemble.error.1
   - [ ] (deftest disassemble.error.2
   - [ ] (deftest disassemble.error.3
-**** get-internal-time.lsp [0%]
+**** get-internal-time.lsp [50%]
   - [ ] (deftest get-internal-real-time.1
   - [ ] (deftest get-internal-real-time.2
-  - [ ] (deftest get-internal-real-time.error.1
-  - [ ] (deftest get-internal-real-time.error.2
+  - [X] (deftest get-internal-real-time.error.1
+  - [X] (deftest get-internal-real-time.error.2
   - [ ] (deftest get-internal-run-time.1
   - [ ] (deftest get-internal-run-time.2
-  - [ ] (deftest get-internal-run-time.error.1
-  - [ ] (deftest get-internal-run-time.error.2
-  - [ ] (deftest internal-time-units-per-second.1
+  - [X] (deftest get-internal-run-time.error.1
+  - [X] (deftest get-internal-run-time.error.2
+  - [X] (deftest internal-time-units-per-second.1
   - [ ] (deftest internal-time-units-per-second.2
-**** decode-universal-time.lsp [0%]
+**** decode-universal-time.lsp [14%]
   - [ ] (deftest decode-universal-time.1
   - [ ] (deftest decode-universal-time.2
   - [ ] (deftest decode-universal-time.3
@@ -15293,8 +15293,8 @@
   - [ ] (deftest decode-universal-time.10
   - [ ] (deftest decode-universal-time.11
   - [ ] (deftest decode-universal-time.12
-  - [ ] (deftest decode-universal-time.error.1
-  - [ ] (deftest decode-universal-time.error.2
+  - [X] (deftest decode-universal-time.error.1
+  - [X] (deftest decode-universal-time.error.2
 **** trace.lsp [0%]
   - [ ] (deftest trace.1
   - [ ] (deftest trace.2
@@ -15311,32 +15311,32 @@
   - [ ] (deftest trace.13
   - [ ] (deftest trace.14
   - [ ] (deftest trace.15
-**** ed.lsp [0%]
-  - [ ] (deftest ed.error.1
-**** user-homedir-pathname.lsp [0%]
+**** ed.lsp [100%]
+  - [X] (deftest ed.error.1
+**** user-homedir-pathname.lsp [14%]
   - [ ] (deftest user-homedir-pathname.1
   - [ ] (deftest user-homedir-pathname.2
   - [ ] (deftest user-homedir-pathname.3
   - [ ] (deftest user-homedir-pathname.4
   - [ ] (deftest user-homedir-pathname.5
   - [ ] (deftest user-homedir-pathname.7
-  - [ ] (deftest user-homedir-pathname.error.1
-**** encode-universal-time.lsp [0%]
+  - [X] (deftest user-homedir-pathname.error.1
+**** encode-universal-time.lsp [40%]
   - [ ] (deftest encode-universal-time.1
   - [ ] (deftest encode-universal-time.2
   - [ ] (deftest encode-universal-time.3
-  - [ ] (deftest encode-universal-time.error.1
-  - [ ] (deftest encode-universal-time.error.2
-**** dribble.lsp [0%]
-  - [ ] (deftest dribble.error.1
-**** describe.lsp [0%]
+  - [X] (deftest encode-universal-time.error.1
+  - [X] (deftest encode-universal-time.error.2
+**** dribble.lsp [100%]
+  - [X] (deftest dribble.error.1
+**** describe.lsp [28%]
   - [ ] (deftest describe.1
   - [ ] (deftest describe.2
   - [ ] (deftest describe.3
   - [ ] (deftest describe.4
   - [ ] (deftest describe.5
-  - [ ] (deftest describe.error.1
-  - [ ] (deftest describe.error.2
+  - [X] (deftest describe.error.1
+  - [X] (deftest describe.error.2
 **** environment-functions.lsp [0%]
   - [ ] (def-env-tests lisp-implementation-type)
   - [ ] (def-env-tests lisp-implementation-version)
@@ -15347,7 +15347,7 @@
   - [ ] (def-env-tests machine-version)
   - [ ] (def-env-tests software-type)
   - [ ] (def-env-tests software-version)
-**** apropos-list.lsp [0%]
+**** apropos-list.lsp [18%]
   - [ ] (deftest apropos-list.1
   - [ ] (deftest apropos-list.2
   - [ ] (deftest apropos-list.3
@@ -15357,8 +15357,8 @@
   - [ ] (deftest apropos-list.7
   - [ ] (deftest apropos-list.8
   - [ ] (deftest apropos-list.9
-  - [ ] (deftest apropos-list.error.1
-  - [ ] (deftest apropos-list.error.2
+  - [X] (deftest apropos-list.error.1
+  - [X] (deftest apropos-list.error.2
 **** inspect.lsp [0%]
   - [ ] (deftest inspect.error.1
   - [ ] (deftest inspect.error.2
@@ -15372,7 +15372,7 @@
   - [ ] (deftest time.7
   - [ ] (deftest time.8
   - [ ] (deftest time.9
-**** sleep.lsp [0%]
+**** sleep.lsp [12%]
   - [ ] (deftest sleep.1
   - [ ] (deftest sleep.2
   - [ ] (deftest sleep.3
@@ -15386,10 +15386,10 @@
   - [ ] (deftest sleep.11
   - [ ] (deftest sleep.12
   - [ ] (deftest sleep.13
-  - [ ] (deftest sleep.error.1
-  - [ ] (deftest sleep.error.2
+  - [X] (deftest sleep.error.1
+  - [X] (deftest sleep.error.2
   - [ ] (deftest sleep.error.3
-**** documentation.lsp [0%]
+**** documentation.lsp [3%]
   - [ ] (deftest documentation.function.t.1
   - [ ] (deftest documentation.function.t.2
   - [ ] (deftest documentation.function.t.3
@@ -15414,9 +15414,9 @@
   - [ ] (deftest documentation.list.function.2
   - [ ] (deftest documentation.list.compiler-macro.1
   - [ ] (deftest documentation.list.compiler-macro.2
-  - [ ] (deftest documentation.symbol.function.1
+  - [X] (deftest documentation.symbol.function.1
   - [ ] (deftest documentation.symbol.function.2
-  - [ ] (deftest documentation.symbol.function.3
+  - [X] (deftest documentation.symbol.function.3
   - [ ] (deftest documentation.symbol.function.4
   - [ ] (deftest documentation.symbol.function.5
   - [ ] (deftest documentation.symbol.function.6
@@ -15448,8 +15448,8 @@
   - [ ] (deftest documentation.symbol.variable.5
   - [ ] (deftest documentation.symbol.variable.6
   - [ ] (deftest documentation.new-method.1
-**** apropos.lsp [0%]
-  - [ ] (deftest apropos.1
+**** apropos.lsp [25%]
+  - [X] (deftest apropos.1
   - [ ] (deftest apropos.2
   - [ ] (deftest apropos.3
   - [ ] (deftest apropos.4
@@ -15459,8 +15459,8 @@
   - [ ] (deftest apropos.8
   - [ ] (deftest apropos.9
   - [ ] (deftest apropos.10
-  - [ ] (deftest apropos.error.1
-  - [ ] (deftest apropos.error.2
+  - [X] (deftest apropos.error.1
+  - [X] (deftest apropos.error.2
 *** random [0%]
 **** random-type-prop-tests-07.lsp [0%]
   - [ ] (def-type-prop-test simple-string-p 'simple-string-p '(t) 1)

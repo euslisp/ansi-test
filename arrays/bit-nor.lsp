@@ -8,70 +8,84 @@
 
 
 (deftest bit-nor.1
-  (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
-         (s2 (make-array nil :initial-element 0 :element-type 'bit)))
-    (values (bit-nor s1 s2) s1 s2))
-  #0a1
-  #0a0
-  #0a0)
+;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 0 :element-type 'bit)))
+;;     (values (bit-nor s1 s2) s1 s2))
+;;   #0a1
+;;   #0a0
+    ;;   #0a0)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.2
-  (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
-         (s2 (make-array nil :initial-element 0 :element-type 'bit)))
-    (values (bit-nor s1 s2) s1 s2))
-  #0a0
-  #0a1
-  #0a0)
+;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 0 :element-type 'bit)))
+;;     (values (bit-nor s1 s2) s1 s2))
+;;   #0a0
+;;   #0a1
+    ;;   #0a0)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.3
-  (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
-         (s2 (make-array nil :initial-element 1 :element-type 'bit)))
-    (values (bit-nor s1 s2) s1 s2))
-  #0a0
-  #0a0
-  #0a1)
+;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 1 :element-type 'bit)))
+;;     (values (bit-nor s1 s2) s1 s2))
+;;   #0a0
+;;   #0a0
+    ;;   #0a1)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.4
-  (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
-         (s2 (make-array nil :initial-element 1 :element-type 'bit)))
-    (values (bit-nor s1 s2) s1 s2))
-  #0a0
-  #0a1
-  #0a1)
+;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 1 :element-type 'bit)))
+;;     (values (bit-nor s1 s2) s1 s2))
+;;   #0a0
+;;   #0a1
+    ;;   #0a1)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.5
-  (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
-         (s2 (make-array nil :initial-element 0 :element-type 'bit))
-         (s3 (make-array nil :initial-element 0 :element-type 'bit))
-         (result (bit-nor s1 s2 s3)))
-    (values s1 s2 s3 result (eqt s3 result)))
-  #0a0
-  #0a0
-  #0a1
-  #0a1
-  t)
+;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (s3 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (result (bit-nor s1 s2 s3)))
+;;     (values s1 s2 s3 result (eqt s3 result)))
+;;   #0a0
+;;   #0a0
+;;   #0a1
+;;   #0a1
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.6
-  (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
-         (s2 (make-array nil :initial-element 1 :element-type 'bit))
-         (s3 (make-array nil :initial-element 1 :element-type 'bit))
-         (result (bit-nor s1 s2 s3)))
-    (values s1 s2 s3 result (eqt s3 result)))
-  #0a1
-  #0a1
-  #0a0
-  #0a0
-  t)
+;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (s3 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (result (bit-nor s1 s2 s3)))
+;;     (values s1 s2 s3 result (eqt s3 result)))
+;;   #0a1
+;;   #0a1
+;;   #0a0
+;;   #0a0
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 (deftest bit-nor.7
-  (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
-         (s2 (make-array nil :initial-element 0 :element-type 'bit))
-         (result (bit-nor s1 s2 t)))
-    (values s1 s2 result (eqt s1 result)))
-  #0a0
-  #0a0
-  #0a0
-  t)
+;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
+;;          (s2 (make-array nil :initial-element 0 :element-type 'bit))
+;;          (result (bit-nor s1 s2 t)))
+;;     (values s1 s2 result (eqt s1 result)))
+;;   #0a0
+;;   #0a0
+;;   #0a0
+    ;;   t)
+    (error "segmentation fault")
+  )
 
 
 ;;; Tests on bit vectors

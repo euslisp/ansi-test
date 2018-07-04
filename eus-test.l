@@ -164,9 +164,9 @@
 (load "pathnames/load.lsp")
 (load "files/load.lsp")
 (load "hash-tables/load.lsp")
+(load "arrays/load.lsp")
+(load "environment/load.lsp")
 
-;; (load "arrays/load.lsp")
-;; (load "environment/load.lsp")
 ;; (load "misc/load.lsp")
 ;; (load "numbers/load.lsp")
 ;; (load "packages/load.lsp")
@@ -179,7 +179,7 @@
 ;; (load "types-and-classes/load.lsp")
 ;; (load "objects/load.lsp") **UNSUPPORTED**
 
-;; RUN TESTS
+;; ;; RUN TESTS
 (init-unit-test)
 
 (terpri)
