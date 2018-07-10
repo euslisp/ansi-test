@@ -168,7 +168,9 @@
 (load "environment/load.lsp")
 (load "misc/load.lsp")
 
-;; (load "numbers/load.lsp")
+
+;; (load "misc/load.lsp")
+(load "numbers/load.lsp")
 ;; (load "packages/load.lsp")
 ;; (load "printer/load.lsp")
 ;; (load "reader/load.lsp")

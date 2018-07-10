@@ -547,14 +547,14 @@ the condition to go uncaught if it cannot be classified."
          (number t)
          (real number)
          (complex number)
-         (float real)
-         (short-float float)
-         (single-float float)
-         (double-float float)
-         (long-float float)
-         (rational real)
-         (integer rational)
-         (ratio rational)
+         ;; (float real)
+         ;; (short-float float)
+         ;; (single-float float)
+         ;; (double-float float)
+         ;; (long-float float)
+         ;; (rational real)
+         ;; (integer rational)
+         ;; (ratio rational)
          (signed-byte integer)
          (integer signed-byte)
          (unsigned-byte signed-byte)
@@ -810,21 +810,21 @@ the condition to go uncaught if it cannot be classified."
           (condition () :good))))
      :good))
 
-(defun rational-safely (x)
-  "Rational a floating point number, making sure the rational
-   number isn't 'too big'.  This is important in implementations such
-   as clisp where the floating bounds can be very large."
-  (assert (floatp x))
-  (multiple-value-bind (significand exponent sign)
-      (integer-decode-float x)
-    (let ((limit 1000)
-          (radix (float-radix x)))
-      (cond
-       ((< exponent (- limit))
-        (* significand (expt radix (- limit)) sign))
-       ((> exponent limit)
-        (* significand (expt radix limit) sign))
-       (t (rational x))))))
+;; (defun rational-safely (x)
+;;   "Rational a floating point number, making sure the rational
+;;    number isn't 'too big'.  This is important in implementations such
+;;    as clisp where the floating bounds can be very large."
+;;   (assert (floatp x))
+;;   (multiple-value-bind (significand exponent sign)
+;;       (integer-decode-float x)
+;;     (let ((limit 1000)
+;;           (radix (float-radix x)))
+;;       (cond
+;;        ((< exponent (- limit))
+;;         (* significand (expt radix (- limit)) sign))
+;;        ((> exponent limit)
+;;         (* significand (expt radix limit) sign))
+;;        (t (rational x))))))
 
 (declaim (special *similarity-list*))
 
@@ -989,23 +989,23 @@ the condition to go uncaught if it cannot be classified."
 (defun approx= (x y &optional (eps (epsilon x)))
   (<= (abs (/ (- x y) (max (abs x) 1))) eps))
 
-(defun epsilon (number)
-  (etypecase number
-    (complex (* 2 (epsilon (realpart number)))) ;; crude
-    (short-float short-float-epsilon)
-    (single-float single-float-epsilon)
-    (double-float double-float-epsilon)
-    (long-float long-float-epsilon)
-    (rational 0)))
+;; (defun epsilon (number)
+;;   (etypecase number
+;;     (complex (* 2 (epsilon (realpart number)))) ;; crude
+;;     (short-float short-float-epsilon)
+;;     (single-float single-float-epsilon)
+;;     (double-float double-float-epsilon)
+;;     (long-float long-float-epsilon)
+;;     (rational 0)))
 
-(defun negative-epsilon (number)
-  (etypecase number
-    (complex (* 2 (negative-epsilon (realpart number)))) ;; crude
-    (short-float short-float-negative-epsilon)
-    (single-float single-float-negative-epsilon)
-    (double-float double-float-negative-epsilon)
-    (long-float long-float-negative-epsilon)
-    (rational 0)))
+;; (defun negative-epsilon (number)
+;;   (etypecase number
+;;     (complex (* 2 (negative-epsilon (realpart number)))) ;; crude
+;;     (short-float short-float-negative-epsilon)
+;;     (single-float single-float-negative-epsilon)
+;;     (double-float double-float-negative-epsilon)
+;;     (long-float long-float-negative-epsilon)
+;;     (rational 0)))
 
 (defun sequencep (x) (typep x 'sequence))
 

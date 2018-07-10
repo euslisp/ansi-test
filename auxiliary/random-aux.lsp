@@ -123,24 +123,24 @@
     (let ((d (loop for x = (random r) unless (zerop x) do (return x))))
       (/ n d))))
 
-(defun make-random-bounded-rational (upper-limit lower-inclusive upper-inclusive)
-  (assert (rationalp upper-limit))
-  (assert (not (minusp upper-limit)))
-  (cond
-   ((= upper-limit 0) 0)
-   ((<= upper-limit 1/1000000)
-    (/ (make-random-bounded-rational (* 1000000 upper-limit) lower-inclusive upper-inclusive)
-       1000000))
-   ((>= upper-limit 1000000)
-    (* (random 1000000)
-       (make-random-bounded-rational (/ upper-limit 1000000) lower-inclusive upper-inclusive)))
-   (t
-    (assert (< 1/1000000 upper-limit 1000000))
-    (let ((x 0))
-      (loop do (setq x (* upper-limit (rational (random 1.0))))
-            while (or (and (not lower-inclusive) (zerop x))
-                      (and (not upper-inclusive) (= x upper-limit)))
-            finally (return x))))))
+;; (defun make-random-bounded-rational (upper-limit lower-inclusive upper-inclusive)
+;;   (assert (rationalp upper-limit))
+;;   (assert (not (minusp upper-limit)))
+;;   (cond
+;;    ((= upper-limit 0) 0)
+;;    ((<= upper-limit 1/1000000)
+;;     (/ (make-random-bounded-rational (* 1000000 upper-limit) lower-inclusive upper-inclusive)
+;;        1000000))
+;;    ((>= upper-limit 1000000)
+;;     (* (random 1000000)
+;;        (make-random-bounded-rational (/ upper-limit 1000000) lower-inclusive upper-inclusive)))
+;;    (t
+;;     (assert (< 1/1000000 upper-limit 1000000))
+;;     (let ((x 0))
+;;       (loop do (setq x (* upper-limit (rational (random 1.0))))
+;;             while (or (and (not lower-inclusive) (zerop x))
+;;                       (and (not upper-inclusive) (= x upper-limit)))
+;;             finally (return x))))))
 
 (defun make-random-float ()
   (rcase

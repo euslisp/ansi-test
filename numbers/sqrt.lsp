@@ -78,23 +78,24 @@
   nil)
 
 (deftest sqrt.9
-  (let ((upper (rational most-positive-double-float))
-        (lower (rational most-negative-double-float)))
-    (loop for x = (random-fixnum)
-          repeat 1000
-          unless (or (< x lower)
-                     (> x upper)
-                     (let ((s (sqrt x)))
-                       (or (and (rationalp s)
-                                (>= s 0)
-                                (eql (* s s) x))
-                           (and (floatp s) (>= x 0))
-                           (and (complexp s)
-                                (zerop (realpart s))
-                                (> (imagpart s) 0)
-                                (< x 0)))))
-          collect (list x (sqrt x))))
-  nil)
+  ;; (let ((upper (rational most-positive-double-float))
+  ;;       (lower (rational most-negative-double-float)))
+  ;;   (loop for x = (random-fixnum)
+  ;;         repeat 1000
+  ;;         unless (or (< x lower)
+  ;;                    (> x upper)
+  ;;                    (let ((s (sqrt x)))
+  ;;                      (or (and (rationalp s)
+  ;;                               (>= s 0)
+  ;;                               (eql (* s s) x))
+  ;;                          (and (floatp s) (>= x 0))
+  ;;                          (and (complexp s)
+  ;;                               (zerop (realpart s))
+  ;;                               (> (imagpart s) 0)
+  ;;                               (< x 0)))))
+  ;;         collect (list x (sqrt x))))
+    ;; nil)
+    (error "no such function rational"))
 
 (deftest sqrt.10
   (loop for x from 1 to 1000
