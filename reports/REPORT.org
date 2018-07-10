@@ -5284,7 +5284,7 @@
   - [X] (deftest string-downcase.error.5
   - [X] (deftest string-downcase.error.6
 *** misc [0%]
-**** misc.lsp [0%]
+**** misc.lsp [2%]
   - [ ] (deftest misc.1
   - [ ] (deftest misc.2
   - [ ] (deftest misc.3
@@ -5372,7 +5372,7 @@
   - [ ] (deftest misc.85
   - [ ] (deftest misc.86
   - [ ] (deftest misc.87
-  - [ ] (deftest misc.88
+  - [X] (deftest misc.88
   - [ ] (deftest misc.89
   - [ ] (deftest misc.89a
   - [ ] (deftest misc.89b
@@ -5392,7 +5392,7 @@
   - [ ] (deftest misc.103
   - [ ] (deftest misc.104
   - [ ] (deftest misc.105
-  - [ ] (deftest misc.106
+  - [X] (deftest misc.106
   - [ ] (deftest misc.107
   - [ ] (deftest misc.107a
   - [ ] (deftest misc.107b
@@ -5420,8 +5420,8 @@
   - [ ] (deftest misc.125
   - [ ] (deftest misc.126
   - [ ] (deftest misc.127
-  - [ ] (deftest misc.128
-  - [ ] (deftest misc.129
+  - [X] (deftest misc.128
+  - [X] (deftest misc.129
   - [ ] (deftest misc.130
   - [ ] (deftest misc.131
   - [ ] (deftest misc.132
@@ -5436,12 +5436,12 @@
   - [ ] (deftest misc.140
   - [ ] (deftest misc.141
   - [ ] (deftest misc.142
-  - [ ] (deftest misc.143
+  - [X] (deftest misc.143
   - [ ] (deftest misc.144
   - [ ] (deftest misc.145
   - [ ] (deftest misc.146
-  - [ ] (deftest misc.147
-  - [ ] (deftest misc.148
+  - [X] (deftest misc.147
+  - [X] (deftest misc.148
   - [ ] (deftest misc.149
   - [ ] (deftest misc.149a
   - [ ] (deftest misc.150
@@ -5491,12 +5491,12 @@
   - [ ] (deftest misc.181a
   - [ ] (deftest misc.182
   - [ ] (deftest misc.183
-  - [ ] (deftest misc.183a
+  - [X] (deftest misc.183a
   - [ ] (deftest misc.184
   - [ ] (deftest misc.185
   - [ ] (deftest misc.185a
   - [ ] (deftest misc.186
-  - [ ] (deftest misc.187
+  - [X] (deftest misc.187
   - [ ] (deftest misc.188
   - [ ] (deftest misc.189
   - [ ] (deftest misc.190
@@ -5522,7 +5522,7 @@
   - [ ] (deftest misc.210
   - [ ] (deftest misc.210a
   - [ ] (deftest misc.211
-  - [ ] (deftest misc.212
+  - [X] (deftest misc.212
   - [ ] (deftest misc.213
   - [ ] (deftest misc.213a
   - [ ] (deftest misc.214
@@ -5562,8 +5562,8 @@
   - [ ] (deftest misc.243
   - [ ] (deftest misc.244
   - [ ] (deftest misc.245
-  - [ ] (deftest misc.246
-  - [ ] (deftest misc.247
+  - [X] (deftest misc.246
+  - [X] (deftest misc.247
   - [ ] (deftest misc.248
   - [ ] (deftest misc.249
   - [ ] (deftest misc.250
@@ -5592,7 +5592,7 @@
   - [ ] (deftest misc.268
   - [ ] (deftest misc.269
   - [ ] (deftest misc.270
-  - [ ] (deftest misc.271
+  - [X] (deftest misc.271
   - [ ] (deftest misc.272
   - [ ] (deftest misc.273
   - [ ] (deftest misc.274
@@ -5609,13 +5609,13 @@
   - [ ] (deftest misc.283
   - [ ] (deftest misc.284
   - [ ] (deftest misc.285
-  - [ ] (deftest misc.286
+  - [X] (deftest misc.286
   - [ ] (deftest misc.287
   - [ ] (deftest misc.288
   - [ ] (deftest misc.289
   - [ ] (deftest misc.290
   - [ ] (deftest misc.290a
-  - [ ] (deftest misc.291
+  - [X] (deftest misc.291
   - [ ] (deftest misc.292
   - [ ] (deftest misc.292a
   - [ ] (deftest misc.293
@@ -5764,10 +5764,10 @@
   - [ ] (deftest misc.427
   - [ ] (deftest misc.428
   - [ ] (deftest misc.429
-  - [ ] (deftest misc.430
+  - [X] (deftest misc.430
   - [ ] (deftest misc.431
-  - [ ] (deftest misc.432
-  - [ ] (deftest misc.433
+  - [X] (deftest misc.432
+  - [X] (deftest misc.433
   - [ ] (deftest misc.434
   - [ ] (deftest misc.435
   - [ ] (deftest misc.436
