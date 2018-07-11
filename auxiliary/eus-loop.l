@@ -31,7 +31,7 @@
    self)
   (:iterate ()
     (if (>= cur (hash-table-count hash))
-        (values nil nil nil)
+        (list nil nil nil)
       (let ((key (svref (hash-table-key hash) cur))
             (val (svref (hash-table-value hash) cur)))
         (incf cur)
@@ -40,7 +40,7 @@
             (send self :next)
           (progn
             (incf count)
-            (values t key val)))))))
+            (list t key val)))))))
 
 (defclass package-iterator
   :super propertied-object
@@ -66,7 +66,7 @@
 	(let ((val (elt vec cur)))
 	  (incf cur)
 	  (if (symbolp val)
-	      (values t val)
+	      (list t val)
 	      (send self :iterate))))))
 
 
