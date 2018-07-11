@@ -3977,7 +3977,7 @@
   - [ ] (deftest features.3
   - [ ] (deftest features.4
 *** printer [0%]
-**** pprint-newline.lsp [0%]
+**** pprint-newline.lsp [4%]
   - [ ] (def-pprint-test pprint-newline.1
   - [ ] (def-pprint-test pprint-newline.2
   - [ ] (def-pprint-test pprint-newline.3
@@ -4022,9 +4022,9 @@
   - [ ] (deftest pprint-newline.mandatory.6
   - [ ] (deftest pprint-newline.error.1
   - [ ] (deftest pprint-newline.error.1-unsafe
-  - [ ] (deftest pprint-newline.error.2
-  - [ ] (deftest pprint-newline.error.3
-**** pprint-fill.lsp [0%]
+  - [X] (deftest pprint-newline.error.2
+  - [X] (deftest pprint-newline.error.3
+**** pprint-fill.lsp [15%]
   - [ ] (deftest pprint-fill.1
   - [ ] (deftest pprint-fill.2
   - [ ] (def-pprint-fill-test pprint-fill.3 ('(|A|)) "(A)")
@@ -4042,9 +4042,9 @@
   - [ ] (def-pprint-fill-test pprint-fill.15 ((let ((x (list '|A|))) (setf (cdr x) x) x))
   - [ ] (deftest pprint-fill.return-values.1
   - [ ] (deftest pprint-fill.return-values.2
-  - [ ] (deftest pprint-fill.error.1
-  - [ ] (deftest pprint-fill.error.2
-  - [ ] (deftest pprint-fill.error.3
+  - [X] (deftest pprint-fill.error.1
+  - [X] (deftest pprint-fill.error.2
+  - [X] (deftest pprint-fill.error.3
 **** print-floats.lsp [0%]
   - [ ] (deftest print.short-float.1
   - [ ] (deftest print.short-float.2
@@ -4066,23 +4066,23 @@
   - [ ] (deftest print.long-float.3
   - [ ] (deftest print.long-float.4
   - [ ] (deftest print.long-float.random
-**** princ.lsp [0%]
+**** princ.lsp [40%]
   - [ ] (deftest princ.1
   - [ ] (deftest princ.2
   - [ ] (deftest princ.3
-  - [ ] (deftest princ.error.1
-  - [ ] (deftest princ.error.2
-**** pprint.lsp [0%]
+  - [X] (deftest princ.error.1
+  - [X] (deftest princ.error.2
+**** pprint.lsp [40%]
   - [ ] (deftest pprint.1
   - [ ] (deftest pprint.2
   - [ ] (deftest pprint.3
-  - [ ] (deftest pprint.error.1
-  - [ ] (deftest pprint.error.2
-**** princ-to-string.lsp [0%]
+  - [X] (deftest pprint.error.1
+  - [X] (deftest pprint.error.2
+**** princ-to-string.lsp [50%]
   - [ ] (deftest princ-to-string.1
   - [ ] (deftest princ-to-string.2
-  - [ ] (deftest princ-to-string.error.1
-  - [ ] (deftest princ-to-string.error.2
+  - [X] (deftest princ-to-string.error.1
+  - [X] (deftest princ-to-string.error.2
 **** print-strings.lsp [0%]
   - [ ] (deftest print.string.1
   - [ ] (deftest print.string.2
@@ -4166,18 +4166,18 @@
   - [ ] (deftest print.symbol.prefix.8
   - [ ] (deftest print.symbol.prefix.9
   - [ ] (deftest print.symbol.prefix.10
-**** write-to-string.lsp [0%]
+**** write-to-string.lsp [42%]
   - [ ] (deftest write-to-string.1
   - [ ] (deftest write-to-string.2
   - [ ] (deftest write-to-string.3
   - [ ] (deftest write-to-string.4
-  - [ ] (deftest write-to-string.error.1
-  - [ ] (deftest write-to-string.error.2
-  - [ ] (deftest write-to-string.error.3
+  - [X] (deftest write-to-string.error.1
+  - [X] (deftest write-to-string.error.2
+  - [X] (deftest write-to-string.error.3
 **** print-pathname.lsp [0%]
   - [ ] (deftest print.pathname.1
   - [ ] (deftest print.pathname.2
-**** copy-pprint-dispatch.lsp [0%]
+**** copy-pprint-dispatch.lsp [10%]
   - [ ] (deftest copy-pprint-dispatch.1
   - [ ] (deftest copy-pprint-dispatch.2
   - [ ] (deftest copy-pprint-dispatch.3
@@ -4186,9 +4186,9 @@
   - [ ] (deftest copy-pprint-dispatch.6
   - [ ] (deftest copy-pprint-dispatch.7
   - [ ] (deftest copy-pprint-dispatch.8
-  - [ ] (deftest copy-pprint-dispatch.error.1
+  - [X] (deftest copy-pprint-dispatch.error.1
   - [ ] (deftest copy-pprint-dispatch.error.2
-**** pprint-dispatch.lsp [0%]
+**** pprint-dispatch.lsp [29%]
   - [ ] (deftest pprint-dispatch.1
   - [ ] (deftest pprint-dispatch.2
   - [ ] (deftest pprint-dispatch.3
@@ -4199,19 +4199,19 @@
   - [ ] (deftest pprint-dispatch.8
   - [ ] (deftest pprint-dispatch.9
   - [ ] (deftest pprint-dispatch.10
-  - [ ] (deftest pprint-dispatch.error.1
-  - [ ] (deftest pprint-dispatch.error.2
-  - [ ] (deftest set-pprint-dispatch.error.1
-  - [ ] (deftest set-pprint-dispatch.error.2
-  - [ ] (deftest set-pprint-dispatch.error.3
+  - [X] (deftest pprint-dispatch.error.1
+  - [X] (deftest pprint-dispatch.error.2
+  - [X] (deftest set-pprint-dispatch.error.1
+  - [X] (deftest set-pprint-dispatch.error.2
+  - [X] (deftest set-pprint-dispatch.error.3
   - [ ] (deftest set-pprint-dispatch.error.4
   - [ ] (deftest set-pprint-dispatch.error.4-unsafe
-**** print.lsp [0%]
+**** print.lsp [40%]
   - [ ] (deftest print.1
   - [ ] (deftest print.2
   - [ ] (deftest print.3
-  - [ ] (deftest print.error.1
-  - [ ] (deftest print.error.2
+  - [X] (deftest print.error.1
+  - [X] (deftest print.error.2
 **** print-characters.lsp [0%]
   - [ ] (deftest print.char.1
   - [ ] (deftest print.char.2
@@ -4224,12 +4224,12 @@
   - [ ] (deftest print.char.9
   - [ ] (deftest print.char.10
   - [ ] (deftest print.char.11
-**** prin1.lsp [0%]
+**** prin1.lsp [40%]
   - [ ] (deftest prin1.1
   - [ ] (deftest prin1.2
   - [ ] (deftest prin1.3
-  - [ ] (deftest prin1.error.1
-  - [ ] (deftest prin1.error.2
+  - [X] (deftest prin1.error.1
+  - [X] (deftest prin1.error.2
 **** print-unreadable-object.lsp [0%]
   - [ ] (def-pprint-test print-unreadable-object.1
   - [ ] (def-pprint-test print-unreadable-object.2
@@ -4274,7 +4274,7 @@
   - [ ] (deftest print.cons.level.3
   - [ ] (deftest print.cons.level.4
   - [ ] (deftest print.cons.level.5
-**** pprint-linear.lsp [0%]
+**** pprint-linear.lsp [17%]
   - [ ] (deftest pprint-linear.1
   - [ ] (deftest pprint-linear.2
   - [ ] (def-pprint-linear-test pprint-linear.3 ('(|A|)) "(A)")
@@ -4289,10 +4289,10 @@
   - [ ] (deftest pprint-linear.12
   - [ ] (deftest pprint-linear.13
   - [ ] (def-pprint-linear-test pprint-linear.14 ((let ((x (list '|A|))) (list x x)))
-  - [ ] (deftest pprint-linear.error.1
-  - [ ] (deftest pprint-linear.error.2
-  - [ ] (deftest pprint-linear.error.3
-**** write.lsp [0%]
+  - [X] (deftest pprint-linear.error.1
+  - [X] (deftest pprint-linear.error.2
+  - [X] (deftest pprint-linear.error.3
+**** write.lsp [36%]
   - [ ] (deftest write.1
   - [ ] (deftest write.2
   - [ ] (deftest write.3
@@ -4300,10 +4300,10 @@
   - [ ] (deftest write.5
   - [ ] (deftest write.6
   - [ ] (deftest write.7
-  - [ ] (deftest write.error.1
-  - [ ] (deftest write.error.2
-  - [ ] (deftest write.error.3
-  - [ ] (deftest write.error.4
+  - [X] (deftest write.error.1
+  - [X] (deftest write.error.2
+  - [X] (deftest write.error.3
+  - [X] (deftest write.error.4
 **** print-complex.lsp [0%]
   - [ ] (deftest print.complex.1
   - [ ] (deftest print.complex.2
@@ -4311,7 +4311,7 @@
   - [ ] (deftest print.complex.random.2
 **** print-random-state.lsp [0%]
   - [ ] (deftest print.random-state.1
-**** pprint-exit-if-list-exhausted.lsp [0%]
+**** pprint-exit-if-list-exhausted.lsp [23%]
   - [ ] (deftest pprint-exit-if-list-exhausted.1
   - [ ] (deftest pprint-exit-if-list-exhausted.2
   - [ ] (deftest pprint-exit-if-list-exhausted.3
@@ -4325,10 +4325,10 @@
   - [ ] (deftest pprint-pop.7
   - [ ] (deftest pprint-pop.8
   - [ ] (deftest pprint-pop.9
-  - [ ] (deftest pprint-exit-if-list-exhausted.error.1
-  - [ ] (deftest pprint-exit-if-list-exhausted.error.1-unsafe
-  - [ ] (deftest pprint-pop.error.1
-  - [ ] (deftest pprint-pop.error.1-unsafe
+  - [X] (deftest pprint-exit-if-list-exhausted.error.1
+  - [X] (deftest pprint-exit-if-list-exhausted.error.1-unsafe
+  - [X] (deftest pprint-pop.error.1
+  - [X] (deftest pprint-pop.error.1-unsafe
 **** print-level.lsp [0%]
   - [ ] (deftest print-level.1
   - [ ] (deftest print-level.2
@@ -4383,7 +4383,7 @@
   - [ ] (deftest print.vector.level.4
   - [ ] (deftest print.vector.level.5
   - [ ] (deftest print.vector.level.6
-**** pprint-tabular.lsp [0%]
+**** pprint-tabular.lsp [13%]
   - [ ] (deftest pprint-tabular.1
   - [ ] (deftest pprint-tabular.2
   - [ ] (def-pprint-tabular-test pprint-tabular.3 ('(|M|)) "(M)")
@@ -4410,23 +4410,23 @@
   - [ ] (deftest pprint-tabular.24
   - [ ] (deftest pprint-tabular.return-values.1
   - [ ] (deftest pprint-tabular.return-values.2
-  - [ ] (deftest pprint-tabular.error.1
-  - [ ] (deftest pprint-tabular.error.2
-  - [ ] (deftest pprint-tabular.error.3
-  - [ ] (deftest pprint-tabular.error.4
-**** printer-control-vars.lsp [0%]
-  - [ ] (deftest print-base.init.1
+  - [X] (deftest pprint-tabular.error.1
+  - [X] (deftest pprint-tabular.error.2
+  - [X] (deftest pprint-tabular.error.3
+  - [X] (deftest pprint-tabular.error.4
+**** printer-control-vars.lsp [45%]
+  - [X] (deftest print-base.init.1
   - [ ] (deftest print-radix.init.1
-  - [ ] (deftest print-case.init.1
-  - [ ] (deftest print-circle.init.1
+  - [X] (deftest print-case.init.1
+  - [X] (deftest print-circle.init.1
   - [ ] (deftest print-escape.init.1
   - [ ] (deftest print-gensym.init.1
-  - [ ] (deftest print-level.init.1
-  - [ ] (deftest print-length.init.1
+  - [X] (deftest print-level.init.1
+  - [X] (deftest print-length.init.1
   - [ ] (deftest print-lines.init.1
   - [ ] (deftest print-readably.init.1
   - [ ] (deftest print-right-margin.init.1
-**** pprint-indent.lsp [0%]
+**** pprint-indent.lsp [10%]
   - [ ] (deftest pprint-indent.1
   - [ ] (deftest pprint-indent.2
   - [ ] (deftest pprint-indent.3
@@ -4451,12 +4451,12 @@
   - [ ] (deftest pprint-indent.21
   - [ ] (deftest pprint-indent.22
   - [ ] (deftest pprint-indent.23
-  - [ ] (deftest pprint-indent.error.1
-  - [ ] (deftest pprint-indent.error.2
-  - [ ] (deftest pprint-indent.error.3
+  - [X] (deftest pprint-indent.error.1
+  - [X] (deftest pprint-indent.error.2
+  - [X] (deftest pprint-indent.error.3
   - [ ] (deftest pprint-indent.error.4
   - [ ] (deftest pprint-indent.error.4-unsafe
-**** pprint-tab.lsp [0%]
+**** pprint-tab.lsp [20%]
   - [ ] (def-pprint-test pprint-tab.non-pretty.1
   - [ ] (def-pprint-test pprint-tab.non-pretty.2
   - [ ] (def-pprint-test pprint-tab.non-pretty.3
@@ -4471,18 +4471,18 @@
   - [ ] (def-pprint-test pprint-tab.section.1
   - [ ] (def-pprint-test pprint-tab.line-relative.1
   - [ ] (def-pprint-test pprint-tab.section-relative.1
-  - [ ] (deftest pprint-tab.error.1
-  - [ ] (deftest pprint-tab.error.2
-  - [ ] (deftest pprint-tab.error.3
-  - [ ] (deftest pprint-tab.error.4
+  - [X] (deftest pprint-tab.error.1
+  - [X] (deftest pprint-tab.error.2
+  - [X] (deftest pprint-tab.error.3
+  - [X] (deftest pprint-tab.error.4
   - [ ] (deftest pprint-tab.error.5
   - [ ] (deftest pprint-tab.error.5-unsafe
-**** prin1-to-string.lsp [0%]
+**** prin1-to-string.lsp [50%]
   - [ ] (deftest prin1-to-string.1
   - [ ] (deftest prin1-to-string.2
-  - [ ] (deftest prin1-to-string.error.1
-  - [ ] (deftest prin1-to-string.error.2
-**** pprint-logical-block.lsp [0%]
+  - [X] (deftest prin1-to-string.error.1
+  - [X] (deftest prin1-to-string.error.2
+**** pprint-logical-block.lsp [8%]
   - [ ] (deftest pprint-logical-block.1
   - [ ] (deftest pprint-logical-block.2
   - [ ] (deftest pprint-logical-block.3
@@ -4506,8 +4506,8 @@
   - [ ] (deftest pprint-logical-block.error.2-unsafe
   - [ ] (deftest pprint-logical-block.error.3
   - [ ] (deftest pprint-logical-block.error.3-unsafe
-  - [ ] (deftest pprint-logical-block.error.4
-  - [ ] (deftest pprint-logical-block.error.4-unsafe
+  - [X] (deftest pprint-logical-block.error.4
+  - [X] (deftest pprint-logical-block.error.4-unsafe
 **** print-array.lsp [0%]
   - [ ] (deftest print.array.0.1
   - [ ] (deftest print.array.0.2
@@ -5070,25 +5070,25 @@
   - [X] (deftest string-not-greaterp.error.4
   - [X] (deftest string-not-greaterp.error.5
   - [X] (deftest string-not-greaterp.error.6
-**** char-schar.lsp [55%]
+**** char-schar.lsp [66%]
   - [X] (deftest char.1
   - [X] (deftest char.2
   - [X] (deftest char.3
   - [X] (deftest char.4
-  - [ ] (deftest char.5
+  - [X] (deftest char.5
   - [ ] (deftest char.6
   - [ ] (deftest char.7
   - [ ] (deftest char.8
   - [ ] (deftest char.9
   - [ ] (deftest char.10
   - [X] (deftest char.order.1
-  - [ ] (deftest char.order.2
+  - [X] (deftest char.order.2
   - [X] (deftest char.error.1
   - [X] (deftest char.error.2
   - [X] (deftest char.error.3
   - [X] (deftest schar.1
   - [X] (deftest schar.2
-  - [ ] (deftest schar.3
+  - [X] (deftest schar.3
   - [ ] (deftest schar.4
   - [ ] (deftest schar.5
   - [ ] (deftest schar.6
@@ -5122,9 +5122,9 @@
   - [X] (deftest string-upcase.error.4
   - [X] (deftest string-upcase.error.5
   - [X] (deftest string-upcase.error.6
-**** make-string.lsp [29%]
+**** make-string.lsp [51%]
   - [X] (deftest make-string.1
-  - [ ] (deftest make-string.2
+  - [X] (deftest make-string.2
   - [ ] (deftest make-string.3
   - [ ] (deftest make-string.4
   - [ ] (deftest make-string.5
@@ -5134,20 +5134,20 @@
   - [ ] (deftest make-string.9
   - [ ] (deftest make-string.10
   - [ ] (def-fold-test make-string.fold.1 (make-string 5 :initial-element #\a))
-  - [ ] (deftest make-string.allow-other-keys.1
-  - [ ] (deftest make-string.allow-other-keys.2
-  - [ ] (deftest make-string.allow-other-keys.3
+  - [X] (deftest make-string.allow-other-keys.1
+  - [X] (deftest make-string.allow-other-keys.2
+  - [X] (deftest make-string.allow-other-keys.3
   - [ ] (deftest make-string.allow-other-keys.4
   - [ ] (deftest make-string.allow-other-keys.5
   - [ ] (deftest make-string.allow-other-keys.6
-  - [ ] (deftest make-string.keywords.7
+  - [X] (deftest make-string.keywords.7
   - [X] (deftest make-string.error.1
   - [X] (deftest make-string.error.2
   - [X] (deftest make-string.error.3
   - [X] (deftest make-string.error.4
   - [X] (deftest make-string.error.5
   - [X] (deftest make-string.error.6
-  - [ ] (deftest make-string.order.1
+  - [X] (deftest make-string.order.1
   - [ ] (deftest make-string.order.2
   - [ ] (deftest make-string.order.3
 **** string-left-trim.lsp [90%]
@@ -5183,7 +5183,7 @@
   - [X] (deftest string-left-trim.error.1
   - [X] (deftest string-left-trim.error.2
   - [X] (deftest string-left-trim.error.3
-**** string.lsp [37%]
+**** string.lsp [41%]
   - [X] (deftest string.1
   - [X] (deftest string.2
   - [ ] (deftest string.3
@@ -5198,7 +5198,7 @@
   - [X] (deftest string.12
   - [X] (deftest string.13
   - [ ] (deftest string.14
-  - [ ] (deftest string.15
+  - [X] (deftest string.15
   - [ ] (deftest string.16
   - [ ] (deftest string.17
   - [ ] (deftest string.18
@@ -6657,41 +6657,41 @@
   - [ ] (deftest loop.10.111
   - [ ] (deftest loop.10.112
   - [ ] (deftest loop.10.113
-**** loop7.lsp [8%]
+**** loop7.lsp [70%]
   - [ ] (cl-test::=in-package "CL-TEST")
   - [ ] (cl-test::=in-package "CL-TEST")
-  - [ ] (deftest loop.7.1
-  - [ ] (deftest loop.7.2
-  - [ ] (deftest loop.7.3
-  - [ ] (deftest loop.7.4
-  - [ ] (deftest loop.7.5
-  - [ ] (deftest loop.7.6
-  - [ ] (deftest loop.7.7
-  - [ ] (deftest loop.7.8
-  - [ ] (deftest loop.7.9
-  - [ ] (deftest loop.7.10
-  - [ ] (deftest loop.7.11
-  - [ ] (deftest loop.7.12
-  - [ ] (deftest loop.7.13
-  - [ ] (deftest loop.7.14
-  - [ ] (deftest loop.7.15
-  - [ ] (deftest loop.7.16
-  - [ ] (deftest loop.7.17
+  - [X] (deftest loop.7.1
+  - [X] (deftest loop.7.2
+  - [X] (deftest loop.7.3
+  - [X] (deftest loop.7.4
+  - [X] (deftest loop.7.5
+  - [X] (deftest loop.7.6
+  - [X] (deftest loop.7.7
+  - [X] (deftest loop.7.8
+  - [X] (deftest loop.7.9
+  - [X] (deftest loop.7.10
+  - [X] (deftest loop.7.11
+  - [X] (deftest loop.7.12
+  - [X] (deftest loop.7.13
+  - [X] (deftest loop.7.14
+  - [X] (deftest loop.7.15
+  - [X] (deftest loop.7.16
+  - [X] (deftest loop.7.17
   - [X] (deftest loop.7.18
   - [X] (deftest loop.7.19
   - [X] (deftest loop.7.20
-  - [ ] (deftest loop.7.21
-  - [ ] (deftest loop.7.22
-  - [ ] (deftest loop.7.23
+  - [X] (deftest loop.7.21
+  - [X] (deftest loop.7.22
+  - [X] (deftest loop.7.23
   - [ ] (deftest loop.7.24
   - [ ] (deftest loop.7.25
   - [ ] (deftest loop.7.26
   - [ ] (deftest loop.7.27
   - [ ] (deftest loop.7.28
   - [ ] (deftest loop.7.29
-  - [ ] (deftest loop.7.30
-  - [ ] (deftest loop.7.31
-  - [ ] (deftest loop.7.32
+  - [X] (deftest loop.7.30
+  - [X] (deftest loop.7.31
+  - [X] (deftest loop.7.32
   - [ ] (deftest loop.7.33
   - [ ] (deftest loop.7.34
   - [ ] (deftest loop.7.35
@@ -6941,17 +6941,17 @@
   - [ ] (deftest loop.9.45
   - [ ] (deftest loop.9.46
   - [ ] (deftest loop.9.47
-**** loop6.lsp [10%]
-  - [ ] (deftest loop.6.1
-  - [ ] (deftest loop.6.2
-  - [ ] (deftest loop.6.3
-  - [ ] (deftest loop.6.4
-  - [ ] (deftest loop.6.5
-  - [ ] (deftest loop.6.6
-  - [ ] (deftest loop.6.7
-  - [ ] (deftest loop.6.8
-  - [ ] (deftest loop.6.9
-  - [ ] (deftest loop.6.10
+**** loop6.lsp [36%]
+  - [X] (deftest loop.6.1
+  - [X] (deftest loop.6.2
+  - [X] (deftest loop.6.3
+  - [X] (deftest loop.6.4
+  - [X] (deftest loop.6.5
+  - [X] (deftest loop.6.6
+  - [X] (deftest loop.6.7
+  - [X] (deftest loop.6.8
+  - [X] (deftest loop.6.9
+  - [X] (deftest loop.6.10
   - [ ] (deftest loop.6.11
   - [ ] (deftest loop.6.12
   - [ ] (deftest loop.6.13
@@ -6980,8 +6980,8 @@
   - [ ] (deftest loop.6.36
   - [ ] (deftest loop.6.37
   - [ ] (deftest loop.6.38
-  - [ ] (deftest loop.6.39
-  - [ ] (deftest loop.6.40
+  - [X] (deftest loop.6.39
+  - [X] (deftest loop.6.40
   - [ ] (deftest loop.6.41
   - [ ] (deftest loop.6.42
   - [X] (deftest loop.6.error.1
@@ -9674,12 +9674,12 @@
   - [X] (deftest keyword-package-nicknames
   - [ ] (deftest common-lisp-package-nicknames
   - [ ] (deftest common-lisp-user-package-nicknames
-  - [ ] (deftest no-extra-symbols-exported-from-common-lisp
+  - [X] (deftest no-extra-symbols-exported-from-common-lisp
   - [ ] (deftest keyword-behavior
   - [ ] (deftest cl-function-symbols.1
-  - [ ] (deftest cl-macro-symbols.1
-  - [ ] (deftest cl-constant-symbols.1
-  - [ ] (deftest cl-variable-symbols.1
+  - [X] (deftest cl-macro-symbols.1
+  - [X] (deftest cl-constant-symbols.1
+  - [X] (deftest cl-variable-symbols.1
   - [ ] (deftest cl-types-that-are-classes.1
   - [ ] (deftest cl-types-that-are-classes.2
   - [ ] (deftest cl-types-that-are-classes.3
@@ -10757,13 +10757,13 @@
   - [ ] (deftest ignorable.6
   - [X] (deftest ignorable.7
   - [ ] (deftest ignorable.8
-**** macro-function.lsp [17%]
-  - [ ] (deftest macro-function.1
+**** macro-function.lsp [35%]
+  - [X] (deftest macro-function.1
   - [ ] (deftest macro-function.2
   - [ ] (deftest macro-function.3
   - [X] (deftest macro-function.4
-  - [ ] (deftest macro-function.5
-  - [ ] (deftest macro-function.6
+  - [X] (deftest macro-function.5
+  - [X] (deftest macro-function.6
   - [ ] (deftest macro-function.7
   - [ ] (deftest macro-function.8
   - [ ] (deftest macro-function.9
@@ -10860,7 +10860,7 @@
   - [X] (deftest define-symbol-macro.error.1
   - [X] (deftest define-symbol-macro.error.2
   - [X] (deftest define-symbol-macro.error.3
-**** dynamic-extent.lsp [81%]
+**** dynamic-extent.lsp [87%]
   - [X] (deftest dynamic-extent.1
   - [X] (deftest dynamic-extent.2
   - [X] (deftest dynamic-extent.3
@@ -10873,7 +10873,7 @@
   - [X] (deftest dynamic-extent.10
   - [X] (deftest dynamic-extent.11
   - [ ] (deftest dynamic-extent.12
-  - [ ] (deftest dynamic-extent.13
+  - [X] (deftest dynamic-extent.13
   - [ ] (deftest dynamic-extent.14
   - [X] (deftest dynamic-extent.15
   - [X] (deftest dynamic-extent.16
@@ -10894,9 +10894,9 @@
   - [X] (deftest constantp.order.1
   - [ ] (deftest constantp.order.2
 **** compiler-macros.lsp [0%]
-**** eval.lsp [90%]
+**** eval.lsp [100%]
   - [X] (deftest eval.1
-  - [ ] (deftest eval.2
+  - [X] (deftest eval.2
   - [X] (deftest eval.3
   - [X] (deftest eval.4
   - [X] (deftest eval.5
@@ -15389,7 +15389,7 @@
   - [X] (deftest sleep.error.1
   - [X] (deftest sleep.error.2
   - [ ] (deftest sleep.error.3
-**** documentation.lsp [3%]
+**** documentation.lsp [13%]
   - [ ] (deftest documentation.function.t.1
   - [ ] (deftest documentation.function.t.2
   - [ ] (deftest documentation.function.t.3
@@ -15420,9 +15420,9 @@
   - [ ] (deftest documentation.symbol.function.4
   - [ ] (deftest documentation.symbol.function.5
   - [ ] (deftest documentation.symbol.function.6
-  - [ ] (deftest documentation.symbol.function.7
-  - [ ] (deftest documentation.symbol.function.8
-  - [ ] (deftest documentation.symbol.function.9
+  - [X] (deftest documentation.symbol.function.7
+  - [X] (deftest documentation.symbol.function.8
+  - [X] (deftest documentation.symbol.function.9
   - [ ] (deftest documentation.symbol.compiler-macro.1
   - [ ] (deftest documentation.symbol.compiler-macro.2
   - [ ] (deftest documentation.symbol.setf.1
@@ -15437,7 +15437,7 @@
   - [ ] (deftest documentation.symbol.type.1
   - [ ] (deftest documentation.symbol.type.2
   - [ ] (deftest documentation.symbol.type.3
-  - [ ] (deftest documentation.symbol.type.4
+  - [X] (deftest documentation.symbol.type.4
   - [ ] (deftest documentation.symbol.structure.1
   - [ ] (deftest documentation.symbol.structure.2
   - [ ] (deftest documentation.symbol.structure.3
@@ -15445,8 +15445,8 @@
   - [ ] (deftest documentation.symbol.variable.2
   - [ ] (deftest documentation.symbol.variable.3
   - [ ] (deftest documentation.symbol.variable.4
-  - [ ] (deftest documentation.symbol.variable.5
-  - [ ] (deftest documentation.symbol.variable.6
+  - [X] (deftest documentation.symbol.variable.5
+  - [X] (deftest documentation.symbol.variable.6
   - [ ] (deftest documentation.new-method.1
 **** apropos.lsp [25%]
   - [X] (deftest apropos.1

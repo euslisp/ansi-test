@@ -992,15 +992,14 @@
 #:yes-or-no-p
 #:zerop)))
 
-(defparameter *cl-symbols*
-  (let ((pkg (find-package :common-lisp)))
-    (#-clisp progn
-     #+clisp ext:without-package-lock  #+clisp ("COMMON-LISP")
-     (mapcar #'(lambda (str) (intern str pkg))
-             *cl-symbol-names*))))
+;; (defparameter *cl-symbols*
+;;   (let ((pkg (find-package :common-lisp)))
+;;     (progn
+;;      (mapcar #'(lambda (str) (intern str pkg))
+;;              *cl-symbol-names*))))
 
-(defparameter *cl-symbols-vector*
-  (make-array (length *cl-symbols*) :initial-contents *cl-symbols*))
+;; (defparameter *cl-symbols-vector*
+;;   (make-array (length *cl-symbols*) :initial-contents *cl-symbols*))
 
 ;;; Symbols that name unary predicate that can be safely applied to any object
 (defparameter *cl-safe-predicates*
@@ -1722,8 +1721,8 @@
     dolist
     dotimes
     formatter
-    cl:handler-bind
-    cl:handler-case
+    ;; cl:handler-bind
+    ;; cl:handler-case
     ignore-errors
     in-package
     incf
@@ -2148,24 +2147,24 @@
                 *cl-system-class-symbols* *cl-class-symbols*
                 *cl-condition-type-symbols*)))
 
-(defparameter *cl-non-function-macro-special-operator-symbols*
-  (set-difference
-   *cl-symbols*
-   (reduce #'union
-           (list *cl-function-symbols*
-                 *cl-macro-symbols*
-                 *cl-accessor-symbols*
-                 *cl-local-function-symbols*
-                 *cl-local-macro-symbols*
-                 *cl-special-operator-symbols*
-                 *cl-standard-generic-function-symbols*
-                 '(declare ed)))))
+;; (defparameter *cl-non-function-macro-special-operator-symbols*
+;;   (set-difference
+;;    *cl-symbols*
+;;    (reduce #'union
+;;            (list *cl-function-symbols*
+;;                  *cl-macro-symbols*
+;;                  *cl-accessor-symbols*
+;;                  *cl-local-function-symbols*
+;;                  *cl-local-macro-symbols*
+;;                  *cl-special-operator-symbols*
+;;                  *cl-standard-generic-function-symbols*
+;;                  '(declare ed)))))
 
 (defparameter *cl-function-or-accessor-symbols*
   (append *cl-function-symbols* *cl-accessor-symbols*))
 
-(defparameter *cl-non-variable-constant-symbols*
-  (set-difference
-   *cl-symbols*
-   (union *cl-variable-symbols*
-          *cl-constant-symbols*)))
+;; (defparameter *cl-non-variable-constant-symbols*
+;;   (set-difference
+;;    *cl-symbols*
+;;    (union *cl-variable-symbols*
+;;           *cl-constant-symbols*)))
