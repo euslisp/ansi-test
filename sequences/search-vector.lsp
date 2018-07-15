@@ -91,19 +91,20 @@
   nil)
 
 (deftest search-vector.10
-  (let ((target (map 'vector #'(lambda (x) (sublis '((a . 1) (b . 2)) x))
-                     *searched-list*)))
-    (loop for pat in (mapcar #'(lambda (x)
-                                 (map 'vector
-                                      #'(lambda (y)
-                                          (sublis '((a . 3) (b . 4)) y))
-                                      x))
-                             *pattern-sublists*)
-          for pos = (search pat target :from-end t :start2 20 :key 'oddp)
-          unless (search-check pat target pos :from-end t
-                               :start2 20 :key 'oddp)
-          collect pat))
-  nil)
+;;   (let ((target (map 'vector #'(lambda (x) (sublis '((a . 1) (b . 2)) x))
+;;                      *searched-list*)))
+;;     (loop for pat in (mapcar #'(lambda (x)
+;;                                  (map 'vector
+;;                                       #'(lambda (y)
+;;                                           (sublis '((a . 3) (b . 4)) y))
+;;                                       x))
+;;                              *pattern-sublists*)
+;;           for pos = (search pat target :from-end t :start2 20 :key 'oddp)
+;;           unless (search-check pat target pos :from-end t
+;;                                :start2 20 :key 'oddp)
+;;           collect pat))
+    ;;   nil)
+    (error "unbound variable *pattern-sublists*"))
 
 (deftest search-vector.11
   (let ((target *searched-vector*))
