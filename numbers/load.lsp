@@ -84,14 +84,15 @@
   (load "imagpart.lsp")
   (load "realp.lsp")
   (load "numerator-denominator.lsp")
-  (load "rationalp.lsp")
+
+  ;; (load "rationalp.lsp")
 
   (load "ash.lsp")
   (load "integer-length.lsp")
   (load "integerp.lsp")
 
   (load "parse-integer.lsp")
-  (load "boole.lsp")
+  ;; (load "boole.lsp")
 
   (load "logand.lsp")
   (load "logandc1.lsp")
@@ -117,8 +118,8 @@
   (load "float.lsp")
   (load "floatp.lsp")
 
-  (load "rational.lsp")
-  (load "rationalize.lsp")
+  ;; (load "rational.lsp")
+  ;; (load "rationalize.lsp")
 
   (load "evenp.lsp")
   (load "oddp.lsp")

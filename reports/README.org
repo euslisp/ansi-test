@@ -124,7 +124,43 @@
     - "no such external symbol":
       - cl:handler-case
       - cl:external
-    
+** CURRENT 7 Numbers
+*** Caveats
+    - no dividing by zero
+    - random does not work with big numbers
+    - support for numbers with s in the name (eg 4.0s0)
+    - "no such function":
+      - integer-decode-float
+      - make-condition
+      - mask-field
+      - byte
+      - deposit-field
+      - logcount
+      - check-type-error
+      - ldb-test
+      - logorc2
+      - parse-integer
+      - name-char
+      - integer-length
+      - realp
+      - phase
+      - conjugate
+      - random-state-p
+      - lcm
+      - gcd
+      - realpart
+    - unboudn variable
+      - short-float
+      - *numbers*
+      - *rationals*
+      - *reals*
+      - *integers* - those, presumably, from some of the non-loaded files
+      - most-positive-X
+    - lacking types
+      - rational
+      - boolean
+      - support to different floats
+
 * Outline
 *** Data Types
 *** Scope and Extent
@@ -175,15 +211,17 @@
 * Results
 
 
-        | Tests-version        | Test-num | Passed | Failure |
-        |----------------------+----------+--------+---------|
-        | 1                    |     5557 |   2983 |    2574 |
-        |----------------------+----------+--------+---------|
-        | 2 - Add Arrays tests |     6297 |   3087 |    3210 |
-        |----------------------+----------+--------+---------|
-        | 3                    |     7676 |   3489 |    4187 |
-        |----------------------+----------+--------+---------|
-        | 4 - Add misc tests   |     8187 |   3506 |    4681 |
-        |----------------------+----------+--------+---------|
-        |                      |          |        |         |
+        | Tests-version         | Test-num | Passed | Failure |
+        |-----------------------+----------+--------+---------|
+        | 1                     |     5557 |   2983 |    2574 |
+        |-----------------------+----------+--------+---------|
+        | 2 - Add Arrays tests  |     6297 |   3087 |    3210 |
+        |-----------------------+----------+--------+---------|
+        | 3                     |     7676 |   3489 |    4187 |
+        |-----------------------+----------+--------+---------|
+        | 4 - Add misc tests    |     8187 |   3506 |    4681 |
+        |-----------------------+----------+--------+---------|
+        | 5 - Add numbers tests |     9582 |   3988 |    5594 |
+        |-----------------------+----------+--------+---------|
+        |                       |          |        |         |
 

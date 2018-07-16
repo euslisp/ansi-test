@@ -72,64 +72,64 @@
     (eqlt (abs x) (abs y)))
    (t (eqlt x y))))
 
-(defconstant +rational-most-negative-short-float+
-  (rational-safely most-negative-short-float))
+;; (defconstant +rational-most-negative-short-float+
+;;   (rational-safely most-negative-short-float))
 
-(defconstant +rational-most-negative-single-float+
-  (rational-safely most-negative-single-float))
+;; (defconstant +rational-most-negative-single-float+
+;;   (rational-safely most-negative-single-float))
 
-(defconstant +rational-most-negative-double-float+
-  (rational-safely most-negative-double-float))
+;; (defconstant +rational-most-negative-double-float+
+;;   (rational-safely most-negative-double-float))
 
-(defconstant +rational-most-negative-long-float+
-  (rational-safely most-negative-long-float))
+;; (defconstant +rational-most-negative-long-float+
+;;   (rational-safely most-negative-long-float))
 
-(defconstant +rational-most-positive-short-float+
-  (rational-safely most-positive-short-float))
+;; (defconstant +rational-most-positive-short-float+
+;;   (rational-safely most-positive-short-float))
 
-(defconstant +rational-most-positive-single-float+
-  (rational-safely most-positive-single-float))
+;; (defconstant +rational-most-positive-single-float+
+;;   (rational-safely most-positive-single-float))
 
-(defconstant +rational-most-positive-double-float+
-  (rational-safely most-positive-double-float))
+;; (defconstant +rational-most-positive-double-float+
+;;   (rational-safely most-positive-double-float))
 
-(defconstant +rational-most-positive-long-float+
-  (rational-safely most-positive-long-float))
+;; (defconstant +rational-most-positive-long-float+
+;;   (rational-safely most-positive-long-float))
 
 (defun float-exponent (x)
   (if (floatp x)
       (nth-value 1 (decode-float x))
     0))
 
-(defun numbers-are-compatible (x y)
-  (cond
-   ((complexp x)
-    (and (numbers-are-compatible (realpart x) y)
-         (numbers-are-compatible (imagpart x) y)))
-   ((complexp y)
-    (and (numbers-are-compatible x (realpart y))
-         (numbers-are-compatible x (imagpart y))))
-   (t
-    (when (floatp x) (rotatef x y))
-    (or (floatp x)
-        (not (floatp y))
-        (etypecase y
-          (short-float
-           (<= +rational-most-negative-short-float+
-               x
-               +rational-most-positive-short-float+))
-          (single-float
-           (<= +rational-most-negative-single-float+
-               x
-               +rational-most-positive-single-float+))
-          (double-float
-           (<= +rational-most-negative-double-float+
-               x
-               +rational-most-positive-double-float+))
-          (long-float
-           (<= +rational-most-negative-long-float+
-               x
-               +rational-most-positive-long-float+)))))))
+;; (defun numbers-are-compatible (x y)
+;;   (cond
+;;    ((complexp x)
+;;     (and (numbers-are-compatible (realpart x) y)
+;;          (numbers-are-compatible (imagpart x) y)))
+;;    ((complexp y)
+;;     (and (numbers-are-compatible x (realpart y))
+;;          (numbers-are-compatible x (imagpart y))))
+;;    (t
+;;     (when (floatp x) (rotatef x y))
+;;     (or (floatp x)
+;;         (not (floatp y))
+;;         (etypecase y
+;;           (short-float
+;;            (<= +rational-most-negative-short-float+
+;;                x
+;;                +rational-most-positive-short-float+))
+;;           (single-float
+;;            (<= +rational-most-negative-single-float+
+;;                x
+;;                +rational-most-positive-single-float+))
+;;           (double-float
+;;            (<= +rational-most-negative-double-float+
+;;                x
+;;                +rational-most-positive-double-float+))
+;;           (long-float
+;;            (<= +rational-most-negative-long-float+
+;;                x
+;;                +rational-most-positive-long-float+)))))))
 
 ;;; NOTE!  According to section 12.1.4.1, when a rational is compared
 ;;; to a float, the effect is as if the float is convert to a rational

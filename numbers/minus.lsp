@@ -99,8 +99,9 @@
 ;;; are done in the correct environment
 
 (deftest minus.9
-  (macrolet ((%m (z) z)) (- (expand-in-current-env (%m 1))))
-  -1)
+;;   (macrolet ((%m (z) z)) (- (expand-in-current-env (%m 1))))
+    ;;   -1)
+    (error "no such form macrolet"))
 
 ;;; Binary minus tests
 
@@ -185,10 +186,11 @@
 ;;; are done in the correct environment
 
 (deftest subtract.6
-  (macrolet ((%m (z) z))
-            (values
-             (- (expand-in-current-env (%m 2)) 1)
-             (- 17 (expand-in-current-env (%m 5)))
-             (- 1/2 (expand-in-current-env (%m 1/6))
-                (expand-in-current-env (%m 0)))))
-  1 12 1/3)
+;;   (macrolet ((%m (z) z))
+;;             (values
+;;              (- (expand-in-current-env (%m 2)) 1)
+;;              (- 17 (expand-in-current-env (%m 5)))
+;;              (- 1/2 (expand-in-current-env (%m 1/6))
+;;                 (expand-in-current-env (%m 0)))))
+    ;;   1 12 1/3)
+    (error "no such form macrolet"))

@@ -443,123 +443,128 @@
   (let ((a 1) (b 0)) (notnot-mv (< a b)))
   nil)
 
-(defparameter *number-less-tests*
-  (let* ((n (- most-positive-fixnum most-negative-fixnum))
-         (n2 (* 1000 n)))
-    (nconc
-     (loop for i = (+ (random n) most-negative-fixnum)
-           for i2 = (+ i (random most-positive-fixnum))
-           repeat 1000
-           nconc
-           (list (list i i2 t) (list i2 i nil)))
-     (loop for i = (random n2)
-           for i2 = (+ (random n2) i)
-           repeat 1000
-           nconc
-           (list (list i i2 t) (list i2 i nil)))
-     (loop for x in *universe*
-           when (integerp x)
-           nconc (list (list x (1+ x) t)
-                       (list (1+ x) x nil)))
-     (loop for x in *universe*
-           when (realp x)
-           collect (list x x nil))
 
-     (loop for x in *universe*
-           when (and (realp x) (>= x 1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for lower-bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent lower-bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent bound)) 500))
-                 when (<= (rational lower-bound)
-                          (rational x)
-                          (rational bound))
-                 nconc
-                 (let* ((y (float x one))
-                        (z (* y (- one (* 2 epsilon)))))
-                   (list (list y z nil)
-                         (list z y t)))))
+;;; random can't take big numbers and we don't have universe as yet
 
-     (loop for x in *universe*
-           when (and (realp x) (<= x -1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for upper-bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent upper-bound)) 500))
-                 when (<= (rational bound)
-                          (rational x)
-                          (rational upper-bound))
-                 nconc
-                 (let* ((y (float x one)))
-                   (let ((z (* y (- one (* 2 epsilon)))))
-                     (list (list y z t)
-                           (list z y nil))))))
+;; (defparameter *number-less-tests*
+;;   (let* ((n (- most-positive-fixnum most-negative-fixnum))
+;;          (n2 (* 1000 n)))
+;;     (nconc
+;;      (loop for i = (+ (random n) most-negative-fixnum)
+;;            for i2 = (+ i (random most-positive-fixnum))
+;;            repeat 1000
+;;            nconc
+;;            (list (list i i2 t) (list i2 i nil)))
+;;      (loop for i = (random n2)
+;;            for i2 = (+ (random n2) i)
+;;            repeat 1000
+;;            nconc
+;;            (list (list i i2 t) (list i2 i nil)))
+;;      (loop for x in *universe*
+;;            when (integerp x)
+;;            nconc (list (list x (1+ x) t)
+;;                        (list (1+ x) x nil)))
+;;      (loop for x in *universe*
+;;            when (realp x)
+;;            collect (list x x nil))
 
-     (loop for x in *universe*
-           when (and (realp x) (< -1 x 1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for lower-bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for upper-bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent lower-bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent upper-bound)) 500))
-                 when (<= (rational lower-bound)
-                          (rational x)
-                          (rational upper-bound))
-                 nconc
-                 (handler-case
-                  (let* ((y (float x one))
-                         (z1 (+ y epsilon))
-                         (z2 (- y epsilon)))
-                    (list (list y z1 t)
-                          (list z1 y nil)
-                          (list y z2 nil)
-                          (list z2 y t)))
-                  (arithmetic-error () nil)))
-           ))))
+;;      (loop for x in *universe*
+;;            when (and (realp x) (>= x 1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for lower-bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent lower-bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent bound)) 500))
+;;                  when (<= (rational lower-bound)
+;;                           (rational x)
+;;                           (rational bound))
+;;                  nconc
+;;                  (let* ((y (float x one))
+;;                         (z (* y (- one (* 2 epsilon)))))
+;;                    (list (list y z nil)
+;;                          (list z y t)))))
+
+;;      (loop for x in *universe*
+;;            when (and (realp x) (<= x -1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for upper-bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent upper-bound)) 500))
+;;                  when (<= (rational bound)
+;;                           (rational x)
+;;                           (rational upper-bound))
+;;                  nconc
+;;                  (let* ((y (float x one)))
+;;                    (let ((z (* y (- one (* 2 epsilon)))))
+;;                      (list (list y z t)
+;;                            (list z y nil))))))
+
+;;      (loop for x in *universe*
+;;            when (and (realp x) (< -1 x 1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for lower-bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for upper-bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent lower-bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent upper-bound)) 500))
+;;                  when (<= (rational lower-bound)
+;;                           (rational x)
+;;                           (rational upper-bound))
+;;                  nconc
+;;                  (handler-case
+;;                   (let* ((y (float x one))
+;;                          (z1 (+ y epsilon))
+;;                          (z2 (- y epsilon)))
+;;                     (list (list y z1 t)
+;;                           (list z1 y nil)
+;;                           (list y z2 nil)
+;;                           (list z2 y t)))
+;;                   (arithmetic-error () nil)))
+;;            ))))
+
 
 (deftest <.4
-  (loop for (x y result . rest) in *number-less-tests*
-        unless (if (< x y) result (not result))
-        collect (list* x y result rest))
-  nil)
+;;   (loop for (x y result . rest) in *number-less-tests*
+;;         unless (if (< x y) result (not result))
+;;         collect (list* x y result rest))
+    ;;   nil)
+    (error "we don't have *number-less-tests*"))
 
 (deftest <.5
   (loop for x in *universe*
@@ -702,121 +707,125 @@
   (let ((a 1) (b 0)) (notnot-mv (<= a b)))
   nil)
 
-(defparameter *number-less-or-equal-tests*
-  (let* ((n (- most-positive-fixnum most-negative-fixnum))
-         (n2 (* 1000 n)))
-    (nconc
-     (loop for i = (+ (random n) most-negative-fixnum)
-           for i2 = (+ i (random most-positive-fixnum))
-           repeat 1000
-           nconc
-           (list (list i i2 t) (list i2 i nil)))
-     (loop for i = (random n2)
-           for i2 = (+ (random n2) i)
-           repeat 1000
-           nconc
-           (list (list i i2 t) (list i2 i nil)))
-     (loop for x in *universe*
-           when (integerp x)
-           nconc (list (list x (1+ x) t)
-                       (list (1+ x) x nil)))
-     (loop for x in *universe*
-           when (realp x)
-           collect (list x x t))
+;;; random can't take big numbers and we don't have universe as yet
 
-     (loop for x in *universe*
-           when (and (realp x) (>= x 1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for lower-bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent lower-bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent bound)) 500))
-                 when (<= (rational lower-bound)
-                          (rational x)
-                          (rational bound))
-                 nconc
-                 (let* ((y (float x one))
-                        (z (* y (- one (* 2 epsilon)))))
-                   (list (list y z nil)
-                         (list z y t)))))
-     (loop for x in *universe*
-           when (and (realp x) (<= x -1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for upper-bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent upper-bound)) 500))
-                 when (<= (rational bound)
-                          (rational x)
-                          (rational upper-bound))
-                 nconc
-                 (let* ((y (float x one))
-                        (z (* y (- one (* 2 epsilon)))))
-                   (list (list y z t)
-                         (list z y nil)))))
-     (loop for x in *universe*
-           when (and (realp x) (< -1 x 1))
-           nconc
-           (loop for epsilon in (list short-float-epsilon
-                                      single-float-epsilon
-                                      double-float-epsilon
-                                      long-float-epsilon)
-                 for lower-bound in (list most-negative-short-float
-                                    most-negative-single-float
-                                    most-negative-double-float
-                                    most-negative-long-float)
-                 for upper-bound in (list most-positive-short-float
-                                    most-positive-single-float
-                                    most-positive-double-float
-                                    most-positive-long-float)
-                 for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
-                 when (and (<= (abs (float-exponent lower-bound)) 500)
-                           (<= (abs (float-exponent x)) 500)
-                           (<= (abs (float-exponent upper-bound)) 500))
-                 when (<= (rational lower-bound)
-                          (rational x)
-                          (rational upper-bound))
-                 nconc
-                 (handler-case
-                  (let* ((y (float x one))
-                         (z1 (+ y epsilon))
-                         (z2 (- y epsilon)))
-                    (list (list y z1 t)
-                          (list z1 y nil)
-                          (list y z2 nil)
-                          (list z2 y t)))
-                  (floating-point-underflow () nil))))
-     )))
+;; (defparameter *number-less-or-equal-tests*
+;;   (let* ((n (- most-positive-fixnum most-negative-fixnum))
+;;          (n2 (* 1000 n)))
+;;     (nconc
+;;      (loop for i = (+ (random n) most-negative-fixnum)
+;;            for i2 = (+ i (random most-positive-fixnum))
+;;            repeat 1000
+;;            nconc
+;;            (list (list i i2 t) (list i2 i nil)))
+;;      (loop for i = (random n2)
+;;            for i2 = (+ (random n2) i)
+;;            repeat 1000
+;;            nconc
+;;            (list (list i i2 t) (list i2 i nil)))
+;;      (loop for x in *universe*
+;;            when (integerp x)
+;;            nconc (list (list x (1+ x) t)
+;;                        (list (1+ x) x nil)))
+;;      (loop for x in *universe*
+;;            when (realp x)
+;;            collect (list x x t))
+
+;;      (loop for x in *universe*
+;;            when (and (realp x) (>= x 1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for lower-bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent lower-bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent bound)) 500))
+;;                  when (<= (rational lower-bound)
+;;                           (rational x)
+;;                           (rational bound))
+;;                  nconc
+;;                  (let* ((y (float x one))
+;;                         (z (* y (- one (* 2 epsilon)))))
+;;                    (list (list y z nil)
+;;                          (list z y t)))))
+;;      (loop for x in *universe*
+;;            when (and (realp x) (<= x -1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for upper-bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent upper-bound)) 500))
+;;                  when (<= (rational bound)
+;;                           (rational x)
+;;                           (rational upper-bound))
+;;                  nconc
+;;                  (let* ((y (float x one))
+;;                         (z (* y (- one (* 2 epsilon)))))
+;;                    (list (list y z t)
+;;                          (list z y nil)))))
+;;      (loop for x in *universe*
+;;            when (and (realp x) (< -1 x 1))
+;;            nconc
+;;            (loop for epsilon in (list short-float-epsilon
+;;                                       single-float-epsilon
+;;                                       double-float-epsilon
+;;                                       long-float-epsilon)
+;;                  for lower-bound in (list most-negative-short-float
+;;                                     most-negative-single-float
+;;                                     most-negative-double-float
+;;                                     most-negative-long-float)
+;;                  for upper-bound in (list most-positive-short-float
+;;                                     most-positive-single-float
+;;                                     most-positive-double-float
+;;                                     most-positive-long-float)
+;;                  for one in '(1.0s0 1.0f0 1.0d0 1.0l0)
+;;                  when (and (<= (abs (float-exponent lower-bound)) 500)
+;;                            (<= (abs (float-exponent x)) 500)
+;;                            (<= (abs (float-exponent upper-bound)) 500))
+;;                  when (<= (rational lower-bound)
+;;                           (rational x)
+;;                           (rational upper-bound))
+;;                  nconc
+;;                  (handler-case
+;;                   (let* ((y (float x one))
+;;                          (z1 (+ y epsilon))
+;;                          (z2 (- y epsilon)))
+;;                     (list (list y z1 t)
+;;                           (list z1 y nil)
+;;                           (list y z2 nil)
+;;                           (list z2 y t)))
+;;                   (floating-point-underflow () nil))))
+;;      )))
 
 (deftest <=.4
-  (loop for (x y result . rest) in *number-less-or-equal-tests*
-        unless (if (<= x y) result (not result))
-        collect (list* x y result rest))
-  nil)
+  ;; (loop for (x y result . rest) in *number-less-or-equal-tests*
+  ;;       unless (if (<= x y) result (not result))
+  ;;       collect (list* x y result rest))
+    ;; nil)
+    (error "we don't have *number-less-or-equal-tests*"))
+
 
 (deftest <=.5
   (loop for x in *universe*
@@ -959,10 +968,11 @@
   t)
 
 (deftest >.4
-  (loop for (x y result . rest) in *number-less-tests*
-        unless (if (> y x) result (not result))
-        collect (list* y x result rest))
-  nil)
+  ;; (loop for (x y result . rest) in *number-less-tests*
+  ;;       unless (if (> y x) result (not result))
+  ;;       collect (list* y x result rest))
+    ;; nil)
+    (error "we don't have *number-less-tests*"))
 
 (deftest >.5
   (loop for x in *universe*
@@ -1096,10 +1106,11 @@
   t)
 
 (deftest >=.4
-  (loop for (x y result . rest) in *number-less-or-equal-tests*
-        unless (if (>= y x) result (not result))
-        collect (list* y x result rest))
-  nil)
+  ;; (loop for (x y result . rest) in *number-less-or-equal-tests*
+  ;;       unless (if (>= y x) result (not result))
+  ;;       collect (list* y x result rest))
+    ;; nil)
+    (error "we don't have *number-less-tests*"))
 
 (deftest >=.5
   (loop for x in *universe*

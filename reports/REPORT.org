@@ -10922,20 +10922,20 @@
   - [X] (deftest proclaim.error.10
   - [X] (deftest proclaim.error.11
 *** numbers [0%]
-**** lognot.lsp [0%]
+**** lognot.lsp [71%]
   - [ ] (deftest lognot.error.1
-  - [ ] (deftest lognot.error.2
-  - [ ] (deftest lognot.error.3
-  - [ ] (deftest lognot.1
-  - [ ] (deftest lognot.2
-  - [ ] (deftest lognot.3
+  - [X] (deftest lognot.error.2
+  - [X] (deftest lognot.error.3
+  - [X] (deftest lognot.1
+  - [X] (deftest lognot.2
+  - [X] (deftest lognot.3
   - [ ] (deftest lognot.4
-**** logorc2.lsp [0%]
+**** logorc2.lsp [23%]
   - [ ] (deftest logorc2.error.1
   - [ ] (deftest logorc2.error.2
-  - [ ] (deftest logorc2.error.3
-  - [ ] (deftest logorc2.error.4
-  - [ ] (deftest logorc2.error.5
+  - [X] (deftest logorc2.error.3
+  - [X] (deftest logorc2.error.4
+  - [X] (deftest logorc2.error.5
   - [ ] (deftest logorc2.1
   - [ ] (deftest logorc2.2
   - [ ] (deftest logorc2.2a
@@ -10944,9 +10944,9 @@
   - [ ] (deftest logorc2.5
   - [ ] (deftest logorc2.6
   - [ ] (deftest logorc2.order.1
-**** floor.lsp [0%]
-  - [ ] (deftest floor.error.1
-  - [ ] (deftest floor.error.2
+**** floor.lsp [9%]
+  - [X] (deftest floor.error.1
+  - [X] (deftest floor.error.2
   - [ ] (deftest floor.1
   - [ ] (deftest floor.2
   - [ ] (deftest floor.3
@@ -10966,54 +10966,54 @@
   - [ ] (deftest floor.17
   - [ ] (deftest floor.18
   - [ ] (deftest floor.19
-**** tanh.lsp [0%]
-  - [ ] (deftest tanh.1
+**** tanh.lsp [44%]
+  - [X] (deftest tanh.1
   - [ ] (deftest tanh.2
   - [ ] (deftest tanh.3
-  - [ ] (deftest tanh.4
+  - [X] (deftest tanh.4
   - [ ] (deftest tanh.5
   - [ ] (deftest tanh.6
-  - [ ] (deftest tanh.error.1
-  - [ ] (deftest tanh.error.2
+  - [X] (deftest tanh.error.1
+  - [X] (deftest tanh.error.2
   - [ ] (deftest tanh.error.3
-**** logand.lsp [0%]
+**** logand.lsp [50%]
   - [ ] (deftest logand.error.1
   - [ ] (deftest logand.error.2
   - [ ] (deftest logand.error.3
-  - [ ] (deftest logand.1
-  - [ ] (deftest logand.2
-  - [ ] (deftest logand.3
+  - [X] (deftest logand.1
+  - [X] (deftest logand.2
+  - [X] (deftest logand.3
   - [ ] (deftest logand.4
   - [ ] (deftest logand.5
   - [ ] (deftest logand.6
   - [ ] (deftest logand.7
-  - [ ] (deftest logand.8
-  - [ ] (deftest logand.9
-  - [ ] (deftest logand.order.1
-  - [ ] (deftest logand.order.2
-**** lognor.lsp [0%]
+  - [X] (deftest logand.8
+  - [X] (deftest logand.9
+  - [X] (deftest logand.order.1
+  - [X] (deftest logand.order.2
+**** lognor.lsp [58%]
   - [ ] (deftest lognor.error.1
   - [ ] (deftest lognor.error.2
-  - [ ] (deftest lognor.error.3
-  - [ ] (deftest lognor.error.4
-  - [ ] (deftest lognor.error.5
-  - [ ] (deftest lognor.1
-  - [ ] (deftest lognor.2
-  - [ ] (deftest lognor.3
+  - [X] (deftest lognor.error.3
+  - [X] (deftest lognor.error.4
+  - [X] (deftest lognor.error.5
+  - [X] (deftest lognor.1
+  - [X] (deftest lognor.2
+  - [X] (deftest lognor.3
   - [ ] (deftest lognor.4
   - [ ] (deftest lognor.5
   - [ ] (deftest lognor.6
-  - [ ] (deftest lognor.order.1
-**** sqrt.lsp [0%]
-  - [ ] (deftest sqrt.error.1
-  - [ ] (deftest sqrt.error.2
+  - [X] (deftest lognor.order.1
+**** sqrt.lsp [14%]
+  - [X] (deftest sqrt.error.1
+  - [X] (deftest sqrt.error.2
   - [ ] (deftest sqrt.error.3
   - [ ] (deftest sqrt.1
   - [ ] (deftest sqrt.2
   - [ ] (deftest sqrt.3
   - [ ] (deftest sqrt.4
   - [ ] (deftest sqrt.5
-  - [ ] (deftest sqrt.7
+  - [X] (deftest sqrt.7
   - [ ] (deftest sqrt.8
   - [ ] (deftest sqrt.9
   - [ ] (deftest sqrt.10
@@ -11026,13 +11026,13 @@
   - [ ] (deftest sqrt.17
   - [ ] (deftest sqrt.18
   - [ ] (deftest sqrt.19
-**** numberp.lsp [0%]
-  - [ ] (deftest numberp.error.1
-  - [ ] (deftest numberp.error.2
-  - [ ] (deftest numberp.error.3
+**** numberp.lsp [75%]
+  - [X] (deftest numberp.error.1
+  - [X] (deftest numberp.error.2
+  - [X] (deftest numberp.error.3
   - [ ] (deftest numberp.1
-**** acos.lsp [0%]
-  - [ ] (deftest acos.1
+**** acos.lsp [25%]
+  - [X] (deftest acos.1
   - [ ] (deftest acos.2
   - [ ] (deftest acos.3
   - [ ] (deftest acos.4
@@ -11041,45 +11041,45 @@
   - [ ] (deftest acos.7
   - [ ] (deftest acos.8
   - [ ] (deftest acos.9
-  - [ ] (deftest acos.error.1
-  - [ ] (deftest acos.error.2
+  - [X] (deftest acos.error.1
+  - [X] (deftest acos.error.2
   - [ ] (deftest acos.error.3
-**** acosh.lsp [0%]
-  - [ ] (deftest acosh.1
+**** acosh.lsp [40%]
+  - [X] (deftest acosh.1
   - [ ] (deftest acosh.2
   - [ ] (deftest acosh.3
-  - [ ] (deftest acosh.4
+  - [X] (deftest acosh.4
   - [ ] (deftest acosh.5
   - [ ] (deftest acosh.6
   - [ ] (deftest acosh.7
-  - [ ] (deftest acosh.error.1
-  - [ ] (deftest acosh.error.2
+  - [X] (deftest acosh.error.1
+  - [X] (deftest acosh.error.2
   - [ ] (deftest acosh.error.3
-**** imagpart.lsp [0%]
-  - [ ] (deftest imagpart.error.1
-  - [ ] (deftest imagpart.error.2
+**** imagpart.lsp [28%]
+  - [X] (deftest imagpart.error.1
+  - [X] (deftest imagpart.error.2
   - [ ] (deftest imagpart.error.3
   - [ ] (deftest imagpart.1
   - [ ] (deftest imagpart.2
   - [ ] (deftest imagpart.3
   - [ ] (deftest imagpart.4
-**** cis.lsp [0%]
-  - [ ] (deftest cis.error.1
-  - [ ] (deftest cis.error.2
+**** cis.lsp [33%]
+  - [X] (deftest cis.error.1
+  - [X] (deftest cis.error.2
   - [ ] (deftest cis.1
   - [ ] (deftest cis.2
   - [ ] (deftest cis.3
   - [ ] (deftest cis.4
-**** asinh.lsp [0%]
-  - [ ] (deftest asinh.1
+**** asinh.lsp [40%]
+  - [X] (deftest asinh.1
   - [ ] (deftest asinh.2
   - [ ] (deftest asinh.3
-  - [ ] (deftest asinh.4
+  - [X] (deftest asinh.4
   - [ ] (deftest asinh.5
   - [ ] (deftest asinh.6
   - [ ] (deftest asinh.7
-  - [ ] (deftest asinh.error.1
-  - [ ] (deftest asinh.error.2
+  - [X] (deftest asinh.error.1
+  - [X] (deftest asinh.error.2
   - [ ] (deftest asinh.error.3
 **** rational.lsp [0%]
   - [ ] (deftest rational.error.1
@@ -11089,15 +11089,15 @@
   - [ ] (deftest rational.1
   - [ ] (deftest rational.2
   - [ ] (deftest rational.3
-**** plus.lsp [0%]
-  - [ ] (deftest plus.1
+**** plus.lsp [14%]
+  - [X] (deftest plus.1
   - [ ] (deftest plus.2
   - [ ] (deftest plus.3
   - [ ] (deftest plus.4
   - [ ] (deftest plus.5
-  - [ ] (deftest plus.6
+  - [X] (deftest plus.6
   - [ ] (deftest plus.7
-  - [ ] (deftest plus.8
+  - [X] (deftest plus.8
   - [ ] (deftest plus.9
   - [ ] (deftest plus.10
   - [ ] (deftest plus.11
@@ -11118,28 +11118,28 @@
   - [ ] (deftest plus.26
   - [ ] (deftest plus.27
   - [ ] (deftest plus.28
-  - [ ] (deftest plus.order.1
-  - [ ] (deftest plus.order.2
+  - [X] (deftest plus.order.1
+  - [X] (deftest plus.order.2
   - [ ] (deftest plus.reassociation.1
   - [ ] (deftest plus.reassociation.2
   - [ ] (deftest plus.reassociation.3
   - [ ] (deftest plus.reassociation.4
-**** logandc2.lsp [0%]
+**** logandc2.lsp [58%]
   - [ ] (deftest logandc2.error.1
   - [ ] (deftest logandc2.error.2
-  - [ ] (deftest logandc2.error.3
-  - [ ] (deftest logandc2.error.4
-  - [ ] (deftest logandc2.error.5
-  - [ ] (deftest logandc2.1
-  - [ ] (deftest logandc2.2
-  - [ ] (deftest logandc2.3
+  - [X] (deftest logandc2.error.3
+  - [X] (deftest logandc2.error.4
+  - [X] (deftest logandc2.error.5
+  - [X] (deftest logandc2.1
+  - [X] (deftest logandc2.2
+  - [X] (deftest logandc2.3
   - [ ] (deftest logandc2.4
   - [ ] (deftest logandc2.5
   - [ ] (deftest logandc2.6
-  - [ ] (deftest logandc2.order.1
-**** ceiling.lsp [0%]
-  - [ ] (deftest ceiling.error.1
-  - [ ] (deftest ceiling.error.2
+  - [X] (deftest logandc2.order.1
+**** ceiling.lsp [9%]
+  - [X] (deftest ceiling.error.1
+  - [X] (deftest ceiling.error.2
   - [ ] (deftest ceiling.1
   - [ ] (deftest ceiling.2
   - [ ] (deftest ceiling.3
@@ -11159,31 +11159,31 @@
   - [ ] (deftest ceiling.17
   - [ ] (deftest ceiling.18
   - [ ] (deftest ceiling.19
-**** minusp.lsp [0%]
-  - [ ] (deftest minusp.error.1
-  - [ ] (deftest minusp.error.2
-  - [ ] (deftest minusp.error.3
+**** minusp.lsp [60%]
+  - [X] (deftest minusp.error.1
+  - [X] (deftest minusp.error.2
+  - [X] (deftest minusp.error.3
   - [ ] (deftest minusp.error.4
-  - [ ] (deftest minusp.1
-  - [ ] (deftest minusp.2
-  - [ ] (deftest minusp.3
+  - [X] (deftest minusp.1
+  - [X] (deftest minusp.2
+  - [X] (deftest minusp.3
   - [ ] (deftest minusp.4
   - [ ] (deftest minusp.5
   - [ ] (deftest minusp.6
-**** oddp.lsp [0%]
-  - [ ] (deftest oddp.error.1
-  - [ ] (deftest oddp.error.2
+**** oddp.lsp [50%]
+  - [X] (deftest oddp.error.1
+  - [X] (deftest oddp.error.2
   - [ ] (deftest oddp.error.3
   - [ ] (deftest oddp.1
   - [ ] (deftest oddp.3
-  - [ ] (deftest oddp.4
-  - [ ] (deftest oddp.5
-  - [ ] (deftest oddp.6
+  - [X] (deftest oddp.4
+  - [X] (deftest oddp.5
+  - [X] (deftest oddp.6
   - [ ] (deftest oddp.7
   - [ ] (deftest oddp.8
-**** ftruncate.lsp [0%]
-  - [ ] (deftest ftruncate.error.1
-  - [ ] (deftest ftruncate.error.2
+**** ftruncate.lsp [15%]
+  - [X] (deftest ftruncate.error.1
+  - [X] (deftest ftruncate.error.2
   - [ ] (deftest ftruncate.1
   - [ ] (deftest ftruncate.10
   - [ ] (deftest ftruncate.11
@@ -11195,9 +11195,9 @@
   - [ ] (deftest ftruncate.17
   - [ ] (deftest ftruncate.18
   - [ ] (deftest ftruncate.19
-**** ffloor.lsp [0%]
-  - [ ] (deftest ffloor.error.1
-  - [ ] (deftest ffloor.error.2
+**** ffloor.lsp [15%]
+  - [X] (deftest ffloor.error.1
+  - [X] (deftest ffloor.error.2
   - [ ] (deftest ffloor.1
   - [ ] (deftest ffloor.10
   - [ ] (deftest ffloor.11
@@ -11209,15 +11209,15 @@
   - [ ] (deftest ffloor.17
   - [ ] (deftest ffloor.18
   - [ ] (deftest ffloor.19
-**** sinh.lsp [0%]
-  - [ ] (deftest sinh.1
+**** sinh.lsp [44%]
+  - [X] (deftest sinh.1
   - [ ] (deftest sinh.2
   - [ ] (deftest sinh.3
-  - [ ] (deftest sinh.4
+  - [X] (deftest sinh.4
   - [ ] (deftest sinh.5
   - [ ] (deftest sinh.6
-  - [ ] (deftest sinh.error.1
-  - [ ] (deftest sinh.error.2
+  - [X] (deftest sinh.error.1
+  - [X] (deftest sinh.error.2
   - [ ] (deftest sinh.error.3
 **** rationalize.lsp [0%]
   - [ ] (deftest rationalize.error.1
@@ -11227,10 +11227,10 @@
   - [ ] (deftest rationalize.1
   - [ ] (deftest rationalize.2
   - [ ] (deftest rationalize.3
-**** abs.lsp [0%]
-  - [ ] (deftest abs.error.1
-  - [ ] (deftest abs.error.2
-  - [ ] (deftest abs.error.3
+**** abs.lsp [14%]
+  - [X] (deftest abs.error.1
+  - [X] (deftest abs.error.2
+  - [X] (deftest abs.error.3
   - [ ] (deftest abs.1
   - [ ] (deftest abs.2
   - [ ] (deftest abs.3
@@ -11249,33 +11249,33 @@
   - [ ] (deftest abs.20
   - [ ] (deftest abs.21
   - [ ] (deftest abs.22
-**** logxor.lsp [0%]
+**** logxor.lsp [50%]
   - [ ] (deftest logxor.error.1
   - [ ] (deftest logxor.error.2
-  - [ ] (deftest logxor.1
-  - [ ] (deftest logxor.2
-  - [ ] (deftest logxor.3
+  - [X] (deftest logxor.1
+  - [X] (deftest logxor.2
+  - [X] (deftest logxor.3
   - [ ] (deftest logxor.4
   - [ ] (deftest logxor.5
   - [ ] (deftest logxor.6
   - [ ] (deftest logxor.7
-  - [ ] (deftest logxor.8
-  - [ ] (deftest logxor.order.1
-  - [ ] (deftest logxor.order.2
-**** cosh.lsp [0%]
-  - [ ] (deftest cosh.1
+  - [X] (deftest logxor.8
+  - [X] (deftest logxor.order.1
+  - [X] (deftest logxor.order.2
+**** cosh.lsp [44%]
+  - [X] (deftest cosh.1
   - [ ] (deftest cosh.2
   - [ ] (deftest cosh.3
-  - [ ] (deftest cosh.4
+  - [X] (deftest cosh.4
   - [ ] (deftest cosh.5
   - [ ] (deftest cosh.6
-  - [ ] (deftest cosh.error.1
-  - [ ] (deftest cosh.error.2
+  - [X] (deftest cosh.error.1
+  - [X] (deftest cosh.error.2
   - [ ] (deftest cosh.error.3
-**** ldb.lsp [0%]
-  - [ ] (deftest ldb.error.1
-  - [ ] (deftest ldb.error.2
-  - [ ] (deftest ldb.error.3
+**** ldb.lsp [30%]
+  - [X] (deftest ldb.error.1
+  - [X] (deftest ldb.error.2
+  - [X] (deftest ldb.error.3
   - [ ] (deftest ldb.1
   - [ ] (deftest ldb.2
   - [ ] (deftest ldb.3
@@ -11283,24 +11283,24 @@
   - [ ] (deftest ldb.place.1
   - [ ] (deftest ldb.place.2
   - [ ] (deftest ldb.place.order.1
-**** integerp.lsp [0%]
-  - [ ] (deftest integerp.error.1
-  - [ ] (deftest integerp.error.2
-  - [ ] (deftest integerp.error.3
+**** integerp.lsp [60%]
+  - [X] (deftest integerp.error.1
+  - [X] (deftest integerp.error.2
+  - [X] (deftest integerp.error.3
   - [ ] (deftest integerp.1
   - [ ] (deftest integerp.2
-**** numerator-denominator.lsp [0%]
-  - [ ] (deftest numerator.error.1
-  - [ ] (deftest numerator.error.2
-  - [ ] (deftest denominator.error.1
-  - [ ] (deftest denominator.error.2
+**** numerator-denominator.lsp [44%]
+  - [X] (deftest numerator.error.1
+  - [X] (deftest numerator.error.2
+  - [X] (deftest denominator.error.1
+  - [X] (deftest denominator.error.2
   - [ ] (deftest numerator-denominator.1
   - [ ] (deftest numerator-denominator.2
   - [ ] (deftest numerator-denominator.3
   - [ ] (deftest numerator-denominator.4
   - [ ] (deftest numerator-denominator.5
-**** log.lsp [0%]
-  - [ ] (deftest log.1
+**** log.lsp [30%]
+  - [X] (deftest log.1
   - [ ] (deftest log.2
   - [ ] (deftest log.3
   - [ ] (deftest log.4
@@ -11308,45 +11308,45 @@
   - [ ] (deftest log.6
   - [ ] (deftest log.7
   - [ ] (deftest log.8
-  - [ ] (deftest log.error.1
-  - [ ] (deftest log.error.2
-**** lognand.lsp [0%]
+  - [X] (deftest log.error.1
+  - [X] (deftest log.error.2
+**** lognand.lsp [58%]
   - [ ] (deftest lognand.error.1
   - [ ] (deftest lognand.error.2
-  - [ ] (deftest lognand.error.3
-  - [ ] (deftest lognand.error.4
-  - [ ] (deftest lognand.error.5
-  - [ ] (deftest lognand.1
-  - [ ] (deftest lognand.2
-  - [ ] (deftest lognand.3
+  - [X] (deftest lognand.error.3
+  - [X] (deftest lognand.error.4
+  - [X] (deftest lognand.error.5
+  - [X] (deftest lognand.1
+  - [X] (deftest lognand.2
+  - [X] (deftest lognand.3
   - [ ] (deftest lognand.4
   - [ ] (deftest lognand.5
   - [ ] (deftest lognand.6
-  - [ ] (deftest lognand.order.1
-**** exp.lsp [0%]
-  - [ ] (deftest exp.error.1
-  - [ ] (deftest exp.error.2
-  - [ ] (deftest exp.error.3
-  - [ ] (deftest exp.1
+  - [X] (deftest lognand.order.1
+**** exp.lsp [85%]
+  - [X] (deftest exp.error.1
+  - [X] (deftest exp.error.2
+  - [X] (deftest exp.error.3
+  - [X] (deftest exp.1
   - [ ] (deftest exp.2
   - [ ] (deftest exp.3
-  - [ ] (deftest exp.error.4
-  - [ ] (deftest exp.error.5
-  - [ ] (deftest exp.error.6
-  - [ ] (deftest exp.error.7
-  - [ ] (deftest exp.error.8
-  - [ ] (deftest exp.error.9
-  - [ ] (deftest exp.error.10
-  - [ ] (deftest exp.error.11
-**** complex.lsp [0%]
-  - [ ] (deftest complex.error.1
-  - [ ] (deftest complex.error.2
+  - [X] (deftest exp.error.4
+  - [X] (deftest exp.error.5
+  - [X] (deftest exp.error.6
+  - [X] (deftest exp.error.7
+  - [X] (deftest exp.error.8
+  - [X] (deftest exp.error.9
+  - [X] (deftest exp.error.10
+  - [X] (deftest exp.error.11
+**** complex.lsp [28%]
+  - [X] (deftest complex.error.1
+  - [X] (deftest complex.error.2
   - [ ] (deftest complex.1
   - [ ] (deftest complex.2
   - [ ] (deftest complex.3
   - [ ] (deftest complex.4
   - [ ] (deftest complex.5
-**** upgraded-complex-part-type.lsp [0%]
+**** upgraded-complex-part-type.lsp [18%]
   - [ ] (def-ucpt-test upgraded-complex-part-type.1
   - [ ] (def-ucpt-test upgraded-complex-part-type.2
   - [ ] (def-ucpt-test upgraded-complex-part-type.3
@@ -11356,31 +11356,31 @@
   - [ ] (deftest upgraded-complex-part-type.7
   - [ ] (deftest upgraded-complex-part-type.8
   - [ ] (deftest upgraded-complex-part-type.9
-  - [ ] (deftest upgraded-complex-part-type.error.1
-  - [ ] (deftest upgraded-complex-part-type.error.2
-**** expt.lsp [0%]
-  - [ ] (deftest expt.error.1
-  - [ ] (deftest expt.error.2
-  - [ ] (deftest expt.error.3
-  - [ ] (deftest expt.error.4
-  - [ ] (deftest expt.error.5
-  - [ ] (deftest expt.error.6
-  - [ ] (deftest expt.error.7
-  - [ ] (deftest expt.error.8
-  - [ ] (deftest expt.error.9
-  - [ ] (deftest expt.error.10
-  - [ ] (deftest expt.error.11
-  - [ ] (deftest expt.1
-  - [ ] (deftest expt.2
+  - [X] (deftest upgraded-complex-part-type.error.1
+  - [X] (deftest upgraded-complex-part-type.error.2
+**** expt.lsp [56%]
+  - [X] (deftest expt.error.1
+  - [X] (deftest expt.error.2
+  - [X] (deftest expt.error.3
+  - [X] (deftest expt.error.4
+  - [X] (deftest expt.error.5
+  - [X] (deftest expt.error.6
+  - [X] (deftest expt.error.7
+  - [X] (deftest expt.error.8
+  - [X] (deftest expt.error.9
+  - [X] (deftest expt.error.10
+  - [X] (deftest expt.error.11
+  - [X] (deftest expt.1
+  - [X] (deftest expt.2
   - [ ] (deftest expt.3
-  - [ ] (deftest expt.4
-  - [ ] (deftest expt.5
-  - [ ] (deftest expt.6
-  - [ ] (deftest expt.7
+  - [X] (deftest expt.4
+  - [X] (deftest expt.5
+  - [X] (deftest expt.6
+  - [X] (deftest expt.7
   - [ ] (deftest expt.8
-  - [ ] (deftest expt.9
-  - [ ] (deftest expt.10
-  - [ ] (deftest expt.11
+  - [X] (deftest expt.9
+  - [X] (deftest expt.10
+  - [X] (deftest expt.11
   - [ ] (deftest expt.12
   - [ ] (deftest expt.13
   - [ ] (deftest expt.14
@@ -11394,23 +11394,23 @@
   - [ ] (deftest expt.22
   - [ ] (deftest expt.23
   - [ ] (deftest expt.24
-  - [ ] (deftest expt.25
-  - [ ] (deftest expt.26
-  - [ ] (deftest expt.27
+  - [X] (deftest expt.25
+  - [X] (deftest expt.26
+  - [X] (deftest expt.27
   - [ ] (deftest expt.28
   - [ ] (deftest expt.29
   - [ ] (deftest expt.30
-**** sin.lsp [0%]
+**** sin.lsp [22%]
   - [ ] (deftest sin.1
   - [ ] (deftest sin.2
   - [ ] (deftest sin.3
   - [ ] (deftest sin.4
   - [ ] (deftest sin.5
-  - [ ] (deftest sin.6
+  - [X] (deftest sin.6
   - [ ] (deftest sin.7
-  - [ ] (deftest sin.8
-  - [ ] (deftest sin.9
-  - [ ] (deftest sin.10
+  - [X] (deftest sin.8
+  - [X] (deftest sin.9
+  - [X] (deftest sin.10
   - [ ] (deftest sin.11
   - [ ] (deftest sin.12
   - [ ] (deftest sin.13
@@ -11425,31 +11425,31 @@
   - [ ] (deftest sin.22
   - [ ] (deftest sin.23
   - [ ] (deftest sin.24
-  - [ ] (deftest sin.error.1
-  - [ ] (deftest sin.error.2
+  - [X] (deftest sin.error.1
+  - [X] (deftest sin.error.2
   - [ ] (deftest sin.error.3
-**** random-state-p.lsp [0%]
-  - [ ] (deftest random-state-p.error.1
-  - [ ] (deftest random-state-p.error.2
+**** random-state-p.lsp [40%]
+  - [X] (deftest random-state-p.error.1
+  - [X] (deftest random-state-p.error.2
   - [ ] (deftest random-state-p.1
   - [ ] (deftest random-state-p.2
   - [ ] (deftest random-state-p.3
-**** random.lsp [0%]
-  - [ ] (deftest random.error.1
-  - [ ] (deftest random.error.2
+**** random.lsp [54%]
+  - [X] (deftest random.error.1
+  - [X] (deftest random.error.2
   - [ ] (deftest random.error.3
-  - [ ] (deftest random.1
+  - [X] (deftest random.1
   - [ ] (deftest random.2
-  - [ ] (deftest random.3
+  - [X] (deftest random.3
   - [ ] (deftest random.4
-  - [ ] (deftest random.5
-  - [ ] (deftest random.6
+  - [X] (deftest random.5
+  - [X] (deftest random.6
   - [ ] (deftest random.7
   - [ ] (deftest random.8
-**** mask-field.lsp [0%]
-  - [ ] (deftest mask-field.error.1
-  - [ ] (deftest mask-field.error.2
-  - [ ] (deftest mask-field.error.3
+**** mask-field.lsp [30%]
+  - [X] (deftest mask-field.error.1
+  - [X] (deftest mask-field.error.2
+  - [X] (deftest mask-field.error.3
   - [ ] (deftest mask-field.1
   - [ ] (deftest mask-field.2
   - [ ] (deftest mask-field.3
@@ -11457,35 +11457,35 @@
   - [ ] (deftest mask-field.place.1
   - [ ] (deftest mask-field.place.2
   - [ ] (deftest mask-field.place.order.1
-**** zerop.lsp [0%]
-  - [ ] (deftest zerop.error.1
-  - [ ] (deftest zerop.error.2
-  - [ ] (deftest zerop.error.3
+**** zerop.lsp [60%]
+  - [X] (deftest zerop.error.1
+  - [X] (deftest zerop.error.2
+  - [X] (deftest zerop.error.3
   - [ ] (deftest zerop.error.4
   - [ ] (deftest zerop.1
-  - [ ] (deftest zerop.2
-  - [ ] (deftest zerop.3
-  - [ ] (deftest zerop.4
+  - [X] (deftest zerop.2
+  - [X] (deftest zerop.3
+  - [X] (deftest zerop.4
   - [ ] (deftest zerop.5
-  - [ ] (deftest zerop.6
-  - [ ] (deftest zerop.7
-  - [ ] (deftest zerop.7a
+  - [X] (deftest zerop.6
+  - [X] (deftest zerop.7
+  - [X] (deftest zerop.7a
   - [ ] (deftest zerop.8
   - [ ] (deftest zerop.9
   - [ ] (deftest zerop.10
-**** logior.lsp [0%]
+**** logior.lsp [50%]
   - [ ] (deftest logior.error.1
   - [ ] (deftest logior.error.2
-  - [ ] (deftest logior.1
-  - [ ] (deftest logior.2
-  - [ ] (deftest logior.3
+  - [X] (deftest logior.1
+  - [X] (deftest logior.2
+  - [X] (deftest logior.3
   - [ ] (deftest logior.4
   - [ ] (deftest logior.5
   - [ ] (deftest logior.6
   - [ ] (deftest logior.7
-  - [ ] (deftest logior.8
-  - [ ] (deftest logior.order.1
-  - [ ] (deftest logior.order.2
+  - [X] (deftest logior.8
+  - [X] (deftest logior.order.1
+  - [X] (deftest logior.order.2
 **** boole.lsp [0%]
   - [ ] (deftest boole.error.1
   - [ ] (deftest boole.error.2
@@ -11502,60 +11502,60 @@
   - [ ] (deftest boole.constants.1
   - [ ] (deftest boole.constants.2
   - [ ] (deftest boole.constants.3
-**** deposit-field.lsp [0%]
-  - [ ] (deftest deposit-field.error.1
-  - [ ] (deftest deposit-field.error.2
-  - [ ] (deftest deposit-field.error.3
-  - [ ] (deftest deposit-field.error.4
+**** deposit-field.lsp [44%]
+  - [X] (deftest deposit-field.error.1
+  - [X] (deftest deposit-field.error.2
+  - [X] (deftest deposit-field.error.3
+  - [X] (deftest deposit-field.error.4
   - [ ] (deftest deposit-field.1
   - [ ] (deftest deposit-field.2
   - [ ] (deftest deposit-field.3
   - [ ] (deftest deposit-field.4
   - [ ] (deftest deposit-field.5
-**** min.lsp [0%]
-  - [ ] (deftest min.error.1
+**** min.lsp [58%]
+  - [X] (deftest min.error.1
   - [ ] (deftest min.error.2
   - [ ] (deftest min.error.3
   - [ ] (deftest min.1
   - [ ] (deftest min.2
-  - [ ] (deftest min.3
-  - [ ] (deftest min.4
-  - [ ] (deftest min.5
+  - [X] (deftest min.3
+  - [X] (deftest min.4
+  - [X] (deftest min.5
   - [ ] (deftest min.6
   - [ ] (deftest min.7
-  - [ ] (deftest min.8
-  - [ ] (deftest min.9
-  - [ ] (deftest min.10
-  - [ ] (deftest min.11
-  - [ ] (deftest min.12
-  - [ ] (deftest min.13
+  - [X] (deftest min.8
+  - [X] (deftest min.9
+  - [X] (deftest min.10
+  - [X] (deftest min.11
+  - [X] (deftest min.12
+  - [X] (deftest min.13
   - [ ] (deftest min.15
   - [ ] (deftest min.16
   - [ ] (deftest min.17
   - [ ] (deftest min.18
   - [ ] (deftest min.19
   - [ ] (deftest min.20
-  - [ ] (deftest min.21
-  - [ ] (deftest min.22
-  - [ ] (deftest min.23
-  - [ ] (deftest min.24
-  - [ ] (deftest min.25
-  - [ ] (deftest min.26
-  - [ ] (deftest min.27
+  - [X] (deftest min.21
+  - [X] (deftest min.22
+  - [X] (deftest min.23
+  - [X] (deftest min.24
+  - [X] (deftest min.25
+  - [X] (deftest min.26
+  - [X] (deftest min.27
   - [ ] (deftest min.28
   - [ ] (deftest min.29
-  - [ ] (deftest min.30
+  - [X] (deftest min.30
   - [ ] (deftest min.31
   - [ ] (deftest min.32
-  - [ ] (deftest min.33
-  - [ ] (deftest min.34
-  - [ ] (deftest min.order.1
-  - [ ] (deftest min.order.2
-  - [ ] (deftest min.order.3
-**** oneminus.lsp [0%]
-  - [ ] (deftest 1-.error.1
-  - [ ] (deftest 1-.error.2
-  - [ ] (deftest 1-.error.3
+  - [X] (deftest min.33
+  - [X] (deftest min.34
+  - [X] (deftest min.order.1
+  - [X] (deftest min.order.2
+  - [X] (deftest min.order.3
+**** oneminus.lsp [16%]
+  - [X] (deftest 1-.error.1
+  - [X] (deftest 1-.error.2
+  - [X] (deftest 1-.error.3
   - [ ] (deftest 1-.1
   - [ ] (deftest 1-.2
   - [ ] (deftest 1-.3
@@ -11571,8 +11571,8 @@
   - [ ] (deftest 1-.13
   - [ ] (deftest 1-.14
   - [ ] (deftest 1-.15
-**** atan.lsp [0%]
-  - [ ] (deftest atan.1
+**** atan.lsp [23%]
+  - [X] (deftest atan.1
   - [ ] (deftest atan.2
   - [ ] (deftest atan.3
   - [ ] (deftest atan.4
@@ -11586,47 +11586,47 @@
   - [ ] (deftest atan.12
   - [ ] (deftest atan.13
   - [ ] (deftest atan.14
-  - [ ] (deftest atan.ieee.1 :description "Verify if atan handles 0.0 correctly"
-  - [ ] (deftest atan.ieee.2 :description "Verify ATAN handling signed zero"
-  - [ ] (deftest atan.error.1
-  - [ ] (deftest atan.error.2
+  - [X] (deftest atan.ieee.1 :description "Verify if atan handles 0.0 correctly"
+  - [X] (deftest atan.ieee.2 :description "Verify ATAN handling signed zero"
+  - [X] (deftest atan.error.1
+  - [X] (deftest atan.error.2
   - [ ] (deftest atan.error.3
   - [ ] (deftest atan.error.4
   - [ ] (deftest atan.error.5
-**** plusp.lsp [0%]
-  - [ ] (deftest plusp.error.1
-  - [ ] (deftest plusp.error.2
-  - [ ] (deftest plusp.error.3
+**** plusp.lsp [54%]
+  - [X] (deftest plusp.error.1
+  - [X] (deftest plusp.error.2
+  - [X] (deftest plusp.error.3
   - [ ] (deftest plusp.error.4
-  - [ ] (deftest plusp.1
-  - [ ] (deftest plusp.2
-  - [ ] (deftest plusp.3
+  - [X] (deftest plusp.1
+  - [X] (deftest plusp.2
+  - [X] (deftest plusp.3
   - [ ] (deftest plusp.4
   - [ ] (deftest plusp.5
   - [ ] (deftest plusp.6
   - [ ] (deftest plusp.7
-**** arithmetic-error.lsp [0%]
+**** arithmetic-error.lsp [57%]
   - [ ] (deftest arithmethic-error.1
   - [ ] (deftest arithmethic-error.2
   - [ ] (deftest arithmetic-error.3
-  - [ ] (deftest arithmetic-error-operation.error.1
-  - [ ] (deftest arithmetic-error-operation.error.2
-  - [ ] (deftest arithmetic-error-operands.error.1
-  - [ ] (deftest arithmetic-error-operands.error.2
-**** dpb.lsp [0%]
-  - [ ] (deftest dpb.error.1
-  - [ ] (deftest dpb.error.2
-  - [ ] (deftest dpb.error.3
-  - [ ] (deftest dpb.error.4
+  - [X] (deftest arithmetic-error-operation.error.1
+  - [X] (deftest arithmetic-error-operation.error.2
+  - [X] (deftest arithmetic-error-operands.error.1
+  - [X] (deftest arithmetic-error-operands.error.2
+**** dpb.lsp [44%]
+  - [X] (deftest dpb.error.1
+  - [X] (deftest dpb.error.2
+  - [X] (deftest dpb.error.3
+  - [X] (deftest dpb.error.4
   - [ ] (deftest dpb.1
   - [ ] (deftest dpb.2
   - [ ] (deftest dpb.3
   - [ ] (deftest dpb.4
   - [ ] (deftest dpb.5
-**** make-random-state.lsp [0%]
-  - [ ] (deftest make-random-state.error.1
-  - [ ] (deftest make-random-state.error.2
-  - [ ] (deftest make-random-state.error.3
+**** make-random-state.lsp [37%]
+  - [X] (deftest make-random-state.error.1
+  - [X] (deftest make-random-state.error.2
+  - [X] (deftest make-random-state.error.3
   - [ ] (deftest make-random-state.error.4
   - [ ] (deftest make-random-state.1
   - [ ] (deftest make-random-state.2
@@ -11644,8 +11644,8 @@
   - [ ] (deftest rationalp.1
   - [ ] (deftest rationalp.2
   - [ ] (deftest rationalp.3
-**** asin.lsp [0%]
-  - [ ] (deftest asin.1
+**** asin.lsp [25%]
+  - [X] (deftest asin.1
   - [ ] (deftest asin.2
   - [ ] (deftest asin.3
   - [ ] (deftest asin.4
@@ -11654,12 +11654,12 @@
   - [ ] (deftest asin.7
   - [ ] (deftest asin.8
   - [ ] (deftest asin.9
-  - [ ] (deftest asin.error.1
-  - [ ] (deftest asin.error.2
+  - [X] (deftest asin.error.1
+  - [X] (deftest asin.error.2
   - [ ] (deftest asin.error.3
-**** round.lsp [0%]
-  - [ ] (deftest round.error.1
-  - [ ] (deftest round.error.2
+**** round.lsp [17%]
+  - [X] (deftest round.error.1
+  - [X] (deftest round.error.2
   - [ ] (deftest round.1
   - [ ] (deftest round.2
   - [ ] (deftest round.3
@@ -11679,11 +11679,11 @@
   - [ ] (deftest round.17
   - [ ] (deftest round.18
   - [ ] (deftest round.19
-  - [ ] (deftest round.20
-  - [ ] (deftest round.21
-**** phase.lsp [0%]
-  - [ ] (deftest phase.error.1
-  - [ ] (deftest phase.error.2
+  - [X] (deftest round.20
+  - [X] (deftest round.21
+**** phase.lsp [8%]
+  - [X] (deftest phase.error.1
+  - [X] (deftest phase.error.2
   - [ ] (deftest phase.error.3
   - [ ] (deftest phase.1
   - [ ] (deftest phase.2
@@ -11706,17 +11706,17 @@
   - [ ] (deftest phase.19
   - [ ] (deftest phase.20
   - [ ] (deftest phase.21
-**** tan.lsp [0%]
+**** tan.lsp [22%]
   - [ ] (deftest tan.1
   - [ ] (deftest tan.2
   - [ ] (deftest tan.3
   - [ ] (deftest tan.4
   - [ ] (deftest tan.5
-  - [ ] (deftest tan.6
+  - [X] (deftest tan.6
   - [ ] (deftest tan.7
-  - [ ] (deftest tan.8
-  - [ ] (deftest tan.9
-  - [ ] (deftest tan.10
+  - [X] (deftest tan.8
+  - [X] (deftest tan.9
+  - [X] (deftest tan.10
   - [ ] (deftest tan.11
   - [ ] (deftest tan.12
   - [ ] (deftest tan.13
@@ -11731,15 +11731,15 @@
   - [ ] (deftest tan.22
   - [ ] (deftest tan.23
   - [ ] (deftest tan.24
-  - [ ] (deftest tan.error.1
-  - [ ] (deftest tan.error.2
+  - [X] (deftest tan.error.1
+  - [X] (deftest tan.error.2
   - [ ] (deftest tan.error.3
-**** logorc1.lsp [0%]
+**** logorc1.lsp [23%]
   - [ ] (deftest logorc1.error.1
   - [ ] (deftest logorc1.error.2
-  - [ ] (deftest logorc1.error.3
-  - [ ] (deftest logorc1.error.4
-  - [ ] (deftest logorc1.error.5
+  - [X] (deftest logorc1.error.3
+  - [X] (deftest logorc1.error.4
+  - [X] (deftest logorc1.error.5
   - [ ] (deftest logorc1.1
   - [ ] (deftest logorc1.2
   - [ ] (deftest logorc1.2a
@@ -11748,10 +11748,10 @@
   - [ ] (deftest logorc1.5
   - [ ] (deftest logorc1.6
   - [ ] (deftest logorc1.order.1
-**** oneplus.lsp [0%]
-  - [ ] (deftest 1+.error.1
-  - [ ] (deftest 1+.error.2
-  - [ ] (deftest 1+.error.3
+**** oneplus.lsp [16%]
+  - [X] (deftest 1+.error.1
+  - [X] (deftest 1+.error.2
+  - [X] (deftest 1+.error.3
   - [ ] (deftest 1+.1
   - [ ] (deftest 1+.2
   - [ ] (deftest 1+.3
@@ -11784,45 +11784,45 @@
   - [ ] (deftest lcm.order.1
   - [ ] (deftest lcm.order.2
   - [ ] (deftest lcm.order.3
-**** incf.lsp [0%]
-  - [ ] (deftest incf.1
+**** incf.lsp [50%]
+  - [X] (deftest incf.1
   - [ ] (deftest incf.2
-  - [ ] (deftest incf.3
-  - [ ] (deftest incf.4
-  - [ ] (deftest incf.5
-  - [ ] (deftest incf.6
+  - [X] (deftest incf.3
+  - [X] (deftest incf.4
+  - [X] (deftest incf.5
+  - [X] (deftest incf.6
   - [ ] (deftest incf.7
   - [ ] (deftest incf.8
-  - [ ] (deftest incf.9
-  - [ ] (deftest incf.10
+  - [X] (deftest incf.9
+  - [X] (deftest incf.10
   - [ ] (deftest incf.11
   - [ ] (deftest incf.12
   - [ ] (deftest incf.13
   - [ ] (deftest incf.14
-  - [ ] (deftest incf.15
-  - [ ] (deftest incf.16
-  - [ ] (deftest incf.17
+  - [X] (deftest incf.15
+  - [X] (deftest incf.16
+  - [X] (deftest incf.17
   - [ ] (deftest incf.18
   - [ ] (deftest incf.19
   - [ ] (deftest incf.20
   - [ ] (deftest incf.21
   - [ ] (deftest incf.22
   - [ ] (deftest incf.23
-  - [ ] (deftest incf.order.2
-  - [ ] (deftest incf.order.3
-  - [ ] (deftest incf.order.4
-**** times.lsp [0%]
+  - [X] (deftest incf.order.2
+  - [X] (deftest incf.order.3
+  - [X] (deftest incf.order.4
+**** times.lsp [13%]
   - [ ] (deftest *.1
   - [ ] (deftest *.2
   - [ ] (deftest *.3
   - [ ] (deftest *.4
   - [ ] (deftest *.5
-  - [ ] (deftest *.6
+  - [X] (deftest *.6
   - [ ] (deftest *.7
   - [ ] (deftest *.8
   - [ ] (deftest *.9
   - [ ] (deftest *.10
-  - [ ] (deftest *.11
+  - [X] (deftest *.11
   - [ ] (deftest *.12
   - [ ] (deftest *.13
   - [ ] (deftest *.14
@@ -11840,10 +11840,10 @@
   - [ ] (deftest *.26
   - [ ] (deftest *.27
   - [ ] (deftest *.28
-  - [ ] (deftest times.order.1
-  - [ ] (deftest times.order.2
-**** minus.lsp [0%]
-  - [ ] (deftest minus.error.1
+  - [X] (deftest times.order.1
+  - [X] (deftest times.order.2
+**** minus.lsp [12%]
+  - [X] (deftest minus.error.1
   - [ ] (deftest minus.1
   - [ ] (deftest minus.2
   - [ ] (deftest minus.3
@@ -11855,31 +11855,31 @@
   - [ ] (deftest minus.9
   - [ ] (deftest subtract.1
   - [ ] (deftest subtract.2
-  - [ ] (deftest subtract.3
+  - [X] (deftest subtract.3
   - [ ] (deftest subtract.4
   - [ ] (deftest subtract.5
   - [ ] (deftest subtract.6
-**** isqrt.lsp [0%]
-  - [ ] (deftest isqrt.error.1
-  - [ ] (deftest isqrt.error.2
-  - [ ] (deftest isqrt.error.3
-  - [ ] (deftest isqrt.error.4
+**** isqrt.lsp [50%]
+  - [X] (deftest isqrt.error.1
+  - [X] (deftest isqrt.error.2
+  - [X] (deftest isqrt.error.3
+  - [X] (deftest isqrt.error.4
   - [ ] (deftest isqrt.error.5
   - [ ] (deftest isqrt.1
   - [ ] (deftest isqrt.2
   - [ ] (deftest isqrt.3
-**** logtest.lsp [0%]
-  - [ ] (deftest logtest.error.1
-  - [ ] (deftest logtest.error.2
-  - [ ] (deftest logtest.error.3
+**** logtest.lsp [62%]
+  - [X] (deftest logtest.error.1
+  - [X] (deftest logtest.error.2
+  - [X] (deftest logtest.error.3
   - [ ] (deftest logtest.error.4
   - [ ] (deftest logtest.error.5
   - [ ] (deftest logtest.1
-  - [ ] (deftest logtest.2
-  - [ ] (deftest logtest.3
-**** fceiling.lsp [0%]
-  - [ ] (deftest fceiling.error.1
-  - [ ] (deftest fceiling.error.2
+  - [X] (deftest logtest.2
+  - [X] (deftest logtest.3
+**** fceiling.lsp [15%]
+  - [X] (deftest fceiling.error.1
+  - [X] (deftest fceiling.error.2
   - [ ] (deftest fceiling.1
   - [ ] (deftest fceiling.10
   - [ ] (deftest fceiling.11
@@ -11891,9 +11891,9 @@
   - [ ] (deftest fceiling.17
   - [ ] (deftest fceiling.18
   - [ ] (deftest fceiling.19
-**** conjugate.lsp [0%]
-  - [ ] (deftest conjugate.error.1
-  - [ ] (deftest conjugate.error.2
+**** conjugate.lsp [16%]
+  - [X] (deftest conjugate.error.1
+  - [X] (deftest conjugate.error.2
   - [ ] (deftest conjugate.1
   - [ ] (deftest conjugate.2
   - [ ] (deftest conjugate.3
@@ -11904,20 +11904,20 @@
   - [ ] (deftest conjugate.8
   - [ ] (deftest conjugate.9
   - [ ] (deftest conjugate.10
-**** realpart.lsp [0%]
-  - [ ] (deftest realpart.error.1
-  - [ ] (deftest realpart.error.2
+**** realpart.lsp [28%]
+  - [X] (deftest realpart.error.1
+  - [X] (deftest realpart.error.2
   - [ ] (deftest realpart.error.3
   - [ ] (deftest realpart.1
   - [ ] (deftest realpart.2
   - [ ] (deftest realpart.3
   - [ ] (deftest realpart.4
-**** float.lsp [0%]
-  - [ ] (deftest float.error.1
-  - [ ] (deftest float.error.2
-  - [ ] (deftest float.1
-  - [ ] (deftest float.2
-  - [ ] (deftest float.3
+**** float.lsp [38%]
+  - [X] (deftest float.error.1
+  - [X] (deftest float.error.2
+  - [X] (deftest float.1
+  - [X] (deftest float.2
+  - [X] (deftest float.3
   - [ ] (deftest float.4
   - [ ] (deftest float.5
   - [ ] (deftest float.6
@@ -11939,17 +11939,17 @@
   - [ ] (deftest gcd.order.1
   - [ ] (deftest gcd.order.2
   - [ ] (deftest gcd.order.3
-**** cos.lsp [0%]
+**** cos.lsp [22%]
   - [ ] (deftest cos.1
   - [ ] (deftest cos.2
   - [ ] (deftest cos.3
   - [ ] (deftest cos.4
   - [ ] (deftest cos.5
-  - [ ] (deftest cos.6
+  - [X] (deftest cos.6
   - [ ] (deftest cos.7
-  - [ ] (deftest cos.8
-  - [ ] (deftest cos.9
-  - [ ] (deftest cos.10
+  - [X] (deftest cos.8
+  - [X] (deftest cos.9
+  - [X] (deftest cos.10
   - [ ] (deftest cos.11
   - [ ] (deftest cos.12
   - [ ] (deftest cos.13
@@ -11964,79 +11964,79 @@
   - [ ] (deftest cos.22
   - [ ] (deftest cos.23
   - [ ] (deftest cos.24
-  - [ ] (deftest cos.error.1
-  - [ ] (deftest cos.error.2
+  - [X] (deftest cos.error.1
+  - [X] (deftest cos.error.2
   - [ ] (deftest cos.error.3
-**** max.lsp [0%]
-  - [ ] (deftest max.error.1
+**** max.lsp [58%]
+  - [X] (deftest max.error.1
   - [ ] (deftest max.error.2
   - [ ] (deftest max.error.3
   - [ ] (deftest max.1
   - [ ] (deftest max.2
-  - [ ] (deftest max.3
-  - [ ] (deftest max.4
-  - [ ] (deftest max.5
+  - [X] (deftest max.3
+  - [X] (deftest max.4
+  - [X] (deftest max.5
   - [ ] (deftest max.6
   - [ ] (deftest max.7
-  - [ ] (deftest max.8
-  - [ ] (deftest max.9
-  - [ ] (deftest max.10
-  - [ ] (deftest max.11
-  - [ ] (deftest max.12
-  - [ ] (deftest max.13
+  - [X] (deftest max.8
+  - [X] (deftest max.9
+  - [X] (deftest max.10
+  - [X] (deftest max.11
+  - [X] (deftest max.12
+  - [X] (deftest max.13
   - [ ] (deftest max.15
   - [ ] (deftest max.16
   - [ ] (deftest max.17
   - [ ] (deftest max.18
   - [ ] (deftest max.19
   - [ ] (deftest max.20
-  - [ ] (deftest max.21
-  - [ ] (deftest max.22
-  - [ ] (deftest max.23
-  - [ ] (deftest max.24
-  - [ ] (deftest max.25
-  - [ ] (deftest max.26
-  - [ ] (deftest max.27
+  - [X] (deftest max.21
+  - [X] (deftest max.22
+  - [X] (deftest max.23
+  - [X] (deftest max.24
+  - [X] (deftest max.25
+  - [X] (deftest max.26
+  - [X] (deftest max.27
   - [ ] (deftest max.28
   - [ ] (deftest max.29
-  - [ ] (deftest max.30
+  - [X] (deftest max.30
   - [ ] (deftest max.31
   - [ ] (deftest max.32
-  - [ ] (deftest max.33
-  - [ ] (deftest max.34
-  - [ ] (deftest max.order.1
-  - [ ] (deftest max.order.2
-  - [ ] (deftest max.order.3
-**** decf.lsp [0%]
-  - [ ] (deftest decf.1
+  - [X] (deftest max.33
+  - [X] (deftest max.34
+  - [X] (deftest max.order.1
+  - [X] (deftest max.order.2
+  - [X] (deftest max.order.3
+**** decf.lsp [50%]
+  - [X] (deftest decf.1
   - [ ] (deftest decf.2
-  - [ ] (deftest decf.3
-  - [ ] (deftest decf.4
-  - [ ] (deftest decf.5
-  - [ ] (deftest decf.6
+  - [X] (deftest decf.3
+  - [X] (deftest decf.4
+  - [X] (deftest decf.5
+  - [X] (deftest decf.6
   - [ ] (deftest decf.7
   - [ ] (deftest decf.8
-  - [ ] (deftest decf.9
-  - [ ] (deftest decf.10
+  - [X] (deftest decf.9
+  - [X] (deftest decf.10
   - [ ] (deftest decf.11
   - [ ] (deftest decf.12
   - [ ] (deftest decf.13
   - [ ] (deftest decf.14
-  - [ ] (deftest decf.15
-  - [ ] (deftest decf.16
-  - [ ] (deftest decf.17
+  - [X] (deftest decf.15
+  - [X] (deftest decf.16
+  - [X] (deftest decf.17
   - [ ] (deftest decf.18
   - [ ] (deftest decf.19
   - [ ] (deftest decf.20
   - [ ] (deftest decf.21
   - [ ] (deftest decf.22
   - [ ] (deftest decf.23
-  - [ ] (deftest decf.order.2
-  - [ ] (deftest decf.order.3
-  - [ ] (deftest decf.order.4
-**** truncate.lsp [0%]
-  - [ ] (deftest truncate.error.1
-  - [ ] (deftest truncate.error.2
+  - [X] (deftest decf.order.2
+  - [X] (deftest decf.order.3
+  - [X] (deftest decf.order.4
+**** truncate.lsp [9%]
+  - [X] (deftest truncate.error.1
+  - [X] (deftest truncate.error.2
   - [ ] (deftest truncate.1
   - [ ] (deftest truncate.2
   - [ ] (deftest truncate.3
@@ -12056,20 +12056,20 @@
   - [ ] (deftest truncate.17
   - [ ] (deftest truncate.18
   - [ ] (deftest truncate.19
-**** evenp.lsp [0%]
-  - [ ] (deftest evenp.error.1
-  - [ ] (deftest evenp.error.2
+**** evenp.lsp [50%]
+  - [X] (deftest evenp.error.1
+  - [X] (deftest evenp.error.2
   - [ ] (deftest evenp.error.3
   - [ ] (deftest evenp.1
   - [ ] (deftest evenp.3
-  - [ ] (deftest evenp.4
-  - [ ] (deftest evenp.5
-  - [ ] (deftest evenp.6
+  - [X] (deftest evenp.4
+  - [X] (deftest evenp.5
+  - [X] (deftest evenp.6
   - [ ] (deftest evenp.7
   - [ ] (deftest evenp.8
-**** logcount.lsp [0%]
-  - [ ] (deftest logcount.error.1
-  - [ ] (deftest logcount.error.2
+**** logcount.lsp [18%]
+  - [X] (deftest logcount.error.1
+  - [X] (deftest logcount.error.2
   - [ ] (deftest logcount.error.3
   - [ ] (deftest logcount.1
   - [ ] (deftest logcount.2
@@ -12079,10 +12079,10 @@
   - [ ] (deftest logcount.6
   - [ ] (deftest logcount.7
   - [ ] (deftest logcount.8
-**** byte.lsp [0%]
-  - [ ] (deftest byte.error.1
-  - [ ] (deftest byte.error.2
-  - [ ] (deftest byte.error.3
+**** byte.lsp [50%]
+  - [X] (deftest byte.error.1
+  - [X] (deftest byte.error.2
+  - [X] (deftest byte.error.3
   - [ ] (deftest byte.1
   - [ ] (deftest byte.2
   - [ ] (deftest byte.3
@@ -12090,41 +12090,41 @@
   - [ ] (deftest byte.5
   - [ ] (deftest byte-size.1
   - [ ] (deftest byte-position.1
-  - [ ] (deftest byte-position.error.1
-  - [ ] (deftest byte-position.error.2
-  - [ ] (deftest byte-size.error.1
-  - [ ] (deftest byte-size.error.2
-**** logeqv.lsp [0%]
+  - [X] (deftest byte-position.error.1
+  - [X] (deftest byte-position.error.2
+  - [X] (deftest byte-size.error.1
+  - [X] (deftest byte-size.error.2
+**** logeqv.lsp [50%]
   - [ ] (deftest logeqv.error.1
   - [ ] (deftest logeqv.error.2
-  - [ ] (deftest logeqv.1
-  - [ ] (deftest logeqv.2
-  - [ ] (deftest logeqv.3
+  - [X] (deftest logeqv.1
+  - [X] (deftest logeqv.2
+  - [X] (deftest logeqv.3
   - [ ] (deftest logeqv.4
   - [ ] (deftest logeqv.5
   - [ ] (deftest logeqv.6
   - [ ] (deftest logeqv.7
-  - [ ] (deftest logeqv.8
-  - [ ] (deftest logeqv.order.1
-  - [ ] (deftest logeqv.order.2
-**** logbitp.lsp [0%]
-  - [ ] (deftest logbitp.error.1
-  - [ ] (deftest logbitp.error.2
-  - [ ] (deftest logbitp.error.3
+  - [X] (deftest logeqv.8
+  - [X] (deftest logeqv.order.1
+  - [X] (deftest logeqv.order.2
+**** logbitp.lsp [71%]
+  - [X] (deftest logbitp.error.1
+  - [X] (deftest logbitp.error.2
+  - [X] (deftest logbitp.error.3
   - [ ] (deftest logbitp.error.4
   - [ ] (deftest logbitp.error.5
   - [ ] (deftest logbitp.1
-  - [ ] (deftest logbitp.2
-  - [ ] (deftest logbitp.3
-  - [ ] (deftest logbitp.4
-  - [ ] (deftest logbitp.5
-  - [ ] (deftest logbitp.6
+  - [X] (deftest logbitp.2
+  - [X] (deftest logbitp.3
+  - [X] (deftest logbitp.4
+  - [X] (deftest logbitp.5
+  - [X] (deftest logbitp.6
   - [ ] (deftest logbitp.7
-  - [ ] (deftest logbitp.8
-  - [ ] (deftest logbitp.order.1
-**** fround.lsp [0%]
-  - [ ] (deftest fround.error.1
-  - [ ] (deftest fround.error.2
+  - [X] (deftest logbitp.8
+  - [X] (deftest logbitp.order.1
+**** fround.lsp [15%]
+  - [X] (deftest fround.error.1
+  - [X] (deftest fround.error.2
   - [ ] (deftest fround.1
   - [ ] (deftest fround.10
   - [ ] (deftest fround.11
@@ -12136,47 +12136,47 @@
   - [ ] (deftest fround.17
   - [ ] (deftest fround.18
   - [ ] (deftest fround.19
-**** realp.lsp [0%]
-  - [ ] (deftest realp.error.1
-  - [ ] (deftest realp.error.2
-  - [ ] (deftest realp.error.3
+**** realp.lsp [33%]
+  - [X] (deftest realp.error.1
+  - [X] (deftest realp.error.2
+  - [X] (deftest realp.error.3
   - [ ] (deftest realp.1
   - [ ] (deftest realp.2
   - [ ] (deftest realp.3
   - [ ] (deftest realp.4
   - [ ] (deftest realp.5
   - [ ] (deftest realp.6
-**** complexp.lsp [0%]
-  - [ ] (deftest complexp.error.1
-  - [ ] (deftest complexp.error.2
-  - [ ] (deftest complexp.error.3
+**** complexp.lsp [75%]
+  - [X] (deftest complexp.error.1
+  - [X] (deftest complexp.error.2
+  - [X] (deftest complexp.error.3
   - [ ] (deftest complexp.1
-**** integer-length.lsp [0%]
-  - [ ] (deftest integer-length.error.1
-  - [ ] (deftest integer-length.error.2
-  - [ ] (deftest integer-length.error.3
+**** integer-length.lsp [37%]
+  - [X] (deftest integer-length.error.1
+  - [X] (deftest integer-length.error.2
+  - [X] (deftest integer-length.error.3
   - [ ] (deftest integer-length.error.4
   - [ ] (deftest integer-length.1
   - [ ] (deftest integer-length.2
   - [ ] (deftest integer-length.3
   - [ ] (deftest integer-length.4
-**** floatp.lsp [0%]
-  - [ ] (deftest floatp.error.1
-  - [ ] (deftest floatp.error.2
-  - [ ] (deftest floatp.1
-  - [ ] (deftest floatp.2
+**** floatp.lsp [80%]
+  - [X] (deftest floatp.error.1
+  - [X] (deftest floatp.error.2
+  - [X] (deftest floatp.1
+  - [X] (deftest floatp.2
   - [ ] (deftest floatp.3
-**** divide.lsp [0%]
+**** divide.lsp [23%]
   - [ ] (deftest /.error.1
   - [ ] (deftest /.error.2
   - [ ] (deftest /.error.3
   - [ ] (deftest /.error.4
   - [ ] (deftest /.error.5
-  - [ ] (deftest /.error.6
-  - [ ] (deftest /.error.7
-  - [ ] (deftest /.error.8
-  - [ ] (deftest /.1
-  - [ ] (deftest /.2
+  - [X] (deftest /.error.6
+  - [X] (deftest /.error.7
+  - [X] (deftest /.error.8
+  - [X] (deftest /.1
+  - [X] (deftest /.2
   - [ ] (deftest /.3
   - [ ] (deftest /.4
   - [ ] (deftest /.5
@@ -12188,64 +12188,64 @@
   - [ ] (deftest /.11
   - [ ] (deftest /.12
   - [ ] (deftest /.13
-**** number-comparison.lsp [0%]
-  - [ ] (deftest =.error.1
-  - [ ] (deftest /=.error.1
-  - [ ] (deftest <.error.1
-  - [ ] (deftest <=.error.1
-  - [ ] (deftest >.error.1
-  - [ ] (deftest >=.error.1
+**** number-comparison.lsp [37%]
+  - [X] (deftest =.error.1
+  - [X] (deftest /=.error.1
+  - [X] (deftest <.error.1
+  - [X] (deftest <=.error.1
+  - [X] (deftest >.error.1
+  - [X] (deftest >=.error.1
   - [ ] (deftest =.1
   - [ ] (deftest =.2
   - [ ] (deftest =.3
   - [ ] (deftest =.4
-  - [ ] (deftest =.5
-  - [ ] (deftest =.6
+  - [X] (deftest =.5
+  - [X] (deftest =.6
   - [ ] (deftest =.7
-  - [ ] (deftest =.8
-  - [ ] (deftest =.9
+  - [X] (deftest =.8
+  - [X] (deftest =.9
   - [ ] (deftest =.10
   - [ ] (deftest =.11
-  - [ ] (deftest =.12
+  - [X] (deftest =.12
   - [ ] (deftest =.13
   - [ ] (deftest =.14
   - [ ] (deftest =.15
-  - [ ] (deftest =.16
+  - [X] (deftest =.16
   - [ ] (deftest =.17
   - [ ] (deftest =.18
   - [ ] (deftest =.19
-  - [ ] (deftest =.order.1
-  - [ ] (deftest =.order.2
-  - [ ] (deftest =.order.3
+  - [X] (deftest =.order.1
+  - [X] (deftest =.order.2
+  - [X] (deftest =.order.3
   - [ ] (deftest /=.1
   - [ ] (deftest /=.2
   - [ ] (deftest /=.3
   - [ ] (deftest /=.4
   - [ ] (deftest /=.4a
-  - [ ] (deftest /=.5
-  - [ ] (deftest /=.6
+  - [X] (deftest /=.5
+  - [X] (deftest /=.6
   - [ ] (deftest /=.7
-  - [ ] (deftest /=.8
-  - [ ] (deftest /=.9
+  - [X] (deftest /=.8
+  - [X] (deftest /=.9
   - [ ] (deftest /=.10
   - [ ] (deftest /=.11
-  - [ ] (deftest /=.12
+  - [X] (deftest /=.12
   - [ ] (deftest /=.13
   - [ ] (deftest /=.14
   - [ ] (deftest /=.15
   - [ ] (deftest /=.17
   - [ ] (deftest /=.18
   - [ ] (deftest /=.19
-  - [ ] (deftest /=.order.1
-  - [ ] (deftest /=.order.2
-  - [ ] (deftest /=.order.3
-  - [ ] (deftest <.1
-  - [ ] (deftest <.2
-  - [ ] (deftest <.3
+  - [X] (deftest /=.order.1
+  - [X] (deftest /=.order.2
+  - [X] (deftest /=.order.3
+  - [X] (deftest <.1
+  - [X] (deftest <.2
+  - [X] (deftest <.3
   - [ ] (deftest <.4
   - [ ] (deftest <.5
   - [ ] (deftest <.6
-  - [ ] (deftest <.7
+  - [X] (deftest <.7
   - [ ] (deftest <.8
   - [ ] (deftest <.9
   - [ ] (deftest <.10
@@ -12253,59 +12253,59 @@
   - [ ] (deftest <.17
   - [ ] (deftest <.18
   - [ ] (deftest <.19
-  - [ ] (deftest <.order.1
-  - [ ] (deftest <.order.2
-  - [ ] (deftest <.order.3
-  - [ ] (deftest <=.1
-  - [ ] (deftest <=.2
-  - [ ] (deftest <=.3
+  - [X] (deftest <.order.1
+  - [X] (deftest <.order.2
+  - [X] (deftest <.order.3
+  - [X] (deftest <=.1
+  - [X] (deftest <=.2
+  - [X] (deftest <=.3
   - [ ] (deftest <=.4
   - [ ] (deftest <=.5
   - [ ] (deftest <=.6
-  - [ ] (deftest <=.7
+  - [X] (deftest <=.7
   - [ ] (deftest <=.8
   - [ ] (deftest <=.9
   - [ ] (deftest <=.10
   - [ ] (deftest <=.17
   - [ ] (deftest <=.18
   - [ ] (deftest <=.19
-  - [ ] (deftest <=.order.1
-  - [ ] (deftest <=.order.2
-  - [ ] (deftest <=.order.3
-  - [ ] (deftest >.1
-  - [ ] (deftest >.2
-  - [ ] (deftest >.3
+  - [X] (deftest <=.order.1
+  - [X] (deftest <=.order.2
+  - [X] (deftest <=.order.3
+  - [X] (deftest >.1
+  - [X] (deftest >.2
+  - [X] (deftest >.3
   - [ ] (deftest >.4
   - [ ] (deftest >.5
   - [ ] (deftest >.6
-  - [ ] (deftest >.7
+  - [X] (deftest >.7
   - [ ] (deftest >.8
   - [ ] (deftest >.9
   - [ ] (deftest >.17
   - [ ] (deftest >.18
   - [ ] (deftest >.19
-  - [ ] (deftest >.order.1
-  - [ ] (deftest >.order.2
-  - [ ] (deftest >.order.3
-  - [ ] (deftest >=.1
-  - [ ] (deftest >=.2
-  - [ ] (deftest >=.3
+  - [X] (deftest >.order.1
+  - [X] (deftest >.order.2
+  - [X] (deftest >.order.3
+  - [X] (deftest >=.1
+  - [X] (deftest >=.2
+  - [X] (deftest >=.3
   - [ ] (deftest >=.4
   - [ ] (deftest >=.5
   - [ ] (deftest >=.6
-  - [ ] (deftest >=.7
+  - [X] (deftest >=.7
   - [ ] (deftest >=.8
   - [ ] (deftest >=.9
   - [ ] (deftest >=.17
   - [ ] (deftest >=.18
   - [ ] (deftest >=.19
-  - [ ] (deftest >=.order.1
-  - [ ] (deftest >=.order.2
-  - [ ] (deftest >=.order.3
-  - [ ] (deftest compare-rationals.1
-  - [ ] (deftest compare-rationals.2
-  - [ ] (deftest compare-rationals.3
-  - [ ] (deftest compare-rationals.4
+  - [X] (deftest >=.order.1
+  - [X] (deftest >=.order.2
+  - [X] (deftest >=.order.3
+  - [X] (deftest compare-rationals.1
+  - [X] (deftest compare-rationals.2
+  - [X] (deftest compare-rationals.3
+  - [X] (deftest compare-rationals.4
   - [ ] (deftest bignum.float.compare.1a
   - [ ] (deftest bignum.float.compare.1b
   - [ ] (deftest bignum.float.compare.2a
@@ -12334,63 +12334,63 @@
   - [ ] (deftest <=.env.1
   - [ ] (deftest >.env.1
   - [ ] (deftest >=.env.1
-**** atanh.lsp [0%]
-  - [ ] (deftest atanh.1
+**** atanh.lsp [33%]
+  - [X] (deftest atanh.1
   - [ ] (deftest atanh.2
   - [ ] (deftest atanh.3
-  - [ ] (deftest atanh.4
+  - [X] (deftest atanh.4
   - [ ] (deftest atanh.5
   - [ ] (deftest atanh.5a
   - [ ] (deftest atanh.6
   - [ ] (deftest atanh.7
   - [ ] (deftest atanh.8
-  - [ ] (deftest atanh.error.1
-  - [ ] (deftest atanh.error.2
+  - [X] (deftest atanh.error.1
+  - [X] (deftest atanh.error.2
   - [ ] (deftest atanh.error.3
-**** ash.lsp [0%]
-  - [ ] (deftest ash.error.1
-  - [ ] (deftest ash.error.2
-  - [ ] (deftest ash.error.3
+**** ash.lsp [50%]
+  - [X] (deftest ash.error.1
+  - [X] (deftest ash.error.2
+  - [X] (deftest ash.error.3
   - [ ] (deftest ash.error.4
   - [ ] (deftest ash.error.5
   - [ ] (deftest ash.1
   - [ ] (deftest ash.2
   - [ ] (deftest ash.3
-  - [ ] (deftest ash.4
-  - [ ] (deftest ash.5
+  - [X] (deftest ash.4
+  - [X] (deftest ash.5
   - [ ] (deftest ash.6
-  - [ ] (deftest ash.order.1
-**** epsilons.lsp [0%]
+  - [X] (deftest ash.order.1
+**** epsilons.lsp [15%]
   - [ ] (deftest epsilons.1
   - [ ] (deftest epsilons.2
   - [ ] (deftest epsilons.3
   - [ ] (deftest epsilons.4
   - [ ] (deftest epsilons.5
   - [ ] (deftest epsilons.6
-  - [ ] (deftest epsilons.7
+  - [X] (deftest epsilons.7
   - [ ] (deftest epsilons.8
-  - [ ] (deftest epsilons.9
+  - [X] (deftest epsilons.9
   - [ ] (deftest epsilons.10
   - [ ] (deftest epsilons.11
   - [ ] (deftest epsilons.12
   - [ ] (deftest epsilons.13
-**** parse-integer.lsp [0%]
-  - [ ] (deftest parse-integer.error.1
-  - [ ] (deftest parse-integer.error.2
-  - [ ] (deftest parse-integer.error.3
-  - [ ] (deftest parse-integer.error.4
-  - [ ] (deftest parse-integer.error.5
-  - [ ] (deftest parse-integer.error.5a
-  - [ ] (deftest parse-integer.error.6
-  - [ ] (deftest parse-integer.error.7
-  - [ ] (deftest parse-integer.error.8
-  - [ ] (deftest parse-integer.error.9
-  - [ ] (deftest parse-integer.error.10
-  - [ ] (deftest parse-integer.error.11
-  - [ ] (deftest parse-integer.error.12
-  - [ ] (deftest parse-integer.error.13
-  - [ ] (deftest parse-integer.error.14
-  - [ ] (deftest parse-integer.error.15
+**** parse-integer.lsp [28%]
+  - [X] (deftest parse-integer.error.1
+  - [X] (deftest parse-integer.error.2
+  - [X] (deftest parse-integer.error.3
+  - [X] (deftest parse-integer.error.4
+  - [X] (deftest parse-integer.error.5
+  - [X] (deftest parse-integer.error.5a
+  - [X] (deftest parse-integer.error.6
+  - [X] (deftest parse-integer.error.7
+  - [X] (deftest parse-integer.error.8
+  - [X] (deftest parse-integer.error.9
+  - [X] (deftest parse-integer.error.10
+  - [X] (deftest parse-integer.error.11
+  - [X] (deftest parse-integer.error.12
+  - [X] (deftest parse-integer.error.13
+  - [X] (deftest parse-integer.error.14
+  - [X] (deftest parse-integer.error.15
   - [ ] (deftest parse-integer.1
   - [ ] (deftest parse-integer.2
   - [ ] (deftest parse-integer.3
@@ -12431,13 +12431,13 @@
   - [ ] (deftest parse-integer.35
   - [ ] (deftest parse-integer.36
   - [ ] (deftest parse-integer.order.1
-**** signum.lsp [0%]
-  - [ ] (deftest signum.error.1
-  - [ ] (deftest signum.error.2
-  - [ ] (deftest signum.error.3
-  - [ ] (deftest signum.1
-  - [ ] (deftest signum.2
-  - [ ] (deftest signum.3
+**** signum.lsp [42%]
+  - [X] (deftest signum.error.1
+  - [X] (deftest signum.error.2
+  - [X] (deftest signum.error.3
+  - [X] (deftest signum.1
+  - [X] (deftest signum.2
+  - [X] (deftest signum.3
   - [ ] (deftest signum.4
   - [ ] (deftest signum.5
   - [ ] (deftest signum.6
@@ -12446,19 +12446,19 @@
   - [ ] (deftest signum.9
   - [ ] (deftest signum.10
   - [ ] (deftest signum.11
-**** logandc1.lsp [0%]
+**** logandc1.lsp [58%]
   - [ ] (deftest logandc1.error.1
   - [ ] (deftest logandc1.error.2
-  - [ ] (deftest logandc1.error.3
-  - [ ] (deftest logandc1.error.4
-  - [ ] (deftest logandc1.error.5
-  - [ ] (deftest logandc1.1
-  - [ ] (deftest logandc1.2
-  - [ ] (deftest logandc1.3
+  - [X] (deftest logandc1.error.3
+  - [X] (deftest logandc1.error.4
+  - [X] (deftest logandc1.error.5
+  - [X] (deftest logandc1.1
+  - [X] (deftest logandc1.2
+  - [X] (deftest logandc1.3
   - [ ] (deftest logandc1.4
   - [ ] (deftest logandc1.5
   - [ ] (deftest logandc1.6
-  - [ ] (deftest logandc1.order.1
+  - [X] (deftest logandc1.order.1
 *** cons [0%]
 **** set-exclusive-or.lsp [63%]
   - [X] (deftest set-exclusive-or.1
