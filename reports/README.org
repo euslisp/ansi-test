@@ -161,6 +161,16 @@
       - boolean
       - support to different floats
 
+** 8 System-construction
+*** Caveats
+    - Undefined functions
+      - compile-file-pathname
+      - delete-file
+      - fmakunbound
+      - with-compilation-unit
+    - Unbound variables
+      - *compile-file-pathname*
+      - *load-truename*
 * Outline
 *** Data Types
 *** Scope and Extent
