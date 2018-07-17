@@ -13,6 +13,7 @@
 (load "auxiliary/eus-types.l")
 (load "auxiliary/eus-printer.l")
 (load "auxiliary/eus-handlers.l")
+(load "auxiliary/eus-packages.l")
 
 (defvar *signals-error* t)
 
@@ -147,9 +148,9 @@
 (load "misc/load.lsp")
 (load "numbers/load.lsp")
 (load "printer/load.lsp")
-
-;; (load "packages/load.lsp")
 (load "reader/load.lsp")
+
+(load "packages/load.lsp")
 (load "streams/load.lsp")
 (load "sequences/load.lsp")
 (load "system-construction/load.lsp")
