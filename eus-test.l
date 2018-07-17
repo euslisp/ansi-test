@@ -176,8 +176,8 @@
 (load "reader/load.lsp")
 ;; (load "sequences/load.lsp")
 (load "streams/load.lsp")
-;; (load "structures/load.lsp")
 (load "system-construction/load.lsp")
+(load "structures/load.lsp")
 ;; (load "types-and-classes/load.lsp")
 ;; (load "objects/load.lsp") **UNSUPPORTED**
 
