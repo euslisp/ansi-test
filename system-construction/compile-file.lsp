@@ -85,9 +85,10 @@
                        'compile-file-test-fun.3)) t nil)
 
 (deftest compile-file.4
-  (let ((*package* (find-package "CL-USER")))
-    (compile-file-test "compile-file-test-file-3.lsp"
-                       'cl-user::compile-file-test-fun.3)) t nil)
+  ;; (let ((*package* (find-package "CL-USER")))
+  ;;   (compile-file-test "compile-file-test-file-3.lsp"
+    ;;                      'cl-user::compile-file-test-fun.3)) t nil)
+    (error "no such package CL-USER"))
 
 (deftest compile-file.5
   (compile-file-test #p"compile-file-test-file.lsp"
