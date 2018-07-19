@@ -175,7 +175,7 @@
 ;; (load "printer/load.lsp")
 ;; (load "reader/load.lsp")
 ;; (load "sequences/load.lsp")
-;; (load "streams/load.lsp")
+(load "streams/load.lsp")
 ;; (load "structures/load.lsp")
 ;; (load "system-construction/load.lsp")
 ;; (load "types-and-classes/load.lsp")

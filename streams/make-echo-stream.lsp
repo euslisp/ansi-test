@@ -203,62 +203,64 @@
   nil t #.(string #\Newline))
 
 (deftest make-echo-stream.15
-  (let ((pn #p"tmp.dat")
-        (pn2 #p"tmp2.dat")
-        (element-type '(unsigned-byte 8)))
-    (with-open-file (os pn
-                        :direction :output
-                        :element-type element-type
-                        :if-exists :supersede))
-    (with-open-file
-     (is pn :direction :input :element-type element-type)
-     (values
-      (with-open-file
-       (os pn2 :direction :output :if-exists :supersede
-           :element-type element-type)
-       (let ((s (make-echo-stream is os))
-             (x (mapcar #'char-code (coerce "abcdefg" 'list))))
-         (loop for b in x do
-               (assert (equal (list b)
-                              (multiple-value-list (write-byte b s)))))
-         (close s)))))
-    (with-open-file
-     (is pn2 :direction :input :element-type element-type)
-     (let ((x (vector 0 0 0 0 0 0 0)))
-       (read-sequence x is)
-       (values
-        (read-byte is nil :done)
-        (map 'string #'code-char x)))))
-  :done
-  "abcdefg")
+  ;; (let ((pn #p"tmp.dat")
+  ;;       (pn2 #p"tmp2.dat")
+  ;;       (element-type '(unsigned-byte 8)))
+  ;;   (with-open-file (os pn
+  ;;                       :direction :output
+  ;;                       :element-type element-type
+  ;;                       :if-exists :supersede))
+  ;;   (with-open-file
+  ;;    (is pn :direction :input :element-type element-type)
+  ;;    (values
+  ;;     (with-open-file
+  ;;      (os pn2 :direction :output :if-exists :supersede
+  ;;          :element-type element-type)
+  ;;      (let ((s (make-echo-stream is os))
+  ;;            (x (mapcar #'char-code (coerce "abcdefg" 'list))))
+  ;;        (loop for b in x do
+  ;;              (assert (equal (list b)
+  ;;                             (multiple-value-list (write-byte b s)))))
+  ;;        (close s)))))
+  ;;   (with-open-file
+  ;;    (is pn2 :direction :input :element-type element-type)
+  ;;    (let ((x (vector 0 0 0 0 0 0 0)))
+  ;;      (read-sequence x is)
+  ;;      (values
+  ;;       (read-byte is nil :done)
+  ;;       (map 'string #'code-char x)))))
+  ;; :done
+    ;; "abcdefg")
+    (error "makes use of function defined in another PR (code-char)"))
 
 (deftest make-echo-stream.16
-  (let ((pn #p"tmp.dat")
-        (pn2 #p"tmp2.dat")
-        (element-type '(unsigned-byte 8)))
-    (with-open-file (os pn
-                        :direction :output
-                        :element-type element-type
-                        :if-exists :supersede))
-    (with-open-file
-     (is pn :direction :input :element-type element-type)
-     (values
-      (with-open-file
-       (os pn2 :direction :output :if-exists :supersede
-           :element-type element-type)
-       (let ((s (make-echo-stream is os))
-             (x (map 'vector #'char-code "abcdefg")))
-         (assert (equal (multiple-value-list (write-sequence x s)) (list x)))
-         (close s)))))
-    (with-open-file
-     (is pn2 :direction :input :element-type element-type)
-     (let ((x (vector 0 0 0 0 0 0 0)))
-       (read-sequence x is)
-       (values
-        (read-byte is nil :done)
-        (map 'string #'code-char x)))))
-  :done
-  "abcdefg")
+  ;; (let ((pn #p"tmp.dat")
+  ;;       (pn2 #p"tmp2.dat")
+  ;;       (element-type '(unsigned-byte 8)))
+  ;;   (with-open-file (os pn
+  ;;                       :direction :output
+  ;;                       :element-type element-type
+  ;;                       :if-exists :supersede))
+  ;;   (with-open-file
+  ;;    (is pn :direction :input :element-type element-type)
+  ;;    (values
+  ;;     (with-open-file
+  ;;      (os pn2 :direction :output :if-exists :supersede
+  ;;          :element-type element-type)
+  ;;      (let ((s (make-echo-stream is os))
+  ;;            (x (map 'vector #'char-code "abcdefg")))
+  ;;        (assert (equal (multiple-value-list (write-sequence x s)) (list x)))
+  ;;        (close s)))))
+  ;;   (with-open-file
+  ;;    (is pn2 :direction :input :element-type element-type)
+  ;;    (let ((x (vector 0 0 0 0 0 0 0)))
+  ;;      (read-sequence x is)
+  ;;      (values
+  ;;       (read-byte is nil :done)
+  ;;       (map 'string #'code-char x)))))
+  ;; :done
+    ;; "abcdefg")
+    (error "makes use of function defined in another PR (code-char)"))
 
 (deftest make-echo-stream.17
   (let* ((is (make-string-input-stream "foo"))
