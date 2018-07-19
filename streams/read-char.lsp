@@ -20,18 +20,19 @@
     (read-char)))
   #\a #\b #\c)
 
-(when (code-char 0)
-  (deftest read-char.3
-    (with-input-from-string
-     (*standard-input* (concatenate 'string
-                                    "a"
-                                    (string (code-char 0))
-                                    "b"))
-     (values
-      (read-char)
-      (read-char)
-      (read-char)))
-    #\a #.(code-char 0) #\b))
+;; (when (code-char 0)
+;;   (deftest read-char.3
+;;     (with-input-from-string
+;;      (*standard-input* (concatenate 'string
+;;                                     "a"
+;;                                     (string (code-char 0))
+;;                                     "b"))
+;;      (values
+;;       (read-char)
+;;       (read-char)
+;;       (read-char)))
+;;     #\a #.(code-char 0) #\b))
+(deftest read-char.3 (error "^ makes use of function defined in a different PR (code-char)"))
 
 (deftest read-char.4
   (with-input-from-string

@@ -114,7 +114,6 @@
       - define-method-combination
       - deftype
 
-
 ** DONE 6 Misc
 *** Caveats
     - "no such package":
@@ -160,7 +159,6 @@
       - rational
       - boolean
       - support to different floats
-
 ** 8 System-construction
 *** Caveats
     - Undefined functions
@@ -171,6 +169,20 @@
     - Unbound variables
       - *compile-file-pathname*
       - *load-truename*
+** 9 Streams
+*** Caveats
+    - Problems with binary vectors tests
+    - string expected in (directory wild-pathname)
+    - No such keyword :element-type in open
+    - Unbound variables
+      - *debug-io*
+    - Undefined functions
+      - check-type-predicate
+      - make-echo-stream
+      - read-char-no-hang
+      - write-char
+      - write-string
+
 * Outline
 *** Data Types
 *** Scope and Extent

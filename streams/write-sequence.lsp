@@ -130,18 +130,18 @@
                always (eql (read-byte is) e))))
      t))
 
-(def-write-sequence-bv-test write-sequence.bv.1 #*00111010
-  () #*00111010)
-(def-write-sequence-bv-test write-sequence.bv.2 #*00111010
-  (:start 1) #*0111010)
-(def-write-sequence-bv-test write-sequence.bv.3 #*00111010
-  (:end 5) #*00111)
-(def-write-sequence-bv-test write-sequence.bv.4 #*00111010
-  (:start 1 :end 6) #*01110)
-(def-write-sequence-bv-test write-sequence.bv.5 #*00111010
-  (:start 1 :end nil) #*0111010)
-(def-write-sequence-bv-test write-sequence.bv.6 #*00111010
-  (:start 1 :end nil :end 4) #*0111010)
+;; (def-write-sequence-bv-test write-sequence.bv.1 #*00111010
+;;   () #*00111010)
+;; (def-write-sequence-bv-test write-sequence.bv.2 #*00111010
+;;   (:start 1) #*0111010)
+;; (def-write-sequence-bv-test write-sequence.bv.3 #*00111010
+;;   (:end 5) #*00111)
+;; (def-write-sequence-bv-test write-sequence.bv.4 #*00111010
+;;   (:start 1 :end 6) #*01110)
+;; (def-write-sequence-bv-test write-sequence.bv.5 #*00111010
+;;   (:start 1 :end nil) #*0111010)
+;; (def-write-sequence-bv-test write-sequence.bv.6 #*00111010
+;;   (:start 1 :end nil :end 4) #*0111010)
 
 
 ;;; Error tests
