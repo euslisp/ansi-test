@@ -4,6 +4,6 @@
                                           &key (start 0) (end nil)
                                           (preserve-whitespace nil))
         (let ((end (or end (length string))))
-          (read (make-string-input-stream string start end))))
+          (read (make-string-input-stream string start end) eof-error-p eof-value)))
 
 (export '(read-from-string))
