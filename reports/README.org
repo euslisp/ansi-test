@@ -183,6 +183,14 @@
       - write-char
       - write-string
 
+** 8 Reader
+*** Caveats
+    - doesn't recognize short float notation
+    - Undefined functions
+      - read-preserving-whitespace
+      - COPY-PPRINT-DISPATCH
+      - with-open-stream
+
 * Outline
 *** Data Types
 *** Scope and Extent
