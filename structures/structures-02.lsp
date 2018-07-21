@@ -378,12 +378,12 @@
 
 (eval-when (:load-toplevel :execute)
   (let ((x nil))
-    (flet ((OOf () x)
-          (OOg (y) (setf x y)))
+    (flet ((%f () x)
+          (%g (y) (setf x y)))
       (defstruct struct-test-62
         (a (progn (setf x 'a) nil))
-        (f #'OOf)
-        (g #'OOg)))))
+        (f #'%f)
+        (g #'%g)))))
 
 (deftest structure-62-1
   (let* ((s (make-struct-test-62 :a 1))
