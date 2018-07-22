@@ -122,4 +122,12 @@
           end1
           nil))))
 
+
+;; Shadows peek-char to accept peek-type, and ignore it for now
+(defun peek-char (&optional (peek-type nil) (stream *standard-input*)
+                            (eof-errorp t) eof-value recursive-p)
+  (if (streamp peek-type)
+      (peek-char peek-type stream eof-errorp)
+      (peek-char stream eof-errorp eof-value)))
+
 (export 'mismatch)
