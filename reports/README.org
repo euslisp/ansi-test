@@ -191,6 +191,10 @@
       - COPY-PPRINT-DISPATCH
       - with-open-stream
 
+** 9 Structures
+*** Caveats
+    - defstruct-with-tests crashes the tester
+    - defstruct* crashes as well  
 * Outline
 *** Data Types
 *** Scope and Extent

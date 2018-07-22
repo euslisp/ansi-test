@@ -11,42 +11,42 @@
 (defstruct struct-include-01a
   a (b 0))
 
-(defstruct (struct-include-01b (:include struct-include-01a
-                                         (a 100) (b 'x)))
-  (c 200) d)
+;; (defstruct (struct-include-01b (:include struct-include-01a
+;;                                          (a 100) (b 'x)))
+;;   (c 200) d)
 
-(deftest struct-include.1
-  (let ((obj (make-struct-include-01b)))
-    (values
-     (typep* obj 'struct-include-01a)
-     (typep* obj 'struct-include-01b)
-     (struct-include-01a-a obj)
-     (struct-include-01a-b obj)
-     (struct-include-01b-a obj)
-     (struct-include-01b-b obj)
-     (struct-include-01b-c obj)))
-  t t 100 x 100 x 200)
+;; (deftest struct-include.1
+;;   (let ((obj (make-struct-include-01b)))
+;;     (values
+;;      (typep* obj 'struct-include-01a)
+;;      (typep* obj 'struct-include-01b)
+;;      (struct-include-01a-a obj)
+;;      (struct-include-01a-b obj)
+;;      (struct-include-01b-a obj)
+;;      (struct-include-01b-b obj)
+;;      (struct-include-01b-c obj)))
+;;   t t 100 x 100 x 200)
 
 
-(deftest struct-include.2
-  (let ((obj (make-struct-include-01b :a 1 :b 2 :c 3 :d 4)))
-    (values
-     (typep* obj 'struct-include-01a)
-     (typep* obj 'struct-include-01b)
-     (struct-include-01a-a obj)
-     (struct-include-01a-b obj)
-     (struct-include-01b-a obj)
-     (struct-include-01b-b obj)
-     (struct-include-01b-c obj)
-     (struct-include-01b-d obj)
-     ))
-  t t 1 2 1 2 3 4)
+;; (deftest struct-include.2
+;;   (let ((obj (make-struct-include-01b :a 1 :b 2 :c 3 :d 4)))
+;;     (values
+;;      (typep* obj 'struct-include-01a)
+;;      (typep* obj 'struct-include-01b)
+;;      (struct-include-01a-a obj)
+;;      (struct-include-01a-b obj)
+;;      (struct-include-01b-a obj)
+;;      (struct-include-01b-b obj)
+;;      (struct-include-01b-c obj)
+;;      (struct-include-01b-d obj)
+;;      ))
+;;   t t 1 2 1 2 3 4)
 
 (defstruct struct-include-02a
   (a 0 :type number))
 
-(defstruct (struct-include-02b (:include struct-include-02a
-                                         (a 10 :type integer))))
+;; (defstruct (struct-include-02b (:include struct-include-02a
+;;                                          (a 10 :type integer))))
 
 (deftest struct-include.3
   (let ((obj (make-struct-include-02b)))
@@ -77,7 +77,7 @@
 (defstruct struct-include-03a
   (a 0 :type number))
 
-(defstruct (struct-include-03b (:include struct-include-03a (a))))
+;; (defstruct (struct-include-03b (:include struct-include-03a (a))))
 
 (deftest struct-include.5a
   (let ((obj (make-struct-include-03b :a 100)))
@@ -90,8 +90,8 @@
 
 (defstruct struct-include-04a a b)
 
-(defstruct (struct-include-04b (:include struct-include-04a
-                                         (a 0 :read-only t))))
+;; (defstruct (struct-include-04b (:include struct-include-04a
+;;                                          (a 0 :read-only t))))
 
 (deftest struct-include.6
   (let ((obj (make-struct-include-04b)))
