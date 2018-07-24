@@ -25,27 +25,27 @@
 ;; (defparameter *pattern-subvectors*
 ;;   (mapcar #'(lambda (x) (apply #'vector x)) *pattern-sublists*))
 
-;; (defparameter *searched-bitvector*
-;;   #*1101111111010111010111000010010000001011010010001100100001101010001011010011111000001011111010110101)
+(defparameter *searched-bitvector*
+  #*1101111111010111010111000010010000001011010010001100100001101010001011010011111000001011111010110101)
 
-;; (defparameter *pattern-subbitvectors*
-;;   (remove-duplicates
-;;    (let* ((s *searched-bitvector*) (len (length s)))
-;;      (loop for x from 0 to 8 nconc
-;;            (loop for y from 0 to (- len x)
-;;                  collect (subseq s y (+ y x)))))
-;;    :test #'equalp))
+(defparameter *pattern-subbitvectors*
+  (remove-duplicates
+   (let* ((s *searched-bitvector*) (len (length s)))
+     (loop for x from 0 to 8 nconc
+           (loop for y from 0 to (- len x)
+                 collect (subseq s y (+ y x)))))
+   :test #'equalp))
 
 (defparameter *searched-string*
   "1101111111010111010111000010010000001011010010001100100001101010001011010011111000001011111010110101")
 
-;; (defparameter *pattern-substrings*
-;;   (remove-duplicates
-;;    (let* ((s *searched-string*) (len (length s)))
-;;      (loop for x from 0 to 8 nconc
-;;            (loop for y from 0 to (- len x)
-;;                  collect (subseq s y (+ y x)))))
-;;    :test #'equalp))
+(defparameter *pattern-substrings*
+  (remove-duplicates
+   (let* ((s *searched-string*) (len (length s)))
+     (loop for x from 0 to 8 nconc
+           (loop for y from 0 to (- len x)
+                 collect (subseq s y (+ y x)))))
+   :test #'equalp))
 
 (defun subseq-equalp (seq1 seq2 start1 start2 len &key (test #'equalp))
   (assert
