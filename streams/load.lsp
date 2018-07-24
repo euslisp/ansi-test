@@ -15,7 +15,7 @@
   (load "stream-element-type.lsp")
   (load "streamp.lsp")
   (load "read-byte.lsp")
-  (load "peek-char.lsp")
+  ;;(load "peek-char.lsp")
   (load "read-char.lsp")
   (load "read-char-no-hang.lsp")
   (load "terpri.lsp")

@@ -1,5 +1,11 @@
-; (in-package "COMMON_LISP")
-; (export '(char-equal equalp))
+(in-package "LISP")
+
+(defun char< (ch &rest chars)
+  "Returns T if its arguments are in increasing alphabetic order."
+  (OOchar< ch chars))
+
+(defmacro OOchar (ch chars)
+  `(< ch ,@chars))
 
 (defun char-equal (character &rest more-characters)
   "Returns T if all of its arguments are the same character.
@@ -9,6 +15,11 @@
     (unless (= (car clist) character)
       (return nil))))
 
+(defun characterp (ch)
+  "Returns T if ch is a character, false otherwise."
+  (if (or (floatp ch) (derivedp ch object) (< ch 0))
+      nil
+      t))
 
 ;;; EQUALP -- public.
 ;;
@@ -19,7 +30,7 @@
   arrays must have identical dimensions and EQUALP elements, but may differ
   in their type restriction."
   (cond ((eq x y) t)
-	((characterp x) (and (characterp y) (char-equal x y)))
+	;;((characterp x) (and (characterp y) (char-equal x y))) <- characters are numbers
 	((numberp x) (and (numberp y) (= x y)))
 	((consp x)
 	 (and (consp y)
@@ -41,9 +52,9 @@
 	;; 		  (multiple-value-bind (y-value foundp)
 	;; 		      (gethash x-key y)
 	;; 		    (unless (and foundp (equalp x-value y-value))
-	;; 		      (return nil))))
+	;; 		      (return-from equalp nil))))
 	;; 		 (t
-	;; 		  (return t))))))))
+	;; 		  (return-from equalp t))))))))
 	;; ((%instancep x)
 	;;  (let* ((layout-x (%instance-layout x))
 	;; 	(len (layout-length layout-x)))
@@ -57,28 +68,30 @@
 	;; 		(y-el (%instance-ref y i)))
 	;; 	    (unless (or (eq x-el y-el)
 	;; 			(equalp x-el y-el))
-	;; 	      (return nil)))))))
+	;; 	      (return-from equalp nil)))))))
 	((vectorp x)
-	 (let ((length (length x)))
-	   (and (vectorp y)
+         (let ((length (length x)))
+           (and (vectorp y)
 		(= length (length y))
 		(dotimes (i length t)
 		  (let ((x-el (aref x i))
 			(y-el (aref y i)))
-		    (unless (or (eq x-el y-el)
-				(equalp x-el y-el))
-		      (return nil)))))))
+		    (if (not (or (eq x-el y-el)
+                                 (equalp x-el y-el)))
+		      (return-from equalp nil)))))))
 	((arrayp x)
 	 (and (arrayp y)
 	      (= (array-rank x) (array-rank y))
 	      (dotimes (axis (array-rank x) t)
 		(unless (= (array-dimension x axis)
 			   (array-dimension y axis))
-		  (return nil)))
+		  (return-from equalp nil)))
 	      (dotimes (index (array-total-size x) t)
 		(let ((x-el (row-major-aref x index))
 		      (y-el (row-major-aref y index)))
 		  (unless (or (eq x-el y-el)
 			      (equalp x-el y-el))
-		    (return nil))))))
+		    (return-from equalp nil))))))
 	(t nil)))
+
+(export '(char-equal equalp char< characterp))

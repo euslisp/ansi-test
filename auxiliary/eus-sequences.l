@@ -12,7 +12,7 @@
                                          (count 1000000)
                                          (key #'identity)
                                          (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-substitute newitem olditem (reverse seq) test test-not key nil nil start end count))
         (system::raw-substitute newitem olditem seq test test-not key nil nil start end count))))
@@ -22,7 +22,7 @@
                                          (count 1000000)
                                          (key #'identity)
                                          (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-substitute newitem nil (reverse seq) nil nil key pred nil start end count))
         (system::raw-substitute newitem nil seq nil nil key pred nil start end count))))
@@ -32,7 +32,7 @@
                                              (count 1000000)
                                              (key #'identity)
                                              (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-substitute newitem nil (reverse seq) nil nil key nil pred start end count))
         (system::raw-substitute newitem nil seq nil nil key nil pred start end count))))
@@ -45,7 +45,7 @@
                                           (count 1000000)
                                           (key #'identity)
                                           (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-nsubstitute newitem olditem (reverse seq) test test-not key nil nil start end count))
         (system::raw-nsubstitute newitem olditem seq test test-not key nil nil start end count))))
@@ -55,7 +55,7 @@
                                           (nil)
                                           (key #'identity)
                                           (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-nsubstitute newitem nil (reverse seq) nil nil key pred nil start end count))
         (system::raw-nsubstitute newitem nil seq nil nil key pred nil start end count))))
@@ -65,7 +65,7 @@
                                               (count 1000000)
                                               (key #'identity)
                                               (from-end nil))
-  (let ((count (or (and count (< 0 count) 0) count 1000000)))
+  (let ((count (or (and count (< count 0) 0) count 1000000)))
     (if from-end
         (reverse (system::raw-nsubstitute newitem nil (reverse seq) nil nil key nil pred start end count))
         (system::raw-nsubstitute newitem nil seq nil nil key nil pred start end count))))
@@ -106,6 +106,14 @@
                                 (start2 0)
                                 (end1 nil)
                                 (end2 nil))
+  "The specified subsequences of Sequence1 and Sequence2 are compared
+   element-wise.  If they are of equal length and match in every element, the
+   result is NIL.  Otherwise, the result is a non-negative integer, the index
+   within Sequence1 of the leftmost position at which they fail to match; or,
+   if one is shorter than and a matching prefix of the other, the index within
+   Sequence1 beyond the last position tested is returned.  If a non-Nil
+   :From-End keyword argument is given, then one plus the index of the
+   rightmost position in which the sequences differ is returned."
   (let ((end1 (or end1 (length seq1)))
         (end2 (or end2 (length seq2)))
         (seq1 (or (and from-end (reverse seq1)) seq1))
@@ -123,11 +131,9 @@
           nil))))
 
 
-;; Shadows peek-char to accept peek-type, and ignore it for now
-(defun peek-char (&optional (peek-type nil) (stream *standard-input*)
-                            (eof-errorp t) eof-value recursive-p)
-  (if (streamp peek-type)
-      (peek-char peek-type stream eof-errorp)
-      (peek-char stream eof-errorp eof-value)))
+;; ;; Auxiliary function to shadow peek-char
+;; (defun OOpeek-char (&optional (stream *standard-input*)
+;;                              (eof-errorp t) eof-value recursive-p)
+;;   (peek-char stream eof-errorp eof-value recursive-p))
 
-(export 'mismatch)
+(export '(mismatch))

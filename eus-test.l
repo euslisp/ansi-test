@@ -98,7 +98,7 @@
       call-arguments-limit 4611686018427387903)
 
 (send (find-package "LISP") :set-val 'names (list "LISP" "CL"))
-(send (find-package "USER") :set-val 'names (list "USER" "CL-TEST"))
+(send (find-package "USER") :set-val 'names (list "USER" "CL-USER" "CL-TEST"))
 
 
 (set-macro-character #\% nil)
