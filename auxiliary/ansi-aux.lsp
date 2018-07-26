@@ -355,10 +355,12 @@ the condition to go uncaught if it cannot be classified."
 ;; (declaim (ftype (function (&rest function) (values function &optional))
 ;;              compose))
 
-(defun compose (&rest fns)
-  (let ((rfns (reverse fns)))
-    #'(lambda (x) (loop for f
-                        in rfns do (setf x (funcall (the function f) x))) x)))
+(defmacro compose (&rest fns)
+  `(function (lambda (x)
+     ,(let* ((rfns (reverse fns))
+	     (lst `(funcall ,(pop rfns) x)))
+	    (mapc #'(lambda (f) (setq lst `(funcall ,f ,lst))) rfns)
+	    lst))))
 
 (defun evendigitp (c)
   (notnot (find c "02468")))
