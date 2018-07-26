@@ -100,12 +100,26 @@
 
 ;; Add mismatch function
 
+(defmacro mismatch-core (from-end)
+  `(when (if test-not
+	     (funcall test-not
+		      (funcall key (elt seq1 index1))
+		      (funcall key (elt seq2 index2)))
+	     (not (funcall test
+			   (funcall key (elt seq1 index1))
+			   (funcall key (elt seq2 index2)))))
+     (return-from mismatch ,(if from-end
+				'(1+ index1)
+				'index1))))
+
 (defun mismatch (seq1 seq2 &key (from-end nil)
                                 (test #'eql)
+                                (test-not nil)
                                 (start1 0)
                                 (start2 0)
                                 (end1 nil)
-                                (end2 nil))
+                                (end2 nil)
+                                (key #'identity))
   "The specified subsequences of Sequence1 and Sequence2 are compared
    element-wise.  If they are of equal length and match in every element, the
    result is NIL.  Otherwise, the result is a non-negative integer, the index
@@ -115,21 +129,23 @@
    :From-End keyword argument is given, then one plus the index of the
    rightmost position in which the sequences differ is returned."
   (let ((end1 (or end1 (length seq1)))
-        (end2 (or end2 (length seq2)))
-        (seq1 (or (and from-end (reverse seq1)) seq1))
-        (seq2 (or (and from-end (reverse seq2)) seq2)))
-    (progn
-      (loop
-         for index1 from start1 to (- end1 1)
-         for index2 from start2 to (- end2 1)
-         do
-           (when (not (funcall test (elt seq1 index1) (elt seq2 index2)))
-             (return-from mismatch index1))
-      )
-      (if (> (- end1 start1) (- end2 start2))
-          end1
-          nil))))
-
+        (end2 (or end2 (length seq2))))
+    (if (or (zerop end1) (zerop end2)) (return-from mismatch 0))
+    (if from-end
+	(loop
+	   for index1 from (- end1 1) downto start1
+	   for index2 from (- end2 1) downto start2
+	 do
+	     (mismatch-core t))
+	(loop
+	   for index1 from start1 below end1
+	   for index2 from start2 below end2
+	 do
+	     (mismatch-core nil)))
+    (cond
+      ((> (- end1 start1) (- end2 start2)) end2)
+      ((< (- end1 start1) (- end2 start2)) end1)
+      (t nil))))
 
 ;; ;; Auxiliary function to shadow peek-char
 ;; (defun OOpeek-char (&optional (stream *standard-input*)
