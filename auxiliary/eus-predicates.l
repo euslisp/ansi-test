@@ -1,25 +1,8 @@
 (in-package "LISP")
 
-(defun char< (ch &rest chars)
-  "Returns T if its arguments are in increasing alphabetic order."
-  (OOchar< ch chars))
 
-(defmacro OOchar (ch chars)
-  `(< ch ,@chars))
-
-(defun char-equal (character &rest more-characters)
-  "Returns T if all of its arguments are the same character.
-   Case is ignored."
-  (do ((clist more-characters (cdr clist)))
-      ((atom clist) T)
-    (unless (= (car clist) character)
-      (return nil))))
-
-(defun characterp (ch)
-  "Returns T if ch is a character, false otherwise."
-  (if (or (floatp ch) (derivedp ch object) (< ch 0))
-      nil
-      t))
+(defmacro complement (fn)
+  `(function (lambda (&rest args) (not (apply ,fn args)))))
 
 ;;; EQUALP -- public.
 ;;
@@ -94,4 +77,4 @@
 		    (return-from equalp nil))))))
 	(t nil)))
 
-(export '(char-equal equalp char< characterp))
+(export '(complement equalp))
