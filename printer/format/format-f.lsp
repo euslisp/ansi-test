@@ -487,37 +487,37 @@
            collect (list i sf w d s i2))))
   nil)
 
-(deftest format.f.42
-  (let ((chars +standard-chars+))
-    (loop
-     for k = (and (coin) (random 6))
-     for x = (random (/ (random-from-seq #(#.(coerce (* 32 (1- (ash 1 13))) 'short-float)
-                                             #.(coerce (* 256 (1- (ash 1 24))) 'single-float)
-                                             #.(coerce (* 256 (1- (ash 1 50))) 'double-float)
-                                             #.(coerce (* 256 (1- (ash 1 50))) 'long-float)))
-                        (if k (expt 10 k) 1)))
-     for w = (and (coin) (random 30))
-     for d = (and (coin) (random 10))
-     for overflowchar = (and (coin) (random-from-seq chars))
-     for padchar = (and (coin) (random-from-seq chars))
-     for f1 = (concatenate 'string
-                           "~"
-                           (if w (format nil "~d" w) "")
-                           ","
-                           (if d (format nil "~d" d) "")
-                           ","
-                           (if k (format nil "~d" k) "")
-                           ","
-                           (if overflowchar (format nil "'~c" overflowchar) "")
-                           ","
-                           (if padchar (format nil "'~c" padchar) "")
-                           (string (random-from-seq "fF")))
-     for s1 = (format nil f1 x)
-     for s2 = (format nil "~v,v,v,v,vf" w d k overflowchar padchar x)
-     repeat 2000
-     unless (string= s1 s2)
-     collect (list x w d k overflowchar padchar f1 s1 s2)))
-  nil)
+;; (deftest format.f.42
+;;   (let ((chars +standard-chars+))
+;;     (loop
+;;      for k = (and (coin) (random 6))
+;;      for x = (random (/ (random-from-seq #(#.(coerce (* 32 (1- (ash 1 13))) 'short-float)
+;;                                              #.(coerce (* 256 (1- (ash 1 24))) 'single-float)
+;;                                              #.(coerce (* 256 (1- (ash 1 50))) 'double-float)
+;;                                              #.(coerce (* 256 (1- (ash 1 50))) 'long-float)))
+;;                         (if k (expt 10 k) 1)))
+;;      for w = (and (coin) (random 30))
+;;      for d = (and (coin) (random 10))
+;;      for overflowchar = (and (coin) (random-from-seq chars))
+;;      for padchar = (and (coin) (random-from-seq chars))
+;;      for f1 = (concatenate 'string
+;;                            "~"
+;;                            (if w (format nil "~d" w) "")
+;;                            ","
+;;                            (if d (format nil "~d" d) "")
+;;                            ","
+;;                            (if k (format nil "~d" k) "")
+;;                            ","
+;;                            (if overflowchar (format nil "'~c" overflowchar) "")
+;;                            ","
+;;                            (if padchar (format nil "'~c" padchar) "")
+;;                            (string (random-from-seq "fF")))
+;;      for s1 = (format nil f1 x)
+;;      for s2 = (format nil "~v,v,v,v,vf" w d k overflowchar padchar x)
+;;      repeat 2000
+;;      unless (string= s1 s2)
+;;      collect (list x w d k overflowchar padchar f1 s1 s2)))
+;;   nil)
 
 ;;; This failed in sbcl 0.8.12.25
 

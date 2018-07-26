@@ -382,7 +382,7 @@ the condition to go uncaught if it cannot be classified."
     (char-upcase c)))
 
 (defun string-invertcase (s)
-  (map 'string #'char-invertcase s))
+  (map string #'char-invertcase s))
 
 (defun symbol< (x &rest args)
   (apply #'string< (symbol-name x) (mapcar #'symbol-name args)))

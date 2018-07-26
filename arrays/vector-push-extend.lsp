@@ -424,31 +424,31 @@
               collect (list etype adj result)))
   nil)
 
-(deftest vector-push-extend.28
-  (loop for etype in '(character base-char standard-char)
-        for a1 = (make-array 8 :initial-element #\a
-                             :element-type etype)
-        for a2 = (make-array 6
-                             :element-type etype
-                             :displaced-to a1
-                             :displaced-index-offset 2
-                             :adjustable t
-                             :fill-pointer 6)
-        for result = (list (fill-pointer a2)
-                           (map 'list #'identity a2)
-                           (vector-push-extend #\b a2)
-                           (fill-pointer a2)
-                           (map 'list #'identity a2)
-                           (map 'list #'identity a1)
-                           (notnot (adjustable-array-p a2))
-                           (multiple-value-list (array-displacement a1)))
-        unless (equal result '(6 #.(coerce "aaaaaa" 'list)
-                                 6 7
-                                 #.(coerce "aaaaaab" 'list)
-                                 #.(coerce "aaaaaaaa" 'list)
-                                 t (nil 0)))
-        collect (list etype result))
-  nil)
+;; (deftest vector-push-extend.28
+;;   (loop for etype in '(character base-char standard-char)
+;;         for a1 = (make-array 8 :initial-element #\a
+;;                              :element-type etype)
+;;         for a2 = (make-array 6
+;;                              :element-type etype
+;;                              :displaced-to a1
+;;                              :displaced-index-offset 2
+;;                              :adjustable t
+;;                              :fill-pointer 6)
+;;         for result = (list (fill-pointer a2)
+;;                            (map 'list #'identity a2)
+;;                            (vector-push-extend #\b a2)
+;;                            (fill-pointer a2)
+;;                            (map 'list #'identity a2)
+;;                            (map 'list #'identity a1)
+;;                            (notnot (adjustable-array-p a2))
+;;                            (multiple-value-list (array-displacement a1)))
+;;         unless (equal result '(6 #.(coerce "aaaaaa" 'list)
+;;                                  6 7
+;;                                  #.(coerce "aaaaaab" 'list)
+;;                                  #.(coerce "aaaaaaaa" 'list)
+;;                                  t (nil 0)))
+;;         collect (list etype result))
+;;   nil)
 
 ;;; float tests
 
