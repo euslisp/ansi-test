@@ -10,53 +10,48 @@
   nil nil)
 
 (deftest substitute-if-list.2
-  ;; (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x) x))
-  ;; (b b b c)
-    ;; (a b a c))
-    (error "fatal error"))
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x) x))
+  (b b b c)
+    (a b a c))
 
 (deftest substitute-if-list.3
-  ;; (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count nil) x))
-  ;; (b b b c)
-    ;; (a b a c))
-    (error "fatal error"))
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count nil) x))
+  (b b b c)
+    (a b a c))
 
 (deftest substitute-if-list.4
-  ;; (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2) x))
-  ;; (b b b c)
-  ;; (a b a c))
-    (error "fatal error"))
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2) x))
+  (b b b c)
+  (a b a c))
 
 (deftest substitute-if-list.5
-  ;; (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 1) x))
-  ;; (b b a c)
-    ;; (a b a c))
-    (error "fatal error"))
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 1) x))
+  (b b a c)
+    (a b a c))
 
-;; (deftest substitute-if-list.6
-;;   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 0) x))
-;;   (a b a c)
-;;   (a b a c))
+(deftest substitute-if-list.6
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 0) x))
+  (a b a c)
+  (a b a c))
 
-;; (deftest substitute-if-list.7
-;;   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count -1) x))
-;;   (a b a c)
-;;   (a b a c))
+(deftest substitute-if-list.7
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count -1) x))
+  (a b a c)
+  (a b a c))
 
 (deftest substitute-if-list.8
-  ;; (let ((x '())) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))
-    ;; nil nil)
-    (error "fatal error"))
+  (let ((x '())) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))
+    nil nil)
 
-;; (deftest substitute-if-list.9
-;;   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))
-;;   (b b b c)
-;;   (a b a c))
+(deftest substitute-if-list.9
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))
+  (b b b c)
+  (a b a c))
 
-;; (deftest substitute-if-list.10
-;;   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t :count nil) x))
-;;   (b b b c)
-;;   (a b a c))
+(deftest substitute-if-list.10
+  (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t :count nil) x))
+  (b b b c)
+  (a b a c))
 
 (deftest substitute-if-list.11
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2 :from-end t) x))
@@ -140,10 +135,10 @@
   #(b b b c)
   #(a b a c))
 
-;; (deftest substitute-if-vector.3
-;;   (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count nil) x))
-;;   #(b b b c)
-;;   #(a b a c))
+(deftest substitute-if-vector.3
+  (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count nil) x))
+  #(b b b c)
+  #(a b a c))
 
 (deftest substitute-if-vector.4
   (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2) x))
@@ -174,10 +169,10 @@
   #(b b b c)
   #(a b a c))
 
-;; (deftest substitute-if-vector.10
-;;   (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t :count nil) x))
-;;   #(b b b c)
-;;   #(a b a c))
+(deftest substitute-if-vector.10
+  (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t :count nil) x))
+  #(b b b c)
+  #(a b a c))
 
 (deftest substitute-if-vector.11
   (let ((x #(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2 :from-end t) x))
@@ -328,10 +323,10 @@
   "bbbc"
   "abac")
 
-;; (deftest substitute-if-string.3
-;;   (let ((x "abac")) (values (substitute-if #\b (is-eql-p #\a) x :count nil) x))
-;;   "bbbc"
-;;   "abac")
+(deftest substitute-if-string.3
+  (let ((x "abac")) (values (substitute-if #\b (is-eql-p #\a) x :count nil) x))
+  "bbbc"
+  "abac")
 
 (deftest substitute-if-string.4
   (let ((x "abac")) (values (substitute-if #\b (is-eql-p #\a) x :count 2) x))
@@ -619,21 +614,21 @@
          result))
   #*010101)
 
-;; (deftest substitute-if-bit-vector.18
-;;   (let* ((orig #*010101)
-;;          (x (copy-seq orig))
-;;          (result (substitute-if 1 #'zerop x :count nil)))
-;;     (and (equalp orig x)
-;;          result))
-;;   #*111111)
+(deftest substitute-if-bit-vector.18
+  (let* ((orig #*010101)
+         (x (copy-seq orig))
+         (result (substitute-if 1 #'zerop x :count nil)))
+    (and (equalp orig x)
+         result))
+  #*111111)
 
-;; (deftest substitute-if-bit-vector.19
-;;   (let* ((orig #*010101)
-;;          (x (copy-seq orig))
-;;          (result (substitute-if 1 #'zerop x :count nil :from-end t)))
-;;     (and (equalp orig x)
-;;          result))
-;;   #*111111)
+(deftest substitute-if-bit-vector.19
+  (let* ((orig #*010101)
+         (x (copy-seq orig))
+         (result (substitute-if 1 #'zerop x :count nil :from-end t)))
+    (and (equalp orig x)
+         result))
+  #*111111)
 
 (deftest substitute-if-bit-vector.20
   (loop for i from 0 to 9 always

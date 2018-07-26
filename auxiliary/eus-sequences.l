@@ -5,70 +5,67 @@
 (in-package :lisp)
 
 
-(defun substitute (newitem olditem seq &key (start 0)
-                                         (end (length seq))
-                                         (test #'eq)
-                                         (test-not nil)
-                                         (count 1000000)
-                                         (key #'identity)
-                                         (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-substitute newitem olditem (reverse seq) test test-not key nil nil start end count))
-        (system::raw-substitute newitem olditem seq test test-not key nil nil start end count))))
+;; TODO: implement from-end in sequence.c
+(defmacro defsubstitute (name fn arg-lst
+			 newitem olditem seq test testnot key iftest ifnottest start end count)  
+  `(defun ,name ,arg-lst
+     (let ((count (or (and count (< count 0) 0) count 1000000))
+	   len)
+       (unless end (setq len (length seq) end len))
+       (if from-end
+	   (let ((len (or len (length seq))))
+	     (reverse (,fn ,newitem ,olditem (reverse ,seq) ,test ,testnot ,key ,iftest ,ifnottest (- len ,end) (- len ,start) ,count)))
+	   (,fn ,newitem ,olditem ,seq ,test ,testnot ,key ,iftest ,ifnottest ,start ,end ,count)))))
 
-(defun substitute-if (newitem pred seq &key (start 0)
-                                         (end (length seq))
-                                         (count 1000000)
-                                         (key #'identity)
-                                         (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-substitute newitem nil (reverse seq) nil nil key pred nil start end count))
-        (system::raw-substitute newitem nil seq nil nil key pred nil start end count))))
+(defsubstitute substitute system::raw-substitute
+  (newitem olditem seq 
+	   &key (start 0) (end nil)
+	   (test #'eq) (test-not nil)
+	   (count 1000000)
+	   (key #'identity)
+	   (from-end nil))
+  newitem olditem seq test test-not key nil nil start end count)
 
-(defun substitute-if-not (newitem pred seq &key (start 0)
-                                             (end (length seq))
-                                             (count 1000000)
-                                             (key #'identity)
-                                             (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-substitute newitem nil (reverse seq) nil nil key nil pred start end count))
-        (system::raw-substitute newitem nil seq nil nil key nil pred start end count))))
+(defsubstitute substitute-if system::raw-substitute
+  (newitem pred seq
+	   &key (start 0) (end nil)
+	   (count 1000000)
+	   (key #'identity)
+	   (from-end nil))
+  newitem nil seq nil nil key pred nil start end count)
 
+(defsubstitute substitute-if-not system::raw-substitute
+  (newitem pred seq
+	   &key (start 0) (end nil)
+	   (count 1000000)
+	   (key #'identity)
+	   (from-end nil))
+  newitem nil seq nil nil key nil pred start end count)
 
-(defun nsubstitute (newitem olditem seq &key (start 0)
-                                          (end (length seq))
-                                          (test #'eq)
-                                          (test-not nil)
-                                          (count 1000000)
-                                          (key #'identity)
-                                          (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-nsubstitute newitem olditem (reverse seq) test test-not key nil nil start end count))
-        (system::raw-nsubstitute newitem olditem seq test test-not key nil nil start end count))))
+(defsubstitute nsubstitute system::raw-nsubstitute
+  (newitem olditem seq
+	   &key (start 0) (end nil)
+	   (test #'eq) (test-not nil)
+	   (count 1000000)
+	   (key #'identity)
+	   (from-end nil))
+  newitem olditem seq test test-not key nil nil start end count)
 
-(defun nsubstitute-if (newitem pred seq &key (start 0)
-                                          (end (length seq))
-                                          (nil)
-                                          (key #'identity)
-                                          (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-nsubstitute newitem nil (reverse seq) nil nil key pred nil start end count))
-        (system::raw-nsubstitute newitem nil seq nil nil key pred nil start end count))))
+(defsubstitute nsubstitute-if system::raw-nsubstitute
+  (newitem pred seq
+	   &key (start 0) (end nil)
+	   (key #'identity)
+	   (count 1000000)
+	   (from-end nil))
+  newitem nil seq nil nil key pred nil start end count)
 
-(defun nsubstitute-if-not (newitem pred seq &key (start 0)
-                                              (end (length seq))
-                                              (count 1000000)
-                                              (key #'identity)
-                                              (from-end nil))
-  (let ((count (or (and count (< count 0) 0) count 1000000)))
-    (if from-end
-        (reverse (system::raw-nsubstitute newitem nil (reverse seq) nil nil key nil pred start end count))
-        (system::raw-nsubstitute newitem nil seq nil nil key nil pred start end count))))
+(defsubstitute nsubstitute-if-not system::raw-nsubstitute
+  (newitem pred seq
+	   &key (start 0) (end nil)
+	   (count 1000000)
+	   (key #'identity)
+	   (from-end nil))
+  newitem nil seq nil nil key nil pred start end count)
 
 ;; ;; Shadows replace function
 ;; ;; - replace should default nil to entire string
