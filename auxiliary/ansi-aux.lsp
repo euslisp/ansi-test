@@ -369,11 +369,11 @@ the condition to go uncaught if it cannot be classified."
 (defun nextdigit (c)
   (cadr (member c '(#\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9))))
 
-(defun is-eq-p (x) #'(lambda (y) (eqt x y)))
-(defun is-not-eq-p (x) #'(lambda (y) (not (eqt x y))))
+(defmacro is-eq-p (x) `(function (lambda (y) (eqt ,x y))))
+(defmacro is-not-eq-p (x) `(function (lambda (y) (not (eqt ,x y)))))
 
-(defun is-eql-p (x) #'(lambda (y) (eqlt x y)))
-(defun is-not-eql-p (x) #'(lambda (y) (not (eqlt x y))))
+(defmacro is-eql-p (x) `(function (lambda (y) (eqlt ,x y))))
+(defmacro is-not-eql-p (x) `(function (lambda (y) (not (eqlt ,x y)))))
 
 (defun onep (x) (eql x 1))
 
