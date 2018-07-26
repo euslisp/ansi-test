@@ -667,7 +667,7 @@ the condition to go uncaught if it cannot be classified."
 ;; (defun safe-elt (x n)
 ;;   (classify-error* (elt x n)))
 
-(defmacro defstruct* (&body args)
+(defmacro defstruct* (&rest args)
   `(eval-when (:load-toplevel :compile-toplevel :execute)
      (handler-case (eval '(defstruct ,@args))
                       (serious-condition () nil))))
@@ -849,7 +849,7 @@ the condition to go uncaught if it cannot be classified."
                                                   *print-pprint-dispatch*
                                                 nil))
 
-(defmacro my-with-standard-io-syntax (&body body)
+(defmacro my-with-standard-io-syntax (&rest body)
   `(let ((*package* (find-package "COMMON-LISP-USER"))
          (*print-array* t)
          (*print-base* 10)
@@ -899,22 +899,23 @@ the condition to go uncaught if it cannot be classified."
                   :fill-pointer (if fill len nil)
                   :adjustable adjust))))
 
-(defmacro do-special-strings ((var string-form &optional ret-form) &body forms)
-  (let ((string (gensym))
-        (fill (gensym "FILL"))
-        (adjust (gensym "ADJUST"))
-        (base (gensym "BASE"))
-        (displace (gensym "DISPLACE")))
-    `(let ((,string ,string-form))
-       (dolist (,fill '(nil t) ,ret-form)
-         (dolist (,adjust '(nil t))
-           (dolist (,base '(nil t))
-             (dolist (,displace '(nil t))
-               (let ((,var (make-special-string
-                            ,string
-                            :fill ,fill :adjust ,adjust
-                            :base ,base :displace ,displace)))
-                 ,@forms))))))))
+(defmacro do-special-strings (var-lst &rest forms)
+  (multiple-value-bind (var string-form &optional ret-form) var-lst
+    (let ((string (gensym))
+	  (fill (gensym "FILL"))
+	  (adjust (gensym "ADJUST"))
+	  (base (gensym "BASE"))
+	  (displace (gensym "DISPLACE")))
+      `(let ((,string ,string-form))
+	 (dolist (,fill '(nil t) ,ret-form)
+	   (dolist (,adjust '(nil t))
+	     (dolist (,base '(nil t))
+	       (dolist (,displace '(nil t))
+		 (let ((,var (make-special-string
+			      ,string
+			      :fill ,fill :adjust ,adjust
+			      :base ,base :displace ,displace)))
+		   ,@forms)))))))))
 
 (defun make-special-integer-vector (contents &key fill adjust displace (etype 'integer))
   (let* ((len (length contents))
