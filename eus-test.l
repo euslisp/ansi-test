@@ -1,4 +1,4 @@
-#!/usr/bin/env roseus
+#!/usr/bin/env irteusgl
 (require :unittest "lib/llib/unittest.l")
 
 ;; LOAD CL-compatibility libraries
@@ -7,6 +7,8 @@
 (load "auxiliary/eus-declarations.l")
 (load "auxiliary/eus-numbers.l")
 (load "auxiliary/eus-types.l")
+(load "auxiliary/eus-printer.l")
+(load "auxiliary/eus-handlers.l")
 
 (defvar *signals-error* t)
 
@@ -111,11 +113,18 @@
 	   ;; escape <> for xml
 	   (send *unit-test* :increment-failure ',pred (format nil ,message ,@args) nil)))))
 
+;; The upper exclusive bound on the value returned by the function char-code
+;; at least 96. Actually, 256 but left at 96 for security reasons
+(defvar char-code-limit 96)
+
 ;; *UNIT-TEST*
 (setq *unit-test* (instance unit-test-container :init))
 
+
 ;; LOAD AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
+(load "cl-symbol-names.lsp")
+;; (load "universe.lsp")
 
 ;; LOAD TESTS
 (load "symbols/load.lsp")
@@ -132,12 +141,10 @@
 (load "arrays/load.lsp")
 (load "environment/load.lsp")
 (load "misc/load.lsp")
-
-
-;; (load "misc/load.lsp")
 (load "numbers/load.lsp")
+(load "printer/load.lsp")
+
 ;; (load "packages/load.lsp")
-;; (load "printer/load.lsp")
 (load "reader/load.lsp")
 ;; (load "sequences/load.lsp")
 (load "streams/load.lsp")

@@ -9,11 +9,11 @@
 
 ;;; Macros to avoid annoying sbcl warning notes
 
-(defmacro handler-case (form &rest cases)
-  `(let () (cl:handler-case ,form ,@cases)))
+;; (defmacro handler-case (form &rest cases)
+;;   `(let () (cl:handler-case ,form ,@cases)))
 
-(defmacro handler-bind (handlers &rest body)
-  `(let () (cl:handler-bind ,handlers (normally (progn ,@body)))))
+;; (defmacro handler-bind (handlers &rest body)
+;;   `(let () (cl:handler-bind ,handlers (normally (progn ,@body)))))
 
 ;;; Macros for avoiding dead code warnings
 
@@ -32,15 +32,15 @@
 (defparameter *report-and-ignore-errors-break* nil
   "When true, REPORT-AND-IGNORE-ERRORS breaks instead of discarding the error condition.")
 
-(defmacro report-and-ignore-errors (&body body)
-  `(eval-when (:load-toplevel :compile-toplevel :execute)
-     (#+sbcl let #+sbcl () #-sbcl progn
-       (handler-case
-        (progn ,@body)
-        (error (condition)
-               (princ condition)
-               (terpri)
-               (when *report-and-ignore-errors-break* (break))
-               (values nil condition))))))
+;; (defmacro report-and-ignore-errors (&body body)
+;;   `(eval-when (:load-toplevel :compile-toplevel :execute)
+;;      (#+sbcl let #+sbcl () #-sbcl progn
+;;        (handler-case
+;;         (progn ,@body)
+;;         (error (condition)
+;;                (princ condition)
+;;                (terpri)
+;;                (when *report-and-ignore-errors-break* (break))
+;;                (values nil condition))))))
 
 

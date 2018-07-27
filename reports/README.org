@@ -123,6 +123,28 @@
     - "no such external symbol":
       - cl:handler-case
       - cl:external
+** 6 Printer
+*** Caveats
+    - Many mismatch arguments in my-with-standard-io-syntax
+    - "Undefined functions" or macros:
+      - with-standard-io-syntax
+      - write-to-string
+      - make-print-struct-1
+      - check-type-error
+      - with-open-stream
+      - make-condition
+      - code-char
+      - print-unreadable-object
+      - define-condition
+    - "Unbound variable":
+      - *universe*
+      - *print-radix*
+      - *print-escape*
+      - *print-gensym*
+      - *print-lines*
+      - *print-readably*
+      - *print-right-margin*
+      - *mini-universe*
 ** CURRENT 7 Numbers
 *** Caveats
     - no dividing by zero

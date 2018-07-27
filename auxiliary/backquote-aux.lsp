@@ -42,7 +42,9 @@
   (if (<= size 1)
       (rcase
        (1 "()")
-       (1 (string (random-from-seq #.(coerce *cl-symbol-names* 'vector))))
+       (1 (string (random-from-seq #.(coerce *cl-symbol-names*
+					     #+:eus vector
+					     #-:eus 'vector))))
        (1 (write-to-string (- (random 2001) 1000)))
        (2 (concatenate 'string "," (string (random-from-seq "ABCDEFGHIJKLMNOPQRSTUVWXYZ"))))
        )
