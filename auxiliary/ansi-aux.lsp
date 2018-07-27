@@ -4,7 +4,7 @@
 ;;;; Contains: Aux. functions for CL-TEST
 
 (defmacro locally (&rest body) `(progn ,@body))
-(defmacro handler-case (form &rest args) form)
+;;(defmacro handler-case (form &rest args) form)
 (defun typep (obj type) (eq (class obj) (symbol-value type)))
 
 ;;; A function for coercing truth values to BOOLEAN
@@ -1038,16 +1038,16 @@ the condition to go uncaught if it cannot be classified."
 (defmacro expand-in-current-env (macro-form &environment env)
   (macroexpand macro-form env))
 
-;; (defmacro report-and-ignore-errors (form)
-;;   `(unwind-protect
-;;        (let ((lisp::*max-callstack-depth* 0))
-;;          (labels ((hook (form env) (catch 0 (evalhook form #'hook))))
-;;            (lisp::install-error-handler
-;; 	    #'(lambda (code msg1 form &optional (msg2))
-;; 		(format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48)   *program-name* msg1)
-;; 		(if msg2 (format *error-output* " ~A" msg2))
-;; 		(if form (format *error-output* " in ~s" form))
-;; 		(format *error-output* "~C[0m~%"  #x1b)
-;; 		(reset)))
-;;            (catch 0 (evalhook ',form #'hook))))
-;;      (lisp::install-error-handler *error-handler*)))
+(defmacro report-and-ignore-errors (form)
+  `(unwind-protect
+       (let ((lisp::*max-callstack-depth* 0))
+         (labels ((hook (form env) (catch 0 (evalhook form #'hook))))
+           (lisp::install-error-handler
+	    #'(lambda (code msg1 form &optional (msg2))
+		(format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48)   *program-name* msg1)
+		(if msg2 (format *error-output* " ~A" msg2))
+		(if form (format *error-output* " in ~s" form))
+		(format *error-output* "~C[0m~%"  #x1b)
+		(reset)))
+           (catch 0 (evalhook ',form #'hook))))
+     (lisp::install-error-handler *error-handler*)))

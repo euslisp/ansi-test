@@ -24,7 +24,7 @@
   nil)
 |#
 
-(defclass print-level-test-class nil (a b c))
+;; (defclass print-level-test-class nil (a b c))
 
 ;;; The CLHS page for PRINT-OBJECT makes it clear that tests
 ;;; PRINT-LEVEL.2,6,7,10,11 were testing for implementation-dependent
@@ -64,7 +64,7 @@
                     :level 0))
   "\"abcd\"")
 
-(define-condition print-level-condition (condition) (a b c))
+;; (define-condition print-level-condition (condition) (a b c))
 
 #|
 (deftest print-level.6
