@@ -6,7 +6,7 @@
 (compile-and-load "ANSI-TESTS:AUX;packages00-aux.lsp")
 (compile-and-load "ANSI-TESTS:AUX;package-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

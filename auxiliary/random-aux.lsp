@@ -5,7 +5,7 @@
 
 
 
-(declaim (special +standard-chars+ *cl-symbols-vector*))
+;; (declaim (special +standard-chars+ *cl-symbols-vector*))
 
 (defvar *maximum-random-int-bits* 36)
   ;; (max 36 (1+ (integer-length most-positive-fixnum))))

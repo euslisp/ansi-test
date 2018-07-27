@@ -1,6 +1,6 @@
 ;;; Tests of iteration forms
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

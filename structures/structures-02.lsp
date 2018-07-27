@@ -4,7 +4,7 @@
 ;;;; Contains: Test code for structures, part 02
 
 (in-package :cl-test)
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;; Test initializers for fields
 

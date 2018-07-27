@@ -19,7 +19,7 @@
 (compile-and-load "ANSI-TESTS:AUX;gcd-aux.lsp")
 (compile-and-load "ANSI-TESTS:AUX;types-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

@@ -4,6 +4,8 @@
 ;; LOAD CL-compatibility libraries
 (load "auxiliary/eus-multiple-values.l")
 (load "auxiliary/eus-loop.l")
+(load "auxiliary/eus-declarations.l")
+(load "auxiliary/eus-numbers.l")
 (load "auxiliary/eus-types.l")
 
 (defvar *signals-error* t)
@@ -91,14 +93,9 @@
       call-arguments-limit 4611686018427387903)
 
 (send (find-package "LISP") :set-val 'names (list "LISP" "CL"))
-(send (find-package "USER") :set-val 'names (list "USER" "CL-TEST"))
-
+(send (find-package "USER") :set-val 'names (list "USER" "CL-USER" "CL-TEST"))
 
 (set-macro-character #\% nil)
-(set-dispatch-macro-character #\# #\C #'(lambda (s n c)
-					  (multiple-value-bind (r i) (read s)
-					    (complex r i))))
-(defun complex (real img) (make-instance complex :real real :imaginary img))
 
 (defun compile-and-load (file)
   (if (string= (subseq file 0 15) "ANSI-TESTS:AUX;")
@@ -106,12 +103,6 @@
       (load file)))
 
 (setf (symbol-function '=in-package) #'in-package)
-
-(defmacro ignore (&rest syms)
-  `(progn
-     ,@(mapcar #'(lambda (sym) `(defmacro ,sym (&rest args))) syms)))
-
-(ignore in-package declare declaim handler-bind report-and-ignore-errors ignore-errors)
 
 (defmacro assert (pred &optional (message "") &rest args)
   (with-gensyms (ret)

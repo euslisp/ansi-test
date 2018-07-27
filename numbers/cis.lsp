@@ -15,11 +15,11 @@
   (signals-error (cis 0 nil) program-error)
   t)
 
-(deftest cis.1
-  (let ((result (cis 0)))
-    (or (=t result 1)
-        (eqlt #c(1.0 0.0))))
-  t)
+;; (deftest cis.1
+;;   (let ((result (cis 0)))
+;;     (or (=t result 1)
+;;         (eqlt #c(1.0 0.0))))
+;;   t)
 
 (deftest cis.2
   (loop for x in '(0.0s0 0.0f0 0.0d0 0.0l0)

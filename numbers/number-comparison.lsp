@@ -94,50 +94,50 @@
   (=t 0 0.0)
   t)
 
-(deftest =.10
-  (=t 0 #c(0 0))
-  t)
+;; (deftest =.10
+;;   (=t 0 #c(0 0))
+;;   t)
 
-(deftest =.11
-  (=t 1 #c(1.0 0.0))
-  t)
+;; (deftest =.11
+;;   (=t 1 #c(1.0 0.0))
+;;   t)
 
 (deftest =.12
   (=t -0.0 0.0)
   t)
 
-(deftest =.13
-  (let ((nums '(0 0.0s0 0.0f0 0.0d0 0.0l0
-                  #c(0.0s0 0.0s0) #c(0.0f0 0.0f0)
-                  #c(0.0d0 0.0d0) #c(0.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                unless (= x y)
-                collect (list x y))))
-  nil)
+;; (deftest =.13
+;;   (let ((nums '(0 0.0s0 0.0f0 0.0d0 0.0l0
+;;                   #c(0.0s0 0.0s0) #c(0.0f0 0.0f0)
+;;                   #c(0.0d0 0.0d0) #c(0.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 unless (= x y)
+;;                 collect (list x y))))
+;;   nil)
 
-(deftest =.14
-  (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
-                   #c(17.0s0 0.0s0) #c(17.0f0 0.0f0)
-                   #c(17.0d0 0.0d0) #c(17.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                unless (= x y)
-                collect (list x y))))
-  nil)
+;; (deftest =.14
+;;   (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
+;;                    #c(17.0s0 0.0s0) #c(17.0f0 0.0f0)
+;;                    #c(17.0d0 0.0d0) #c(17.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 unless (= x y)
+;;                 collect (list x y))))
+;;   nil)
 
-(deftest =.15
-  (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
-                    #c(-17.0s0 0.0s0) #c(-17.0f0 0.0f0)
-                    #c(-17.0d0 0.0d0) #c(-17.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                unless (= x y)
-                collect (list x y))))
-  nil)
+;; (deftest =.15
+;;   (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
+;;                     #c(-17.0s0 0.0s0) #c(-17.0f0 0.0f0)
+;;                     #c(-17.0d0 0.0d0) #c(-17.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 unless (= x y)
+;;                 collect (list x y))))
+;;   nil)
 
 (deftest =.16
   (let ((n 60000) (m 30000))
@@ -305,50 +305,50 @@
   (/= 0 0.0)
   nil)
 
-(deftest /=.10
-  (/= 0 #c(0 0))
-  nil)
+;; (deftest /=.10
+;;   (/= 0 #c(0 0))
+;;   nil)
 
-(deftest /=.11
-  (/= 1 #c(1.0 0.0))
-  nil)
+;; (deftest /=.11
+;;   (/= 1 #c(1.0 0.0))
+;;   nil)
 
 (deftest /=.12
   (/= -0.0 0.0)
   nil)
 
-(deftest /=.13
-  (let ((nums '(0 0.0s0 0.0f0 0.0d0 0.0l0
-                  #c(0.0s0 0.0s0) #c(0.0f0 0.0f0)
-                  #c(0.0d0 0.0d0) #c(0.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                when (/= x y)
-                collect (list x y))))
-  nil)
+;; (deftest /=.13
+;;   (let ((nums '(0 0.0s0 0.0f0 0.0d0 0.0l0
+;;                   #c(0.0s0 0.0s0) #c(0.0f0 0.0f0)
+;;                   #c(0.0d0 0.0d0) #c(0.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 when (/= x y)
+;;                 collect (list x y))))
+;;   nil)
 
-(deftest /=.14
-  (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
-                   #c(17.0s0 0.0s0) #c(17.0f0 0.0f0)
-                   #c(17.0d0 0.0d0) #c(17.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                when (/= x y)
-                collect (list x y))))
-  nil)
+;; (deftest /=.14
+;;   (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
+;;                    #c(17.0s0 0.0s0) #c(17.0f0 0.0f0)
+;;                    #c(17.0d0 0.0d0) #c(17.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 when (/= x y)
+;;                 collect (list x y))))
+;;   nil)
 
-(deftest /=.15
-  (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
-                    #c(-17.0s0 0.0s0) #c(-17.0f0 0.0f0)
-                    #c(-17.0d0 0.0d0) #c(-17.0l0 0.0l0))))
-    (loop for x in nums
-          append
-          (loop for y in nums
-                when (/= x y)
-                collect (list x y))))
-  nil)
+;; (deftest /=.15
+;;   (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
+;;                     #c(-17.0s0 0.0s0) #c(-17.0f0 0.0f0)
+;;                     #c(-17.0d0 0.0d0) #c(-17.0l0 0.0l0))))
+;;     (loop for x in nums
+;;           append
+;;           (loop for y in nums
+;;                 when (/= x y)
+;;                 collect (list x y))))
+;;   nil)
 
 (deftest /=.17
   (loop for x in '(1.0s0 1.0f0 1.0d0 1.0l0)
@@ -1647,50 +1647,50 @@
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment
 
-(deftest =.env.1
-  (macrolet ((%m (z) z))
-            (mapcar 'notnot
-                    (list (= (expand-in-current-env (%m 0)))
-                          (= 1 (expand-in-current-env (%m 1)))
-                          (= (expand-in-current-env (%m 2)) 2)
-                          (= (expand-in-current-env (%m 3))
-                             (expand-in-current-env (%m 3)))
-                          (= (expand-in-current-env (%m #c(1 2)))
-                             (expand-in-current-env (%m #c(1 2))))
+;; (deftest =.env.1
+;;   (macrolet ((%m (z) z))
+;;             (mapcar 'notnot
+;;                     (list (= (expand-in-current-env (%m 0)))
+;;                           (= 1 (expand-in-current-env (%m 1)))
+;;                           (= (expand-in-current-env (%m 2)) 2)
+;;                           (= (expand-in-current-env (%m 3))
+;;                              (expand-in-current-env (%m 3)))
+;;                           (= (expand-in-current-env (%m #c(1 2)))
+;;                              (expand-in-current-env (%m #c(1 2))))
 
-                          (= 1 (expand-in-current-env (%m 2.0)))
-                          (= (expand-in-current-env (%m 2)) 2/3)
-                          (= (expand-in-current-env (%m 4))
-                             (expand-in-current-env (%m 5)))
+;;                           (= 1 (expand-in-current-env (%m 2.0)))
+;;                           (= (expand-in-current-env (%m 2)) 2/3)
+;;                           (= (expand-in-current-env (%m 4))
+;;                              (expand-in-current-env (%m 5)))
 
-                          (= (expand-in-current-env (%m 0)) 0 0)
-                          (= 0 (expand-in-current-env (%m 0)) 0)
-                          (= 0 0 (expand-in-current-env (%m 0)))
-                          )))
-  (t t t t t nil nil nil t t t))
+;;                           (= (expand-in-current-env (%m 0)) 0 0)
+;;                           (= 0 (expand-in-current-env (%m 0)) 0)
+;;                           (= 0 0 (expand-in-current-env (%m 0)))
+;;                           )))
+;;   (t t t t t nil nil nil t t t))
 
 
-(deftest /=.env.1
-  (macrolet ((%m (z) z))
-            (mapcar 'notnot
-                    (list (/= (expand-in-current-env (%m 0)))
-                          (/= 1 (expand-in-current-env (%m 1)))
-                          (/= (expand-in-current-env (%m 2)) 2)
-                          (/= (expand-in-current-env (%m 3))
-                              (expand-in-current-env (%m 3)))
-                          (/= (expand-in-current-env (%m #c(1 2)))
-                              (expand-in-current-env (%m #c(1 2))))
+;; (deftest /=.env.1
+;;   (macrolet ((%m (z) z))
+;;             (mapcar 'notnot
+;;                     (list (/= (expand-in-current-env (%m 0)))
+;;                           (/= 1 (expand-in-current-env (%m 1)))
+;;                           (/= (expand-in-current-env (%m 2)) 2)
+;;                           (/= (expand-in-current-env (%m 3))
+;;                               (expand-in-current-env (%m 3)))
+;;                           (/= (expand-in-current-env (%m #c(1 2)))
+;;                               (expand-in-current-env (%m #c(1 2))))
 
-                          (/= 1 (expand-in-current-env (%m 2.0)))
-                          (/= (expand-in-current-env (%m 2)) 2/3)
-                          (/= (expand-in-current-env (%m 4))
-                              (expand-in-current-env (%m 5)))
+;;                           (/= 1 (expand-in-current-env (%m 2.0)))
+;;                           (/= (expand-in-current-env (%m 2)) 2/3)
+;;                           (/= (expand-in-current-env (%m 4))
+;;                               (expand-in-current-env (%m 5)))
 
-                          (/= (expand-in-current-env (%m 2)) 0 1)
-                          (/= 0 (expand-in-current-env (%m 2)) 1)
-                          (/= 0 1 (expand-in-current-env (%m 2)))
-                          )))
-  (t nil nil nil nil t t t t t t))
+;;                           (/= (expand-in-current-env (%m 2)) 0 1)
+;;                           (/= 0 (expand-in-current-env (%m 2)) 1)
+;;                           (/= 0 1 (expand-in-current-env (%m 2)))
+;;                           )))
+;;   (t nil nil nil nil t t t t t t))
 
 (deftest <.env.1
   (macrolet ((%m (z) z))

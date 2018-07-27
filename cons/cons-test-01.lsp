@@ -5,7 +5,7 @@
 
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 
 

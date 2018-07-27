@@ -4,7 +4,7 @@
 ;;;; Contains: Common code for creating structure tests
 
 (in-package :cl-test)
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 (defun make-struct-test-name (structure-name n)
   ;; (declare (type (or string symbol character) structure-name)
