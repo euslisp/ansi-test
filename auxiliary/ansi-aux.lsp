@@ -355,10 +355,12 @@ the condition to go uncaught if it cannot be classified."
 ;; (declaim (ftype (function (&rest function) (values function &optional))
 ;;              compose))
 
-(defun compose (&rest fns)
-  (let ((rfns (reverse fns)))
-    #'(lambda (x) (loop for f
-                        in rfns do (setf x (funcall (the function f) x))) x)))
+(defmacro compose (&rest fns)
+  `(function (lambda (x)
+     ,(let* ((rfns (reverse fns))
+	     (lst `(funcall ,(pop rfns) x)))
+	    (mapc #'(lambda (f) (setq lst `(funcall ,f ,lst))) rfns)
+	    lst))))
 
 (defun evendigitp (c)
   (notnot (find c "02468")))
@@ -369,11 +371,11 @@ the condition to go uncaught if it cannot be classified."
 (defun nextdigit (c)
   (cadr (member c '(#\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9))))
 
-(defun is-eq-p (x) #'(lambda (y) (eqt x y)))
-(defun is-not-eq-p (x) #'(lambda (y) (not (eqt x y))))
+(defmacro is-eq-p (x) `(function (lambda (y) (eqt ,x y))))
+(defmacro is-not-eq-p (x) `(function (lambda (y) (not (eqt ,x y)))))
 
-(defun is-eql-p (x) #'(lambda (y) (eqlt x y)))
-(defun is-not-eql-p (x) #'(lambda (y) (not (eqlt x y))))
+(defmacro is-eql-p (x) `(function (lambda (y) (eqlt ,x y))))
+(defmacro is-not-eql-p (x) `(function (lambda (y) (not (eqlt ,x y)))))
 
 (defun onep (x) (eql x 1))
 
@@ -667,7 +669,7 @@ the condition to go uncaught if it cannot be classified."
 ;; (defun safe-elt (x n)
 ;;   (classify-error* (elt x n)))
 
-(defmacro defstruct* (&body args)
+(defmacro defstruct* (&rest args)
   `(eval-when (:load-toplevel :compile-toplevel :execute)
      (handler-case (eval '(defstruct ,@args))
                       (serious-condition () nil))))
@@ -849,7 +851,7 @@ the condition to go uncaught if it cannot be classified."
                                                   *print-pprint-dispatch*
                                                 nil))
 
-(defmacro my-with-standard-io-syntax (&body body)
+(defmacro my-with-standard-io-syntax (&rest body)
   `(let ((*package* (find-package "COMMON-LISP-USER"))
          (*print-array* t)
          (*print-base* 10)
@@ -899,22 +901,23 @@ the condition to go uncaught if it cannot be classified."
                   :fill-pointer (if fill len nil)
                   :adjustable adjust))))
 
-(defmacro do-special-strings ((var string-form &optional ret-form) &body forms)
-  (let ((string (gensym))
-        (fill (gensym "FILL"))
-        (adjust (gensym "ADJUST"))
-        (base (gensym "BASE"))
-        (displace (gensym "DISPLACE")))
-    `(let ((,string ,string-form))
-       (dolist (,fill '(nil t) ,ret-form)
-         (dolist (,adjust '(nil t))
-           (dolist (,base '(nil t))
-             (dolist (,displace '(nil t))
-               (let ((,var (make-special-string
-                            ,string
-                            :fill ,fill :adjust ,adjust
-                            :base ,base :displace ,displace)))
-                 ,@forms))))))))
+(defmacro do-special-strings (var-lst &rest forms)
+  (multiple-value-bind (var string-form &optional ret-form) var-lst
+    (let ((string (gensym))
+	  (fill (gensym "FILL"))
+	  (adjust (gensym "ADJUST"))
+	  (base (gensym "BASE"))
+	  (displace (gensym "DISPLACE")))
+      `(let ((,string ,string-form))
+	 (dolist (,fill '(nil t) ,ret-form)
+	   (dolist (,adjust '(nil t))
+	     (dolist (,base '(nil t))
+	       (dolist (,displace '(nil t))
+		 (let ((,var (make-special-string
+			      ,string
+			      :fill ,fill :adjust ,adjust
+			      :base ,base :displace ,displace)))
+		   ,@forms)))))))))
 
 (defun make-special-integer-vector (contents &key fill adjust displace (etype 'integer))
   (let* ((len (length contents))
