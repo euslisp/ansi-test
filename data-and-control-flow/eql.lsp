@@ -34,9 +34,9 @@
   (eql 12.0 12)
   nil)
 
-(deftest eql.8
-  (eqlt #c(1 -2) #c(1 -2))
-  t)
+;; (deftest eql.8
+;;   (eqlt #c(1 -2) #c(1 -2))
+;;   t)
 
 (deftest eql.9
   (let ((x "abc") (y "abc"))
@@ -47,9 +47,9 @@
   (eql (list 'a) (list 'b))
   nil)
 
-(deftest eql.11
-  (eqlt #c(1 -2) (- #c(-1 2)))
-  t)
+;; (deftest eql.11
+;;   (eqlt #c(1 -2) (- #c(-1 2)))
+;;   t)
 
 (deftest eql.order.1
   (let ((i 0) x y)

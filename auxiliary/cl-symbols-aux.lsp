@@ -5,7 +5,7 @@
 
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 (defun is-external-symbol-of (sym package)
   (do-external-symbols (s package)

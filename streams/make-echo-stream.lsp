@@ -262,18 +262,18 @@
     ;; "abcdefg")
     (error "makes use of function defined in another PR (code-char)"))
 
-(deftest make-echo-stream.17
-  (let* ((is (make-string-input-stream "foo"))
-         (os (make-string-output-stream))
-         (s (make-echo-stream is os)))
-    (values
-     (write-char #\X s)
-     (notnot (fresh-line s))
-     (finish-output s)
-     (force-output s)
-     (close s)
-     (get-output-stream-string os)))
- #\X t nil nil t #.(coerce '(#\X #\Newline) 'string))
+;; (deftest make-echo-stream.17
+;;   (let* ((is (make-string-input-stream "foo"))
+;;          (os (make-string-output-stream))
+;;          (s (make-echo-stream is os)))
+;;     (values
+;;      (write-char #\X s)
+;;      (notnot (fresh-line s))
+;;      (finish-output s)
+;;      (force-output s)
+;;      (close s)
+;;      (get-output-stream-string os)))
+;;  #\X t nil nil t #.(coerce '(#\X #\Newline) 'string))
 
 (deftest make-echo-stream.18
   (let* ((is (make-string-input-stream "foo"))
@@ -295,15 +295,15 @@
      (get-output-stream-string os)))
   "0159X" t "159")
 
-(deftest make-echo-stream.21
-  (let* ((is (make-string-input-stream "foo"))
-         (os (make-string-output-stream))
-         (s (make-echo-stream is os)))
-    (values
-     (write-line "159" s)
-     (close s)
-     (get-output-stream-string os)))
-  "159" t #.(concatenate 'string "159" (string #\Newline)))
+;; (deftest make-echo-stream.21
+;;   (let* ((is (make-string-input-stream "foo"))
+;;          (os (make-string-output-stream))
+;;          (s (make-echo-stream is os)))
+;;     (values
+;;      (write-line "159" s)
+;;      (close s)
+;;      (get-output-stream-string os)))
+;;   "159" t #.(concatenate 'string "159" (string #\Newline)))
 
 (deftest make-echo-stream.22
   (let* ((is (make-string-input-stream "foo"))

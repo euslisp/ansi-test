@@ -6,7 +6,10 @@
 
 
 (defmacro def-env-tests (fn-name)
-  (flet ((%name (suffix) (intern (concatenate 'string (symbol-name fn-name) suffix)
+  (flet ((%name (suffix) (intern (concatenate
+				  #+:eus string
+				  #-:eus 'string
+				  (symbol-name fn-name) suffix)
                                  (find-package :cl-test))))
     `(progn
        (deftest ,(%name ".1")

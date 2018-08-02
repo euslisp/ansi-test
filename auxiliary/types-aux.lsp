@@ -11,7 +11,7 @@
            (is-builtin-class c2))
        (check-disjointness c1 c2)))
 
-(declaim (special *subtype-table*))
+;; (declaim (special *subtype-table*))
 
 (defun types.6-body ()
   (loop

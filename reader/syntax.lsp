@@ -703,9 +703,9 @@
   "#1a#1a(:a :b :c)"
   (make-array '(3) :initial-contents '(:a :b :c)))
 
-(def-syntax-array-test syntax.sharp-a.6
-  "#1a#.(coerce \"abcd\" 'simple-base-string)"
-  (make-array '(4) :initial-contents '(#\a #\b #\c #\d)))
+;; (def-syntax-array-test syntax.sharp-a.6
+;;   "#1a#.(coerce \"abcd\" 'simple-base-string)"
+;;   (make-array '(4) :initial-contents '(#\a #\b #\c #\d)))
 
 (def-syntax-array-test syntax.sharp-a.7
   "#1a#*000110"

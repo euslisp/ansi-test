@@ -5,36 +5,36 @@
 
 (in-package :cl-test)
 
-(deftest terpri.1
-  (let (result)
-    (values
-     (with-output-to-string
-       (*standard-output*)
-       (write-char #\a)
-       (setq result (terpri)))
-     result))
-  #.(concatenate 'string "a" (string #\Newline))
-  nil)
+;; (deftest terpri.1
+;;   (let (result)
+;;     (values
+;;      (with-output-to-string
+;;        (*standard-output*)
+;;        (write-char #\a)
+;;        (setq result (terpri)))
+;;      result))
+;;   #.(concatenate 'string "a" (string #\Newline))
+;;   nil)
 
-(deftest terpri.2
-  (let (result)
-    (values
-     (with-output-to-string
-       (s)
-       (write-char #\a s)
-       (setq result (terpri s)))
-     result))
-  #.(concatenate 'string "a" (string #\Newline))
-  nil)
+;; (deftest terpri.2
+;;   (let (result)
+;;     (values
+;;      (with-output-to-string
+;;        (s)
+;;        (write-char #\a s)
+;;        (setq result (terpri s)))
+;;      result))
+;;   #.(concatenate 'string "a" (string #\Newline))
+;;   nil)
 
-(deftest terpri.3
-  (with-output-to-string
-    (s)
-    (write-char #\x s)
-    (terpri s)
-    (terpri s)
-    (write-char #\y s))
-  #.(concatenate 'string "x" (string #\Newline) (string #\Newline) "y"))
+;; (deftest terpri.3
+;;   (with-output-to-string
+;;     (s)
+;;     (write-char #\x s)
+;;     (terpri s)
+;;     (terpri s)
+;;     (write-char #\y s))
+;;   #.(concatenate 'string "x" (string #\Newline) (string #\Newline) "y"))
 
 (deftest terpri.4
   (with-output-to-string

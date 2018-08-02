@@ -583,9 +583,10 @@
     do
       (let ((level (- (length (symbol-name fn)) 2)))
         (eval `(deftest ,(intern
-                          (concatenate 'string
-                            (symbol-name fn)
-                            "-SET-ALT")
+                          (concatenate
+			   #+:eus string
+			   #-:eus 'string
+                            (symbol-name fn) "-SET-ALT")
                           :cl-test)
                    (let ((x (create-c*r-test ,level)))
                      (and
@@ -603,9 +604,10 @@
     do
       (eval
        `(deftest ,(intern
-                   (concatenate 'string
-                     (symbol-name fn)
-                     "-SET-ALT")
+                   (concatenate
+		    #+:eus string
+		    #-:eus 'string
+		    (symbol-name fn) "-SET-ALT")
                    :cl-test)
             (let ((x (make-list 20 :initial-element nil)))
               (and

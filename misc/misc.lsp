@@ -10,7 +10,7 @@
 
 
 
-(declaim (special *s1* *s2* *s3* *s4* *s5* *s6* *s7* *s8*))
+;; (declaim (special *s1* *s2* *s3* *s4* *s5* *s6* *s7* *s8*))
 
 (deftest misc.1
   (funcall
@@ -9948,19 +9948,19 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; sbcl 0.8.19.32
 ;;; Bound is not *, a INTEGER or a list of a INTEGER: -51494/29889
 
-(deftest misc.533
-  (let* ((r (make-array nil))
-         (c #c(208 -51494/29889))
-         (form `(lambda (r p1)
-                  (declare (optimize speed (safety 1))
-                           (type (simple-array t nil) r)
-                           (type number p1))
-                  (setf (aref r) (+ (the (eql ,c) p1) -319284))
-                  (values)))
-         (fn (compile nil form)))
-    (funcall fn r c)
-    (eqlt (aref r) (+ -319284 c)))
-  t)
+;; (deftest misc.533
+;;   (let* ((r (make-array nil))
+;;          (c #c(208 -51494/29889))
+;;          (form `(lambda (r p1)
+;;                   (declare (optimize speed (safety 1))
+;;                            (type (simple-array t nil) r)
+;;                            (type number p1))
+;;                   (setf (aref r) (+ (the (eql ,c) p1) -319284))
+;;                   (values)))
+;;          (fn (compile nil form)))
+;;     (funcall fn r c)
+;;     (eqlt (aref r) (+ -319284 c)))
+;;   t)
 
 ;;; sbcl 0.8.19.35
 ;;; Incorrect return value from conditional
@@ -9994,32 +9994,32 @@ Broken at C::WT-C-INLINE-LOC.
     SB-C::REF.
 |#
 
-(deftest misc.535
-  (let ((c0 #c(4196.088977268509d0 -15943.3603515625d0)))
-    (funcall
-     (compile
-      nil
-      `(lambda (p1 p2)
-         (declare (optimize speed (safety 1))
-                  (type (simple-array t nil) r)
-                  (type (eql ,c0) p1)
-                  (type number p2))
-         (eql (the (complex double-float) p1) p2)))
-     c0 #c(12 612/979)))
-  nil)
+;; (deftest misc.535
+;;   (let ((c0 #c(4196.088977268509d0 -15943.3603515625d0)))
+;;     (funcall
+;;      (compile
+;;       nil
+;;       `(lambda (p1 p2)
+;;          (declare (optimize speed (safety 1))
+;;                   (type (simple-array t nil) r)
+;;                   (type (eql ,c0) p1)
+;;                   (type number p2))
+;;          (eql (the (complex double-float) p1) p2)))
+;;      c0 #c(12 612/979)))
+;;   nil)
 
 ;;; Similar to misc.535
-(deftest misc.536
-  (funcall
-   (compile
-    nil
-    '(lambda (p1 p2)
-       (declare (optimize speed (safety 1))
-                (type (eql #c(11963908204 1/6)) p1)
-                (type (complex rational) p2))
-       (eql p1 (the complex p2))))
-   #c(11963908204 1/6) #c(2343315619 5252231066))
-  nil)
+;; (deftest misc.536
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda (p1 p2)
+;;        (declare (optimize speed (safety 1))
+;;                 (type (eql #c(11963908204 1/6)) p1)
+;;                 (type (complex rational) p2))
+;;        (eql p1 (the complex p2))))
+;;    #c(11963908204 1/6) #c(2343315619 5252231066))
+;;   nil)
 
 ;;; Comparison of bit vectors in compiled code
 (deftest misc.537
@@ -10040,34 +10040,34 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; abcl (23 Feb 2005)
 ;;;  The value #C(3 4) is not of type number.
 
-(deftest misc.538
-  (notnot (typep (* 2/5 #c(3 4)) 'number))
-  t)
+;; (deftest misc.538
+;;   (notnot (typep (* 2/5 #c(3 4)) 'number))
+;;   t)
 
 ;;; Allegro CL (6.2 trial edition, x86)
 ;;; Error: `#c(0 -8)' is not of the expected type `REAL'
 
-(deftest misc.539
-  (notnot-mv
-   (complexp
-    (funcall
-     (compile nil '(lambda (x)
-                     (declare (OPTIMIZE SPEED (SAFETY 1))
-                              (type (eql #c(0 -8)) x))
-                     (sqrt x)))
-     #c(0 -8))))
-  t)
+;; (deftest misc.539
+;;   (notnot-mv
+;;    (complexp
+;;     (funcall
+;;      (compile nil '(lambda (x)
+;;                      (declare (OPTIMIZE SPEED (SAFETY 1))
+;;                               (type (eql #c(0 -8)) x))
+;;                      (sqrt x)))
+;;      #c(0 -8))))
+;;   t)
 
 ;;; Illegal instruction
 
-(deftest misc.540
-  (let* ((d0 #(a b c d e f g h))
-         (d1 (make-array 5
-                         :fill-pointer 1
-                         :displaced-to d0
-                         :displaced-index-offset 2)))
-    (find #c(1.0 2.0) d1))
-  nil)
+;; (deftest misc.540
+;;   (let* ((d0 #(a b c d e f g h))
+;;          (d1 (make-array 5
+;;                          :fill-pointer 1
+;;                          :displaced-to d0
+;;                          :displaced-index-offset 2)))
+;;     (find #c(1.0 2.0) d1))
+;;   nil)
 
 ;;; A crasher bug of REMOVE on non-simple nibble arrays
 
@@ -10106,17 +10106,17 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; Lispworks personal edition 4.3 (x86 linux)
 ;;; Error: In PLUSP of (#C(1123113 -260528)) arguments should be of type REAL.
 
-(deftest misc.543
-  (funcall
-   (compile
-    nil
-    '(lambda (p1)
-        (declare (optimize speed (safety 1))
-                 ; (type (simple-array t nil) r)
-                 (type (integer 2493220 2495515) p1))
-        (* p1 #c(1123113 -260528))))
-   2493726)
-  #C(2800736089038 -649685447328))
+;; (deftest misc.543
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda (p1)
+;;         (declare (optimize speed (safety 1))
+;;                  ; (type (simple-array t nil) r)
+;;                  (type (integer 2493220 2495515) p1))
+;;         (* p1 #c(1123113 -260528))))
+;;    2493726)
+;;   #C(2800736089038 -649685447328))
 
 ;;; gcl
 
@@ -10137,11 +10137,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; OpenMCL
 ;;; 1/2 is not of type integer
 
-(deftest misc.545
-  (let ((x #c(-1 1/2)))
-    (declare (type (eql #c(-1 1/2)) x))
-    x)
-  #c(-1 1/2))
+;; (deftest misc.545
+;;   (let ((x #c(-1 1/2)))
+;;     (declare (type (eql #c(-1 1/2)) x))
+;;     x)
+;;   #c(-1 1/2))
 
 ;;; SBCL
 ;;; 0.8.19.39
@@ -10245,10 +10245,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; ecls
 ;;; REAL is not of type REAL.
 
-(deftest misc.553
-  (funcall (compile nil '(lambda (x) (declare (type (eql #c(1.0 2.0)) x)) x))
-           #c(1.0 2.0))
-  #c(1.0 2.0))
+;; (deftest misc.553
+;;   (funcall (compile nil '(lambda (x) (declare (type (eql #c(1.0 2.0)) x)) x))
+;;            #c(1.0 2.0))
+;;   #c(1.0 2.0))
 
 ;;; 1 is not of type SEQUENCE
 (deftest misc.554
@@ -10358,41 +10358,41 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; LOG
 ;;; The value #C(-215549 39/40) is not of type (COMPLEX RATIONAL).
 
-(deftest misc.562
-  (let ((fn '(lambda (p1)
-               (declare (optimize (speed 0) (safety 0) (debug 0) (space 2))
-                        (type (complex rational) p1))
-               (log p1))))
-    (notnot (complexp (funcall (compile nil fn) #C(-215549 39/40)))))
-  t)
+;; (deftest misc.562
+;;   (let ((fn '(lambda (p1)
+;;                (declare (optimize (speed 0) (safety 0) (debug 0) (space 2))
+;;                         (type (complex rational) p1))
+;;                (log p1))))
+;;     (notnot (complexp (funcall (compile nil fn) #C(-215549 39/40)))))
+;;   t)
 
 ;;; CONJUGATE
 ;;; Wrong result (#c(1 2))
 
-(deftest misc.563
-  (funcall (compile nil '(lambda (x)
-                           (declare (optimize (speed 1) (safety 0) (debug 3) (space 1))
-                                    (type (complex rational) x))
-                           (conjugate (the (eql #c(1 2)) x))))
-           #c(1 2))
-  #c(1 -2))
+;; (deftest misc.563
+;;   (funcall (compile nil '(lambda (x)
+;;                            (declare (optimize (speed 1) (safety 0) (debug 3) (space 1))
+;;                                     (type (complex rational) x))
+;;                            (conjugate (the (eql #c(1 2)) x))))
+;;            #c(1 2))
+;;   #c(1 -2))
 
 ;;; PHASE
 ;;; The function SB-KERNEL:%ATAN2 is undefined.
 
-(deftest misc.564
-  (notnot
-   (typep
-    (funcall
-     (compile
-      nil
-      '(lambda (p1)
-         (declare (optimize (speed 3) (safety 2) (debug 3) (space 0))
-                  (type complex p1))
-         (phase (the (eql #c(1.0d0 2.0d0)) p1))))
-     #c(1.0d0 2.0d0))
-    'double-float))
-  t)
+;; (deftest misc.564
+;;   (notnot
+;;    (typep
+;;     (funcall
+;;      (compile
+;;       nil
+;;       '(lambda (p1)
+;;          (declare (optimize (speed 3) (safety 2) (debug 3) (space 0))
+;;                   (type complex p1))
+;;          (phase (the (eql #c(1.0d0 2.0d0)) p1))))
+;;      #c(1.0d0 2.0d0))
+;;     'double-float))
+;;   t)
 
 ;;; ACL 6.2 (trial, x86 linux)
 ;;; Incorrect return value (t instead of nil)
@@ -10549,22 +10549,22 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; In abcl (14 Mar 2005)
 ;;; The value T is not of type number.
 
-(deftest misc.575
-  (equalp #c(1269346.0 47870.12254712875) t)
-  nil)
+;; (deftest misc.575
+;;   (equalp #c(1269346.0 47870.12254712875) t)
+;;   nil)
 
 ;;; The value #C(435422075/240892576 373) is not of type NUMBER.
 
-(deftest misc.576
-  (* -7023900320 #C(435422075/240892576 373))
-  #C(-95573789122736375/7527893 -2619914819360))
+;; (deftest misc.576
+;;   (* -7023900320 #C(435422075/240892576 373))
+;;   #C(-95573789122736375/7527893 -2619914819360))
 
 ;;; The value #C(-555014/122849 -6641556271) is not of type NUMBER.
 
-(deftest misc.577
-  (/ -3185994774 #C(-555014/122849 -6641556271))
-  #C(217230410502882805764/665706755984253572883257634437
-     -319343563321640207257301634954/665706755984253572883257634437))
+;; (deftest misc.577
+;;   (/ -3185994774 #C(-555014/122849 -6641556271))
+;;   #C(217230410502882805764/665706755984253572883257634437
+;;      -319343563321640207257301634954/665706755984253572883257634437))
 
 ;;; The value "" is not of type (STRING 1).
 
@@ -10588,9 +10588,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; sbcl 0.8.20.19
 ;;;  The component type for COMPLEX is not numeric: (OR RATIO FIXNUM)
 
-(deftest misc.580
-  (notnot-mv (typep #c(1 2) '(complex (or ratio fixnum))))
-  t)
+;; (deftest misc.580
+;;   (notnot-mv (typep #c(1 2) '(complex (or ratio fixnum))))
+;;   t)
 
 ;;; The value -5067.2056 is not of type (SINGLE-FLOAT -5067.2056 -5067.2056).
 
@@ -10635,18 +10635,18 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;; Argument X is not a REAL: #<FUNCTION {A39DEDD}>
 
-(deftest misc.583
-  (notnot-mv
-   (complexp
-    (funcall
-     (compile
-      nil
-      '(lambda (p1)
-         (declare (optimize (speed 0) (safety 0) (debug 2) (space 3))
-                  (type (complex rational) p1))
-         (sqrt p1)))
-     #c(-9003 -121))))
-  t)
+;; (deftest misc.583
+;;   (notnot-mv
+;;    (complexp
+;;     (funcall
+;;      (compile
+;;       nil
+;;       '(lambda (p1)
+;;          (declare (optimize (speed 0) (safety 0) (debug 2) (space 3))
+;;                   (type (complex rational) p1))
+;;          (sqrt p1)))
+;;      #c(-9003 -121))))
+;;   t)
 
 ;;; The value -27 is not of type (INTEGER -34359738403 -24).
 
@@ -10910,12 +10910,12 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;; Error in COMPILER::CMP-ANON [or a callee]: #\a is not of type FIXNUM.
 
-(deftest misc.606
-  (let ((form '(lambda ()
-                 (declare (optimize (speed 3) (safety 2) (debug 3) (space 2)))
-                 (equal #\a #c(-1775806.0s0 88367.29s0)))))
-    (funcall (compile nil form)))
-  nil)
+;; (deftest misc.606
+;;   (let ((form '(lambda ()
+;;                  (declare (optimize (speed 3) (safety 2) (debug 3) (space 2)))
+;;                  (equal #\a #c(-1775806.0s0 88367.29s0)))))
+;;     (funcall (compile nil form)))
+;;   nil)
 
 ;;; Error in COMPILER::CMP-ANON [or a callee]: #*1 is not of type FIXNUM.
 

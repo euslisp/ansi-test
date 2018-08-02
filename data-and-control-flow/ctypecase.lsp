@@ -81,12 +81,12 @@
 ;;;  t)
 
 
-(deftest ctypecase.13
-  (let ((x 'a))
-    (ctypecase x
-               (number 'bad)
-               (#.(find-class 'symbol nil) 'good)))
-  good)
+;; (deftest ctypecase.13
+;;   (let ((x 'a))
+;;     (ctypecase x
+;;                (number 'bad)
+;;                (#.(find-class 'symbol nil) 'good)))
+;;   good)
 
 (deftest ctypecase.14
   (block done

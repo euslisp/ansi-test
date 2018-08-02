@@ -1,6 +1,6 @@
 ;;; Tests of evaluation and compilation
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

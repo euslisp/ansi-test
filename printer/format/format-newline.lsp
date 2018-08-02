@@ -14,7 +14,7 @@
   (concatenate 'string "A~:" (string #\Newline) " X")
   nil "A X")
 
-(def-format-test format.newline.3
-  (concatenate 'string "A~@" (string #\Newline) " X")
-  nil #.(concatenate 'string "A" (string #\Newline) "X"))
+;; (def-format-test format.newline.3
+;;   (concatenate 'string "A~@" (string #\Newline) " X")
+;;   nil #.(concatenate 'string "A" (string #\Newline) "X"))
 

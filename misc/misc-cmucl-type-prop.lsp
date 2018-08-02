@@ -261,22 +261,22 @@
   t)
 
 ; X86::=0/DOUBLE-FLOAT
-(deftest cmucl-type-prop.22
-  (funcall (compile nil '(lambda (p1)
-                           (declare (optimize (speed 2) (safety 3) (debug 1) (space 3))
-                                    (type (complex double-float) p1))
-                           (= p1 -1590311/896933)))
-           #c(1.0d0 1.0d0))
-  nil)
+;; (deftest cmucl-type-prop.22
+;;   (funcall (compile nil '(lambda (p1)
+;;                            (declare (optimize (speed 2) (safety 3) (debug 1) (space 3))
+;;                                     (type (complex double-float) p1))
+;;                            (= p1 -1590311/896933)))
+;;            #c(1.0d0 1.0d0))
+;;   nil)
 
 ; X86::=/SINGLE-FLOAT
-(deftest cmucl-type-prop.23
-  (funcall (compile nil '(lambda (p2)
-                           (declare (optimize (speed 2) (safety 2) (debug 1) (space 3))
-                                    (type (complex single-float) p2))
-                           (= -976855 (the (eql #c(-57420.04 806984.0)) p2))))
-           #c(-57420.04f0 806984.0f0))
-  nil)
+;; (deftest cmucl-type-prop.23
+;;   (funcall (compile nil '(lambda (p2)
+;;                            (declare (optimize (speed 2) (safety 2) (debug 1) (space 3))
+;;                                     (type (complex single-float) p2))
+;;                            (= -976855 (the (eql #c(-57420.04 806984.0)) p2))))
+;;            #c(-57420.04f0 806984.0f0))
+;;   nil)
 
 ; X86::FAST-EQL/FIXNUM
 (deftest cmucl-type-prop.24

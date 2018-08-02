@@ -70,16 +70,16 @@
       (get-output-stream-string os)))
    nil #.(string #\Newline))
 
-(deftest make-two-way-stream.6
-   (let* ((is (make-string-input-stream "foo"))
-          (os (make-string-output-stream))
-          (s (make-two-way-stream is os)))
-     (values
-      (write-char #\+ s)
-      (notnot (fresh-line s))
-      (read-char s)
-      (get-output-stream-string os)))
-   #\+ t #\f #.(coerce (list #\+ #\Newline) 'string))
+;; (deftest make-two-way-stream.6
+;;    (let* ((is (make-string-input-stream "foo"))
+;;           (os (make-string-output-stream))
+;;           (s (make-two-way-stream is os)))
+;;      (values
+;;       (write-char #\+ s)
+;;       (notnot (fresh-line s))
+;;       (read-char s)
+;;       (get-output-stream-string os)))
+;;    #\+ t #\f #.(coerce (list #\+ #\Newline) 'string))
 
 (deftest make-two-way-stream.7
    (let* ((is (make-string-input-stream "foo"))
@@ -112,14 +112,14 @@
       (get-output-stream-string os)))
    "bar" "bar")
 
-(deftest make-two-way-stream.10
-   (let* ((is (make-string-input-stream "foo"))
-          (os (make-string-output-stream))
-          (s (make-two-way-stream is os)))
-     (values
-      (write-line "bar" s)
-      (get-output-stream-string os)))
-   "bar" #.(concatenate 'string "bar" '(#\Newline)))
+;; (deftest make-two-way-stream.10
+;;    (let* ((is (make-string-input-stream "foo"))
+;;           (os (make-string-output-stream))
+;;           (s (make-two-way-stream is os)))
+;;      (values
+;;       (write-line "bar" s)
+;;       (get-output-stream-string os)))
+;;    "bar" #.(concatenate 'string "bar" '(#\Newline)))
 
 (deftest make-two-way-stream.11
   (let* ((is (make-string-input-stream "foo"))

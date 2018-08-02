@@ -116,7 +116,7 @@ Results: ~A~%" expected-number form n results))))
 
 ;;; *universe* is defined elsewhere -- it is a list of various
 ;;; lisp objects used when stimulating things in various tests.
-(declaim (special *universe*))
+;; (declaim (special *universe*))
 
 ;;; The function EMPIRICAL-SUBTYPEP checks two types
 ;;; for subtypeness, first using SUBTYPEP*, then (if that
@@ -384,7 +384,7 @@ the condition to go uncaught if it cannot be classified."
     (char-upcase c)))
 
 (defun string-invertcase (s)
-  (map 'string #'char-invertcase s))
+  (map string #'char-invertcase s))
 
 (defun symbol< (x &rest args)
   (apply #'string< (symbol-name x) (mapcar #'symbol-name args)))
@@ -414,7 +414,7 @@ the condition to go uncaught if it cannot be classified."
                   string))
 
 
-(declaim (type simple-base-string +base-chars+))
+;; (declaim (type simple-base-string +base-chars+))
 
 (defparameter +num-base-chars+ (length +base-chars+))
 
@@ -427,14 +427,14 @@ the condition to go uncaught if it cannot be classified."
                                       "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                       string))
 
-(declaim (type simple-base-string +alpha-chars+ +lower-case-chars+
-               +upper-case-chars+ +alphanumeric-chars+ +extended-digit-chars+
-               +standard-chars+))
+;; (declaim (type simple-base-string +alpha-chars+ +lower-case-chars+
+;;                +upper-case-chars+ +alphanumeric-chars+ +extended-digit-chars+
+;;                +standard-chars+))
 
 (defparameter +code-chars+
   (coerce (make-int-list 256) string))
 
-(declaim (type simple-string +code-chars+))
+;; (declaim (type simple-string +code-chars+))
 
 (defparameter +rev-code-chars+ (reverse +code-chars+))
 
@@ -828,7 +828,7 @@ the condition to go uncaught if it cannot be classified."
 ;;         (* significand (expt radix limit) sign))
 ;;        (t (rational x))))))
 
-(declaim (special *similarity-list*))
+;; (declaim (special *similarity-list*))
 
 (defun is-similar (x y)
   (let ((*similarity-list* nil))

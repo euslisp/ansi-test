@@ -6,19 +6,19 @@
 
 
 (make-package "LOOP.CL-TEST.1" :use nil)
-(=in-package "LOOP.CL-TEST.1")
+(in-package "LOOP.CL-TEST.1")
 (lisp:intern "FOO")
 (lisp:intern "BAR")
 (lisp:intern "BAZ")
 (lisp:export '(a b c))
-(cl-test::=in-package "CL-TEST")
+(cl-test::in-package "CL-TEST")
 
 (make-package "LOOP.CL-TEST.2" :use (list "LOOP.CL-TEST.1"))
-(=in-package "LOOP.CL-TEST.2")
+(in-package "LOOP.CL-TEST.2")
 (lisp:intern "X")
 (lisp:intern "Y")
 (lisp:intern "Z")
-(cl-test::=in-package "CL-TEST")
+(cl-test::in-package "CL-TEST")
 
 (deftest loop.7.1
   (sort (mapcar #'symbol-name

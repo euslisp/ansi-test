@@ -65,11 +65,11 @@
   (typecase 1 (symbol 'a) (otherwise))
   nil)
 
-(deftest typecase.15
-  (typecase 'a
-    (number 'bad)
-    (#.(find-class 'symbol nil) 'good))
-  good)
+;; (deftest typecase.15
+;;   (typecase 'a
+;;     (number 'bad)
+;;     (#.(find-class 'symbol nil) 'good))
+;;   good)
 
 (deftest typecase.16
   (block done

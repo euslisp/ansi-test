@@ -75,7 +75,7 @@
    program-error)
   t)
 
-(declaim (special *loop-count-var*))
+;; (declaim (special *loop-count-var*))
 
 (deftest loop.10.11
   (let ((*loop-count-var* 100))
@@ -175,7 +175,7 @@
      foo))
   8 20)
 
-(declaim (special *loop-max-var*))
+;; (declaim (special *loop-max-var*))
 
 (deftest loop.10.36
   (let ((*loop-max-var* 100))
@@ -279,7 +279,7 @@
      foo))
   3 20)
 
-(declaim (special *loop-min-var*))
+;; (declaim (special *loop-min-var*))
 
 (deftest loop.10.56
   (let ((*loop-min-var* 100))
@@ -344,9 +344,9 @@
   (loop for i from 1 to 4 sum (float i))
   10.0)
 
-(deftest loop.10.73
-  (loop for i from 1 to 4 sum (complex i i))
-  #c(10 10))
+;; (deftest loop.10.73
+;;   (loop for i from 1 to 4 sum (complex i i))
+;;   #c(10 10))
 
 (deftest loop.10.74
   (loop for i from 1 to 4 sum i fixnum)
@@ -421,10 +421,10 @@
    program-error)
   t)
 
-(deftest loop.10.87
-  (loop for i from 1 to 4
-        sum (complex i (1+ i)) of-type complex)
-  #c(10 14))
+;; (deftest loop.10.87
+;;   (loop for i from 1 to 4
+;;         sum (complex i (1+ i)) of-type complex)
+;;   #c(10 14))
 
 (deftest loop.10.88
   (loop for i from 1 to 4
