@@ -2247,8 +2247,8 @@
   - [ ] (deftest defsetf.5a
   - [ ] (deftest defsetf.6a
   - [ ] (deftest defsetf.7a
-**** equalp.lsp [57%]
-  - [ ] (deftest equalp.1
+**** equalp.lsp [65%]
+  - [X] (deftest equalp.1
   - [X] (deftest equalp.2
   - [X] (deftest equalp.3
   - [X] (deftest equalp.4
@@ -2268,11 +2268,11 @@
   - [ ] (deftest equalp.18
   - [ ] (deftest equalp.19
   - [ ] (deftest equalp.20
-  - [ ] (deftest equalp.21
+  - [X] (deftest equalp.21
   - [X] (deftest equalp.22
   - [X] (deftest equalp.23
   - [X] (deftest equalp.24
-  - [ ] (deftest equalp.25
+  - [X] (deftest equalp.25
   - [X] (deftest equalp.26
   - [X] (deftest equalp.27
   - [X] (deftest equalp.28
@@ -3869,7 +3869,7 @@
   - [ ] (deftest pathname-device.8
   - [X] (deftest pathname-device.error.1
   - [ ] (deftest pathname-device.error.2
-**** make-pathname.lsp [21%]
+**** make-pathname.lsp [30%]
   - [ ] (deftest make-pathname.1
   - [ ] (deftest make-pathname.2
   - [ ] (deftest make-pathname.2a
@@ -3881,11 +3881,11 @@
   - [ ] (deftest make-pathname.7
   - [ ] (deftest make-pathname.8
   - [ ] (deftest make-pathname.9
-  - [ ] (deftest make-pathname.10
+  - [X] (deftest make-pathname.10
   - [ ] (deftest make-pathname.11
   - [ ] (deftest make-pathname.12
   - [ ] (deftest make-pathname.13
-  - [ ] (deftest make-pathname.14
+  - [X] (deftest make-pathname.14
   - [ ] (deftest make-pathname.rebuild
   - [X] (deftest make-pathname-error-absolute-up
   - [X] (deftest make-pathname-error-absolute-back
@@ -15116,7 +15116,7 @@
   - [X] (deftest remhash.error.1
   - [X] (deftest remhash.error.2
   - [X] (deftest remhash.error.3
-**** make-hash-table.lsp [48%]
+**** make-hash-table.lsp [51%]
   - [X] (deftest make-hash-table.1
   - [X] (deftest make-hash-table.2
   - [X] (deftest make-hash-table.3
@@ -15126,7 +15126,7 @@
   - [X] (deftest make-hash-table.7
   - [X] (deftest make-hash-table.8
   - [X] (deftest make-hash-table.9
-  - [ ] (deftest make-hash-table.10
+  - [X] (deftest make-hash-table.10
   - [X] (deftest make-hash-table.11
   - [X] (deftest make-hash-table.12
   - [X] (deftest make-hash-table.13
@@ -15225,7 +15225,7 @@
   - [X] (deftest hash-table-p.5
   - [X] (deftest hash-table-p.error.1
   - [X] (deftest hash-table-p.error.2
-**** hash-table-count.lsp [92%]
+**** hash-table-count.lsp [100%]
   - [X] (deftest hash-table-count.1
   - [X] (deftest hash-table-count.2
   - [X] (deftest hash-table-count.3
@@ -15234,7 +15234,7 @@
   - [X] (deftest hash-table-count.6
   - [X] (deftest hash-table-count.7
   - [X] (deftest hash-table-count.8
-  - [ ] (deftest hash-table-count.9
+  - [X] (deftest hash-table-count.9
   - [X] (deftest hash-table-count.10
   - [X] (deftest hash-table-count.11
   - [X] (deftest hash-table-count.error.1
@@ -16848,71 +16848,71 @@
 **** ba-test-package.lsp [0%]
 **** makefile [0%]
 *** sequences [0%]
-**** substitute-if-not.lsp [0%]
-  - [ ] (deftest substitute-if-not-list.1
-  - [ ] (deftest substitute-if-not-list.2
+**** substitute-if-not.lsp [41%]
+  - [X] (deftest substitute-if-not-list.1
+  - [X] (deftest substitute-if-not-list.2
   - [ ] (deftest substitute-if-not-list.3
-  - [ ] (deftest substitute-if-not-list.4
-  - [ ] (deftest substitute-if-not-list.5
-  - [ ] (deftest substitute-if-not-list.6
-  - [ ] (deftest substitute-if-not-list.7
-  - [ ] (deftest substitute-if-not-list.8
-  - [ ] (deftest substitute-if-not-list.9
+  - [X] (deftest substitute-if-not-list.4
+  - [X] (deftest substitute-if-not-list.5
+  - [X] (deftest substitute-if-not-list.6
+  - [X] (deftest substitute-if-not-list.7
+  - [X] (deftest substitute-if-not-list.8
+  - [X] (deftest substitute-if-not-list.9
   - [ ] (deftest substitute-if-not-list.10
-  - [ ] (deftest substitute-if-not-list.11
-  - [ ] (deftest substitute-if-not-list.12
-  - [ ] (deftest substitute-if-not-list.13
-  - [ ] (deftest substitute-if-not-list.14
-  - [ ] (deftest substitute-if-not-list.15
-  - [ ] (deftest substitute-if-not-list.16
-  - [ ] (deftest substitute-if-not-list.17
-  - [ ] (deftest substitute-if-not-list.18
-  - [ ] (deftest substitute-if-not-vector.1
-  - [ ] (deftest substitute-if-not-vector.2
+  - [X] (deftest substitute-if-not-list.11
+  - [X] (deftest substitute-if-not-list.12
+  - [X] (deftest substitute-if-not-list.13
+  - [X] (deftest substitute-if-not-list.14
+  - [X] (deftest substitute-if-not-list.15
+  - [X] (deftest substitute-if-not-list.16
+  - [X] (deftest substitute-if-not-list.17
+  - [X] (deftest substitute-if-not-list.18
+  - [X] (deftest substitute-if-not-vector.1
+  - [X] (deftest substitute-if-not-vector.2
   - [ ] (deftest substitute-if-not-vector.3
-  - [ ] (deftest substitute-if-not-vector.4
-  - [ ] (deftest substitute-if-not-vector.5
-  - [ ] (deftest substitute-if-not-vector.6
-  - [ ] (deftest substitute-if-not-vector.7
-  - [ ] (deftest substitute-if-not-vector.8
-  - [ ] (deftest substitute-if-not-vector.9
+  - [X] (deftest substitute-if-not-vector.4
+  - [X] (deftest substitute-if-not-vector.5
+  - [X] (deftest substitute-if-not-vector.6
+  - [X] (deftest substitute-if-not-vector.7
+  - [X] (deftest substitute-if-not-vector.8
+  - [X] (deftest substitute-if-not-vector.9
   - [ ] (deftest substitute-if-not-vector.10
-  - [ ] (deftest substitute-if-not-vector.11
-  - [ ] (deftest substitute-if-not-vector.12
-  - [ ] (deftest substitute-if-not-vector.13
-  - [ ] (deftest substitute-if-not-vector.14
+  - [X] (deftest substitute-if-not-vector.11
+  - [X] (deftest substitute-if-not-vector.12
+  - [X] (deftest substitute-if-not-vector.13
+  - [X] (deftest substitute-if-not-vector.14
   - [ ] (deftest substitute-if-not-vector.15
   - [ ] (deftest substitute-if-not-vector.16
   - [ ] (deftest substitute-if-not-vector.17
   - [ ] (deftest substitute-if-not-vector.18
-  - [ ] (deftest substitute-if-not-vector.28
-  - [ ] (deftest substitute-if-not-vector.29
-  - [ ] (deftest substitute-if-not-vector.30
-  - [ ] (deftest substitute-if-not-vector.31
-  - [ ] (deftest substitute-if-not-vector.32
-  - [ ] (deftest substitute-if-not-vector.33
-  - [ ] (deftest substitute-if-not-string.1
-  - [ ] (deftest substitute-if-not-string.2
+  - [X] (deftest substitute-if-not-vector.28
+  - [X] (deftest substitute-if-not-vector.29
+  - [X] (deftest substitute-if-not-vector.30
+  - [X] (deftest substitute-if-not-vector.31
+  - [X] (deftest substitute-if-not-vector.32
+  - [X] (deftest substitute-if-not-vector.33
+  - [X] (deftest substitute-if-not-string.1
+  - [X] (deftest substitute-if-not-string.2
   - [ ] (deftest substitute-if-not-string.3
-  - [ ] (deftest substitute-if-not-string.4
-  - [ ] (deftest substitute-if-not-string.5
-  - [ ] (deftest substitute-if-not-string.6
-  - [ ] (deftest substitute-if-not-string.7
-  - [ ] (deftest substitute-if-not-string.8
-  - [ ] (deftest substitute-if-not-string.9
+  - [X] (deftest substitute-if-not-string.4
+  - [X] (deftest substitute-if-not-string.5
+  - [X] (deftest substitute-if-not-string.6
+  - [X] (deftest substitute-if-not-string.7
+  - [X] (deftest substitute-if-not-string.8
+  - [X] (deftest substitute-if-not-string.9
   - [ ] (deftest substitute-if-not-string.10
-  - [ ] (deftest substitute-if-not-string.11
-  - [ ] (deftest substitute-if-not-string.12
-  - [ ] (deftest substitute-if-not-string.13
-  - [ ] (deftest substitute-if-not-string.14
+  - [X] (deftest substitute-if-not-string.11
+  - [X] (deftest substitute-if-not-string.12
+  - [X] (deftest substitute-if-not-string.13
+  - [X] (deftest substitute-if-not-string.14
   - [ ] (deftest substitute-if-not-string.15
   - [ ] (deftest substitute-if-not-string.16
   - [ ] (deftest substitute-if-not-string.17
   - [ ] (deftest substitute-if-not-string.18
-  - [ ] (deftest substitute-if-not-string.28
-  - [ ] (deftest substitute-if-not-string.29
-  - [ ] (deftest substitute-if-not-string.30
-  - [ ] (deftest substitute-if-not-string.31
+  - [X] (deftest substitute-if-not-string.28
+  - [X] (deftest substitute-if-not-string.29
+  - [X] (deftest substitute-if-not-string.30
+  - [X] (deftest substitute-if-not-string.31
   - [ ] (deftest substitute-if-not-bitstring.1
   - [ ] (deftest substitute-if-not-bitstring.2
   - [ ] (deftest substitute-if-not-bitstring.3
@@ -16943,7 +16943,7 @@
   - [ ] (deftest substitute-if-not-string.26
   - [ ] (deftest substitute-if-not-bitstring.26
   - [ ] (deftest substitute-if-not-bitstring.27
-  - [ ] (deftest substitute-if-not-bit-vector.30
+  - [X] (deftest substitute-if-not-bit-vector.30
   - [ ] (deftest substitute-if-not-bit-vector.31
   - [ ] (deftest substitute-if-not-bit-vector.32
   - [ ] (deftest substitute-if-not-bit-vector.33
@@ -16973,51 +16973,51 @@
   - [ ] (deftest substitute-if-not.error.10
   - [ ] (deftest substitute-if-not.error.11
   - [ ] (deftest substitute-if-not.error.12
-**** count-if.lsp [0%]
-  - [ ] (deftest count-if-list.1
-  - [ ] (deftest count-if-list.2
-  - [ ] (deftest count-if-list.3
-  - [ ] (deftest count-if-list.4
-  - [ ] (deftest count-if-list.5
-  - [ ] (deftest count-if-list.6
-  - [ ] (deftest count-if-list.8
-  - [ ] (deftest count-if-list.9
-  - [ ] (deftest count-if-list.10
-  - [ ] (deftest count-if-list.11
+**** count-if.lsp [39%]
+  - [X] (deftest count-if-list.1
+  - [X] (deftest count-if-list.2
+  - [X] (deftest count-if-list.3
+  - [X] (deftest count-if-list.4
+  - [X] (deftest count-if-list.5
+  - [X] (deftest count-if-list.6
+  - [X] (deftest count-if-list.8
+  - [X] (deftest count-if-list.9
+  - [X] (deftest count-if-list.10
+  - [X] (deftest count-if-list.11
   - [ ] (deftest count-if-list.12
-  - [ ] (deftest count-if-list.13
-  - [ ] (deftest count-if-list.14
-  - [ ] (deftest count-if-list.15
+  - [X] (deftest count-if-list.13
+  - [X] (deftest count-if-list.14
+  - [X] (deftest count-if-list.15
   - [ ] (deftest count-if-list.16
-  - [ ] (deftest count-if-vector.1
-  - [ ] (deftest count-if-vector.2
-  - [ ] (deftest count-if-vector.3
-  - [ ] (deftest count-if-vector.4
-  - [ ] (deftest count-if-vector.5
-  - [ ] (deftest count-if-vector.6
-  - [ ] (deftest count-if-vector.8
-  - [ ] (deftest count-if-vector.9
-  - [ ] (deftest count-if-vector.10
-  - [ ] (deftest count-if-vector.11
+  - [X] (deftest count-if-vector.1
+  - [X] (deftest count-if-vector.2
+  - [X] (deftest count-if-vector.3
+  - [X] (deftest count-if-vector.4
+  - [X] (deftest count-if-vector.5
+  - [X] (deftest count-if-vector.6
+  - [X] (deftest count-if-vector.8
+  - [X] (deftest count-if-vector.9
+  - [X] (deftest count-if-vector.10
+  - [X] (deftest count-if-vector.11
   - [ ] (deftest count-if-vector.12
-  - [ ] (deftest count-if-vector.13
-  - [ ] (deftest count-if-vector.14
-  - [ ] (deftest count-if-vector.15
+  - [X] (deftest count-if-vector.13
+  - [X] (deftest count-if-vector.14
+  - [X] (deftest count-if-vector.15
   - [ ] (deftest count-if-vector.16
-  - [ ] (deftest count-if-nonsimple-vector.1
-  - [ ] (deftest count-if-nonsimple-vector.2
-  - [ ] (deftest count-if-nonsimple-vector.3
-  - [ ] (deftest count-if-nonsimple-vector.4
-  - [ ] (deftest count-if-nonsimple-vector.5
-  - [ ] (deftest count-if-nonsimple-vector.6
-  - [ ] (deftest count-if-nonsimple-vector.8
-  - [ ] (deftest count-if-nonsimple-vector.9
-  - [ ] (deftest count-if-nonsimple-vector.10
-  - [ ] (deftest count-if-nonsimple-vector.11
+  - [X] (deftest count-if-nonsimple-vector.1
+  - [X] (deftest count-if-nonsimple-vector.2
+  - [X] (deftest count-if-nonsimple-vector.3
+  - [X] (deftest count-if-nonsimple-vector.4
+  - [X] (deftest count-if-nonsimple-vector.5
+  - [X] (deftest count-if-nonsimple-vector.6
+  - [X] (deftest count-if-nonsimple-vector.8
+  - [X] (deftest count-if-nonsimple-vector.9
+  - [X] (deftest count-if-nonsimple-vector.10
+  - [X] (deftest count-if-nonsimple-vector.11
   - [ ] (deftest count-if-nonsimple-vector.12
-  - [ ] (deftest count-if-nonsimple-vector.13
-  - [ ] (deftest count-if-nonsimple-vector.14
-  - [ ] (deftest count-if-nonsimple-vector.15
+  - [X] (deftest count-if-nonsimple-vector.13
+  - [X] (deftest count-if-nonsimple-vector.14
+  - [X] (deftest count-if-nonsimple-vector.15
   - [ ] (deftest count-if-nonsimple-vector.16
   - [ ] (deftest count-if-nonsimple-vector.17
   - [ ] (deftest count-if.special-vector.1
@@ -17074,44 +17074,44 @@
   - [ ] (deftest count-if.error.13
   - [ ] (deftest count-if.error.14
   - [ ] (deftest count-if.error.15
-**** find-if-not.lsp [0%]
-  - [ ] (deftest find-if-not-list.1
-  - [ ] (deftest find-if-not-list.2
-  - [ ] (deftest find-if-not-list.2a
-  - [ ] (deftest find-if-not-list.3
+**** find-if-not.lsp [22%]
+  - [X] (deftest find-if-not-list.1
+  - [X] (deftest find-if-not-list.2
+  - [X] (deftest find-if-not-list.2a
+  - [X] (deftest find-if-not-list.3
   - [ ] (deftest find-if-not-list.4
-  - [ ] (deftest find-if-not-list.5
+  - [X] (deftest find-if-not-list.5
   - [ ] (deftest find-if-not-list.6
   - [ ] (deftest find-if-not-list.7
   - [ ] (deftest find-if-not-list.8
-  - [ ] (deftest find-if-not-list.9
+  - [X] (deftest find-if-not-list.9
   - [ ] (deftest find-if-not-list.10
-  - [ ] (deftest find-if-not-list.11
+  - [X] (deftest find-if-not-list.11
   - [ ] (deftest find-if-not-list.12
-  - [ ] (deftest find-if-not-list.13
+  - [X] (deftest find-if-not-list.13
   - [ ] (deftest find-if-not-list.14
-  - [ ] (deftest find-if-not-list.15
+  - [X] (deftest find-if-not-list.15
   - [ ] (deftest find-if-not-list.16
-  - [ ] (deftest find-if-not-list.17
+  - [X] (deftest find-if-not-list.17
   - [ ] (deftest find-if-not-list.18
-  - [ ] (deftest find-if-not-vector.1
-  - [ ] (deftest find-if-not-vector.2
-  - [ ] (deftest find-if-not-vector.2a
-  - [ ] (deftest find-if-not-vector.3
+  - [X] (deftest find-if-not-vector.1
+  - [X] (deftest find-if-not-vector.2
+  - [X] (deftest find-if-not-vector.2a
+  - [X] (deftest find-if-not-vector.3
   - [ ] (deftest find-if-not-vector.4
-  - [ ] (deftest find-if-not-vector.5
+  - [X] (deftest find-if-not-vector.5
   - [ ] (deftest find-if-not-vector.6
   - [ ] (deftest find-if-not-vector.7
   - [ ] (deftest find-if-not-vector.8
-  - [ ] (deftest find-if-not-vector.9
+  - [X] (deftest find-if-not-vector.9
   - [ ] (deftest find-if-not-vector.10
-  - [ ] (deftest find-if-not-vector.11
+  - [X] (deftest find-if-not-vector.11
   - [ ] (deftest find-if-not-vector.12
-  - [ ] (deftest find-if-not-vector.13
+  - [X] (deftest find-if-not-vector.13
   - [ ] (deftest find-if-not-vector.14
-  - [ ] (deftest find-if-not-vector.15
+  - [X] (deftest find-if-not-vector.15
   - [ ] (deftest find-if-not-vector.16
-  - [ ] (deftest find-if-not-vector.17
+  - [X] (deftest find-if-not-vector.17
   - [ ] (deftest find-if-not-vector.18
   - [ ] (deftest find-if-not-bit-vector.1
   - [ ] (deftest find-if-not-bit-vector.2
@@ -17162,61 +17162,61 @@
   - [ ] (deftest find-if-not.order.1
   - [ ] (deftest find-if-not.order.2
   - [ ] (deftest find-if-not.order.3
-**** count.lsp [0%]
-  - [ ] (deftest count-list.1
-  - [ ] (deftest count-list.2
-  - [ ] (deftest count-list.3
-  - [ ] (deftest count-list.4
-  - [ ] (deftest count-list.5
-  - [ ] (deftest count-list.6
+**** count.lsp [33%]
+  - [X] (deftest count-list.1
+  - [X] (deftest count-list.2
+  - [X] (deftest count-list.3
+  - [X] (deftest count-list.4
+  - [X] (deftest count-list.5
+  - [X] (deftest count-list.6
   - [ ] (deftest count-list.7
-  - [ ] (deftest count-list.8
+  - [X] (deftest count-list.8
   - [ ] (deftest count-list.9
-  - [ ] (deftest count-list.10
-  - [ ] (deftest count-list.11
-  - [ ] (deftest count-list.12
+  - [X] (deftest count-list.10
+  - [X] (deftest count-list.11
+  - [X] (deftest count-list.12
   - [ ] (deftest count-list.13
   - [ ] (deftest count-list.14
-  - [ ] (deftest count-list.15
-  - [ ] (deftest count-list.16
-  - [ ] (deftest count-list.17
-  - [ ] (deftest count-list.18
-  - [ ] (deftest count-vector.1
-  - [ ] (deftest count-vector.2
-  - [ ] (deftest count-vector.3
-  - [ ] (deftest count-vector.4
-  - [ ] (deftest count-vector.5
-  - [ ] (deftest count-vector.6
+  - [X] (deftest count-list.15
+  - [X] (deftest count-list.16
+  - [X] (deftest count-list.17
+  - [X] (deftest count-list.18
+  - [X] (deftest count-vector.1
+  - [X] (deftest count-vector.2
+  - [X] (deftest count-vector.3
+  - [X] (deftest count-vector.4
+  - [X] (deftest count-vector.5
+  - [X] (deftest count-vector.6
   - [ ] (deftest count-vector.7
-  - [ ] (deftest count-vector.8
+  - [X] (deftest count-vector.8
   - [ ] (deftest count-vector.9
-  - [ ] (deftest count-vector.10
-  - [ ] (deftest count-vector.11
-  - [ ] (deftest count-vector.12
+  - [X] (deftest count-vector.10
+  - [X] (deftest count-vector.11
+  - [X] (deftest count-vector.12
   - [ ] (deftest count-vector.13
   - [ ] (deftest count-vector.14
-  - [ ] (deftest count-vector.15
-  - [ ] (deftest count-vector.16
-  - [ ] (deftest count-vector.17
-  - [ ] (deftest count-vector.18
-  - [ ] (deftest count-filled-vector.1
-  - [ ] (deftest count-filled-vector.2
-  - [ ] (deftest count-filled-vector.3
-  - [ ] (deftest count-filled-vector.4
-  - [ ] (deftest count-filled-vector.5
-  - [ ] (deftest count-filled-vector.6
+  - [X] (deftest count-vector.15
+  - [X] (deftest count-vector.16
+  - [X] (deftest count-vector.17
+  - [X] (deftest count-vector.18
+  - [X] (deftest count-filled-vector.1
+  - [X] (deftest count-filled-vector.2
+  - [X] (deftest count-filled-vector.3
+  - [X] (deftest count-filled-vector.4
+  - [X] (deftest count-filled-vector.5
+  - [X] (deftest count-filled-vector.6
   - [ ] (deftest count-filled-vector.7
-  - [ ] (deftest count-filled-vector.8
+  - [X] (deftest count-filled-vector.8
   - [ ] (deftest count-filled-vector.9
-  - [ ] (deftest count-filled-vector.10
-  - [ ] (deftest count-filled-vector.11
-  - [ ] (deftest count-filled-vector.12
+  - [X] (deftest count-filled-vector.10
+  - [X] (deftest count-filled-vector.11
+  - [X] (deftest count-filled-vector.12
   - [ ] (deftest count-filled-vector.13
   - [ ] (deftest count-filled-vector.14
-  - [ ] (deftest count-filled-vector.15
-  - [ ] (deftest count-filled-vector.16
-  - [ ] (deftest count-filled-vector.17
-  - [ ] (deftest count-filled-vector.18
+  - [X] (deftest count-filled-vector.15
+  - [X] (deftest count-filled-vector.16
+  - [X] (deftest count-filled-vector.17
+  - [X] (deftest count-filled-vector.18
   - [ ] (deftest count-filled-vector.19
   - [ ] (deftest count-filled-vector.20
   - [ ] (deftest count.special-vector.1
@@ -17288,8 +17288,8 @@
   - [ ] (deftest count.error.13
   - [ ] (deftest count.error.14
   - [ ] (deftest count.error.15
-**** substitute-if.lsp [0%]
-  - [ ] (deftest substitute-if-list.1
+**** substitute-if.lsp [35%]
+  - [X] (deftest substitute-if-list.1
   - [ ] (deftest substitute-if-list.2
   - [ ] (deftest substitute-if-list.3
   - [ ] (deftest substitute-if-list.4
@@ -17299,60 +17299,60 @@
   - [ ] (deftest substitute-if-list.8
   - [ ] (deftest substitute-if-list.9
   - [ ] (deftest substitute-if-list.10
-  - [ ] (deftest substitute-if-list.11
-  - [ ] (deftest substitute-if-list.12
-  - [ ] (deftest substitute-if-list.13
-  - [ ] (deftest substitute-if-list.14
-  - [ ] (deftest substitute-if-list.15
-  - [ ] (deftest substitute-if-list.16
-  - [ ] (deftest substitute-if-list.17
-  - [ ] (deftest substitute-if-list.18
-  - [ ] (deftest substitute-if-vector.1
-  - [ ] (deftest substitute-if-vector.2
+  - [X] (deftest substitute-if-list.11
+  - [X] (deftest substitute-if-list.12
+  - [X] (deftest substitute-if-list.13
+  - [X] (deftest substitute-if-list.14
+  - [X] (deftest substitute-if-list.15
+  - [X] (deftest substitute-if-list.16
+  - [X] (deftest substitute-if-list.17
+  - [X] (deftest substitute-if-list.18
+  - [X] (deftest substitute-if-vector.1
+  - [X] (deftest substitute-if-vector.2
   - [ ] (deftest substitute-if-vector.3
-  - [ ] (deftest substitute-if-vector.4
-  - [ ] (deftest substitute-if-vector.5
-  - [ ] (deftest substitute-if-vector.6
-  - [ ] (deftest substitute-if-vector.7
-  - [ ] (deftest substitute-if-vector.8
-  - [ ] (deftest substitute-if-vector.9
+  - [X] (deftest substitute-if-vector.4
+  - [X] (deftest substitute-if-vector.5
+  - [X] (deftest substitute-if-vector.6
+  - [X] (deftest substitute-if-vector.7
+  - [X] (deftest substitute-if-vector.8
+  - [X] (deftest substitute-if-vector.9
   - [ ] (deftest substitute-if-vector.10
-  - [ ] (deftest substitute-if-vector.11
-  - [ ] (deftest substitute-if-vector.12
-  - [ ] (deftest substitute-if-vector.13
-  - [ ] (deftest substitute-if-vector.14
+  - [X] (deftest substitute-if-vector.11
+  - [X] (deftest substitute-if-vector.12
+  - [X] (deftest substitute-if-vector.13
+  - [X] (deftest substitute-if-vector.14
   - [ ] (deftest substitute-if-vector.15
   - [ ] (deftest substitute-if-vector.16
   - [ ] (deftest substitute-if-vector.17
   - [ ] (deftest substitute-if-vector.18
-  - [ ] (deftest substitute-if-vector.28
-  - [ ] (deftest substitute-if-vector.29
-  - [ ] (deftest substitute-if-vector.30
-  - [ ] (deftest substitute-if-vector.31
-  - [ ] (deftest substitute-if-vector.32
-  - [ ] (deftest substitute-if-vector.33
-  - [ ] (deftest substitute-if-string.1
-  - [ ] (deftest substitute-if-string.2
+  - [X] (deftest substitute-if-vector.28
+  - [X] (deftest substitute-if-vector.29
+  - [X] (deftest substitute-if-vector.30
+  - [X] (deftest substitute-if-vector.31
+  - [X] (deftest substitute-if-vector.32
+  - [X] (deftest substitute-if-vector.33
+  - [X] (deftest substitute-if-string.1
+  - [X] (deftest substitute-if-string.2
   - [ ] (deftest substitute-if-string.3
-  - [ ] (deftest substitute-if-string.4
-  - [ ] (deftest substitute-if-string.5
-  - [ ] (deftest substitute-if-string.6
-  - [ ] (deftest substitute-if-string.7
-  - [ ] (deftest substitute-if-string.8
-  - [ ] (deftest substitute-if-string.9
+  - [X] (deftest substitute-if-string.4
+  - [X] (deftest substitute-if-string.5
+  - [X] (deftest substitute-if-string.6
+  - [X] (deftest substitute-if-string.7
+  - [X] (deftest substitute-if-string.8
+  - [X] (deftest substitute-if-string.9
   - [ ] (deftest substitute-if-string.10
-  - [ ] (deftest substitute-if-string.11
-  - [ ] (deftest substitute-if-string.12
-  - [ ] (deftest substitute-if-string.13
-  - [ ] (deftest substitute-if-string.14
+  - [X] (deftest substitute-if-string.11
+  - [X] (deftest substitute-if-string.12
+  - [X] (deftest substitute-if-string.13
+  - [X] (deftest substitute-if-string.14
   - [ ] (deftest substitute-if-string.15
   - [ ] (deftest substitute-if-string.16
   - [ ] (deftest substitute-if-string.17
   - [ ] (deftest substitute-if-string.18
-  - [ ] (deftest substitute-if-string.28
-  - [ ] (deftest substitute-if-string.29
-  - [ ] (deftest substitute-if-string.30
-  - [ ] (deftest substitute-if-string.31
+  - [X] (deftest substitute-if-string.28
+  - [X] (deftest substitute-if-string.29
+  - [X] (deftest substitute-if-string.30
+  - [X] (deftest substitute-if-string.31
   - [ ] (deftest substitute-if-bit-vector.1
   - [ ] (deftest substitute-if-bit-vector.2
   - [ ] (deftest substitute-if-bit-vector.3
@@ -17383,7 +17383,7 @@
   - [ ] (deftest substitute-if-string.26
   - [ ] (deftest substitute-if-bit-vector.22
   - [ ] (deftest substitute-if-bit-vector.23
-  - [ ] (deftest substitute-if-bit-vector.24
+  - [X] (deftest substitute-if-bit-vector.24
   - [ ] (deftest substitute-if-bit-vector.25
   - [ ] (deftest substitute-if-bit-vector.26
   - [ ] (deftest substitute-if-bit-vector.27
@@ -17432,58 +17432,58 @@
   - [ ] (deftest search-vector.16
   - [ ] (deftest search-vector.17
   - [ ] (deftest search-vector.18
-**** fill.lsp [0%]
-  - [ ] (deftest fill.error.1
-  - [ ] (deftest fill.error.2
-  - [ ] (deftest fill.error.3
-  - [ ] (deftest fill.error.4
-  - [ ] (deftest fill.error.5
-  - [ ] (deftest fill.error.6
-  - [ ] (deftest fill.error.7
-  - [ ] (deftest fill.error.8
-  - [ ] (deftest fill.error.10
-  - [ ] (deftest fill.error.11
-  - [ ] (deftest array-fill-1
-  - [ ] (deftest array-fill-2
-  - [ ] (deftest array-fill-3
-  - [ ] (deftest array-fill-4
+**** fill.lsp [48%]
+  - [X] (deftest fill.error.1
+  - [X] (deftest fill.error.2
+  - [X] (deftest fill.error.3
+  - [X] (deftest fill.error.4
+  - [X] (deftest fill.error.5
+  - [X] (deftest fill.error.6
+  - [X] (deftest fill.error.7
+  - [X] (deftest fill.error.8
+  - [X] (deftest fill.error.10
+  - [X] (deftest fill.error.11
+  - [X] (deftest array-fill-1
+  - [X] (deftest array-fill-2
+  - [X] (deftest array-fill-3
+  - [X] (deftest array-fill-4
   - [ ] (deftest array-fill-5
   - [ ] (deftest array-fill-6
-  - [ ] (deftest array-fill-7
-  - [ ] (deftest array-fill-8
-  - [ ] (deftest array-fill-9
-  - [ ] (deftest array-fill-10
-  - [ ] (deftest array-fixnum-fill-1
-  - [ ] (deftest array-fixnum-fill-2
-  - [ ] (deftest array-fixnum-fill-3
-  - [ ] (deftest array-fixnum-fill-4
+  - [X] (deftest array-fill-7
+  - [X] (deftest array-fill-8
+  - [X] (deftest array-fill-9
+  - [X] (deftest array-fill-10
+  - [X] (deftest array-fixnum-fill-1
+  - [X] (deftest array-fixnum-fill-2
+  - [X] (deftest array-fixnum-fill-3
+  - [X] (deftest array-fixnum-fill-4
   - [ ] (deftest array-fixnum-fill-5
   - [ ] (deftest array-fixnum-fill-6
-  - [ ] (deftest array-fixnum-fill-7
-  - [ ] (deftest array-fixnum-fill-8
-  - [ ] (deftest array-fixnum-fill-9
-  - [ ] (deftest array-fixnum-fill-10
-  - [ ] (deftest array-unsigned-byte8-fill-1
-  - [ ] (deftest array-unsigned-byte8-fill-2
-  - [ ] (deftest array-unsigned-byte8-fill-3
-  - [ ] (deftest array-unsigned-byte8-fill-4
+  - [X] (deftest array-fixnum-fill-7
+  - [X] (deftest array-fixnum-fill-8
+  - [X] (deftest array-fixnum-fill-9
+  - [X] (deftest array-fixnum-fill-10
+  - [X] (deftest array-unsigned-byte8-fill-1
+  - [X] (deftest array-unsigned-byte8-fill-2
+  - [X] (deftest array-unsigned-byte8-fill-3
+  - [X] (deftest array-unsigned-byte8-fill-4
   - [ ] (deftest array-unsigned-byte8-fill-5
   - [ ] (deftest array-unsigned-byte8-fill-6
   - [ ] (deftest array-unsigned-byte8-fill-7
-  - [ ] (deftest array-unsigned-byte8-fill-8
-  - [ ] (deftest array-unsigned-byte8-fill-9
-  - [ ] (deftest array-unsigned-byte8-fill-10
-  - [ ] (deftest array-fill-pointer-fill.1
+  - [X] (deftest array-unsigned-byte8-fill-8
+  - [X] (deftest array-unsigned-byte8-fill-9
+  - [X] (deftest array-unsigned-byte8-fill-10
+  - [X] (deftest array-fill-pointer-fill.1
   - [ ] (deftest array-fill-pointer-fill.2
-  - [ ] (deftest fill.string.1
-  - [ ] (deftest fill.string.2
-  - [ ] (deftest fill.string.3
+  - [X] (deftest fill.string.1
+  - [X] (deftest fill.string.2
+  - [X] (deftest fill.string.3
   - [ ] (deftest fill.string.4
   - [ ] (deftest fill.string.5
   - [ ] (deftest fill.string.6
   - [ ] (deftest fill.string.7
   - [ ] (deftest fill.string.8
-  - [ ] (deftest fill.string.9
+  - [X] (deftest fill.string.9
   - [ ] (deftest fill.string.10
   - [ ] (deftest fill.bit-vector.1
   - [ ] (deftest fill.bit-vector.2
@@ -17512,44 +17512,44 @@
   - [ ] (deftest fill.specialized-vectors.1
   - [ ] (deftest fill.specialized-vectors.2
   - [ ] (deftest fill.specialized-vectors.3
-**** make-sequence.lsp [0%]
-  - [ ] (deftest make-sequence.1
-  - [ ] (deftest make-sequence.2
-  - [ ] (deftest make-sequence.3
-  - [ ] (deftest make-sequence.4
-  - [ ] (deftest make-sequence.5
-  - [ ] (deftest make-sequence.6
-  - [ ] (deftest make-sequence.7
-  - [ ] (deftest make-sequence.8
-  - [ ] (deftest make-sequence.9
-  - [ ] (deftest make-sequence.10
-  - [ ] (deftest make-sequence.11
-  - [ ] (deftest make-sequence.12
-  - [ ] (deftest make-sequence.13
-  - [ ] (deftest make-sequence.14
-  - [ ] (deftest make-sequence.15
-  - [ ] (deftest make-sequence.16
-  - [ ] (deftest make-sequence.17
-  - [ ] (deftest make-sequence.18
-  - [ ] (deftest make-sequence.19
-  - [ ] (deftest make-sequence.20
-  - [ ] (deftest make-sequence.21
-  - [ ] (deftest make-sequence.22
-  - [ ] (deftest make-sequence.23
-  - [ ] (deftest make-sequence.24
-  - [ ] (deftest make-sequence.25
+**** make-sequence.lsp [37%]
+  - [X] (deftest make-sequence.1
+  - [X] (deftest make-sequence.2
+  - [X] (deftest make-sequence.3
+  - [X] (deftest make-sequence.4
+  - [X] (deftest make-sequence.5
+  - [X] (deftest make-sequence.6
+  - [X] (deftest make-sequence.7
+  - [X] (deftest make-sequence.8
+  - [X] (deftest make-sequence.9
+  - [X] (deftest make-sequence.10
+  - [X] (deftest make-sequence.11
+  - [X] (deftest make-sequence.12
+  - [X] (deftest make-sequence.13
+  - [X] (deftest make-sequence.14
+  - [X] (deftest make-sequence.15
+  - [X] (deftest make-sequence.16
+  - [X] (deftest make-sequence.17
+  - [X] (deftest make-sequence.18
+  - [X] (deftest make-sequence.19
+  - [X] (deftest make-sequence.20
+  - [X] (deftest make-sequence.21
+  - [X] (deftest make-sequence.22
+  - [X] (deftest make-sequence.23
+  - [X] (deftest make-sequence.24
+  - [X] (deftest make-sequence.25
   - [ ] (deftest make-sequence.26
   - [ ] (deftest make-sequence.27
   - [ ] (deftest make-sequence.28
   - [ ] (deftest make-sequence.29
   - [ ] (deftest make-sequence.30
-  - [ ] (deftest make-sequence.31
-  - [ ] (deftest make-sequence.32
-  - [ ] (deftest make-sequence.33
-  - [ ] (deftest make-sequence.34
-  - [ ] (deftest make-sequence.35
-  - [ ] (deftest make-sequence.36
-  - [ ] (deftest make-sequence.37
+  - [X] (deftest make-sequence.31
+  - [X] (deftest make-sequence.32
+  - [X] (deftest make-sequence.33
+  - [X] (deftest make-sequence.34
+  - [X] (deftest make-sequence.35
+  - [X] (deftest make-sequence.36
+  - [X] (deftest make-sequence.37
   - [ ] (deftest make-sequence.38
   - [ ] (deftest make-sequence.39
   - [ ] (deftest make-sequence.40
@@ -17599,44 +17599,44 @@
   - [ ] (def-fold-test make-sequence.fold.2
   - [ ] (def-fold-test make-sequence.fold.3
   - [ ] (def-fold-test make-sequence.fold.4
-**** find-if.lsp [0%]
-  - [ ] (deftest find-if-list.1
-  - [ ] (deftest find-if-list.2
-  - [ ] (deftest find-if-list.2a
-  - [ ] (deftest find-if-list.3
+**** find-if.lsp [22%]
+  - [X] (deftest find-if-list.1
+  - [X] (deftest find-if-list.2
+  - [X] (deftest find-if-list.2a
+  - [X] (deftest find-if-list.3
   - [ ] (deftest find-if-list.4
-  - [ ] (deftest find-if-list.5
+  - [X] (deftest find-if-list.5
   - [ ] (deftest find-if-list.6
   - [ ] (deftest find-if-list.7
   - [ ] (deftest find-if-list.8
-  - [ ] (deftest find-if-list.9
+  - [X] (deftest find-if-list.9
   - [ ] (deftest find-if-list.10
-  - [ ] (deftest find-if-list.11
+  - [X] (deftest find-if-list.11
   - [ ] (deftest find-if-list.12
-  - [ ] (deftest find-if-list.13
+  - [X] (deftest find-if-list.13
   - [ ] (deftest find-if-list.14
-  - [ ] (deftest find-if-list.15
+  - [X] (deftest find-if-list.15
   - [ ] (deftest find-if-list.16
-  - [ ] (deftest find-if-list.17
+  - [X] (deftest find-if-list.17
   - [ ] (deftest find-if-list.18
-  - [ ] (deftest find-if-vector.1
-  - [ ] (deftest find-if-vector.2
-  - [ ] (deftest find-if-vector.2a
-  - [ ] (deftest find-if-vector.3
+  - [X] (deftest find-if-vector.1
+  - [X] (deftest find-if-vector.2
+  - [X] (deftest find-if-vector.2a
+  - [X] (deftest find-if-vector.3
   - [ ] (deftest find-if-vector.4
-  - [ ] (deftest find-if-vector.5
+  - [X] (deftest find-if-vector.5
   - [ ] (deftest find-if-vector.6
   - [ ] (deftest find-if-vector.7
   - [ ] (deftest find-if-vector.8
-  - [ ] (deftest find-if-vector.9
+  - [X] (deftest find-if-vector.9
   - [ ] (deftest find-if-vector.10
-  - [ ] (deftest find-if-vector.11
+  - [X] (deftest find-if-vector.11
   - [ ] (deftest find-if-vector.12
-  - [ ] (deftest find-if-vector.13
+  - [X] (deftest find-if-vector.13
   - [ ] (deftest find-if-vector.14
-  - [ ] (deftest find-if-vector.15
+  - [X] (deftest find-if-vector.15
   - [ ] (deftest find-if-vector.16
-  - [ ] (deftest find-if-vector.17
+  - [X] (deftest find-if-vector.17
   - [ ] (deftest find-if-vector.18
   - [ ] (deftest find-if-vector.19
   - [ ] (deftest find-if-bit-vector.1
@@ -17689,7 +17689,7 @@
   - [ ] (deftest find-if.order.1
   - [ ] (deftest find-if.order.2
   - [ ] (deftest find-if.order.3
-**** remove-duplicates.lsp [0%]
+**** remove-duplicates.lsp [34%]
   - [ ] (deftest random-remove-duplicates
   - [ ] (deftest random-delete-duplicates
   - [ ] (deftest remove-duplicates.1
@@ -17700,14 +17700,14 @@
   - [ ] (def-fold-test remove-duplicates.fold.4 (remove-duplicates "1233"))
   - [ ] (deftest remove-duplicates.order.1
   - [ ] (deftest remove-duplicates.order.2
-  - [ ] (deftest remove-duplicates.allow-other-keys.1
+  - [X] (deftest remove-duplicates.allow-other-keys.1
   - [ ] (deftest remove-duplicates.allow-other-keys.2
   - [ ] (deftest remove-duplicates.allow-other-keys.3
-  - [ ] (deftest remove-duplicates.allow-other-keys.4
+  - [X] (deftest remove-duplicates.allow-other-keys.4
   - [ ] (deftest remove-duplicates.allow-other-keys.5
   - [ ] (deftest remove-duplicates.allow-other-keys.6
   - [ ] (deftest remove-duplicates.allow-other-keys.7
-  - [ ] (deftest remove-duplicates.allow-other-keys.8
+  - [X] (deftest remove-duplicates.allow-other-keys.8
   - [ ] (deftest remove-duplicates.keywords.1
   - [ ] (deftest delete-duplicates.allow-other-keys.1
   - [ ] (deftest delete-duplicates.allow-other-keys.2
@@ -17720,32 +17720,32 @@
   - [ ] (deftest delete-duplicates.keywords.1
   - [ ] (deftest delete-duplicates.order.1
   - [ ] (deftest delete-duplicates.order.2
-  - [ ] (deftest remove-duplicates.error.1
-  - [ ] (deftest remove-duplicates.error.2
-  - [ ] (deftest remove-duplicates.error.3
-  - [ ] (deftest remove-duplicates.error.4
-  - [ ] (deftest remove-duplicates.error.5
-  - [ ] (deftest remove-duplicates.error.6
-  - [ ] (deftest remove-duplicates.error.7
-  - [ ] (deftest remove-duplicates.error.8
-  - [ ] (deftest remove-duplicates.error.9
+  - [X] (deftest remove-duplicates.error.1
+  - [X] (deftest remove-duplicates.error.2
+  - [X] (deftest remove-duplicates.error.3
+  - [X] (deftest remove-duplicates.error.4
+  - [X] (deftest remove-duplicates.error.5
+  - [X] (deftest remove-duplicates.error.6
+  - [X] (deftest remove-duplicates.error.7
+  - [X] (deftest remove-duplicates.error.8
+  - [X] (deftest remove-duplicates.error.9
   - [ ] (deftest remove-duplicates.error.10
-  - [ ] (deftest delete-duplicates.error.1
-  - [ ] (deftest delete-duplicates.error.2
-  - [ ] (deftest delete-duplicates.error.3
-  - [ ] (deftest delete-duplicates.error.4
-  - [ ] (deftest delete-duplicates.error.5
-  - [ ] (deftest delete-duplicates.error.6
-  - [ ] (deftest delete-duplicates.error.7
-  - [ ] (deftest delete-duplicates.error.8
-  - [ ] (deftest delete-duplicates.error.9
+  - [X] (deftest delete-duplicates.error.1
+  - [X] (deftest delete-duplicates.error.2
+  - [X] (deftest delete-duplicates.error.3
+  - [X] (deftest delete-duplicates.error.4
+  - [X] (deftest delete-duplicates.error.5
+  - [X] (deftest delete-duplicates.error.6
+  - [X] (deftest delete-duplicates.error.7
+  - [X] (deftest delete-duplicates.error.8
+  - [X] (deftest delete-duplicates.error.9
   - [ ] (deftest delete-duplicates.error.10
   - [ ] (deftest remove-duplicates.string.1
   - [ ] (deftest remove-duplicates.string.2
   - [ ] (deftest delete-duplicates.string.1
   - [ ] (deftest delete-duplicates.string.2
-  - [ ] (deftest remove-duplicates.2
-  - [ ] (deftest remove-duplicates.2a
+  - [X] (deftest remove-duplicates.2
+  - [X] (deftest remove-duplicates.2a
   - [ ] (deftest remove-duplicates.3
   - [ ] (deftest remove-duplicates.3a
   - [ ] (deftest remove-duplicates.4
@@ -17756,48 +17756,48 @@
   - [ ] (deftest delete-duplicates.3a
   - [ ] (deftest delete-duplicates.4
   - [ ] (deftest delete-duplicates.5
-**** substitute.lsp [0%]
-  - [ ] (deftest substitute-list.1
-  - [ ] (deftest substitute-list.2
-  - [ ] (deftest substitute-list.3
-  - [ ] (deftest substitute-list.4
-  - [ ] (deftest substitute-list.5
-  - [ ] (deftest substitute-list.6
-  - [ ] (deftest substitute-list.7
-  - [ ] (deftest substitute-list.8
-  - [ ] (deftest substitute-list.9
-  - [ ] (deftest substitute-list.10
-  - [ ] (deftest substitute-list.11
-  - [ ] (deftest substitute-list.12
-  - [ ] (deftest substitute-list.13
-  - [ ] (deftest substitute-list.14
-  - [ ] (deftest substitute-list.15
-  - [ ] (deftest substitute-list.16
-  - [ ] (deftest substitute-list.17
-  - [ ] (deftest substitute-list.18
-  - [ ] (deftest substitute-list.19
-  - [ ] (deftest substitute-list.20
-  - [ ] (deftest substitute-list.21
-  - [ ] (deftest substitute-list.22
-  - [ ] (deftest substitute-list.23
-  - [ ] (deftest substitute-list.24
-  - [ ] (deftest substitute-list.25
+**** substitute.lsp [52%]
+  - [X] (deftest substitute-list.1
+  - [X] (deftest substitute-list.2
+  - [X] (deftest substitute-list.3
+  - [X] (deftest substitute-list.4
+  - [X] (deftest substitute-list.5
+  - [X] (deftest substitute-list.6
+  - [X] (deftest substitute-list.7
+  - [X] (deftest substitute-list.8
+  - [X] (deftest substitute-list.9
+  - [X] (deftest substitute-list.10
+  - [X] (deftest substitute-list.11
+  - [X] (deftest substitute-list.12
+  - [X] (deftest substitute-list.13
+  - [X] (deftest substitute-list.14
+  - [X] (deftest substitute-list.15
+  - [X] (deftest substitute-list.16
+  - [X] (deftest substitute-list.17
+  - [X] (deftest substitute-list.18
+  - [X] (deftest substitute-list.19
+  - [X] (deftest substitute-list.20
+  - [X] (deftest substitute-list.21
+  - [X] (deftest substitute-list.22
+  - [X] (deftest substitute-list.23
+  - [X] (deftest substitute-list.24
+  - [X] (deftest substitute-list.25
   - [ ] (deftest substitute-list.26
-  - [ ] (deftest substitute-list.27
-  - [ ] (deftest substitute-vector.1
-  - [ ] (deftest substitute-vector.2
-  - [ ] (deftest substitute-vector.3
-  - [ ] (deftest substitute-vector.4
-  - [ ] (deftest substitute-vector.5
-  - [ ] (deftest substitute-vector.6
-  - [ ] (deftest substitute-vector.7
-  - [ ] (deftest substitute-vector.8
-  - [ ] (deftest substitute-vector.9
-  - [ ] (deftest substitute-vector.10
-  - [ ] (deftest substitute-vector.11
-  - [ ] (deftest substitute-vector.12
-  - [ ] (deftest substitute-vector.13
-  - [ ] (deftest substitute-vector.14
+  - [X] (deftest substitute-list.27
+  - [X] (deftest substitute-vector.1
+  - [X] (deftest substitute-vector.2
+  - [X] (deftest substitute-vector.3
+  - [X] (deftest substitute-vector.4
+  - [X] (deftest substitute-vector.5
+  - [X] (deftest substitute-vector.6
+  - [X] (deftest substitute-vector.7
+  - [X] (deftest substitute-vector.8
+  - [X] (deftest substitute-vector.9
+  - [X] (deftest substitute-vector.10
+  - [X] (deftest substitute-vector.11
+  - [X] (deftest substitute-vector.12
+  - [X] (deftest substitute-vector.13
+  - [X] (deftest substitute-vector.14
   - [ ] (deftest substitute-vector.15
   - [ ] (deftest substitute-vector.16
   - [ ] (deftest substitute-vector.17
@@ -17811,26 +17811,26 @@
   - [ ] (deftest substitute-vector.25
   - [ ] (deftest substitute-vector.26
   - [ ] (deftest substitute-vector.27
-  - [ ] (deftest substitute-vector.28
-  - [ ] (deftest substitute-vector.29
-  - [ ] (deftest substitute-vector.30
-  - [ ] (deftest substitute-vector.31
-  - [ ] (deftest substitute-vector.32
-  - [ ] (deftest substitute-vector.33
-  - [ ] (deftest substitute-string.1
-  - [ ] (deftest substitute-string.2
-  - [ ] (deftest substitute-string.3
-  - [ ] (deftest substitute-string.4
-  - [ ] (deftest substitute-string.5
-  - [ ] (deftest substitute-string.6
-  - [ ] (deftest substitute-string.7
-  - [ ] (deftest substitute-string.8
-  - [ ] (deftest substitute-string.9
-  - [ ] (deftest substitute-string.10
-  - [ ] (deftest substitute-string.11
-  - [ ] (deftest substitute-string.12
-  - [ ] (deftest substitute-string.13
-  - [ ] (deftest substitute-string.14
+  - [X] (deftest substitute-vector.28
+  - [X] (deftest substitute-vector.29
+  - [X] (deftest substitute-vector.30
+  - [X] (deftest substitute-vector.31
+  - [X] (deftest substitute-vector.32
+  - [X] (deftest substitute-vector.33
+  - [X] (deftest substitute-string.1
+  - [X] (deftest substitute-string.2
+  - [X] (deftest substitute-string.3
+  - [X] (deftest substitute-string.4
+  - [X] (deftest substitute-string.5
+  - [X] (deftest substitute-string.6
+  - [X] (deftest substitute-string.7
+  - [X] (deftest substitute-string.8
+  - [X] (deftest substitute-string.9
+  - [X] (deftest substitute-string.10
+  - [X] (deftest substitute-string.11
+  - [X] (deftest substitute-string.12
+  - [X] (deftest substitute-string.13
+  - [X] (deftest substitute-string.14
   - [ ] (deftest substitute-string.15
   - [ ] (deftest substitute-string.16
   - [ ] (deftest substitute-string.17
@@ -17844,10 +17844,10 @@
   - [ ] (deftest substitute-string.25
   - [ ] (deftest substitute-string.26
   - [ ] (deftest substitute-string.27
-  - [ ] (deftest substitute-string.28
-  - [ ] (deftest substitute-string.29
-  - [ ] (deftest substitute-string.30
-  - [ ] (deftest substitute-string.31
+  - [X] (deftest substitute-string.28
+  - [X] (deftest substitute-string.29
+  - [X] (deftest substitute-string.30
+  - [X] (deftest substitute-string.31
   - [ ] (deftest substitute-string.32
   - [ ] (deftest substitute-bit-vector.1
   - [ ] (deftest substitute-bit-vector.2
@@ -17882,14 +17882,14 @@
   - [ ] (deftest substitute-bit-vector.31
   - [ ] (deftest substitute-bit-vector.32
   - [ ] (deftest substitute-bit-vector.33
-  - [ ] (deftest substitute.order.1
-  - [ ] (deftest substitute.order.2
-  - [ ] (deftest substitute.allow-other-keys.1
+  - [X] (deftest substitute.order.1
+  - [X] (deftest substitute.order.2
+  - [X] (deftest substitute.allow-other-keys.1
   - [ ] (deftest substitute.allow-other-keys.2
   - [ ] (deftest substitute.allow-other-keys.3
   - [ ] (deftest substitute.allow-other-keys.4
-  - [ ] (deftest substitute.allow-other-keys.5
-  - [ ] (deftest substitute.keywords.6
+  - [X] (deftest substitute.allow-other-keys.5
+  - [X] (deftest substitute.keywords.6
   - [ ] (deftest substitute.allow-other-keys.7
   - [ ] (deftest substitute.allow-other-keys.8
   - [ ] (def-fold-test substitute.fold.1 (substitute 'z 'b '(a b c)))
@@ -17897,23 +17897,23 @@
   - [ ] (def-fold-test substitute.fold.3 (substitute 0 1 #*001101))
   - [ ] (def-fold-test substitute.fold.4 (substitute #\a #\b "abcebadfke"))
   - [ ] (deftest substitute.error.1
-  - [ ] (deftest substitute.error.2
-  - [ ] (deftest substitute.error.3
-  - [ ] (deftest substitute.error.4
-  - [ ] (deftest substitute.error.5
-  - [ ] (deftest substitute.error.6
-  - [ ] (deftest substitute.error.7
-  - [ ] (deftest substitute.error.8
-  - [ ] (deftest substitute.error.9
-  - [ ] (deftest substitute.error.10
-  - [ ] (deftest substitute.error.11
+  - [X] (deftest substitute.error.2
+  - [X] (deftest substitute.error.3
+  - [X] (deftest substitute.error.4
+  - [X] (deftest substitute.error.5
+  - [X] (deftest substitute.error.6
+  - [X] (deftest substitute.error.7
+  - [X] (deftest substitute.error.8
+  - [X] (deftest substitute.error.9
+  - [X] (deftest substitute.error.10
+  - [X] (deftest substitute.error.11
   - [ ] (deftest substitute.error.12
-**** nreverse.lsp [0%]
-  - [ ] (deftest nreverse-list.1
-  - [ ] (deftest nreverse-list.2
-  - [ ] (deftest nreverse-vector.1
-  - [ ] (deftest nreverse-vector.2
-  - [ ] (deftest nreverse-vector.4
+**** nreverse.lsp [20%]
+  - [X] (deftest nreverse-list.1
+  - [X] (deftest nreverse-list.2
+  - [X] (deftest nreverse-vector.1
+  - [X] (deftest nreverse-vector.2
+  - [X] (deftest nreverse-vector.4
   - [ ] (deftest nreverse-vector.5
   - [ ] (deftest nreverse-vector.6
   - [ ] (deftest nreverse-vector.7
@@ -17933,80 +17933,80 @@
   - [ ] (deftest nreverse.error.6
   - [ ] (deftest nreverse.error.7
   - [ ] (deftest nreverse.error.8
-**** fill-strings.lsp [0%]
-  - [ ] (deftest array-string-fill.1
-  - [ ] (deftest array-string-fill.2
-  - [ ] (deftest array-string-fill.3
-  - [ ] (deftest array-string-fill.4
-  - [ ] (deftest array-string-fill.5
-**** elt.lsp [0%]
-  - [ ] (deftest elt.1
-  - [ ] (deftest elt.1a
-  - [ ] (deftest elt.1b
-  - [ ] (deftest elt.2
-  - [ ] (deftest elt.3 (elt '(a b c d e) 0) a)
-  - [ ] (deftest elt.4 (elt '(a b c d e) 2) c)
-  - [ ] (deftest elt.5 (elt '(a b c d e) 4) e)
-  - [ ] (deftest elt.5a
-  - [ ] (deftest elt.6
-  - [ ] (deftest elt.7
-  - [ ] (deftest elt.8
-  - [ ] (deftest elt.9
-  - [ ] (deftest elt.10
-  - [ ] (deftest elt.11
-  - [ ] (deftest elt.12
-  - [ ] (deftest elt.13
-  - [ ] (deftest elt.14
-  - [ ] (deftest elt.15
-  - [ ] (deftest elt.16
-  - [ ] (deftest elt.17
-  - [ ] (deftest elt.18
-  - [ ] (deftest elt.19
-  - [ ] (deftest elt.order.1
-  - [ ] (deftest elt.order.2
-  - [ ] (deftest elt-v.1
-  - [ ] (deftest elt-v.3
-  - [ ] (deftest elt-v.4
-  - [ ] (deftest elt-v.5
-  - [ ] (deftest elt-v.6
-  - [ ] (deftest elt-v.7
-  - [ ] (deftest elt-v.8
-  - [ ] (deftest elt-v.9
-  - [ ] (deftest elt-v.10
-  - [ ] (deftest elt-v.11
-  - [ ] (deftest elt-v.12
-  - [ ] (deftest elt-v.13
-  - [ ] (deftest elt-adj-array.1
-  - [ ] (deftest elt-adj-array.3
-  - [ ] (deftest elt-adj-array.4
-  - [ ] (deftest elt-adj-array.5
-  - [ ] (deftest elt-adj-array.6
-  - [ ] (deftest elt-adj-array.7
-  - [ ] (deftest elt-adj-array.8
-  - [ ] (deftest elt-adj-array.9
-  - [ ] (deftest elt-adj-array.10
-  - [ ] (deftest elt-adj-array.11
-  - [ ] (deftest elt-adj-array.12
-  - [ ] (deftest elt-adj-array.13
-  - [ ] (deftest elt-displaced-array.1
-  - [ ] (deftest elt-displaced-array.2
-  - [ ] (deftest elt-displaced-array.3
-  - [ ] (deftest elt-fill-pointer.1
-  - [ ] (deftest elt-fill-pointer.2
-  - [ ] (deftest elt-fill-pointer.3
-  - [ ] (deftest elt-fill-pointer.4
-  - [ ] (deftest elt-fill-pointer.5
-  - [ ] (deftest elt-fill-pointer.6
-  - [ ] (deftest elt-fill-pointer.7
-  - [ ] (deftest elt-fill-pointer.8
+**** fill-strings.lsp [100%]
+  - [X] (deftest array-string-fill.1
+  - [X] (deftest array-string-fill.2
+  - [X] (deftest array-string-fill.3
+  - [X] (deftest array-string-fill.4
+  - [X] (deftest array-string-fill.5
+**** elt.lsp [89%]
+  - [X] (deftest elt.1
+  - [X] (deftest elt.1a
+  - [X] (deftest elt.1b
+  - [X] (deftest elt.2
+  - [X] (deftest elt.3 (elt '(a b c d e) 0) a)
+  - [X] (deftest elt.4 (elt '(a b c d e) 2) c)
+  - [X] (deftest elt.5 (elt '(a b c d e) 4) e)
+  - [X] (deftest elt.5a
+  - [X] (deftest elt.6
+  - [X] (deftest elt.7
+  - [X] (deftest elt.8
+  - [X] (deftest elt.9
+  - [X] (deftest elt.10
+  - [X] (deftest elt.11
+  - [X] (deftest elt.12
+  - [X] (deftest elt.13
+  - [X] (deftest elt.14
+  - [X] (deftest elt.15
+  - [X] (deftest elt.16
+  - [X] (deftest elt.17
+  - [X] (deftest elt.18
+  - [X] (deftest elt.19
+  - [X] (deftest elt.order.1
+  - [X] (deftest elt.order.2
+  - [X] (deftest elt-v.1
+  - [X] (deftest elt-v.3
+  - [X] (deftest elt-v.4
+  - [X] (deftest elt-v.5
+  - [X] (deftest elt-v.6
+  - [X] (deftest elt-v.7
+  - [X] (deftest elt-v.8
+  - [X] (deftest elt-v.9
+  - [X] (deftest elt-v.10
+  - [X] (deftest elt-v.11
+  - [X] (deftest elt-v.12
+  - [X] (deftest elt-v.13
+  - [X] (deftest elt-adj-array.1
+  - [X] (deftest elt-adj-array.3
+  - [X] (deftest elt-adj-array.4
+  - [X] (deftest elt-adj-array.5
+  - [X] (deftest elt-adj-array.6
+  - [X] (deftest elt-adj-array.7
+  - [X] (deftest elt-adj-array.8
+  - [X] (deftest elt-adj-array.9
+  - [X] (deftest elt-adj-array.10
+  - [X] (deftest elt-adj-array.11
+  - [X] (deftest elt-adj-array.12
+  - [X] (deftest elt-adj-array.13
+  - [X] (deftest elt-displaced-array.1
+  - [X] (deftest elt-displaced-array.2
+  - [X] (deftest elt-displaced-array.3
+  - [X] (deftest elt-fill-pointer.1
+  - [X] (deftest elt-fill-pointer.2
+  - [X] (deftest elt-fill-pointer.3
+  - [X] (deftest elt-fill-pointer.4
+  - [X] (deftest elt-fill-pointer.5
+  - [X] (deftest elt-fill-pointer.6
+  - [X] (deftest elt-fill-pointer.7
+  - [X] (deftest elt-fill-pointer.8
   - [ ] (deftest elt.special-strings.1
   - [ ] (deftest elt.special-vectors.1
   - [ ] (deftest elt.special-vectors.2
   - [ ] (deftest elt.special-vectors.3
   - [ ] (deftest elt.special-vectors.4
-  - [ ] (deftest elt.error.1
-  - [ ] (deftest elt.error.2
-  - [ ] (deftest elt.error.3
+  - [X] (deftest elt.error.1
+  - [X] (deftest elt.error.2
+  - [X] (deftest elt.error.3
   - [ ] (deftest elt.error.4
   - [ ] (deftest elt.error.5
 **** search-string.lsp [0%]
@@ -18029,17 +18029,17 @@
   - [ ] (deftest search-string.18
   - [ ] (deftest search-string.19
   - [ ] (deftest search-string.20
-**** concatenate.lsp [0%]
-  - [ ] (deftest concatenate.1
-  - [ ] (deftest concatenate.2
-  - [ ] (deftest concatenate.3
-  - [ ] (deftest concatenate.4
-  - [ ] (deftest concatenate.5
-  - [ ] (deftest concatenate.6
-  - [ ] (deftest concatenate.7
+**** concatenate.lsp [13%]
+  - [X] (deftest concatenate.1
+  - [X] (deftest concatenate.2
+  - [X] (deftest concatenate.3
+  - [X] (deftest concatenate.4
+  - [X] (deftest concatenate.5
+  - [X] (deftest concatenate.6
+  - [X] (deftest concatenate.7
   - [ ] (deftest concatenate.8
   - [ ] (deftest concatenate.9
-  - [ ] (deftest concatenate.10
+  - [X] (deftest concatenate.10
   - [ ] (deftest concatenate.11
   - [ ] (deftest concatenate.12
   - [ ] (deftest concatenate.13
@@ -18091,51 +18091,51 @@
   - [ ] (deftest concatenate.error.4
   - [ ] (deftest concatenate.error.5
   - [ ] (deftest concatenate.error.6
-**** count-if-not.lsp [0%]
-  - [ ] (deftest count-if-not-list.1
-  - [ ] (deftest count-if-not-list.2
-  - [ ] (deftest count-if-not-list.3
-  - [ ] (deftest count-if-not-list.4
-  - [ ] (deftest count-if-not-list.5
-  - [ ] (deftest count-if-not-list.6
-  - [ ] (deftest count-if-not-list.8
-  - [ ] (deftest count-if-not-list.9
-  - [ ] (deftest count-if-not-list.10
-  - [ ] (deftest count-if-not-list.11
+**** count-if-not.lsp [39%]
+  - [X] (deftest count-if-not-list.1
+  - [X] (deftest count-if-not-list.2
+  - [X] (deftest count-if-not-list.3
+  - [X] (deftest count-if-not-list.4
+  - [X] (deftest count-if-not-list.5
+  - [X] (deftest count-if-not-list.6
+  - [X] (deftest count-if-not-list.8
+  - [X] (deftest count-if-not-list.9
+  - [X] (deftest count-if-not-list.10
+  - [X] (deftest count-if-not-list.11
   - [ ] (deftest count-if-not-list.12
-  - [ ] (deftest count-if-not-list.13
-  - [ ] (deftest count-if-not-list.14
-  - [ ] (deftest count-if-not-list.15
+  - [X] (deftest count-if-not-list.13
+  - [X] (deftest count-if-not-list.14
+  - [X] (deftest count-if-not-list.15
   - [ ] (deftest count-if-not-list.16
-  - [ ] (deftest count-if-not-vector.1
-  - [ ] (deftest count-if-not-vector.2
-  - [ ] (deftest count-if-not-vector.3
-  - [ ] (deftest count-if-not-vector.4
-  - [ ] (deftest count-if-not-vector.5
-  - [ ] (deftest count-if-not-vector.6
-  - [ ] (deftest count-if-not-vector.8
-  - [ ] (deftest count-if-not-vector.9
-  - [ ] (deftest count-if-not-vector.10
-  - [ ] (deftest count-if-not-vector.11
+  - [X] (deftest count-if-not-vector.1
+  - [X] (deftest count-if-not-vector.2
+  - [X] (deftest count-if-not-vector.3
+  - [X] (deftest count-if-not-vector.4
+  - [X] (deftest count-if-not-vector.5
+  - [X] (deftest count-if-not-vector.6
+  - [X] (deftest count-if-not-vector.8
+  - [X] (deftest count-if-not-vector.9
+  - [X] (deftest count-if-not-vector.10
+  - [X] (deftest count-if-not-vector.11
   - [ ] (deftest count-if-not-vector.12
-  - [ ] (deftest count-if-not-vector.13
-  - [ ] (deftest count-if-not-vector.14
-  - [ ] (deftest count-if-not-vector.15
+  - [X] (deftest count-if-not-vector.13
+  - [X] (deftest count-if-not-vector.14
+  - [X] (deftest count-if-not-vector.15
   - [ ] (deftest count-if-not-vector.16
-  - [ ] (deftest count-if-not-nonsimple-vector.1
-  - [ ] (deftest count-if-not-nonsimple-vector.2
-  - [ ] (deftest count-if-not-nonsimple-vector.3
-  - [ ] (deftest count-if-not-nonsimple-vector.4
-  - [ ] (deftest count-if-not-nonsimple-vector.5
-  - [ ] (deftest count-if-not-nonsimple-vector.6
-  - [ ] (deftest count-if-not-nonsimple-vector.8
-  - [ ] (deftest count-if-not-nonsimple-vector.9
-  - [ ] (deftest count-if-not-nonsimple-vector.10
-  - [ ] (deftest count-if-not-nonsimple-vector.11
+  - [X] (deftest count-if-not-nonsimple-vector.1
+  - [X] (deftest count-if-not-nonsimple-vector.2
+  - [X] (deftest count-if-not-nonsimple-vector.3
+  - [X] (deftest count-if-not-nonsimple-vector.4
+  - [X] (deftest count-if-not-nonsimple-vector.5
+  - [X] (deftest count-if-not-nonsimple-vector.6
+  - [X] (deftest count-if-not-nonsimple-vector.8
+  - [X] (deftest count-if-not-nonsimple-vector.9
+  - [X] (deftest count-if-not-nonsimple-vector.10
+  - [X] (deftest count-if-not-nonsimple-vector.11
   - [ ] (deftest count-if-not-nonsimple-vector.12
-  - [ ] (deftest count-if-not-nonsimple-vector.13
-  - [ ] (deftest count-if-not-nonsimple-vector.14
-  - [ ] (deftest count-if-not-nonsimple-vector.15
+  - [X] (deftest count-if-not-nonsimple-vector.13
+  - [X] (deftest count-if-not-nonsimple-vector.14
+  - [X] (deftest count-if-not-nonsimple-vector.15
   - [ ] (deftest count-if-not-nonsimple-vector.16
   - [ ] (deftest count-if-not-nonsimple-vector.17
   - [ ] (deftest count-if-not.special-vector.2
@@ -18191,53 +18191,53 @@
   - [ ] (deftest count-if-not.error.13
   - [ ] (deftest count-if-not.error.14
   - [ ] (deftest count-if-not.error.15
-**** mismatch.lsp [0%]
-  - [ ] (deftest mismatch-list.1
-  - [ ] (deftest mismatch-list.2
-  - [ ] (deftest mismatch-list.3
-  - [ ] (deftest mismatch-list.4
-  - [ ] (deftest mismatch-list.5
-  - [ ] (deftest mismatch-list.6
-  - [ ] (deftest mismatch-list.7
-  - [ ] (deftest mismatch-list.8
-  - [ ] (deftest mismatch-list.9
+**** mismatch.lsp [20%]
+  - [X] (deftest mismatch-list.1
+  - [X] (deftest mismatch-list.2
+  - [X] (deftest mismatch-list.3
+  - [X] (deftest mismatch-list.4
+  - [X] (deftest mismatch-list.5
+  - [X] (deftest mismatch-list.6
+  - [X] (deftest mismatch-list.7
+  - [X] (deftest mismatch-list.8
+  - [X] (deftest mismatch-list.9
   - [ ] (deftest mismatch-list.10
   - [ ] (deftest mismatch-list.11
   - [ ] (deftest mismatch-list.12
-  - [ ] (deftest mismatch-list.13
+  - [X] (deftest mismatch-list.13
   - [ ] (deftest mismatch-list.14
-  - [ ] (deftest mismatch-list.15
-  - [ ] (deftest mismatch-list.16
-  - [ ] (deftest mismatch-list.17
-  - [ ] (deftest mismatch-list.18
+  - [X] (deftest mismatch-list.15
+  - [X] (deftest mismatch-list.16
+  - [X] (deftest mismatch-list.17
+  - [X] (deftest mismatch-list.18
   - [ ] (deftest mismatch-list.19
   - [ ] (deftest mismatch-list.20
   - [ ] (deftest mismatch-list.21
   - [ ] (deftest mismatch-list.22
-  - [ ] (deftest mismatch-vector.1
-  - [ ] (deftest mismatch-vector.2
-  - [ ] (deftest mismatch-vector.3
-  - [ ] (deftest mismatch-vector.4
-  - [ ] (deftest mismatch-vector.5
-  - [ ] (deftest mismatch-vector.6
-  - [ ] (deftest mismatch-vector.7
-  - [ ] (deftest mismatch-vector.8
-  - [ ] (deftest mismatch-vector.9
+  - [X] (deftest mismatch-vector.1
+  - [X] (deftest mismatch-vector.2
+  - [X] (deftest mismatch-vector.3
+  - [X] (deftest mismatch-vector.4
+  - [X] (deftest mismatch-vector.5
+  - [X] (deftest mismatch-vector.6
+  - [X] (deftest mismatch-vector.7
+  - [X] (deftest mismatch-vector.8
+  - [X] (deftest mismatch-vector.9
   - [ ] (deftest mismatch-vector.10
   - [ ] (deftest mismatch-vector.11
   - [ ] (deftest mismatch-vector.12
-  - [ ] (deftest mismatch-vector.13
+  - [X] (deftest mismatch-vector.13
   - [ ] (deftest mismatch-vector.14
-  - [ ] (deftest mismatch-vector.15
-  - [ ] (deftest mismatch-vector.16
-  - [ ] (deftest mismatch-vector.17
-  - [ ] (deftest mismatch-vector.18
+  - [X] (deftest mismatch-vector.15
+  - [X] (deftest mismatch-vector.16
+  - [X] (deftest mismatch-vector.17
+  - [X] (deftest mismatch-vector.18
   - [ ] (deftest mismatch-vector.19
   - [ ] (deftest mismatch-vector.20
   - [ ] (deftest mismatch-vector.21
   - [ ] (deftest mismatch-vector.22
-  - [ ] (deftest mismatch-vector.23
-  - [ ] (deftest mismatch-vector.24
+  - [X] (deftest mismatch-vector.23
+  - [X] (deftest mismatch-vector.24
   - [ ] (deftest mismatch-bit-vector.1
   - [ ] (deftest mismatch-bit-vector.1a
   - [ ] (deftest mismatch-bit-vector.1b
@@ -18341,17 +18341,17 @@
   - [ ] (deftest mismatch.error.8
   - [ ] (deftest mismatch.error.9
   - [ ] (deftest mismatch.error.10
-**** copy-seq.lsp [0%]
-  - [ ] (deftest copy-seq.1
+**** copy-seq.lsp [9%]
+  - [X] (deftest copy-seq.1
   - [ ] (deftest copy-seq.2
-  - [ ] (deftest copy-seq.3
+  - [X] (deftest copy-seq.3
   - [ ] (deftest copy-seq.4
   - [ ] (deftest copy-seq.5
   - [ ] (deftest copy-seq.6
   - [ ] (deftest copy-seq.7
   - [ ] (deftest copy-seq.8
   - [ ] (deftest copy-seq.9
-  - [ ] (deftest copy-seq.10
+  - [X] (deftest copy-seq.10
   - [ ] (deftest copy-seq.11
   - [ ] (deftest copy-seq.12
   - [ ] (deftest copy-seq.13
@@ -18443,7 +18443,7 @@
   - [ ] (deftest nsubstitute-if-string.32
   - [ ] (deftest nsubstitute-if-string.33
   - [ ] (deftest nsubstitute-if-string.34
-  - [ ] (deftest nsubstitute-if-bit-vector.1
+  - [X] (deftest nsubstitute-if-bit-vector.1
   - [ ] (deftest nsubstitute-if-bit-vector.2
   - [ ] (deftest nsubstitute-if-bit-vector.3
   - [ ] (deftest nsubstitute-if-bit-vector.4
@@ -18498,7 +18498,7 @@
   - [ ] (deftest nsubstitute-if.error.10
   - [ ] (deftest nsubstitute-if.error.11
   - [ ] (deftest nsubstitute-if.error.12
-**** remove.lsp [0%]
+**** remove.lsp [8%]
   - [ ] (deftest remove-list.1
   - [ ] (deftest remove-list.2
   - [ ] (deftest remove-list.3
@@ -18528,19 +18528,19 @@
   - [ ] (deftest remove-list.27
   - [ ] (deftest remove-list.28
   - [ ] (deftest remove-list.29
-  - [ ] (deftest remove-vector.1
-  - [ ] (deftest remove-vector.2
-  - [ ] (deftest remove-vector.3
-  - [ ] (deftest remove-string.1
-  - [ ] (deftest remove-string.2
-  - [ ] (deftest remove-string.3
+  - [X] (deftest remove-vector.1
+  - [X] (deftest remove-vector.2
+  - [X] (deftest remove-vector.3
+  - [X] (deftest remove-string.1
+  - [X] (deftest remove-string.2
+  - [X] (deftest remove-string.3
   - [ ] (deftest remove-string.4
-  - [ ] (deftest delete-vector.1
-  - [ ] (deftest delete-vector.2
-  - [ ] (deftest delete-vector.3
-  - [ ] (deftest delete-string.1
-  - [ ] (deftest delete-string.2
-  - [ ] (deftest delete-string.3
+  - [X] (deftest delete-vector.1
+  - [X] (deftest delete-vector.2
+  - [X] (deftest delete-vector.3
+  - [X] (deftest delete-string.1
+  - [X] (deftest delete-string.2
+  - [X] (deftest delete-string.3
   - [ ] (deftest delete-string.4
   - [ ] (deftest delete-string.5
   - [ ] (deftest delete-string.6
@@ -18674,70 +18674,70 @@
   - [ ] (deftest stable-sort.error.9
   - [ ] (deftest stable-sort.error.10
   - [ ] (deftest stable-sort.error.11
-**** position.lsp [0%]
-  - [ ] (deftest position-list.1
+**** position.lsp [22%]
+  - [X] (deftest position-list.1
   - [ ] (deftest position-list.2
-  - [ ] (deftest position-list.3
+  - [X] (deftest position-list.3
   - [ ] (deftest position-list.4
-  - [ ] (deftest position-list.5
+  - [X] (deftest position-list.5
   - [ ] (deftest position-list.6
   - [ ] (deftest position-list.7
   - [ ] (deftest position-list.8
-  - [ ] (deftest position-list.9
+  - [X] (deftest position-list.9
   - [ ] (deftest position-list.10
-  - [ ] (deftest position-list.11
-  - [ ] (deftest position-list.12
+  - [X] (deftest position-list.11
+  - [X] (deftest position-list.12
   - [ ] (deftest position-list.13
   - [ ] (deftest position-list.14
   - [ ] (deftest position-list.15
-  - [ ] (deftest position-list.16
+  - [X] (deftest position-list.16
   - [ ] (deftest position-list.17
-  - [ ] (deftest position-list.18
+  - [X] (deftest position-list.18
   - [ ] (deftest position-list.19
-  - [ ] (deftest position-list.20
-  - [ ] (deftest position-list.21
+  - [X] (deftest position-list.20
+  - [X] (deftest position-list.21
   - [ ] (deftest position-list.22
-  - [ ] (deftest position-list.23
+  - [X] (deftest position-list.23
   - [ ] (deftest position-list.24
-  - [ ] (deftest position-list.25
-  - [ ] (deftest position-list.26
-  - [ ] (deftest position-list.27
+  - [X] (deftest position-list.25
+  - [X] (deftest position-list.26
+  - [X] (deftest position-list.27
   - [ ] (deftest position-list.28
-  - [ ] (deftest position-list.29
-  - [ ] (deftest position-list.30
-  - [ ] (deftest position-vector.1
+  - [X] (deftest position-list.29
+  - [X] (deftest position-list.30
+  - [X] (deftest position-vector.1
   - [ ] (deftest position-vector.2
-  - [ ] (deftest position-vector.3
+  - [X] (deftest position-vector.3
   - [ ] (deftest position-vector.4
-  - [ ] (deftest position-vector.5
+  - [X] (deftest position-vector.5
   - [ ] (deftest position-vector.6
   - [ ] (deftest position-vector.7
   - [ ] (deftest position-vector.8
-  - [ ] (deftest position-vector.9
+  - [X] (deftest position-vector.9
   - [ ] (deftest position-vector.10
-  - [ ] (deftest position-vector.11
-  - [ ] (deftest position-vector.12
+  - [X] (deftest position-vector.11
+  - [X] (deftest position-vector.12
   - [ ] (deftest position-vector.13
   - [ ] (deftest position-vector.14
   - [ ] (deftest position-vector.15
-  - [ ] (deftest position-vector.16
+  - [X] (deftest position-vector.16
   - [ ] (deftest position-vector.17
-  - [ ] (deftest position-vector.18
+  - [X] (deftest position-vector.18
   - [ ] (deftest position-vector.19
-  - [ ] (deftest position-vector.20
-  - [ ] (deftest position-vector.21
+  - [X] (deftest position-vector.20
+  - [X] (deftest position-vector.21
   - [ ] (deftest position-vector.22
-  - [ ] (deftest position-vector.23
+  - [X] (deftest position-vector.23
   - [ ] (deftest position-vector.24
-  - [ ] (deftest position-vector.25
-  - [ ] (deftest position-vector.26
-  - [ ] (deftest position-vector.27
+  - [X] (deftest position-vector.25
+  - [X] (deftest position-vector.26
+  - [X] (deftest position-vector.27
   - [ ] (deftest position-vector.28
-  - [ ] (deftest position-vector.29
-  - [ ] (deftest position-vector.30
+  - [X] (deftest position-vector.29
+  - [X] (deftest position-vector.30
   - [ ] (deftest position-vector.31
-  - [ ] (deftest position-vector.32
-  - [ ] (deftest position-vector.33
+  - [X] (deftest position-vector.32
+  - [X] (deftest position-vector.33
   - [ ] (deftest position-vector.34
   - [ ] (deftest position-bit-vector.1
   - [ ] (deftest position-bit-vector.2
@@ -18890,85 +18890,85 @@
   - [ ] (deftest map-into.error.8
   - [ ] (deftest map-into.order.1
   - [ ] (deftest map-into.order.2
-**** nsubstitute.lsp [0%]
-  - [ ] (deftest nsubstitute-list.1
-  - [ ] (deftest nsubstitute-list.2
-  - [ ] (deftest nsubstitute-list.3
-  - [ ] (deftest nsubstitute-list.4
-  - [ ] (deftest nsubstitute-list.5
-  - [ ] (deftest nsubstitute-list.6
-  - [ ] (deftest nsubstitute-list.7
-  - [ ] (deftest nsubstitute-list.8
-  - [ ] (deftest nsubstitute-list.9
-  - [ ] (deftest nsubstitute-list.10
-  - [ ] (deftest nsubstitute-list.11
-  - [ ] (deftest nsubstitute-list.12
-  - [ ] (deftest nsubstitute-list.13
-  - [ ] (deftest nsubstitute-list.14
-  - [ ] (deftest nsubstitute-list.15
-  - [ ] (deftest nsubstitute-list.16
-  - [ ] (deftest nsubstitute-list.17
-  - [ ] (deftest nsubstitute-list.18
-  - [ ] (deftest nsubstitute-list.19
-  - [ ] (deftest nsubstitute-list.20
-  - [ ] (deftest nsubstitute-list.21
-  - [ ] (deftest nsubstitute-list.22
-  - [ ] (deftest nsubstitute-list.23
-  - [ ] (deftest nsubstitute-vector.1
-  - [ ] (deftest nsubstitute-vector.2
-  - [ ] (deftest nsubstitute-vector.3
-  - [ ] (deftest nsubstitute-vector.4
-  - [ ] (deftest nsubstitute-vector.5
-  - [ ] (deftest nsubstitute-vector.6
-  - [ ] (deftest nsubstitute-vector.7
-  - [ ] (deftest nsubstitute-vector.8
-  - [ ] (deftest nsubstitute-vector.9
-  - [ ] (deftest nsubstitute-vector.10
-  - [ ] (deftest nsubstitute-vector.11
-  - [ ] (deftest nsubstitute-vector.12
-  - [ ] (deftest nsubstitute-vector.13
-  - [ ] (deftest nsubstitute-vector.14
+**** nsubstitute.lsp [48%]
+  - [X] (deftest nsubstitute-list.1
+  - [X] (deftest nsubstitute-list.2
+  - [X] (deftest nsubstitute-list.3
+  - [X] (deftest nsubstitute-list.4
+  - [X] (deftest nsubstitute-list.5
+  - [X] (deftest nsubstitute-list.6
+  - [X] (deftest nsubstitute-list.7
+  - [X] (deftest nsubstitute-list.8
+  - [X] (deftest nsubstitute-list.9
+  - [X] (deftest nsubstitute-list.10
+  - [X] (deftest nsubstitute-list.11
+  - [X] (deftest nsubstitute-list.12
+  - [X] (deftest nsubstitute-list.13
+  - [X] (deftest nsubstitute-list.14
+  - [X] (deftest nsubstitute-list.15
+  - [X] (deftest nsubstitute-list.16
+  - [X] (deftest nsubstitute-list.17
+  - [X] (deftest nsubstitute-list.18
+  - [X] (deftest nsubstitute-list.19
+  - [X] (deftest nsubstitute-list.20
+  - [X] (deftest nsubstitute-list.21
+  - [X] (deftest nsubstitute-list.22
+  - [X] (deftest nsubstitute-list.23
+  - [X] (deftest nsubstitute-vector.1
+  - [X] (deftest nsubstitute-vector.2
+  - [X] (deftest nsubstitute-vector.3
+  - [X] (deftest nsubstitute-vector.4
+  - [X] (deftest nsubstitute-vector.5
+  - [X] (deftest nsubstitute-vector.6
+  - [X] (deftest nsubstitute-vector.7
+  - [X] (deftest nsubstitute-vector.8
+  - [X] (deftest nsubstitute-vector.9
+  - [X] (deftest nsubstitute-vector.10
+  - [X] (deftest nsubstitute-vector.11
+  - [X] (deftest nsubstitute-vector.12
+  - [X] (deftest nsubstitute-vector.13
+  - [X] (deftest nsubstitute-vector.14
   - [ ] (deftest nsubstitute-vector.15
   - [ ] (deftest nsubstitute-vector.16
   - [ ] (deftest nsubstitute-vector.17
   - [ ] (deftest nsubstitute-vector.18
-  - [ ] (deftest nsubstitute-vector.19
-  - [ ] (deftest nsubstitute-vector.20
-  - [ ] (deftest nsubstitute-vector.21
-  - [ ] (deftest nsubstitute-vector.22
-  - [ ] (deftest nsubstitute-vector.23
-  - [ ] (deftest nsubstitute-vector.28
-  - [ ] (deftest nsubstitute-vector.29
-  - [ ] (deftest nsubstitute-vector.30
-  - [ ] (deftest nsubstitute-vector.31
-  - [ ] (deftest nsubstitute-string.1
-  - [ ] (deftest nsubstitute-string.2
-  - [ ] (deftest nsubstitute-string.3
-  - [ ] (deftest nsubstitute-string.4
-  - [ ] (deftest nsubstitute-string.5
-  - [ ] (deftest nsubstitute-string.6
-  - [ ] (deftest nsubstitute-string.7
-  - [ ] (deftest nsubstitute-string.8
-  - [ ] (deftest nsubstitute-string.9
-  - [ ] (deftest nsubstitute-string.10
-  - [ ] (deftest nsubstitute-string.11
-  - [ ] (deftest nsubstitute-string.12
-  - [ ] (deftest nsubstitute-string.13
-  - [ ] (deftest nsubstitute-string.14
+  - [X] (deftest nsubstitute-vector.19
+  - [X] (deftest nsubstitute-vector.20
+  - [X] (deftest nsubstitute-vector.21
+  - [X] (deftest nsubstitute-vector.22
+  - [X] (deftest nsubstitute-vector.23
+  - [X] (deftest nsubstitute-vector.28
+  - [X] (deftest nsubstitute-vector.29
+  - [X] (deftest nsubstitute-vector.30
+  - [X] (deftest nsubstitute-vector.31
+  - [X] (deftest nsubstitute-string.1
+  - [X] (deftest nsubstitute-string.2
+  - [X] (deftest nsubstitute-string.3
+  - [X] (deftest nsubstitute-string.4
+  - [X] (deftest nsubstitute-string.5
+  - [X] (deftest nsubstitute-string.6
+  - [X] (deftest nsubstitute-string.7
+  - [X] (deftest nsubstitute-string.8
+  - [X] (deftest nsubstitute-string.9
+  - [X] (deftest nsubstitute-string.10
+  - [X] (deftest nsubstitute-string.11
+  - [X] (deftest nsubstitute-string.12
+  - [X] (deftest nsubstitute-string.13
+  - [X] (deftest nsubstitute-string.14
   - [ ] (deftest nsubstitute-string.15
   - [ ] (deftest nsubstitute-string.16
   - [ ] (deftest nsubstitute-string.17
   - [ ] (deftest nsubstitute-string.18
-  - [ ] (deftest nsubstitute-string.19
-  - [ ] (deftest nsubstitute-string.20
-  - [ ] (deftest nsubstitute-string.21
-  - [ ] (deftest nsubstitute-string.22
-  - [ ] (deftest nsubstitute-string.23
-  - [ ] (deftest nsubstitute-string.28
-  - [ ] (deftest nsubstitute-string.29
-  - [ ] (deftest nsubstitute-string.30
-  - [ ] (deftest nsubstitute-string.31
-  - [ ] (deftest nsubstitute-bit-vector.1
+  - [X] (deftest nsubstitute-string.19
+  - [X] (deftest nsubstitute-string.20
+  - [X] (deftest nsubstitute-string.21
+  - [X] (deftest nsubstitute-string.22
+  - [X] (deftest nsubstitute-string.23
+  - [X] (deftest nsubstitute-string.28
+  - [X] (deftest nsubstitute-string.29
+  - [X] (deftest nsubstitute-string.30
+  - [X] (deftest nsubstitute-string.31
+  - [X] (deftest nsubstitute-bit-vector.1
   - [ ] (deftest nsubstitute-bit-vector.2
   - [ ] (deftest nsubstitute-bit-vector.3
   - [ ] (deftest nsubstitute-bit-vector.4
@@ -19036,7 +19036,7 @@
   - [ ] (deftest nsubstitute.error.10
   - [ ] (deftest nsubstitute.error.11
   - [ ] (deftest nsubstitute.error.12
-**** search-list.lsp [0%]
+**** search-list.lsp [27%]
   - [ ] (deftest search-list.1
   - [ ] (deftest search-list.2
   - [ ] (deftest search-list.3
@@ -19061,42 +19061,42 @@
   - [ ] (deftest search.allow-other-keys.6
   - [ ] (deftest search.allow-other-keys.7
   - [ ] (deftest search.keywords.8
-  - [ ] (deftest search.error.1
-  - [ ] (deftest search.error.2
-  - [ ] (deftest search.error.3
-  - [ ] (deftest search.error.4
-  - [ ] (deftest search.error.5
-  - [ ] (deftest search.error.6
-  - [ ] (deftest search.error.7
-  - [ ] (deftest search.error.8
-  - [ ] (deftest search.error.9
-  - [ ] (deftest search.error.10
+  - [X] (deftest search.error.1
+  - [X] (deftest search.error.2
+  - [X] (deftest search.error.3
+  - [X] (deftest search.error.4
+  - [X] (deftest search.error.5
+  - [X] (deftest search.error.6
+  - [X] (deftest search.error.7
+  - [X] (deftest search.error.8
+  - [X] (deftest search.error.9
+  - [X] (deftest search.error.10
   - [ ] (deftest search.order.1
   - [ ] (deftest search.order.2
-**** position-if.lsp [0%]
-  - [ ] (deftest position-if-list.1
-  - [ ] (deftest position-if-list.2
-  - [ ] (deftest position-if-list.3
+**** position-if.lsp [15%]
+  - [X] (deftest position-if-list.1
+  - [X] (deftest position-if-list.2
+  - [X] (deftest position-if-list.3
   - [ ] (deftest position-if-list.4
   - [ ] (deftest position-if-list.5
   - [ ] (deftest position-if-list.6
   - [ ] (deftest position-if-list.7
-  - [ ] (deftest position-if-list.8
-  - [ ] (deftest position-if-list.9
+  - [X] (deftest position-if-list.8
+  - [X] (deftest position-if-list.9
   - [ ] (deftest position-if-list.10
-  - [ ] (deftest position-if-list.11
+  - [X] (deftest position-if-list.11
   - [ ] (deftest position-if-list.12
-  - [ ] (deftest position-if-vector.1
-  - [ ] (deftest position-if-vector.2
-  - [ ] (deftest position-if-vector.3
+  - [X] (deftest position-if-vector.1
+  - [X] (deftest position-if-vector.2
+  - [X] (deftest position-if-vector.3
   - [ ] (deftest position-if-vector.4
   - [ ] (deftest position-if-vector.5
   - [ ] (deftest position-if-vector.6
   - [ ] (deftest position-if-vector.7
-  - [ ] (deftest position-if-vector.8
-  - [ ] (deftest position-if-vector.9
+  - [X] (deftest position-if-vector.8
+  - [X] (deftest position-if-vector.9
   - [ ] (deftest position-if-vector.10
-  - [ ] (deftest position-if-vector.11
+  - [X] (deftest position-if-vector.11
   - [ ] (deftest position-if-vector.12
   - [ ] (deftest position-if-vector.13
   - [ ] (deftest position-if-vector.14
@@ -19152,14 +19152,14 @@
   - [ ] (deftest position-if.error.13
   - [ ] (deftest position-if.error.14
   - [ ] (deftest position-if.error.15
-**** reverse.lsp [0%]
-  - [ ] (deftest reverse-list.1
-  - [ ] (deftest reverse-list.2
-  - [ ] (deftest reverse-vector.1
-  - [ ] (deftest reverse-vector.2
-  - [ ] (deftest reverse-vector.3
-  - [ ] (deftest reverse-vector.4
-  - [ ] (deftest reverse-vector.5
+**** reverse.lsp [25%]
+  - [X] (deftest reverse-list.1
+  - [X] (deftest reverse-list.2
+  - [X] (deftest reverse-vector.1
+  - [X] (deftest reverse-vector.2
+  - [X] (deftest reverse-vector.3
+  - [X] (deftest reverse-vector.4
+  - [X] (deftest reverse-vector.5
   - [ ] (deftest reverse-vector.6
   - [ ] (deftest reverse-vector.7
   - [ ] (deftest reverse-vector.8
@@ -19181,71 +19181,71 @@
   - [ ] (deftest reverse.error.6
   - [ ] (deftest reverse.error.7
   - [ ] (deftest reverse.error.8
-**** find.lsp [0%]
-  - [ ] (deftest find-list.1
+**** find.lsp [18%]
+  - [X] (deftest find-list.1
   - [ ] (deftest find-list.2
-  - [ ] (deftest find-list.3
+  - [X] (deftest find-list.3
   - [ ] (deftest find-list.4
-  - [ ] (deftest find-list.5
+  - [X] (deftest find-list.5
   - [ ] (deftest find-list.6
   - [ ] (deftest find-list.7
   - [ ] (deftest find-list.8
-  - [ ] (deftest find-list.9
+  - [X] (deftest find-list.9
   - [ ] (deftest find-list.10
-  - [ ] (deftest find-list.11
-  - [ ] (deftest find-list.12
+  - [X] (deftest find-list.11
+  - [X] (deftest find-list.12
   - [ ] (deftest find-list.13
   - [ ] (deftest find-list.14
   - [ ] (deftest find-list.15
-  - [ ] (deftest find-list.16
+  - [X] (deftest find-list.16
   - [ ] (deftest find-list.17
-  - [ ] (deftest find-list.18
+  - [X] (deftest find-list.18
   - [ ] (deftest find-list.19
-  - [ ] (deftest find-list.20
-  - [ ] (deftest find-list.21
+  - [X] (deftest find-list.20
+  - [X] (deftest find-list.21
   - [ ] (deftest find-list.22
-  - [ ] (deftest find-list.23
+  - [X] (deftest find-list.23
   - [ ] (deftest find-list.24
   - [ ] (deftest find-list.25
-  - [ ] (deftest find-list.26
-  - [ ] (deftest find-list.27
+  - [X] (deftest find-list.26
+  - [X] (deftest find-list.27
   - [ ] (deftest find-list.28
-  - [ ] (deftest find-list.29
-  - [ ] (deftest find-list.30
-  - [ ] (deftest find-vector.1
-  - [ ] (deftest find-vector.1a
+  - [X] (deftest find-list.29
+  - [X] (deftest find-list.30
+  - [X] (deftest find-vector.1
+  - [X] (deftest find-vector.1a
   - [ ] (deftest find-vector.2
   - [ ] (deftest find-vector.2a
-  - [ ] (deftest find-vector.3
+  - [X] (deftest find-vector.3
   - [ ] (deftest find-vector.4
-  - [ ] (deftest find-vector.5
+  - [X] (deftest find-vector.5
   - [ ] (deftest find-vector.6
   - [ ] (deftest find-vector.7
   - [ ] (deftest find-vector.8
-  - [ ] (deftest find-vector.9
+  - [X] (deftest find-vector.9
   - [ ] (deftest find-vector.10
-  - [ ] (deftest find-vector.11
-  - [ ] (deftest find-vector.12
+  - [X] (deftest find-vector.11
+  - [X] (deftest find-vector.12
   - [ ] (deftest find-vector.13
   - [ ] (deftest find-vector.14
   - [ ] (deftest find-vector.15
-  - [ ] (deftest find-vector.16
+  - [X] (deftest find-vector.16
   - [ ] (deftest find-vector.17
-  - [ ] (deftest find-vector.18
+  - [X] (deftest find-vector.18
   - [ ] (deftest find-vector.19
-  - [ ] (deftest find-vector.20
-  - [ ] (deftest find-vector.21
+  - [X] (deftest find-vector.20
+  - [X] (deftest find-vector.21
   - [ ] (deftest find-vector.22
-  - [ ] (deftest find-vector.23
+  - [X] (deftest find-vector.23
   - [ ] (deftest find-vector.24
   - [ ] (deftest find-vector.25
-  - [ ] (deftest find-vector.26
-  - [ ] (deftest find-vector.27
+  - [X] (deftest find-vector.26
+  - [X] (deftest find-vector.27
   - [ ] (deftest find-vector.28
-  - [ ] (deftest find-vector.29
+  - [X] (deftest find-vector.29
   - [ ] (deftest find-vector.30
-  - [ ] (deftest find-vector.31
-  - [ ] (deftest find-vector.32
+  - [X] (deftest find-vector.31
+  - [X] (deftest find-vector.32
   - [ ] (deftest find-vector.33
   - [ ] (deftest find-vector.34
   - [ ] (deftest find-bit-vector.1
@@ -19356,75 +19356,75 @@
   - [ ] (deftest find.order.1
   - [ ] (deftest find.order.2
   - [ ] (deftest find.order.3
-**** nsubstitute-if-not.lsp [0%]
-  - [ ] (deftest nsubstitute-if-not-list.1
-  - [ ] (deftest nsubstitute-if-not-list.2
+**** nsubstitute-if-not.lsp [42%]
+  - [X] (deftest nsubstitute-if-not-list.1
+  - [X] (deftest nsubstitute-if-not-list.2
   - [ ] (deftest nsubstitute-if-not-list.3
-  - [ ] (deftest nsubstitute-if-not-list.4
-  - [ ] (deftest nsubstitute-if-not-list.5
-  - [ ] (deftest nsubstitute-if-not-list.6
-  - [ ] (deftest nsubstitute-if-not-list.7
-  - [ ] (deftest nsubstitute-if-not-list.8
-  - [ ] (deftest nsubstitute-if-not-list.9
+  - [X] (deftest nsubstitute-if-not-list.4
+  - [X] (deftest nsubstitute-if-not-list.5
+  - [X] (deftest nsubstitute-if-not-list.6
+  - [X] (deftest nsubstitute-if-not-list.7
+  - [X] (deftest nsubstitute-if-not-list.8
+  - [X] (deftest nsubstitute-if-not-list.9
   - [ ] (deftest nsubstitute-if-not-list.10
-  - [ ] (deftest nsubstitute-if-not-list.11
-  - [ ] (deftest nsubstitute-if-not-list.12
-  - [ ] (deftest nsubstitute-if-not-list.13
-  - [ ] (deftest nsubstitute-if-not-list.14
-  - [ ] (deftest nsubstitute-if-not-list.15
-  - [ ] (deftest nsubstitute-if-not-list.16
-  - [ ] (deftest nsubstitute-if-not-list.17
-  - [ ] (deftest nsubstitute-if-not-list.18
-  - [ ] (deftest nsubstitute-if-not-vector.1
-  - [ ] (deftest nsubstitute-if-not-vector.2
+  - [X] (deftest nsubstitute-if-not-list.11
+  - [X] (deftest nsubstitute-if-not-list.12
+  - [X] (deftest nsubstitute-if-not-list.13
+  - [X] (deftest nsubstitute-if-not-list.14
+  - [X] (deftest nsubstitute-if-not-list.15
+  - [X] (deftest nsubstitute-if-not-list.16
+  - [X] (deftest nsubstitute-if-not-list.17
+  - [X] (deftest nsubstitute-if-not-list.18
+  - [X] (deftest nsubstitute-if-not-vector.1
+  - [X] (deftest nsubstitute-if-not-vector.2
   - [ ] (deftest nsubstitute-if-not-vector.3
-  - [ ] (deftest nsubstitute-if-not-vector.4
-  - [ ] (deftest nsubstitute-if-not-vector.5
-  - [ ] (deftest nsubstitute-if-not-vector.6
-  - [ ] (deftest nsubstitute-if-not-vector.7
-  - [ ] (deftest nsubstitute-if-not-vector.8
-  - [ ] (deftest nsubstitute-if-not-vector.9
+  - [X] (deftest nsubstitute-if-not-vector.4
+  - [X] (deftest nsubstitute-if-not-vector.5
+  - [X] (deftest nsubstitute-if-not-vector.6
+  - [X] (deftest nsubstitute-if-not-vector.7
+  - [X] (deftest nsubstitute-if-not-vector.8
+  - [X] (deftest nsubstitute-if-not-vector.9
   - [ ] (deftest nsubstitute-if-not-vector.10
-  - [ ] (deftest nsubstitute-if-not-vector.11
-  - [ ] (deftest nsubstitute-if-not-vector.12
-  - [ ] (deftest nsubstitute-if-not-vector.13
-  - [ ] (deftest nsubstitute-if-not-vector.14
+  - [X] (deftest nsubstitute-if-not-vector.11
+  - [X] (deftest nsubstitute-if-not-vector.12
+  - [X] (deftest nsubstitute-if-not-vector.13
+  - [X] (deftest nsubstitute-if-not-vector.14
   - [ ] (deftest nsubstitute-if-not-vector.15
   - [ ] (deftest nsubstitute-if-not-vector.16
   - [ ] (deftest nsubstitute-if-not-vector.17
   - [ ] (deftest nsubstitute-if-not-vector.18
-  - [ ] (deftest nsubstitute-if-not-vector.28
-  - [ ] (deftest nsubstitute-if-not-vector.29
-  - [ ] (deftest nsubstitute-if-not-vector.30
-  - [ ] (deftest nsubstitute-if-not-vector.31
-  - [ ] (deftest nsubstitute-if-not-vector.32
-  - [ ] (deftest nsubstitute-if-not-vector.33
-  - [ ] (deftest nsubstitute-if-not-string.1
-  - [ ] (deftest nsubstitute-if-not-string.2
+  - [X] (deftest nsubstitute-if-not-vector.28
+  - [X] (deftest nsubstitute-if-not-vector.29
+  - [X] (deftest nsubstitute-if-not-vector.30
+  - [X] (deftest nsubstitute-if-not-vector.31
+  - [X] (deftest nsubstitute-if-not-vector.32
+  - [X] (deftest nsubstitute-if-not-vector.33
+  - [X] (deftest nsubstitute-if-not-string.1
+  - [X] (deftest nsubstitute-if-not-string.2
   - [ ] (deftest nsubstitute-if-not-string.3
-  - [ ] (deftest nsubstitute-if-not-string.4
-  - [ ] (deftest nsubstitute-if-not-string.5
-  - [ ] (deftest nsubstitute-if-not-string.6
-  - [ ] (deftest nsubstitute-if-not-string.7
-  - [ ] (deftest nsubstitute-if-not-string.8
-  - [ ] (deftest nsubstitute-if-not-string.9
+  - [X] (deftest nsubstitute-if-not-string.4
+  - [X] (deftest nsubstitute-if-not-string.5
+  - [X] (deftest nsubstitute-if-not-string.6
+  - [X] (deftest nsubstitute-if-not-string.7
+  - [X] (deftest nsubstitute-if-not-string.8
+  - [X] (deftest nsubstitute-if-not-string.9
   - [ ] (deftest nsubstitute-if-not-string.10
-  - [ ] (deftest nsubstitute-if-not-string.11
-  - [ ] (deftest nsubstitute-if-not-string.12
-  - [ ] (deftest nsubstitute-if-not-string.13
-  - [ ] (deftest nsubstitute-if-not-string.14
+  - [X] (deftest nsubstitute-if-not-string.11
+  - [X] (deftest nsubstitute-if-not-string.12
+  - [X] (deftest nsubstitute-if-not-string.13
+  - [X] (deftest nsubstitute-if-not-string.14
   - [ ] (deftest nsubstitute-if-not-string.15
   - [ ] (deftest nsubstitute-if-not-string.16
   - [ ] (deftest nsubstitute-if-not-string.17
   - [ ] (deftest nsubstitute-if-not-string.18
-  - [ ] (deftest nsubstitute-if-not-string.28
-  - [ ] (deftest nsubstitute-if-not-string.29
-  - [ ] (deftest nsubstitute-if-not-string.30
-  - [ ] (deftest nsubstitute-if-not-string.31
+  - [X] (deftest nsubstitute-if-not-string.28
+  - [X] (deftest nsubstitute-if-not-string.29
+  - [X] (deftest nsubstitute-if-not-string.30
+  - [X] (deftest nsubstitute-if-not-string.31
   - [ ] (deftest nsubstitute-if-not-string.32
   - [ ] (deftest nsubstitute-if-not-string.33
   - [ ] (deftest nsubstitute-if-not-string.34
-  - [ ] (deftest nsubstitute-if-not-bit-vector.1
+  - [X] (deftest nsubstitute-if-not-bit-vector.1
   - [ ] (deftest nsubstitute-if-not-bit-vector.2
   - [ ] (deftest nsubstitute-if-not-bit-vector.3
   - [ ] (deftest nsubstitute-if-not-bit-vector.4
@@ -19453,7 +19453,7 @@
   - [ ] (deftest nsubstitute-if-not-string.25
   - [ ] (deftest nsubstitute-if-not-bit-vector.26
   - [ ] (deftest nsubstitute-if-not-bit-vector.27
-  - [ ] (deftest nsubstitute-if-not-bit-vector.30
+  - [X] (deftest nsubstitute-if-not-bit-vector.30
   - [ ] (deftest nsubstitute-if-not-bit-vector.31
   - [ ] (deftest nsubstitute-if-not-bit-vector.32
   - [ ] (deftest nsubstitute-if-not-bit-vector.33
@@ -19479,16 +19479,16 @@
   - [ ] (deftest nsubstitute-if-not.error.10
   - [ ] (deftest nsubstitute-if-not.error.11
   - [ ] (deftest nsubstitute-if-not.error.12
-**** sort.lsp [0%]
-  - [ ] (deftest sort-list.1
+**** sort.lsp [20%]
+  - [X] (deftest sort-list.1
   - [ ] (deftest sort-list.2
-  - [ ] (deftest sort-list.3
-  - [ ] (deftest sort-list.4
-  - [ ] (deftest sort-vector.1
+  - [X] (deftest sort-list.3
+  - [X] (deftest sort-list.4
+  - [X] (deftest sort-vector.1
   - [ ] (deftest sort-vector.2
-  - [ ] (deftest sort-vector.3
-  - [ ] (deftest sort-vector.4
-  - [ ] (deftest sort-vector.5
+  - [X] (deftest sort-vector.3
+  - [X] (deftest sort-vector.4
+  - [X] (deftest sort-vector.5
   - [ ] (deftest sort-vector.6
   - [ ] (deftest sort-vector.7
   - [ ] (deftest sort-vector.8
@@ -19514,43 +19514,43 @@
   - [ ] (deftest sort.error.9
   - [ ] (deftest sort.error.10
   - [ ] (deftest sort.error.11
-**** reduce.lsp [0%]
-  - [ ] (deftest reduce-list.1
-  - [ ] (deftest reduce-list.2
-  - [ ] (deftest reduce-list.3
-  - [ ] (deftest reduce-list.4
-  - [ ] (deftest reduce-list.5
-  - [ ] (deftest reduce-list.6
+**** reduce.lsp [52%]
+  - [X] (deftest reduce-list.1
+  - [X] (deftest reduce-list.2
+  - [X] (deftest reduce-list.3
+  - [X] (deftest reduce-list.4
+  - [X] (deftest reduce-list.5
+  - [X] (deftest reduce-list.6
   - [ ] (deftest reduce-list.7
-  - [ ] (deftest reduce-list.8
-  - [ ] (deftest reduce-list.9
-  - [ ] (deftest reduce-list.10
-  - [ ] (deftest reduce-list.11
-  - [ ] (deftest reduce-list.12
-  - [ ] (deftest reduce-list.13
-  - [ ] (deftest reduce-list.14
+  - [X] (deftest reduce-list.8
+  - [X] (deftest reduce-list.9
+  - [X] (deftest reduce-list.10
+  - [X] (deftest reduce-list.11
+  - [X] (deftest reduce-list.12
+  - [X] (deftest reduce-list.13
+  - [X] (deftest reduce-list.14
   - [ ] (deftest reduce-list.15
   - [ ] (deftest reduce-list.16
   - [ ] (deftest reduce-list.17
-  - [ ] (deftest reduce-array.1
-  - [ ] (deftest reduce-array.2
-  - [ ] (deftest reduce-array.3
-  - [ ] (deftest reduce-array.4
-  - [ ] (deftest reduce-array.5
-  - [ ] (deftest reduce-array.6
+  - [X] (deftest reduce-array.1
+  - [X] (deftest reduce-array.2
+  - [X] (deftest reduce-array.3
+  - [X] (deftest reduce-array.4
+  - [X] (deftest reduce-array.5
+  - [X] (deftest reduce-array.6
   - [ ] (deftest reduce-array.7
-  - [ ] (deftest reduce-array.8
-  - [ ] (deftest reduce-array.9
-  - [ ] (deftest reduce-array.10
-  - [ ] (deftest reduce-array.11
-  - [ ] (deftest reduce-array.12
-  - [ ] (deftest reduce-array.13
-  - [ ] (deftest reduce-array.14
+  - [X] (deftest reduce-array.8
+  - [X] (deftest reduce-array.9
+  - [X] (deftest reduce-array.10
+  - [X] (deftest reduce-array.11
+  - [X] (deftest reduce-array.12
+  - [X] (deftest reduce-array.13
+  - [X] (deftest reduce-array.14
   - [ ] (deftest reduce-array.15
-  - [ ] (deftest reduce-array.16
-  - [ ] (deftest reduce-array.17
-  - [ ] (deftest reduce-array.18
-  - [ ] (deftest reduce-array.19
+  - [X] (deftest reduce-array.16
+  - [X] (deftest reduce-array.17
+  - [X] (deftest reduce-array.18
+  - [X] (deftest reduce-array.19
   - [ ] (deftest reduce-array.20
   - [ ] (deftest reduce-array.21
   - [ ] (deftest reduce-array.22
@@ -19558,32 +19558,32 @@
   - [ ] (deftest reduce-array.24
   - [ ] (deftest reduce-array.25
   - [ ] (deftest reduce.error.1
-  - [ ] (deftest reduce.error.2
-  - [ ] (deftest reduce.error.3
-  - [ ] (deftest reduce.error.4
-  - [ ] (deftest reduce.error.5
-  - [ ] (deftest reduce.error.6
-  - [ ] (deftest reduce.error.7
-  - [ ] (deftest reduce.error.8
-  - [ ] (deftest reduce.error.9
-  - [ ] (deftest reduce.error.10
-  - [ ] (deftest reduce-string.1
-  - [ ] (deftest reduce-string.2
-  - [ ] (deftest reduce-string.3
-  - [ ] (deftest reduce-string.4
-  - [ ] (deftest reduce-string.5
-  - [ ] (deftest reduce-string.6
+  - [X] (deftest reduce.error.2
+  - [X] (deftest reduce.error.3
+  - [X] (deftest reduce.error.4
+  - [X] (deftest reduce.error.5
+  - [X] (deftest reduce.error.6
+  - [X] (deftest reduce.error.7
+  - [X] (deftest reduce.error.8
+  - [X] (deftest reduce.error.9
+  - [X] (deftest reduce.error.10
+  - [X] (deftest reduce-string.1
+  - [X] (deftest reduce-string.2
+  - [X] (deftest reduce-string.3
+  - [X] (deftest reduce-string.4
+  - [X] (deftest reduce-string.5
+  - [X] (deftest reduce-string.6
   - [ ] (deftest reduce-string.7
-  - [ ] (deftest reduce-string.8
-  - [ ] (deftest reduce-string.9
-  - [ ] (deftest reduce-string.10
-  - [ ] (deftest reduce-string.11
-  - [ ] (deftest reduce-string.12
-  - [ ] (deftest reduce-string.13
-  - [ ] (deftest reduce-string.14
-  - [ ] (deftest reduce-string.15
+  - [X] (deftest reduce-string.8
+  - [X] (deftest reduce-string.9
+  - [X] (deftest reduce-string.10
+  - [X] (deftest reduce-string.11
+  - [X] (deftest reduce-string.12
+  - [X] (deftest reduce-string.13
+  - [X] (deftest reduce-string.14
+  - [X] (deftest reduce-string.15
   - [ ] (deftest reduce-string.16
-  - [ ] (deftest reduce-string.17
+  - [X] (deftest reduce-string.17
   - [ ] (deftest reduce-string.18
   - [ ] (deftest reduce-string.19
   - [ ] (deftest reduce-string.20
@@ -19617,30 +19617,30 @@
   - [ ] (deftest reduce.allow-other-keys.7
   - [ ] (deftest reduce.allow-other-keys.8
   - [ ] (deftest reduce.keywords.9
-**** position-if-not.lsp [0%]
-  - [ ] (deftest position-if-not-list.1
-  - [ ] (deftest position-if-not-list.2
-  - [ ] (deftest position-if-not-list.3
+**** position-if-not.lsp [15%]
+  - [X] (deftest position-if-not-list.1
+  - [X] (deftest position-if-not-list.2
+  - [X] (deftest position-if-not-list.3
   - [ ] (deftest position-if-not-list.4
   - [ ] (deftest position-if-not-list.5
   - [ ] (deftest position-if-not-list.6
   - [ ] (deftest position-if-not-list.7
-  - [ ] (deftest position-if-not-list.8
-  - [ ] (deftest position-if-not-list.9
+  - [X] (deftest position-if-not-list.8
+  - [X] (deftest position-if-not-list.9
   - [ ] (deftest position-if-not-list.10
-  - [ ] (deftest position-if-not-list.11
+  - [X] (deftest position-if-not-list.11
   - [ ] (deftest position-if-not-list.12
-  - [ ] (deftest position-if-not-vector.1
-  - [ ] (deftest position-if-not-vector.2
-  - [ ] (deftest position-if-not-vector.3
+  - [X] (deftest position-if-not-vector.1
+  - [X] (deftest position-if-not-vector.2
+  - [X] (deftest position-if-not-vector.3
   - [ ] (deftest position-if-not-vector.4
   - [ ] (deftest position-if-not-vector.5
   - [ ] (deftest position-if-not-vector.6
   - [ ] (deftest position-if-not-vector.7
-  - [ ] (deftest position-if-not-vector.8
-  - [ ] (deftest position-if-not-vector.9
+  - [X] (deftest position-if-not-vector.8
+  - [X] (deftest position-if-not-vector.9
   - [ ] (deftest position-if-not-vector.10
-  - [ ] (deftest position-if-not-vector.11
+  - [X] (deftest position-if-not-vector.11
   - [ ] (deftest position-if-not-vector.12
   - [ ] (deftest position-if-not-vector.13
   - [ ] (deftest position-if-not-vector.14
@@ -19696,17 +19696,17 @@
   - [ ] (deftest position-if-not.error.13
   - [ ] (deftest position-if-not.error.14
   - [ ] (deftest position-if-not.error.15
-**** map.lsp [0%]
-  - [ ] (deftest map-array.1
-  - [ ] (deftest map-array.2
-  - [ ] (deftest map-array.3
-  - [ ] (deftest map-array.4
-  - [ ] (deftest map-array.5
-  - [ ] (deftest map-array.6
-  - [ ] (deftest map-array.9
-  - [ ] (deftest map-array.10
-  - [ ] (deftest map-array.11
-  - [ ] (deftest map-array.12
+**** map.lsp [12%]
+  - [X] (deftest map-array.1
+  - [X] (deftest map-array.2
+  - [X] (deftest map-array.3
+  - [X] (deftest map-array.4
+  - [X] (deftest map-array.5
+  - [X] (deftest map-array.6
+  - [X] (deftest map-array.9
+  - [X] (deftest map-array.10
+  - [X] (deftest map-array.11
+  - [X] (deftest map-array.12
   - [ ] (deftest map-array.13
   - [ ] (deftest map-array.14
   - [ ] (deftest map-bit-vector.15
@@ -19775,32 +19775,32 @@
   - [ ] (deftest map.specialized-vector.7
   - [ ] (deftest map.order.1
   - [ ] (def-fold-test map.fold.1 (map 'vector #'identity '(a b c)))
-**** subseq.lsp [0%]
-  - [ ] (deftest subseq-list.1
-  - [ ] (deftest subseq-list.2
-  - [ ] (deftest subseq-list.3
+**** subseq.lsp [48%]
+  - [X] (deftest subseq-list.1
+  - [X] (deftest subseq-list.2
+  - [X] (deftest subseq-list.3
   - [ ] (deftest subseq-list.4
   - [ ] (deftest subseq-list.5
-  - [ ] (deftest subseq-list.6    ;; check that no structure is shared
+  - [X] (deftest subseq-list.6    ;; check that no structure is shared
   - [ ] (deftest subseq-list.7
   - [ ] (deftest subseq-list.8
   - [ ] (deftest subseq-list.9
   - [ ] (deftest subseq-list.10
   - [ ] (deftest subseq-list.11
   - [ ] (deftest subseq-list.12
-  - [ ] (deftest subseq-vector.1
-  - [ ] (deftest subseq-vector.2
-  - [ ] (deftest subseq-vector.3
-  - [ ] (deftest subseq-vector.4
+  - [X] (deftest subseq-vector.1
+  - [X] (deftest subseq-vector.2
+  - [X] (deftest subseq-vector.3
+  - [X] (deftest subseq-vector.4
   - [ ] (deftest subseq-vector.5
-  - [ ] (deftest subseq-vector.6
-  - [ ] (deftest subseq-vector.7
-  - [ ] (deftest subseq-vector.8
-  - [ ] (deftest subseq-vector.9
-  - [ ] (deftest subseq-vector.10
-  - [ ] (deftest subseq-string.1
-  - [ ] (deftest subseq-string.2
-  - [ ] (deftest subseq-string.3
+  - [X] (deftest subseq-vector.6
+  - [X] (deftest subseq-vector.7
+  - [X] (deftest subseq-vector.8
+  - [X] (deftest subseq-vector.9
+  - [X] (deftest subseq-vector.10
+  - [X] (deftest subseq-string.1
+  - [X] (deftest subseq-string.2
+  - [X] (deftest subseq-string.3
   - [ ] (deftest subseq.specialized-string.1
   - [ ] (deftest subseq.specialized-vector.1
   - [ ] (deftest subseq.specialized-vector.2
@@ -19808,58 +19808,58 @@
   - [ ] (deftest subseq-bit-vector.1
   - [ ] (deftest subseq-bit-vector.2
   - [ ] (deftest subseq-bit-vector.3
-  - [ ] (deftest subseq.order.1
-  - [ ] (deftest subseq.order.2
+  - [X] (deftest subseq.order.1
+  - [X] (deftest subseq.order.2
   - [ ] (deftest subseq.order.3
   - [ ] (deftest subseq.order.4
   - [ ] (def-fold-test subseq.fold.1 (subseq '(1 2 3) 0))
   - [ ] (def-fold-test subseq.fold.2 (subseq #(1 2 3) 0))
   - [ ] (def-fold-test subseq.fold.3 (subseq #*011101 0))
   - [ ] (def-fold-test subseq.fold.4 (subseq "abcdef" 0))
-  - [ ] (deftest subseq.error.1
-  - [ ] (deftest subseq.error.2
-  - [ ] (deftest subseq.error.3
-**** replace.lsp [0%]
-  - [ ] (deftest replace-list.1
-  - [ ] (deftest replace-list.2
-  - [ ] (deftest replace-list.3
-  - [ ] (deftest replace-list.4
-  - [ ] (deftest replace-list.5
-  - [ ] (deftest replace-list.6
-  - [ ] (deftest replace-list.7
-  - [ ] (deftest replace-list.8
-  - [ ] (deftest replace-list.9
-  - [ ] (deftest replace-list.10
-  - [ ] (deftest replace-list.11
-  - [ ] (deftest replace-list.12
-  - [ ] (deftest replace-list.13
-  - [ ] (deftest replace-list.14
-  - [ ] (deftest replace-list.15
-  - [ ] (deftest replace-list.16
-  - [ ] (deftest replace-list.17
-  - [ ] (deftest replace-list.18
-  - [ ] (deftest replace-list.19
-  - [ ] (deftest replace-list.20
-  - [ ] (deftest replace-vector.1
-  - [ ] (deftest replace-vector.2
-  - [ ] (deftest replace-vector.3
-  - [ ] (deftest replace-vector.4
-  - [ ] (deftest replace-vector.5
-  - [ ] (deftest replace-vector.6
-  - [ ] (deftest replace-vector.7
-  - [ ] (deftest replace-vector.8
-  - [ ] (deftest replace-vector.9
-  - [ ] (deftest replace-vector.10
-  - [ ] (deftest replace-vector.11
-  - [ ] (deftest replace-vector.12
-  - [ ] (deftest replace-vector.13
-  - [ ] (deftest replace-vector.14
-  - [ ] (deftest replace-vector.15
-  - [ ] (deftest replace-vector.16
-  - [ ] (deftest replace-vector.17
-  - [ ] (deftest replace-vector.18
-  - [ ] (deftest replace-vector.19
-  - [ ] (deftest replace-vector.21
+  - [X] (deftest subseq.error.1
+  - [X] (deftest subseq.error.2
+  - [X] (deftest subseq.error.3
+**** replace.lsp [39%]
+  - [X] (deftest replace-list.1
+  - [X] (deftest replace-list.2
+  - [X] (deftest replace-list.3
+  - [X] (deftest replace-list.4
+  - [X] (deftest replace-list.5
+  - [X] (deftest replace-list.6
+  - [X] (deftest replace-list.7
+  - [X] (deftest replace-list.8
+  - [X] (deftest replace-list.9
+  - [X] (deftest replace-list.10
+  - [X] (deftest replace-list.11
+  - [X] (deftest replace-list.12
+  - [X] (deftest replace-list.13
+  - [X] (deftest replace-list.14
+  - [X] (deftest replace-list.15
+  - [X] (deftest replace-list.16
+  - [X] (deftest replace-list.17
+  - [X] (deftest replace-list.18
+  - [X] (deftest replace-list.19
+  - [X] (deftest replace-list.20
+  - [X] (deftest replace-vector.1
+  - [X] (deftest replace-vector.2
+  - [X] (deftest replace-vector.3
+  - [X] (deftest replace-vector.4
+  - [X] (deftest replace-vector.5
+  - [X] (deftest replace-vector.6
+  - [X] (deftest replace-vector.7
+  - [X] (deftest replace-vector.8
+  - [X] (deftest replace-vector.9
+  - [X] (deftest replace-vector.10
+  - [X] (deftest replace-vector.11
+  - [X] (deftest replace-vector.12
+  - [X] (deftest replace-vector.13
+  - [X] (deftest replace-vector.14
+  - [X] (deftest replace-vector.15
+  - [X] (deftest replace-vector.16
+  - [X] (deftest replace-vector.17
+  - [X] (deftest replace-vector.18
+  - [X] (deftest replace-vector.19
+  - [X] (deftest replace-vector.21
   - [ ] (deftest replace-bit-vector.1
   - [ ] (deftest replace-bit-vector.2
   - [ ] (deftest replace-bit-vector.3
@@ -19921,16 +19921,16 @@
   - [ ] (deftest replace.error.4
   - [ ] (deftest replace.error.5
   - [ ] (deftest replace.error.6
-**** length.lsp [0%]
-  - [ ] (deftest length.list.1
-  - [ ] (deftest length.list.2
-  - [ ] (deftest length.list.3
-  - [ ] (deftest length.list-4
-  - [ ] (deftest length.vector.1
-  - [ ] (deftest length.vector.2
-  - [ ] (deftest length.vector.3
-  - [ ] (deftest length.vector.4
-  - [ ] (deftest length.nonsimple-vector.1
+**** length.lsp [25%]
+  - [X] (deftest length.list.1
+  - [X] (deftest length.list.2
+  - [X] (deftest length.list.3
+  - [X] (deftest length.list-4
+  - [X] (deftest length.vector.1
+  - [X] (deftest length.vector.2
+  - [X] (deftest length.vector.3
+  - [X] (deftest length.vector.4
+  - [X] (deftest length.nonsimple-vector.1
   - [ ] (deftest length.nonsimple-vector.2
   - [ ] (deftest length.bit-vector.2
   - [ ] (deftest length.bit-vector.3
@@ -19957,47 +19957,47 @@
   - [ ] (deftest length.array.7
   - [ ] (deftest length.array.8
   - [ ] (deftest length.array.9
-**** merge.lsp [0%]
-  - [ ] (deftest merge-list.1
-  - [ ] (deftest merge-list.2
-  - [ ] (deftest merge-list.3
-  - [ ] (deftest merge-list.4
-  - [ ] (deftest merge-list.5
-  - [ ] (deftest merge-list.6
-  - [ ] (deftest merge-list.7
-  - [ ] (deftest merge-list.8
+**** merge.lsp [30%]
+  - [X] (deftest merge-list.1
+  - [X] (deftest merge-list.2
+  - [X] (deftest merge-list.3
+  - [X] (deftest merge-list.4
+  - [X] (deftest merge-list.5
+  - [X] (deftest merge-list.6
+  - [X] (deftest merge-list.7
+  - [X] (deftest merge-list.8
   - [ ] (deftest merge-list.9
-  - [ ] (deftest merge-list.10
-  - [ ] (deftest merge-list.11
-  - [ ] (deftest merge-list.12
-  - [ ] (deftest merge-list.13
-  - [ ] (deftest merge-list.14
-  - [ ] (deftest merge-list.15
-  - [ ] (deftest merge-vector.1
-  - [ ] (deftest merge-vector.2
-  - [ ] (deftest merge-vector.3
-  - [ ] (deftest merge-vector.4
-  - [ ] (deftest merge-vector.5
-  - [ ] (deftest merge-vector.6
-  - [ ] (deftest merge-vector.7
-  - [ ] (deftest merge-vector.8
+  - [X] (deftest merge-list.10
+  - [X] (deftest merge-list.11
+  - [X] (deftest merge-list.12
+  - [X] (deftest merge-list.13
+  - [X] (deftest merge-list.14
+  - [X] (deftest merge-list.15
+  - [X] (deftest merge-vector.1
+  - [X] (deftest merge-vector.2
+  - [X] (deftest merge-vector.3
+  - [X] (deftest merge-vector.4
+  - [X] (deftest merge-vector.5
+  - [X] (deftest merge-vector.6
+  - [X] (deftest merge-vector.7
+  - [X] (deftest merge-vector.8
   - [ ] (deftest merge-vector.9
-  - [ ] (deftest merge-vector.10
-  - [ ] (deftest merge-vector.11
-  - [ ] (deftest merge-vector.12
-  - [ ] (deftest merge-vector.13
-  - [ ] (deftest merge-vector.14
-  - [ ] (deftest merge-vector.15
-  - [ ] (deftest merge-vector.16
-  - [ ] (deftest merge-vector.16a
+  - [X] (deftest merge-vector.10
+  - [X] (deftest merge-vector.11
+  - [X] (deftest merge-vector.12
+  - [X] (deftest merge-vector.13
+  - [X] (deftest merge-vector.14
+  - [X] (deftest merge-vector.15
+  - [X] (deftest merge-vector.16
+  - [X] (deftest merge-vector.16a
   - [ ] (deftest merge-vector.17
-  - [ ] (deftest merge-vector.18
-  - [ ] (deftest merge-vector.19
-  - [ ] (deftest merge-vector.20
-  - [ ] (deftest merge-vector.21
-  - [ ] (deftest merge-vector.22
-  - [ ] (deftest merge-vector.23
-  - [ ] (deftest merge-vector.24
+  - [X] (deftest merge-vector.18
+  - [X] (deftest merge-vector.19
+  - [X] (deftest merge-vector.20
+  - [X] (deftest merge-vector.21
+  - [X] (deftest merge-vector.22
+  - [X] (deftest merge-vector.23
+  - [X] (deftest merge-vector.24
   - [ ] (deftest merge-string.1
   - [ ] (deftest merge-string.1a
   - [ ] (deftest merge-string.1b
@@ -20036,7 +20036,7 @@
   - [ ] (deftest merge-string.33
   - [ ] (deftest merge-string.34
   - [ ] (deftest merge-string.35
-  - [ ] (deftest merge-bit-vector.1
+  - [X] (deftest merge-bit-vector.1
   - [ ] (deftest merge-bit-vector.2
   - [ ] (deftest merge-bit-vector.3
   - [ ] (deftest merge-bit-vector.4
@@ -20102,7 +20102,7 @@
   - [ ] (deftest search-bitvector.17
   - [ ] (deftest search-bitvector.18
 *** characters [0%]
-**** char-compare.lsp [0%]
+**** char-compare.lsp [5%]
   - [X] (deftest char-compare-no-args
   - [ ] (deftest char=.1
   - [ ] (deftest char=.2
@@ -20166,13 +20166,13 @@
   - [ ] (deftest char>.order.3
   - [ ] (deftest char>.order.4
   - [ ] (deftest char-equal.1
-  - [ ] (deftest char-equal.2
-  - [ ] (deftest char-equal.3
+  - [X] (deftest char-equal.2
+  - [X] (deftest char-equal.3
   - [ ] (deftest char-equal.4
-  - [ ] (deftest char-equal.order.1
-  - [ ] (deftest char-equal.order.2
-  - [ ] (deftest char-equal.order.3
-  - [ ] (deftest char-equal.order.4
+  - [X] (deftest char-equal.order.1
+  - [X] (deftest char-equal.order.2
+  - [X] (deftest char-equal.order.3
+  - [X] (deftest char-equal.order.4
   - [ ] (deftest char-not-equal.1
   - [ ] (deftest char-not-equal.2
   - [ ] (deftest char-not-equal.3

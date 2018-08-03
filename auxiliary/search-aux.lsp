@@ -15,7 +15,9 @@
    (let* ((s *searched-list*) (len (length s)))
      (loop for x from 0 to 8 nconc
            (loop for y from 0 to (- len x)
-                 collect (subseq s y (+ y x)))))
+	      collect (if (= y len)
+			  nil
+			  (subseq s y (+ y x))))))
    :test #'equal))
 
 (defparameter *searched-vector*
@@ -34,7 +36,7 @@
      (loop for x from 0 to 8 nconc
            (loop for y from 0 to (- len x)
                  collect (subseq s y (+ y x)))))
-   :test #'equalp))
+   :test #'equal))
 
 (defparameter *searched-string*
   "1101111111010111010111000010010000001011010010001100100001101010001011010011111000001011111010110101")
@@ -45,9 +47,9 @@
      (loop for x from 0 to 8 nconc
            (loop for y from 0 to (- len x)
                  collect (subseq s y (+ y x)))))
-   :test #'equalp))
+   :test #'equal))
 
-(defun subseq-equalp (seq1 seq2 start1 start2 len &key (test #'equalp))
+(defun subseq-equalp (seq1 seq2 start1 start2 len &key (test #'equal))
   (assert
    (and
     (>= start1 0)
@@ -68,7 +70,7 @@
 
 (defun search-check (pattern searched pos
                              &key (start1 0) (end1 nil) (start2 0) (end2 nil)
-                             key from-end (test #'equalp))
+                             key from-end (test #'equal))
   (unless end1 (setq end1 (length pattern)))
   (unless end2 (setq end2 (length searched)))
   (assert (<= start1 end1))

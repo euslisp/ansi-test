@@ -140,12 +140,12 @@
   #*11111000
   #*11111000)
 
-(deftest sort-bit-vector.3
-  (let ((a (make-array 10 :initial-contents '(1 0 0 1 1 1 1 0 1 1)
-                       :element-type 'bit
-                       :fill-pointer 5)))
-    (sort a #'<))
-  #*00111)
+;; (deftest sort-bit-vector.3
+;;   (let ((a (make-array 10 :initial-contents '(1 0 0 1 1 1 1 0 1 1)
+;;                        :element-type 'bit
+;;                        :fill-pointer 5)))
+;;     (sort a #'<))
+;;   #*00111)
 
 (deftest sort-string.1
   (let ((a (copy-seq "10011101")))
@@ -166,13 +166,13 @@
     (sort a #'char<))
   "00111")
 
-(deftest sort-string.4
-  (do-special-strings
-   (s "aebdc" nil)
-   (let ((s2 (sort s #'char<)))
-     (assert (eq s s2))
-     (assert (string= s2 "abcde"))))
-  nil)
+;; (deftest sort-string.4
+;;   (do-special-strings
+;;    (s "aebdc" nil)
+;;    (let ((s2 (sort s #'char<)))
+;;      (assert (eq s s2))
+;;      (assert (string= s2 "abcde"))))
+;;   nil)
 
 ;;; Order of evaluation tests
 

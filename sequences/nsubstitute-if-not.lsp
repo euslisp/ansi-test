@@ -175,7 +175,7 @@
                                        (make-array i :initial-element 'a)
                                        (make-array (- j i) :initial-element 'x)
                                        (make-array (- 10 j) :initial-element 'a))))))
-  t)
+      t)
 
 (deftest nsubstitute-if-not-vector.16
   (loop for i from 0 to 9 always

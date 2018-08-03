@@ -719,7 +719,7 @@
          (result (substitute 0 1 x)))
     (and (equalp orig x)
          result))
-  #*)
+    #*)
 
 (deftest substitute-bit-vector.2
   (let* ((orig #*)
@@ -735,7 +735,7 @@
          (result (substitute 0 1 x)))
     (and (equalp orig x)
          result))
-  #*000000)
+    #*000000)
 
 (deftest substitute-bit-vector.4
   (let* ((orig #*010101)
@@ -743,7 +743,7 @@
          (result (substitute 1 0 x)))
     (and (equalp orig x)
          result))
-  #*111111)
+    #*111111)
 
 (deftest substitute-bit-vector.5
   (let* ((orig #*010101)
@@ -751,7 +751,7 @@
          (result (substitute 1 0 x :start 1)))
     (and (equalp orig x)
          result))
-  #*011111)
+    #*011111)
 
 (deftest substitute-bit-vector.6
   (let* ((orig #*010101)
@@ -759,7 +759,7 @@
          (result (substitute 0 1 x :start 2 :end nil)))
     (and (equalp orig x)
          result))
-  #*010000)
+    #*010000)
 
 (deftest substitute-bit-vector.7
   (let* ((orig #*010101)
@@ -767,7 +767,7 @@
          (result (substitute 1 0 x :end 4)))
     (and (equalp orig x)
          result))
-  #*111101)
+    #*111101)
 
 (deftest substitute-bit-vector.8
   (let* ((orig #*010101)
@@ -775,7 +775,7 @@
          (result (substitute 0 1 x :end nil)))
     (and (equalp orig x)
          result))
-  #*000000)
+    #*000000)
 
 (deftest substitute-bit-vector.9
   (let* ((orig #*010101)
@@ -783,7 +783,7 @@
          (result (substitute 0 1 x :end 3)))
     (and (equalp orig x)
          result))
-  #*000101)
+    #*000101)
 
 (deftest substitute-bit-vector.10
   (let* ((orig #*010101)
@@ -791,7 +791,7 @@
          (result (substitute 0 1 x :start 2 :end 4)))
     (and (equalp orig x)
          result))
-  #*010001)
+    #*010001)
 
 (deftest substitute-bit-vector.11
   (let* ((orig #*010101)
@@ -799,7 +799,7 @@
          (result (substitute 1 0 x :start 2 :end 4)))
     (and (equalp orig x)
          result))
-  #*011101)
+    #*011101)
 
 (deftest substitute-bit-vector.12
   (let* ((orig #*010101)
@@ -807,7 +807,7 @@
          (result (substitute 1 0 x :count 1)))
     (and (equalp orig x)
          result))
-  #*110101)
+    #*110101)
 
 (deftest substitute-bit-vector.13
   (let* ((orig #*010101)
@@ -815,7 +815,7 @@
          (result (substitute 1 0 x :count 0)))
     (and (equalp orig x)
          result))
-  #*010101)
+    #*010101)
 
 (deftest substitute-bit-vector.14
   (let* ((orig #*010101)
@@ -823,7 +823,7 @@
          (result (substitute 1 0 x :count -1)))
     (and (equalp orig x)
          result))
-  #*010101)
+    #*010101)
 
 (deftest substitute-bit-vector.15
   (let* ((orig #*010101)
@@ -972,52 +972,62 @@
                        :fill-pointer 5 :element-type 'bit))
          (result (substitute 1 0 x)))
     result)
-  #*11111)
+    #*11111)
 
 (deftest substitute-bit-vector.31
   (let* ((x (make-array '(10) :initial-contents '(0 1 0 1 1 0 1 1 0 1)
                        :fill-pointer 5 :element-type 'bit))
          (result (substitute 1 0 x :from-end t)))
     result)
-  #*11111)
+    #*11111)
 
 (deftest substitute-bit-vector.32
   (let* ((x (make-array '(10) :initial-contents '(0 1 0 1 1 0 1 1 0 1)
                        :fill-pointer 5 :element-type 'bit))
          (result (substitute 1 0 x :count 1)))
     result)
-  #*11011)
+    #*11011)
 
 (deftest substitute-bit-vector.33
   (let* ((x (make-array '(10) :initial-contents '(0 1 0 1 1 0 1 1 0 1)
                        :fill-pointer 5 :element-type 'bit))
          (result (substitute 1 0 x :from-end t :count 1)))
     result)
-  #*01111)
+    #*01111)
 
-(defharmless substitute.test-and-test-not.1
-  (substitute 'b 'a (list 'a 'b 'c 'd 'a 'b) :test #'eql :test-not #'eql))
+;;; Not so harmless, is it?
+;; (defharmless substitute.test-and-test-not.1
+;;     ;; (substitute 'b 'a (list 'a 'b 'c 'd 'a 'b) :test #'eql :test-not #'eql)
+;;   (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call.")
 
-(defharmless substitute.test-and-test-not.2
-  (substitute 'b 'a (list 'a 'b 'c 'd 'a 'b) :test-not #'eql :test #'eql))
+;; (defharmless substitute.test-and-test-not.2
+;;     ;;(substitute 'b 'a (list 'a 'b 'c 'd 'a 'b) :test-not #'eql :test #'eql)
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call."))
 
-(defharmless substitute.test-and-test-not.3
-  (substitute 'b 'a (vector 'a 'b 'c 'd 'a 'b) :test #'eql :test-not #'eql))
+;; (defharmless substitute.test-and-test-not.3
+;;     ;; (substitute 'b 'a (vector 'a 'b 'c 'd 'a 'b) :test #'eql :test-not #'eql))
+;;       (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call. Remark: test-not is deprecated."))
 
-(defharmless substitute.test-and-test-not.4
-  (substitute 'b 'a (vector 'a 'b 'c 'd 'a 'b) :test-not #'eql :test #'eql))
+;; (defharmless substitute.test-and-test-not.4
+;;     ;; (substitute 'b 'a (vector 'a 'b 'c 'd 'a 'b) :test-not #'eql :test #'eql))
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call. Remark: test-not is deprecated."))
 
-(defharmless substitute.test-and-test-not.5
-  (substitute #\b #\a (copy-seq "abcdab") :test #'eql :test-not #'eql))
+;; (defharmless substitute.test-and-test-not.5
+;; ;;  (substitute #\b #\a (copy-seq "abcdab") :test #'eql :test-not #'eql))
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call (CLtL2). Remark: test-not is deprecated (hyperspec)."))
 
-(defharmless substitute.test-and-test-not.6
-  (substitute #\b #\a (copy-seq "abcdab") :test-not #'eql :test #'eql))
+;; (defharmless substitute.test-and-test-not.6
+;; ;;  (substitute #\b #\a (copy-seq "abcdab") :test-not #'eql :test #'eql))
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call. Remark: test-not is deprecated."))
 
-(defharmless substitute.test-and-test-not.7
-  (substitute 1 0 (copy-seq #*001101001) :test #'eql :test-not #'eql))
 
-(defharmless substitute.test-and-test-not.8
-  (substitute 0 1 (copy-seq #*1100110101) :test-not #'eql :test #'eql))
+;; (defharmless substitute.test-and-test-not.7
+;; ;;  (substitute 1 0 (copy-seq #*001101001) :test #'eql :test-not #'eql))
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call. Remark: test-not is deprecated."))
+
+;; (defharmless substitute.test-and-test-not.8
+;;     ;;   (substitute 0 1 (copy-seq #*1100110101) :test-not #'eql :test #'eql))
+;;     (error "A test other than eql can be specified by the :test or :test-not keyword. It is an error to use both of these keywords in the same call. Remark: test-not is deprecated."))
 
 
 (deftest substitute.order.1
@@ -1103,7 +1113,7 @@
 
 (deftest substitute.error.1
   (signals-error (substitute) program-error)
-  t)
+      t)
 
 (deftest substitute.error.2
   (signals-error (substitute 'a) program-error)
@@ -1147,4 +1157,4 @@
 
 (deftest substitute.error.12
   (check-type-error #'(lambda (x) (substitute 'a 'b x)) #'sequencep)
-  nil)
+    nil)

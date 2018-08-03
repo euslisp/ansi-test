@@ -4,6 +4,10 @@
 ;; LOAD CL-compatibility libraries
 (load "auxiliary/eus-multiple-values.l")
 (load "auxiliary/eus-loop.l")
+
+(load "auxiliary/eus-character.l")
+(load "auxiliary/eus-predicates.l")
+(load "auxiliary/eus-sequences.l")
 (load "auxiliary/eus-declarations.l")
 (load "auxiliary/eus-numbers.l")
 (load "auxiliary/eus-types.l")
@@ -146,8 +150,8 @@
 
 ;; (load "packages/load.lsp")
 (load "reader/load.lsp")
-;; (load "sequences/load.lsp")
 (load "streams/load.lsp")
+(load "sequences/load.lsp")
 (load "system-construction/load.lsp")
 (load "structures/load.lsp")
 ;; (load "types-and-classes/load.lsp")
