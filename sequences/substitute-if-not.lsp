@@ -14,10 +14,10 @@
   (b b b c)
   (a b a c))
 
-;; (deftest substitute-if-not-list.3
-;;   (let ((x '(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count nil) x))
-;;   (b b b c)
-;;   (a b a c))
+(deftest substitute-if-not-list.3
+  (let ((x '(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count nil) x))
+  (b b b c)
+  (a b a c))
 
 (deftest substitute-if-not-list.4
   (let ((x '(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count 2) x))
@@ -134,10 +134,10 @@
   #(b b b c)
   #(a b a c))
 
-;; (deftest substitute-if-not-vector.3
-;;   (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count nil) x))
-;;   #(b b b c)
-;;   #(a b a c))
+(deftest substitute-if-not-vector.3
+  (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count nil) x))
+  #(b b b c)
+  #(a b a c))
 
 (deftest substitute-if-not-vector.4
   (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count 2) x))
@@ -168,10 +168,10 @@
   #(b b b c)
   #(a b a c))
 
-;; (deftest substitute-if-not-vector.10
-;;   (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :from-end t :count nil) x))
-;;   #(b b b c)
-;;   #(a b a c))
+(deftest substitute-if-not-vector.10
+  (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :from-end t :count nil) x))
+  #(b b b c)
+  #(a b a c))
 
 (deftest substitute-if-not-vector.11
   (let ((x #(a b a c))) (values (substitute-if-not 'b (is-not-eql-p 'a) x :count 2 :from-end t) x))
@@ -309,10 +309,10 @@
   "bbbc"
   "abac")
 
-;; (deftest substitute-if-not-string.3
-;;   (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :count nil) x))
-;;   "bbbc"
-;;   "abac")
+(deftest substitute-if-not-string.3
+  (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :count nil) x))
+  "bbbc"
+  "abac")
 
 (deftest substitute-if-not-string.4
   (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :count 2) x))
@@ -343,10 +343,10 @@
   "bbbc"
   "abac")
 
-;; (deftest substitute-if-not-string.10
-;;   (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :from-end t :count nil) x))
-;;   "bbbc"
-;;   "abac")
+(deftest substitute-if-not-string.10
+  (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :from-end t :count nil) x))
+  "bbbc"
+  "abac")
 
 (deftest substitute-if-not-string.11
   (let ((x "abac")) (values (substitute-if-not #\b (is-not-eql-p #\a) x :count 2 :from-end t) x))

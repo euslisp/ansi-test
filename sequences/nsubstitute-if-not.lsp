@@ -13,9 +13,9 @@
   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x) x)
   (b b b c))
 
-;; (deftest nsubstitute-if-not-list.3
-;;   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count nil))
-;;   (b b b c))
+(deftest nsubstitute-if-not-list.3
+  (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count nil))
+  (b b b c))
 
 (deftest nsubstitute-if-not-list.4
   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count 2))
@@ -41,9 +41,9 @@
   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :from-end t))
   (b b b c))
 
-;; (deftest nsubstitute-if-not-list.10
-;;   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :from-end t :count nil))
-;;   (b b b c))
+(deftest nsubstitute-if-not-list.10
+  (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :from-end t :count nil))
+  (b b b c))
 
 (deftest nsubstitute-if-not-list.11
   (let ((x (copy-seq '(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count 2 :from-end t))
@@ -117,9 +117,9 @@
   (let ((x (copy-seq #(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x))
   #(b b b c))
 
-;; (deftest nsubstitute-if-not-vector.3
-;;   (let ((x (copy-seq #(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count nil) x)
-;;   #(b b b c))
+(deftest nsubstitute-if-not-vector.3
+  (let ((x (copy-seq #(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count nil) x)
+  #(b b b c))
 
 (deftest nsubstitute-if-not-vector.4
   (let ((x (copy-seq #(a b a c)))) (nsubstitute-if-not 'b (is-not-eql-p 'a) x :count 2))
@@ -166,17 +166,16 @@
   #(a b a c))
 
 (deftest nsubstitute-if-not-vector.15
-;;   (loop for i from 0 to 9 always
-;;         (loop for j from i to 10 always
-;;               (let* ((orig #(a a a a a a a a a a))
-;;                      (x (copy-seq orig))
-;;                      (y (nsubstitute-if-not 'x (is-not-eql-p 'a) x :start i :end j)))
-;;                 (equalp y (concatenate 'simple-vector
-;;                                        (make-array i :initial-element 'a)
-;;                                        (make-array (- j i) :initial-element 'x)
-;;                                        (make-array (- 10 j) :initial-element 'a))))))
-    ;;   t)
-    (error "there is no explicit simple-vector type"))
+  (loop for i from 0 to 9 always
+        (loop for j from i to 10 always
+              (let* ((orig #(a a a a a a a a a a))
+                     (x (copy-seq orig))
+                     (y (nsubstitute-if-not 'x (is-not-eql-p 'a) x :start i :end j)))
+                (equalp y (concatenate 'simple-vector
+                                       (make-array i :initial-element 'a)
+                                       (make-array (- j i) :initial-element 'x)
+                                       (make-array (- 10 j) :initial-element 'a))))))
+      t)
 
 (deftest nsubstitute-if-not-vector.16
   (loop for i from 0 to 9 always
@@ -269,9 +268,9 @@
   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x))
   "bbbc")
 
-;; (deftest nsubstitute-if-not-string.3
-;;   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :count nil))
-;;   "bbbc")
+(deftest nsubstitute-if-not-string.3
+  (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :count nil))
+  "bbbc")
 
 (deftest nsubstitute-if-not-string.4
   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :count 2))
@@ -297,9 +296,9 @@
   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :from-end t))
   "bbbc")
 
-;; (deftest nsubstitute-if-not-string.10
-;;   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :from-end t :count nil))
-;;   "bbbc")
+(deftest nsubstitute-if-not-string.10
+  (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :from-end t :count nil))
+  "bbbc")
 
 (deftest nsubstitute-if-not-string.11
   (let ((x (copy-seq "abac"))) (nsubstitute-if-not #\b (is-not-eql-p #\a) x :count 2 :from-end t))
@@ -536,19 +535,19 @@
     result)
   #*010101)
 
-;; (deftest nsubstitute-if-not-bit-vector.18
-;;   (let* ((orig #*010101)
-;;          (x (copy-seq orig))
-;;          (result (nsubstitute-if-not 1 (is-not-eql-p 0) x :count nil)))
-;;     result)
-;;   #*111111)
+(deftest nsubstitute-if-not-bit-vector.18
+  (let* ((orig #*010101)
+         (x (copy-seq orig))
+         (result (nsubstitute-if-not 1 (is-not-eql-p 0) x :count nil)))
+    result)
+  #*111111)
 
-;; (deftest nsubstitute-if-not-bit-vector.19
-;;   (let* ((orig #*010101)
-;;          (x (copy-seq orig))
-;;          (result (nsubstitute-if-not 1 (is-not-eql-p 0) x :count nil :from-end t)))
-;;     result)
-;;   #*111111)
+(deftest nsubstitute-if-not-bit-vector.19
+  (let* ((orig #*010101)
+         (x (copy-seq orig))
+         (result (nsubstitute-if-not 1 (is-not-eql-p 0) x :count nil :from-end t)))
+    result)
+  #*111111)
 
 (deftest nsubstitute-if-not-bit-vector.20
   (loop for i from 0 to 9 always
