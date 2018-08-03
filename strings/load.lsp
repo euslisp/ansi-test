@@ -1,7 +1,7 @@
 ;;; Tests of strings
 (compile-and-load "ANSI-TESTS:AUX;string-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

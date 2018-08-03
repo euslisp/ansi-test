@@ -95,33 +95,33 @@
         always (eql (expt c 0) 1))
   t)
 
-(deftest expt.8
-  (loop for i = (random 1.0s3)
-        for c = (complex i i)
-        repeat 1000
-        always (eql (expt c 0) #c(1.0s0 0.0s0)))
-  t)
+;; (deftest expt.8
+;;   (loop for i = (random 1.0s3)
+;;         for c = (complex i i)
+;;         repeat 1000
+;;         always (eql (expt c 0) #c(1.0s0 0.0s0)))
+;;   t)
 
-(deftest expt.9
-  (loop for i = (random 1.0f6)
-        for c = (complex i i)
-        repeat 1000
-        always (eql (expt c 0) #c(1.0f0 0.0f0)))
-  t)
+;; (deftest expt.9
+;;   (loop for i = (random 1.0f6)
+;;         for c = (complex i i)
+;;         repeat 1000
+;;         always (eql (expt c 0) #c(1.0f0 0.0f0)))
+;;   t)
 
-(deftest expt.10
-  (loop for i = (random 1.0d10)
-        for c = (complex i i)
-        repeat 1000
-        always (eql (expt c 0) #c(1.0d0 0.0d0)))
-  t)
+;; (deftest expt.10
+;;   (loop for i = (random 1.0d10)
+;;         for c = (complex i i)
+;;         repeat 1000
+;;         always (eql (expt c 0) #c(1.0d0 0.0d0)))
+;;   t)
 
-(deftest expt.11
-  (loop for i = (random 1.0l10)
-        for c = (complex i i)
-        repeat 1000
-        always (eql (expt c 0) #c(1.0l0 0.0l0)))
-  t)
+;; (deftest expt.11
+;;   (loop for i = (random 1.0l10)
+;;         for c = (complex i i)
+;;         repeat 1000
+;;         always (eql (expt c 0) #c(1.0l0 0.0l0)))
+;;   t)
 
 (deftest expt.12
   (loop for x in *numbers*
@@ -138,21 +138,21 @@
         collect x)
   nil)
 
-(deftest expt.14
-  (expt #c(0 2) 2)
-  -4)
+;; (deftest expt.14
+;;   (expt #c(0 2) 2)
+;;   -4)
 
-(deftest expt.15
-  (expt #c(1 1) 2)
-  #c(0 2))
+;; (deftest expt.15
+;;   (expt #c(1 1) 2)
+;;   #c(0 2))
 
-(deftest expt.16
-  (expt #c(1/2 1/3) 3)
-  #c(-1/24 23/108))
+;; (deftest expt.16
+;;   (expt #c(1/2 1/3) 3)
+;;   #c(-1/24 23/108))
 
-(deftest expt.17
-  (expt #c(1 1) -2)
-  #c(0 -1/2))
+;; (deftest expt.17
+;;   (expt #c(1 1) -2)
+;;   #c(0 -1/2))
 
 (deftest expt.18
   (loop

@@ -65,7 +65,9 @@
  do
  (let ((level (- (length (symbol-name fn)) 2)))
    (eval `(deftest ,(intern
-                     (concatenate 'string
+                     (concatenate
+		      #+:eus string
+		      #-:eus 'string
                                   (symbol-name fn)
                                   "-SET")
                      :cl-test)
@@ -94,7 +96,9 @@
  do
  (eval
   `(deftest ,(intern
-              (concatenate 'string
+              (concatenate
+	       #+:eus string
+	       #-:eus 'string
                            (symbol-name fn)
                            "-SET")
               :cl-test)
@@ -127,14 +131,18 @@
 
 (loop for name in *cons-accessors*
       do (eval
-          `(deftest ,(intern (concatenate 'string (symbol-name name)
-                                          ".ERROR.NO-ARGS")
+          `(deftest ,(intern (concatenate
+			      #+:eus string
+			      #-:eus 'string
+			      (symbol-name name) ".ERROR.NO-ARGS")
                              :cl-test)
              (signals-error (,name) program-error)
              t))
       do (eval
-          `(deftest ,(intern (concatenate 'string (symbol-name name)
-                                          ".ERROR.EXCESS-ARGS")
+          `(deftest ,(intern (concatenate
+			      #+:eus string
+			      #-:eus 'string
+			      (symbol-name name) ".ERROR.EXCESS-ARGS")
                              :cl-test)
              (signals-error (,name nil nil) program-error)
              t)))

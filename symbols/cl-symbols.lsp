@@ -6,7 +6,7 @@
 
 (in-package :cl-test)
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;; Test for the presence of every darned symbol
 ;;; the standard says should be in the CL package.

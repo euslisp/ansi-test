@@ -2,7 +2,7 @@
 (compile-and-load "ANSI-TESTS:AUX;types-aux.lsp")
 (compile-and-load "ANSI-TESTS:AUX;define-condition-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

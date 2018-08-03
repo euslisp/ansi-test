@@ -1,7 +1,7 @@
 ;;;; Tests of the reader
 (compile-and-load "ANSI-TESTS:AUX;reader-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

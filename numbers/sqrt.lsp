@@ -60,11 +60,11 @@
 ;;;      (=t result (float (ash 1 5000) result))))
 ;;;  t)
 
-(deftest sqrt.7
-  (let ((result (sqrt -1)))
-    (or (eqlt result #c(0 1))
-        (eqlt result #c(0.0 1.0))))
-  t)
+;; (deftest sqrt.7
+;;   (let ((result (sqrt -1)))
+;;     (or (eqlt result #c(0 1))
+;;         (eqlt result #c(0.0 1.0))))
+;;   t)
 
 (deftest sqrt.8
   (loop for x in *floats*

@@ -1,7 +1,7 @@
 ;;;; Tests for pathnames and logical pathnames
 (compile-and-load "ANSI-TESTS:AUX;pathnames-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

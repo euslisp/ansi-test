@@ -122,25 +122,25 @@
     (values (decf x 0.0l0) x))
   10.0l0 10.0l0)
 
-(deftest decf.18
-  (let ((x 1))
-    (values (decf x #c(0.0s0 10.0s0)) x))
-  #c(1.0s0 -10.0s0) #c(1.0s0 -10.0s0))
+;; (deftest decf.18
+;;   (let ((x 1))
+;;     (values (decf x #c(0.0s0 10.0s0)) x))
+;;   #c(1.0s0 -10.0s0) #c(1.0s0 -10.0s0))
 
-(deftest decf.19
-  (let ((x 1))
-    (values (decf x #c(0.0f0 2.0f0)) x))
-  #c(1.0f0 -2.0f0) #c(1.0f0 -2.0f0))
+;; (deftest decf.19
+;;   (let ((x 1))
+;;     (values (decf x #c(0.0f0 2.0f0)) x))
+;;   #c(1.0f0 -2.0f0) #c(1.0f0 -2.0f0))
 
-(deftest decf.20
-  (let ((x 1))
-    (values (decf x #c(0.0d0 2.0d0)) x))
-  #c(1.0d0 -2.0d0) #c(1.0d0 -2.0d0))
+;; (deftest decf.20
+;;   (let ((x 1))
+;;     (values (decf x #c(0.0d0 2.0d0)) x))
+;;   #c(1.0d0 -2.0d0) #c(1.0d0 -2.0d0))
 
-(deftest decf.21
-  (let ((x 1))
-    (values (decf x #c(0.0l0 -2.0l0)) x))
-  #c(1.0l0 2.0l0) #c(1.0l0 2.0l0))
+;; (deftest decf.21
+;;   (let ((x 1))
+;;     (values (decf x #c(0.0l0 -2.0l0)) x))
+;;   #c(1.0l0 2.0l0) #c(1.0l0 2.0l0))
 
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment

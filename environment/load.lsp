@@ -3,7 +3,7 @@
 ;;;; Created:  Sun Dec 12 19:43:17 2004
 ;;;; Contains: Load environment tests (section 25)
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

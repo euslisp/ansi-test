@@ -4,7 +4,7 @@
 ;;;; Contains: Aux. functions for CL-TEST
 
 (defmacro locally (&rest body) `(progn ,@body))
-(defmacro handler-case (form &rest args) form)
+;;(defmacro handler-case (form &rest args) form)
 (defun typep (obj type) (eq (class obj) (symbol-value type)))
 
 ;;; A function for coercing truth values to BOOLEAN
@@ -116,7 +116,7 @@ Results: ~A~%" expected-number form n results))))
 
 ;;; *universe* is defined elsewhere -- it is a list of various
 ;;; lisp objects used when stimulating things in various tests.
-(declaim (special *universe*))
+;; (declaim (special *universe*))
 
 ;;; The function EMPIRICAL-SUBTYPEP checks two types
 ;;; for subtypeness, first using SUBTYPEP*, then (if that
@@ -355,10 +355,12 @@ the condition to go uncaught if it cannot be classified."
 ;; (declaim (ftype (function (&rest function) (values function &optional))
 ;;              compose))
 
-(defun compose (&rest fns)
-  (let ((rfns (reverse fns)))
-    #'(lambda (x) (loop for f
-                        in rfns do (setf x (funcall (the function f) x))) x)))
+(defmacro compose (&rest fns)
+  `(function (lambda (x)
+     ,(let* ((rfns (reverse fns))
+	     (lst `(funcall ,(pop rfns) x)))
+	    (mapc #'(lambda (f) (setq lst `(funcall ,f ,lst))) rfns)
+	    lst))))
 
 (defun evendigitp (c)
   (notnot (find c "02468")))
@@ -369,11 +371,11 @@ the condition to go uncaught if it cannot be classified."
 (defun nextdigit (c)
   (cadr (member c '(#\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9))))
 
-(defun is-eq-p (x) #'(lambda (y) (eqt x y)))
-(defun is-not-eq-p (x) #'(lambda (y) (not (eqt x y))))
+(defmacro is-eq-p (x) `(function (lambda (y) (eqt ,x y))))
+(defmacro is-not-eq-p (x) `(function (lambda (y) (not (eqt ,x y)))))
 
-(defun is-eql-p (x) #'(lambda (y) (eqlt x y)))
-(defun is-not-eql-p (x) #'(lambda (y) (not (eqlt x y))))
+(defmacro is-eql-p (x) `(function (lambda (y) (eqlt ,x y))))
+(defmacro is-not-eql-p (x) `(function (lambda (y) (not (eqlt ,x y)))))
 
 (defun onep (x) (eql x 1))
 
@@ -382,7 +384,7 @@ the condition to go uncaught if it cannot be classified."
     (char-upcase c)))
 
 (defun string-invertcase (s)
-  (map 'string #'char-invertcase s))
+  (map string #'char-invertcase s))
 
 (defun symbol< (x &rest args)
   (apply #'string< (symbol-name x) (mapcar #'symbol-name args)))
@@ -412,7 +414,7 @@ the condition to go uncaught if it cannot be classified."
                   string))
 
 
-(declaim (type simple-base-string +base-chars+))
+;; (declaim (type simple-base-string +base-chars+))
 
 (defparameter +num-base-chars+ (length +base-chars+))
 
@@ -425,14 +427,14 @@ the condition to go uncaught if it cannot be classified."
                                       "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                       string))
 
-(declaim (type simple-base-string +alpha-chars+ +lower-case-chars+
-               +upper-case-chars+ +alphanumeric-chars+ +extended-digit-chars+
-               +standard-chars+))
+;; (declaim (type simple-base-string +alpha-chars+ +lower-case-chars+
+;;                +upper-case-chars+ +alphanumeric-chars+ +extended-digit-chars+
+;;                +standard-chars+))
 
 (defparameter +code-chars+
   (coerce (make-int-list 256) string))
 
-(declaim (type simple-string +code-chars+))
+;; (declaim (type simple-string +code-chars+))
 
 (defparameter +rev-code-chars+ (reverse +code-chars+))
 
@@ -667,7 +669,7 @@ the condition to go uncaught if it cannot be classified."
 ;; (defun safe-elt (x n)
 ;;   (classify-error* (elt x n)))
 
-(defmacro defstruct* (&body args)
+(defmacro defstruct* (&rest args)
   `(eval-when (:load-toplevel :compile-toplevel :execute)
      (handler-case (eval '(defstruct ,@args))
                       (serious-condition () nil))))
@@ -826,7 +828,7 @@ the condition to go uncaught if it cannot be classified."
 ;;         (* significand (expt radix limit) sign))
 ;;        (t (rational x))))))
 
-(declaim (special *similarity-list*))
+;; (declaim (special *similarity-list*))
 
 (defun is-similar (x y)
   (let ((*similarity-list* nil))
@@ -849,7 +851,7 @@ the condition to go uncaught if it cannot be classified."
                                                   *print-pprint-dispatch*
                                                 nil))
 
-(defmacro my-with-standard-io-syntax (&body body)
+(defmacro my-with-standard-io-syntax (&rest body)
   `(let ((*package* (find-package "COMMON-LISP-USER"))
          (*print-array* t)
          (*print-base* 10)
@@ -899,22 +901,23 @@ the condition to go uncaught if it cannot be classified."
                   :fill-pointer (if fill len nil)
                   :adjustable adjust))))
 
-(defmacro do-special-strings ((var string-form &optional ret-form) &body forms)
-  (let ((string (gensym))
-        (fill (gensym "FILL"))
-        (adjust (gensym "ADJUST"))
-        (base (gensym "BASE"))
-        (displace (gensym "DISPLACE")))
-    `(let ((,string ,string-form))
-       (dolist (,fill '(nil t) ,ret-form)
-         (dolist (,adjust '(nil t))
-           (dolist (,base '(nil t))
-             (dolist (,displace '(nil t))
-               (let ((,var (make-special-string
-                            ,string
-                            :fill ,fill :adjust ,adjust
-                            :base ,base :displace ,displace)))
-                 ,@forms))))))))
+(defmacro do-special-strings (var-lst &rest forms)
+  (multiple-value-bind (var string-form &optional ret-form) var-lst
+    (let ((string (gensym))
+	  (fill (gensym "FILL"))
+	  (adjust (gensym "ADJUST"))
+	  (base (gensym "BASE"))
+	  (displace (gensym "DISPLACE")))
+      `(let ((,string ,string-form))
+	 (dolist (,fill '(nil t) ,ret-form)
+	   (dolist (,adjust '(nil t))
+	     (dolist (,base '(nil t))
+	       (dolist (,displace '(nil t))
+		 (let ((,var (make-special-string
+			      ,string
+			      :fill ,fill :adjust ,adjust
+			      :base ,base :displace ,displace)))
+		   ,@forms)))))))))
 
 (defun make-special-integer-vector (contents &key fill adjust displace (etype 'integer))
   (let* ((len (length contents))
@@ -1038,16 +1041,16 @@ the condition to go uncaught if it cannot be classified."
 (defmacro expand-in-current-env (macro-form &environment env)
   (macroexpand macro-form env))
 
-;; (defmacro report-and-ignore-errors (form)
-;;   `(unwind-protect
-;;        (let ((lisp::*max-callstack-depth* 0))
-;;          (labels ((hook (form env) (catch 0 (evalhook form #'hook))))
-;;            (lisp::install-error-handler
-;; 	    #'(lambda (code msg1 form &optional (msg2))
-;; 		(format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48)   *program-name* msg1)
-;; 		(if msg2 (format *error-output* " ~A" msg2))
-;; 		(if form (format *error-output* " in ~s" form))
-;; 		(format *error-output* "~C[0m~%"  #x1b)
-;; 		(reset)))
-;;            (catch 0 (evalhook ',form #'hook))))
-;;      (lisp::install-error-handler *error-handler*)))
+(defmacro report-and-ignore-errors (form)
+  `(unwind-protect
+       (let ((lisp::*max-callstack-depth* 0))
+         (labels ((hook (form env) (catch 0 (evalhook form #'hook))))
+           (lisp::install-error-handler
+	    #'(lambda (code msg1 form &optional (msg2))
+		(format *error-output* "~C[1;3~Cm~A unittest-error: ~A" #x1b (+ 1 48)   *program-name* msg1)
+		(if msg2 (format *error-output* " ~A" msg2))
+		(if form (format *error-output* " in ~s" form))
+		(format *error-output* "~C[0m~%"  #x1b)
+		(reset)))
+           (catch 0 (evalhook ',form #'hook))))
+     (lisp::install-error-handler *error-handler*)))

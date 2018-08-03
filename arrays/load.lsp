@@ -2,7 +2,7 @@
 (compile-and-load "ANSI-TESTS:AUX;array-aux.lsp")
 (compile-and-load "ANSI-TESTS:AUX;bit-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname

@@ -1,22 +1,22 @@
-#!/usr/bin/env roseus
+#!/usr/bin/env irteusgl
 (require :unittest "lib/llib/unittest.l")
 
 ;; LOAD CL-compatibility libraries
 (load "auxiliary/eus-multiple-values.l")
 (load "auxiliary/eus-loop.l")
+
 (load "auxiliary/eus-character.l")
 (load "auxiliary/eus-predicates.l")
 (load "auxiliary/eus-sequences.l")
+(load "auxiliary/eus-declarations.l")
+(load "auxiliary/eus-numbers.l")
+(load "auxiliary/eus-types.l")
+(load "auxiliary/eus-printer.l")
+(load "auxiliary/eus-handlers.l")
 
 (defvar *signals-error* t)
 
 (defun single (lst) (and (consp lst) (not (cdr lst))))
-(defun sym-class (type)
-  (cond
-    ((eql type 'list) cons)
-    ((memq type '(simple-string simple-base-string)) string)
-    ((symbolp type) (symbol-value type))
-    (t type)))
 
 ;; OVERWRITES
 
@@ -101,46 +101,14 @@
 (send (find-package "LISP") :set-val 'names (list "LISP" "CL"))
 (send (find-package "USER") :set-val 'names (list "USER" "CL-USER" "CL-TEST"))
 
-
 (set-macro-character #\% nil)
-(set-dispatch-macro-character #\# #\C #'(lambda (s n c)
-					  (multiple-value-bind (r i) (read s)
-					    (complex r i))))
-(defun complex (real img) (make-instance complex :real real :imaginary img))
 
-(defun find-class (obj &optional error-p) (class obj))
 (defun compile-and-load (file)
   (if (string= (subseq file 0 15) "ANSI-TESTS:AUX;")
       (load (concatenate string "../auxiliary/" (subseq file 15)))
       (load file)))
 
-(setf (symbol-function '=concatenate) #'concatenate)
-(defun concatenate (type &rest args)
-  (apply #'=concatenate (sym-class type) args))
-
-(setf (symbol-function '=coerce) #'coerce)
-(defun coerce (obj type)
-  (=coerce obj (sym-class type)))
-
-(setf (symbol-function '=make-array) #'make-array)
-(defun make-array (dim &rest args &key element-type &allow-other-keys)
-  (if (consp element-type) (setq element-type (car element-type)))
-  (let* ((element-str (string-upcase element-type))
-	 (elmt (cond ((substringp "CHAR" element-str) :character)
-		     ((substringp "FLOAT" element-str) :float)
-		     ((substringp "BIT" element-str) :bit)
-		     ((or (substringp "FIXNUM" element-str)
-			  (substringp "BYTE" element-str)) :integer)
-		     (t 'vector))))
-    (apply #'=make-array dim :element-type elmt args)))
-
 (setf (symbol-function '=in-package) #'in-package)
-
-(defmacro ignore (&rest syms)
-  `(progn
-     ,@(mapcar #'(lambda (sym) `(defmacro ,sym (&rest args))) syms)))
-
-(ignore in-package declare declaim handler-bind report-and-ignore-errors ignore-errors)
 
 (defmacro assert (pred &optional (message "") &rest args)
   (with-gensyms (ret)
@@ -149,11 +117,18 @@
 	   ;; escape <> for xml
 	   (send *unit-test* :increment-failure ',pred (format nil ,message ,@args) nil)))))
 
+;; The upper exclusive bound on the value returned by the function char-code
+;; at least 96. Actually, 256 but left at 96 for security reasons
+(defvar char-code-limit 96)
+
 ;; *UNIT-TEST*
 (setq *unit-test* (instance unit-test-container :init))
 
+
 ;; LOAD AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
+(load "cl-symbol-names.lsp")
+;; (load "universe.lsp")
 
 ;; LOAD TESTS
 (load "symbols/load.lsp")
@@ -170,12 +145,10 @@
 (load "arrays/load.lsp")
 (load "environment/load.lsp")
 (load "misc/load.lsp")
-
-
-;; (load "misc/load.lsp")
 (load "numbers/load.lsp")
+(load "printer/load.lsp")
+
 ;; (load "packages/load.lsp")
-;; (load "printer/load.lsp")
 (load "reader/load.lsp")
 (load "streams/load.lsp")
 (load "sequences/load.lsp")

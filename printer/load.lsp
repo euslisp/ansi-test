@@ -2,7 +2,7 @@
 (compile-and-load "ANSI-TESTS:AUX;printer-aux.lsp")
 (compile-and-load "ANSI-TESTS:AUX;backquote-aux.lsp")
 
-(in-package #:cl-test)
+(in-package :cl-test)
 
 (let ((*default-pathname-defaults*
        (make-pathname
@@ -10,7 +10,7 @@
   (load "copy-pprint-dispatch.lsp")
   (load "print-integers.lsp")
   (load "print-ratios.lsp")
-  (load "print-floats.lsp")
+  ;; (load "print-floats.lsp")
   (load "print-complex.lsp")
   (load "print-characters.lsp")
   (load "print-lines.lsp")
@@ -46,5 +46,5 @@
   (load "print-level.lsp")
   (load "print-length.lsp")
 
-  (load "format/load.lsp")
+  ;; (load "format/load.lsp")
 )

@@ -87,19 +87,19 @@
    collect (list c4 (signum c4)))
   nil)
 
-(deftest signum.8
-  (let* ((c (complex 0 1))
-         (s (signum c)))
-    (or (eqlt c s)
-        (eqlt s #c(0.0 1.0))))
-  t)
+;; (deftest signum.8
+;;   (let* ((c (complex 0 1))
+;;          (s (signum c)))
+;;     (or (eqlt c s)
+;;         (eqlt s #c(0.0 1.0))))
+;;   t)
 
-(deftest signum.9
-  (let* ((c (complex 0 -1))
-         (s (signum c)))
-    (or (eqlt c s)
-        (eqlt s #c(0.0 -1.0))))
-  t)
+;; (deftest signum.9
+;;   (let* ((c (complex 0 -1))
+;;          (s (signum c)))
+;;     (or (eqlt c s)
+;;         (eqlt s #c(0.0 -1.0))))
+;;   t)
 
 (deftest signum.10
   (let* ((c (complex 3/5 4/5))

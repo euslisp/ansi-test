@@ -5,13 +5,13 @@
 
 
 
-(deftest hash-table-p.1
-  (loop for e in '(nil t 1 10.0 (a b c) #(a b c) #*1011
-                       #0aNIL #2a((a b)(c d)) #p"foo"
-                       "bar" #\a 3/5 #c(1.0 2.0))
-        when (hash-table-p e)
-        collect e)
-  nil)
+;; (deftest hash-table-p.1
+;;   (loop for e in '(nil t 1 10.0 (a b c) #(a b c) #*1011
+;;                        #0aNIL #2a((a b)(c d)) #p"foo"
+;;                        "bar" #\a 3/5 #c(1.0 2.0))
+;;         when (hash-table-p e)
+;;         collect e)
+;;   nil)
 
 (deftest hash-table-p.2
   (check-type-predicate #'hash-table-p 'hash-table)
