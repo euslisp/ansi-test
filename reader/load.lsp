@@ -14,15 +14,15 @@
 
   (load "read-delimited-list.lsp")
   (load "read-from-string.lsp")
-  ;; (load "readtable-case.lsp")
+  (load "readtable-case.lsp")
   (load "readtablep.lsp")
 
-  ;; (load "get-macro-character.lsp")
-  ;; (load "set-macro-character.lsp")
-  ;; (load "read-suppress.lsp")
+  (load "get-macro-character.lsp")
+  (load "set-macro-character.lsp")
+  (load "read-suppress.lsp")
   ;; (load "set-syntax-from-char.lsp")
-  ;; (load "dispatch-macro-characters.lsp")
+  (load "dispatch-macro-characters.lsp")
 
   ;; (load "syntax.lsp")
-  ;; (load "syntax-tokens.lsp")
+  (load "syntax-tokens.lsp")
   )

@@ -11,8 +11,8 @@
   "Standard lisp readtable. This is for recovery from broken
    read-tables, and should not normally be user-visible.")
 
-(defmacro with-standard-io-syntax (&body body)
-  _N"Bind the reader and printer control variables to values that enable READ
+(defmacro with-standard-io-syntax (&rest body)
+  "Bind the reader and printer control variables to values that enable READ
    to reliably read the results of PRINT.  These values are:
        *PACKAGE*			The COMMON-LISP-USER package
        *PRINT-ARRAY*			T
@@ -55,11 +55,11 @@
 	(*print-readably* t)
 	(*print-right-margin* nil)
 	(*read-base* 10)
-	(*read-default-float-format* 'single-float)
+	(*read-default-float-format* 'float)
 	(*read-eval* t)
 	(*read-suppress* nil)
-	;;(*readtable* *readtable*))
-        (*readtable* std-list-readtable))
+	(*readtable* *readtable*))
+        ;;(*readtable* std-lisp-readtable))
     (funcall function)))
 
 

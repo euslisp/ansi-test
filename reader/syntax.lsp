@@ -1145,4 +1145,3 @@
 (def-syntax-test syntax.multiple-escape-eof.2
   (signals-error (read-from-string "|" nil nil) end-of-file)
   t)
-

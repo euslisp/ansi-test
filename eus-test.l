@@ -157,7 +157,7 @@
 ;; (load "types-and-classes/load.lsp")
 ;; (load "objects/load.lsp") **UNSUPPORTED**
 
-;; ;; RUN TESTS
+;; RUN TESTS
 (init-unit-test)
 
 (terpri)

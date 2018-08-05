@@ -7,7 +7,7 @@
 
 ;;; Define a test using standard io syntax
 
-(defmacro def-syntax-test (name form &body expected-results)
+(defmacro def-syntax-test (name form &rest expected-results)
   `(deftest ,name
      (with-standard-io-syntax (let ((*package* (find-package :cl-test))) ,form))
      ,@expected-results))
