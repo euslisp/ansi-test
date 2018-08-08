@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of IN-PACKAGE
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; in-package

@@ -4,7 +4,7 @@
 ;;;; Contains: Tests for FIND-PACKAGE
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; find-package

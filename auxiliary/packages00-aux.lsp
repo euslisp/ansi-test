@@ -4,7 +4,7 @@
 ;;;; Contains: Package test code (common code)
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 (report-and-ignore-errors
   (defpackage "A"

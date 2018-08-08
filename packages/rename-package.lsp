@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of RENAME-PACKAGE
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; rename-package

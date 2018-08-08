@@ -7,7 +7,7 @@
 
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 (deftest do-symbols.1
   (progn

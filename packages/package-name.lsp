@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of PACKAGE-NAME
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; package-name
