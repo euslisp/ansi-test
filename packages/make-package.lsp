@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of MAKE-PACKAGE
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; make-package

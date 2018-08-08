@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of LIST-ALL-PACKAGES
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; list-all-packages

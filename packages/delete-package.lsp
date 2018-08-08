@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of DELETE-PACKAGE
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; delete-package
 
