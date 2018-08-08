@@ -39,9 +39,9 @@
   c
   (c b))
 
-(report-and-ignore-errors
- (defun (setf defun-test-fun-4) (newval x)
-   (return-from defun-test-fun-4 (setf (car x) newval))))
+;; (report-and-ignore-errors
+;;  (defun (setf defun-test-fun-4) (newval x)
+;;    (return-from defun-test-fun-4 (setf (car x) newval))))
 
 (deftest defun.5
   (let ((x 1))

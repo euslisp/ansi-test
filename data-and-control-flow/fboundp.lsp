@@ -27,12 +27,12 @@
   (not-mv (fboundp 'fboundp-5-fn))
   nil)
 
-(report-and-ignore-errors
- (defun (setf fboundp-6-accessor) (y x) (setf (car x) y)))
+;; (report-and-ignore-errors
+;;  (defun (setf fboundp-6-accessor) (y x) (setf (car x) y)))
 
-(deftest fboundp.6
-  (not-mv (fboundp '(setf fboundp-6-accessor)))
-  nil)
+;; (deftest fboundp.6
+;;   (not-mv (fboundp '(setf fboundp-6-accessor)))
+;;   nil)
 
 (deftest fboundp.7
   (let ((g (gensym))) (fboundp (list 'setf g)))
