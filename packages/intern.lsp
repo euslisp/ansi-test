@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of INTERN
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; intern

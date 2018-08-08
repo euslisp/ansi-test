@@ -7,7 +7,7 @@
 
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 (defun collect-external-symbols (pkg)
   (remove-duplicates

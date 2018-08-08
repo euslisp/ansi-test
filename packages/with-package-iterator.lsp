@@ -4,7 +4,7 @@
 ;;;; Contains: Tests of WITH-PACKAGE-ITERATOR
 
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 
 
