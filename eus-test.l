@@ -6,6 +6,7 @@
 (load "auxiliary/eus-loop.l")
 
 (load "auxiliary/eus-character.l")
+(load "auxiliary/eus-iteration.l")
 (load "auxiliary/eus-predicates.l")
 (load "auxiliary/eus-sequences.l")
 (load "auxiliary/eus-declarations.l")
