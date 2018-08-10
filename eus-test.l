@@ -1,4 +1,4 @@
-#!/usr/bin/env irteusgl
+#!/usr/bin/env eus
 (require :unittest "lib/llib/unittest.l")
 
 ;; LOAD CL-compatibility libraries
@@ -54,11 +54,10 @@
     ;; initilize result
     (send *unit-test* :init-result func-sym)
     (send *unit-test* :increment-test func-sym)
-    (setq tm (instance mtimer :init))
-    (send tm :start)
+    (setq tm (now))
     (funcall func)
     (format t "~A~%" func-sym)
-    (send *unit-test* :set-time-to-current-result (send tm :stop))))
+    (send *unit-test* :set-time-to-current-result (send (now) :elapsed tm))))
 
 (defmethod unit-test-container
   (:print-normal-result (&optional (strm t))
