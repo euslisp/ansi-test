@@ -3,8 +3,29 @@
 #+SEQ_TODO: TODO(t) WAITING(w) CURRENT(r) | CANCELLED(c) DONE(d)
 #+TAGS: CURRENT(r)
 
+* Introduction
+This repository contains code for test, as well as some documentation
+on test results, related to Common Lisp compliance of the [[https://github.com/euslisp/EusLisp][EusLisp]]
+language.
+
+Those tests are based on the [[https://common-lisp.net/project/ansi-test/][Ansi-Test]] test suite, which was made to
+test the Common Lisp compliance of different Common Lisp implementations.
+
+To run the tests (assuming you have installed ~euslisp~, perhaps with the ~irt~ extension), issue either ~roseus eus-test.l~, ~irteusgl
+eus-test.l~, (perhaps) ~eus eus-test.l~ or ~./eus-test.l~ (assuming the file has execution
+permissions).
+
+In order to get precise coverage of the tests (so as to have
+an idea of how much "Common" is EusLisp), you might want to visit the
+file ~reports/REPORT.org~. In order to update the tests documentation,
+after running them, you might want to visit ~reports/update-report.py~
+and follow the instructions.
+
+It follows a brief description on some of the compliance-related (options with an "*[X]*"
+are meant as solved) issues, as well as a coarse log on the tests coverage.
+
 * USAGE
-****** These .org files are intended to be used with emacs.
+****** These .org files are intended to be used with the emacs text editor.
 ****** In order to FOLD or UNFOLD a list or sublist, use TAB.
 ****** SHIFT TAB folds/unfolds whole levels.
 ****** In border to change the state of a task, use C-c C-t.
@@ -12,17 +33,17 @@
 ****** In order to update statistics on the whole file (useful after an automatic update on REPORTS.org), use C-u C-c #.
 ****** In order to kill an entire subtree, use C-c C-x C-w
 ****** If you use linum for line numbers, you might want to either disable them, or disable them for org-mode only:
-******  add [[https://www.emacswiki.org/emacs/linum-off.el][this]] file to your .emacs.d and then (require 'linum-off) to your init.el
-****** In order to update REPORT.org, please check update-report.py
+******  one option for that is to add [[https://www.emacswiki.org/emacs/linum-off.el][this]] file to your .emacs.d and then (require 'linum-off) to your init.el
+****** In order to update REPORT.org, please check update-report.py.
 
 * Milestones
 ** CURRENT 1 - Multiple values
-   - [X] Pass multiple-values tests *Mostly*
-     - [X]  See data-and-control-flow folder, multiple-value* tests
-   - [ ] Fix changes that were made in order to be able to run the tests
-     Depends upon a few functions update to return multiple values (postponed).
+   -  Pass multiple-values tests mostly
+     - See data-and-control-flow folder, multiple-value* tests
+   - [X] Fix changes that were made in order to be able to run the tests.
+     Depends upon a few functions update to return multiple values (postponed), as well as in the ability to print multiple values (postponed).
 *** Caveats:
-   - In sum, what was added is a modest implementation of multiple values.
+   - In sum, what was added is a modest implementation of multiple values, different from the one present in ~common.l~.
    -  It has a few important differences from the common lisp specification, namely that
       1. it doesn't supply nil values when needed;
       2. it doesn't silently discard exceeding values when required (note that this point, along with the previous one,
@@ -39,19 +60,19 @@
    - This implementation might deserve to be rethought at some time.
 
 ** TODO 2 - Environment tests
-   - [ ] Pass Environment tests
-    - [ ] Check out environment folder
+   - Pass Environment tests
+    - Check out environment folder
+
 ** WAITING 3 - Package tests
-   - [ ] Pass packages tests
-    - [ ] Implement parse-def-macro
-    - [ ] //        destructuring-bind
-    - [ ] //        defpackage
+   - [-] Pass packages tests
+     -  Implement parse-def-macro
+     -  //        destructuring-bind
+     - [X] //        defpackage
 
 ** CURRENT 4 Arrays
-   - [X] Make tests run without crashing (but not necessarily passing)
-   - [ ] Solve "Symbol expected in (symbol-value type)"
-   - [ ] Define undefined functions/macros
-   - [ ] Think about what can be done about the other issues
+   - Solve "Symbol expected in (symbol-value type)"
+   - Define undefined functions/macros (see below for examples)
+   - Think about what can be done about the other issues :)
 *** Caveats
     - symbol-value cannot retrieve values from lexical (local) variables.
     - "Symbol expected in (symbol-value type)" (should demand a few changes)
@@ -67,7 +88,7 @@
       - vector-push-extend
     - "Undefined function":
       - adjust-array
-      - macrolet
+      - macrolet (there is [[https://github.com/Affonso-Gui/euslisp/tree/macrolet][Affonso's implementation]])
       - array-displacement
       - signals-type-error
       - check-type-error
@@ -81,19 +102,17 @@
       - upgraded-array-element-type
      - Miscellaneous
        - "array index out of range"
-       - strange loop error yielding "unbound variable for in".
-         remember having seen it before, think it has to do with scoping.
+       - strange loop error yielding "unbound variable for in"
 
 ** CURRENT 5 Environment
 *** Caveats
     - Type issues ("symbol expected in ...", "symbol expected ...")
     - (seemingly) scope issues ("unbound variable *universe* in ...")
+      - some work must be done in order to be able to execute universe
     - A few class issues ("class expected")
-    - Dissassemble is undefined (and its tests not run)
+    - Dissassemble is undefined (and its tests do not run)
     - "Undefined function" errors:
       - search
-      - macrolet
-      - defpackage
       - short-site-name
       - long-site-name
       - machine-instance
@@ -116,10 +135,10 @@
 
 ** 6 Sequence
 *** Caveats
-    - (map 'list #'identity a), where a is a sequence, does not work
-    - Undefined functions:
-      - complement
-      - characterp
+    - ~(map 'list #'identity a)~, where a is a sequence, does not work
+    - [ ] "Undefined functions":
+      - [X] complement
+      - [X] characterp
       - stable-sort
       - do-special-integer-vectors
       - map-into
@@ -127,7 +146,7 @@
       - simple-vector-p
       - check-type-error
       - type-of
-    - Non-complyinh functions
+    - Non-complying functions
       - no such keyword :from-end in (position-if-not
       - integer expected in (position-if-not #'oddp #(1 3 1 4 3 2 1 8 9) :end nil)
       - No such keyword :from-end in find
@@ -135,17 +154,18 @@
       - No such keyword :key in (reduce #'+ '(1 2 3) :key '1+)
 ** DONE 6 Misc
 *** Caveats
-    - "no such package":
-      - common-lisp
+    - [ ] "no such package":
+      - [X] common-lisp
       - jvm
       - sb-c
     - "no such external symbol":
       - cl:handler-case
       - cl:external
+
 ** 6 Printer
 *** Caveats
     - Many mismatch arguments in my-with-standard-io-syntax
-    - "Undefined functions" or macros:
+    - "Undefined functions":
       - with-standard-io-syntax
       - write-to-string
       - make-print-struct-1
@@ -155,7 +175,7 @@
       - code-char
       - print-unreadable-object
       - define-condition
-    - "Unbound variable":
+    - "Unbound variable" (some, related to tests infrastructure):
       - *universe*
       - *print-radix*
       - *print-escape*
@@ -164,14 +184,14 @@
       - *print-readably*
       - *print-right-margin*
       - *mini-universe*
+
 ** CURRENT 7 Numbers
 *** Caveats
     - no dividing by zero
     - random does not work with big numbers
-    - support for numbers with s in the name (eg 4.0s0)
+    - [X] support for numbers with s in the name (eg 4.0s0)
     - "no such function":
       - integer-decode-float
-      - make-condition
       - mask-field
       - byte
       - deposit-field
@@ -189,7 +209,7 @@
       - lcm
       - gcd
       - realpart
-    - unboudn variable
+    - unbound variable
       - short-float
       - *numbers*
       - *rationals*
@@ -197,9 +217,10 @@
       - *integers* - those, presumably, from some of the non-loaded files
       - most-positive-X
     - lacking types
-      - rational
+      - rational - this one is (incompletely) present as ~ratio~
       - boolean
-      - support to different floats
+      - support to different float types (which might be translated to the same internals)
+
 ** 8 System-construction
 *** Caveats
     - Undefined functions
@@ -210,6 +231,7 @@
     - Unbound variables
       - *compile-file-pathname*
       - *load-truename*
+
 ** 9 Streams
 *** Caveats
     - Problems with binary vectors tests
@@ -226,7 +248,7 @@
 
 ** 8 Reader
 *** Caveats
-    - doesn't recognize short float notation
+    - [X] doesn't recognize short float notation (~2.3s4~)
     - Undefined functions
       - read-preserving-whitespace
       - COPY-PPRINT-DISPATCH
@@ -236,52 +258,6 @@
 *** Caveats
     - defstruct-with-tests crashes the tester
     - defstruct* crashes as well  
-* Outline
-*** Data Types
-*** Scope and Extent
-*** Type specifiers
-*** Program Structure (Forms, Functions, Top-Level Forms)
-*** Predicates (Logical Values, Data Type Predicates, Equality Predicates, Logical Operators)
-*** Control Structure (Constants and Variables, Generalized Variables, Function Invocation, Simple Sequencing, Establishing New Variable Bindings, Conditions, Blocks and Exists, Iteration, Structure Traversal and Side Effects, Multiple Values, Dynamic Non-Local Exists)
-**** eval-and-compile
-****  data-and-control-flow
-****  iteration
-****  conditions
-*** Macros
-**** environment
-*** Declarations
-*** Symbols
-**** symbols
-*** Packages
-**** packages
-*** Numbers
-**** numbers
-**** random
-*** Characters
-**** characters
-*** Sequences
-**** sequences
-*** Lists
-**** cons
-*** Hash Tables
-**** hash-tables
-*** Arrays
-**** arrays
-*** Strings
-**** strings
-*** Structures
-**** structures
-*** The Evaluator
-*** Streams
-****   streams
-*** Input/Output
-****   printer
-****   reader
-*** File System Interface
-****   pathnames
-****   files
-
-
 
 * Results
 
@@ -303,5 +279,3 @@
         | 7                       |    15420 |   6601 |    8819 |
         |-------------------------+----------+--------+---------|
         |                         |          |        |         |
-
-
