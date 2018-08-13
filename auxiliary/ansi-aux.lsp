@@ -73,13 +73,13 @@ Results: ~A~%" expected-number form n results))))
 ;;; Comparison functions that are like various builtins,
 ;;; but are guaranteed to return T for true.
 
-(setf (symbol-function 'eqt) #'eq
-      (symbol-function 'eqlt) #'eql
-      (symbol-function 'equalt) #'equal
-      (symbol-function 'equalpt) #'equal
-      (symbol-function 'string=t) #'string=
-      (symbol-function '=t) #'=
-      (symbol-function '<=t) #'<=)
+(alias 'eqt 'eq)
+(alias 'eqlt 'eql)
+(alias 'equalt 'equal)
+(alias 'equalpt 'equal)
+(alias 'string=t 'string=)
+(alias '=t '=)
+(alias '<=t '<=)
 
 (defun equalpt-or-report (x y)
   "Like EQUALPT, but return either T or a list of the arguments."

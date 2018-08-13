@@ -1,5 +1,6 @@
 (in-package "LISP")
 
+(defmacro lambda (args &rest body) `(function (lambda ,args ,@body)))
 
 (defmacro ignore (&rest syms)
   `(progn

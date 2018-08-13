@@ -10,15 +10,15 @@
     ((symbolp type) (symbol-value type))
     (t type)))
 
-(setf (symbol-function '=concatenate) #'concatenate)
+(alias'=concatenate 'concatenate)
 (defun concatenate (type &rest args)
   (apply #'=concatenate (sym-class type) args))
 
-(setf (symbol-function '=coerce) #'coerce)
+(alias '=coerce 'coerce)
 (defun coerce (obj type)
   (=coerce obj (sym-class type)))
 
-(setf (symbol-function '=make-array) #'make-array)
+(alias '=make-array 'make-array)
 (defun make-array (dim &rest args &key element-type &allow-other-keys)
   (if (consp element-type) (setq element-type (car element-type)))
   (let* ((element-str (string-upcase element-type))

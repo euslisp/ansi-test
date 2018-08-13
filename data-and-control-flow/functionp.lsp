@@ -46,12 +46,12 @@
   (functionp '(lambda (x) x))
   nil)
 
-(report-and-ignore-errors
- (defun (setf functionp-7-accessor) (y x) (setf (car x) y) y))
+;; (report-and-ignore-errors
+;;  (defun (setf functionp-7-accessor) (y x) (setf (car x) y) y))
 
-(deftest functionp.7
-  (not-mv (functionp #'(setf functionp-7-accessor)))
-  nil)
+;; (deftest functionp.7
+;;   (not-mv (functionp #'(setf functionp-7-accessor)))
+;;   nil)
 
 (deftest functionp.8
   (not-mv (functionp #'(lambda (x) x)))

@@ -345,19 +345,19 @@
    (assert (= (find -1 v :test #'< :from-end t) 7)))
   nil)
 
-(deftest find-vector.34
-  (do-special-integer-vectors
-   (v #(0 0 0 0) nil)
-   (assert (eql (find 0 v) 0))
-   (assert (eql (find 0 v :start 1) 0))
-   (assert (eql (find 0 v :from-end t) 0))
-   (assert (null (find 1 v)))
-   (assert (null (find 'a v)))
-   (assert (null (find 0.0 v)))
-   (assert (null (find #c(1.0 0.0) v)))
-   (assert (null (find -1 v)))
-   (assert (null (find 2 v))))
-  nil)
+;; (deftest find-vector.34
+;;   (do-special-integer-vectors
+;;    (v #(0 0 0 0) nil)
+;;    (assert (eql (find 0 v) 0))
+;;    (assert (eql (find 0 v :start 1) 0))
+;;    (assert (eql (find 0 v :from-end t) 0))
+;;    (assert (null (find 1 v)))
+;;    (assert (null (find 'a v)))
+;;    (assert (null (find 0.0 v)))
+;;    (assert (null (find #c(1.0 0.0) v)))
+;;    (assert (null (find -1 v)))
+;;    (assert (null (find 2 v))))
+;;   nil)
 
 ;;; tests on bit vectors
 

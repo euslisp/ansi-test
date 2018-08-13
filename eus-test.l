@@ -6,6 +6,7 @@
 (load "auxiliary/eus-loop.l")
 
 (load "auxiliary/eus-character.l")
+(load "auxiliary/eus-iteration.l")
 (load "auxiliary/eus-predicates.l")
 (load "auxiliary/eus-sequences.l")
 (load "auxiliary/eus-declarations.l")
@@ -109,7 +110,7 @@
       (load (concatenate string "../auxiliary/" (subseq file 15)))
       (load file)))
 
-(setf (symbol-function '=in-package) #'in-package)
+(alias '=in-package 'in-package)
 
 (defmacro assert (pred &optional (message "") &rest args)
   (with-gensyms (ret)

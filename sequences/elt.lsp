@@ -5,7 +5,7 @@
 
 (in-package :cl-test)
 
-(declaim (optimize (safety 3)))
+;; (declaim (optimize (safety 3)))
 
 ;; elt on lists
 
