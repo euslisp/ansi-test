@@ -27,7 +27,12 @@
   (if (or (and args (null (cdr args)))
           (not mv-interface::is-mv-on))
       (car args)
-      (cons mv-interface::magical args)))
+      (cons mv-interface::magical
+            (mapcar #'(lambda (arg)
+                     (if (mv-interface::magicalp arg)
+                         (cadr arg)
+                         arg))
+                 args))))
 
 (defun values-list (list)
   "All of the values of list are returned as multiple values"
