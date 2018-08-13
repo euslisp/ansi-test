@@ -109,7 +109,7 @@
       (load (concatenate string "../auxiliary/" (subseq file 15)))
       (load file)))
 
-(setf (symbol-function '=in-package) #'in-package)
+(alias '=in-package 'in-package)
 
 (defmacro assert (pred &optional (message "") &rest args)
   (with-gensyms (ret)

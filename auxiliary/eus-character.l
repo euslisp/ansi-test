@@ -11,17 +11,17 @@
   (assert (and (characterp x) (characterp y)))
   (not (equal x y)))
 
-(setf (symbol-function 'char<) #'<
-      (symbol-function 'char=) #'=
-      (symbol-function 'char>) #'>
-      (symbol-function 'char/=) #'/=
-      (symbol-function 'char<=) #'<=
-      (symbol-function 'char>=) #'>=
-      (symbol-function 'char-code) #'char-int
-      (symbol-function 'char-equal) #'equal
-      (symbol-function 'char-lessp) #'<
-      (symbol-function 'char-greaterp) #'>
-      (symbol-function 'char-not-lessp) #'>=)
+(alias 'char< '<)
+(alias 'char= '=)
+(alias 'char> '>)
+(alias 'char/= '/=)
+(alias 'char<= '<=)
+(alias 'char>= '>=)
+(alias 'char-code 'char-int)
+(alias 'char-equal 'equal)
+(alias 'char-lessp '<)
+(alias 'char-greaterp '>)
+(alias 'char-not-lessp '>=)
 
 (export '(characterp char-int char-code char-equal char-not-equal
           char-lessp char-greaterp char-not-lessp
