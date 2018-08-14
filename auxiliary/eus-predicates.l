@@ -4,6 +4,23 @@
 (defmacro complement (fn)
   `(function (lambda (&rest args) (not (apply ,fn args)))))
 
+
+(defun typep (obj type)
+  "Returns T if OBJECT is of type TYPE."
+  (cond ((numberp obj)
+         (or
+          (eq type 'number)
+          (and (integerp obj) (eq type 'integer))
+          (and (integerp obj) (>= obj 0) (or
+                                          (eq type 'natural)
+                                          (eq type 'character))) 
+          (and (floatp obj) (eq type 'float))
+          (eq type 'ratio)))
+        ((consp obj) (or (eq type 'cons) (eq type 'list)))
+        (t
+         (and (boundp type)
+              (derivedp obj (symbol-value type))))))
+
 ;;; EQUALP -- public.
 ;;
 (defun equalp (x y)
@@ -77,4 +94,4 @@
 		    (return-from equalp nil))))))
 	(t nil)))
 
-(export '(complement equalp))
+(export '(complement equalp typep))
