@@ -1,6 +1,20 @@
 (in-package "LISP")
 
 
+
+(defmacro typecase (keyform &rest cases)
+  "TYPECASE Keyform {(Type Form*)}*
+  Evaluates the Forms in the first clause for which TYPEP of Keyform
+  and Type is true.  If a singleton key is T or Otherwise then the
+  clause is a default clause."
+  `(OOtypecase ,keyform (quote ,cases)))
+
+(defun OOtypecase (keyform cases)
+  (dolist (el cases)
+    (when (typep keyform (car el))
+      (return-from OOtypecase (eval (cadr el))))))
+
+
 (defun find-class (obj &optional error-p) (class obj))
 
 (defun sym-class (type)
@@ -10,7 +24,7 @@
     ((symbolp type) (symbol-value type))
     (t type)))
 
-(alias'=concatenate 'concatenate)
+(alias '=concatenate 'concatenate)
 (defun concatenate (type &rest args)
   (apply #'=concatenate (sym-class type) args))
 
@@ -30,4 +44,4 @@
 		     (t 'vector))))
     (apply #'=make-array dim :element-type elmt args)))
 
-(export '(find-class))
+(export '(find-class typecase))
