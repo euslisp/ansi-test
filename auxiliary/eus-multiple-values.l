@@ -2,8 +2,8 @@
 ;; Hidden vars and functions
 ;;
 
-(make-package :mv-interface)
-(in-package :mv-interface)
+(unless (find-package "MV-INTERFACE") (make-package "MV-INTERFACE"))
+(in-package "MV-INTERFACE")
 
 (defvar magical (cons 'multiple 'values))
 (defvar is-mv-on nil)
