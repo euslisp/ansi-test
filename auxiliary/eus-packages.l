@@ -73,7 +73,7 @@
 
 	(:use
 	 (let ((new (stringify-names (cdr option))))
-	   (setf use (delete-duplicates (nconc use new) :test #'string=))
+	   (setf use (remove-duplicates (nconc use new) :test #'string=))
 	   (setf use-p t)))
 
 	(:import-from
@@ -135,29 +135,29 @@
   ;;       	 imports interns exports)
   ;;          (type (or list (member :default)) use)
   ;;          (type (or simple-base-string null) doc-string))
-  (let ((package (or (find-package name)
-		     (progn
-		       (when (eq use :default)
-		     	     (setf use *default-package-use-list*))
-		       (make-package name :use nil)))))
-    (unless (string= (package-name package) name)
+  (let ((pkg (or (find-package name)
+		 (progn
+		   (when (eq use :default)
+		     (setf use *default-package-use-list*))
+		   (make-package name :use nil)))))
+    (unless (string= (package-name pkg) name)
       (error "The passed name is a nick-name for the package"))
 
     ;; Nicknames
-    (send package :nicknames nicknames)
+    (send pkg :nicknames nicknames)
 
     ;; Shadows and Shadowing-imports.
-    ;; (let ((old-shadows (package-%shadowing-symbols package)))
+    ;; (let ((old-shadows (package-%shadowing-symbols pkg)))
     ;;   -> need a way of fetching shadowed symbols
     (when shadows
-      (dolist (shado shadows) (shadow shado package)))
+      (dolist (shado shadows) (shadow shado pkg)))
     ;; (dolist (sym-name shadows)
-    ;; (setf old-shadows (remove (find-symbol sym-name package) old-shadows)))
+    ;; (setf old-shadows (remove (find-symbol sym-name pkg) old-shadows)))
     ;; (dolist (simports-from shadowing-imports)
     ;;   (let ((other-package (package-or-lose (car simports-from))))
     ;;     (dolist (sym-name (cdr simports-from))
     ;;       (let ((sym (find-or-make-symbol sym-name other-package)))
-    ;;         (shadowing-import sym package)
+    ;;         (shadowing-import sym pkg)
     ;;         (setf old-shadows (remove sym old-shadows))))))
     ;;  -> need a way of shadowing-import
     ;; (when old-shadows
@@ -166,37 +166,37 @@
 
     ;; Use
     (unless (eq use :default)
-      (let ((old-use-list (package-use-list package))
+      (let ((old-use-list (package-use-list pkg))
 	    (new-use-list (mapcar #'find-package use)))
-	(use-package (set-difference new-use-list old-use-list) package)
+	(use-package (set-difference new-use-list old-use-list) pkg)
 	(let ((laterize (set-difference old-use-list new-use-list)))
 	  (when laterize
-	    (unuse-package laterize package)
+	    (unuse-package laterize pkg)
 	    (warn "~A previously used the following packages:~%  ~S"
 		  name
 		  laterize)))))
 
     ;; Import and Intern
     (dolist (sym-name interns)
-      (intern sym-name package))
+      (intern sym-name pkg))
     (dolist (imports-from imports)
       (let ((other-package (find-package (car imports-from))))
 	(dolist (sym-name (cdr imports-from))
           (if (find-symbol sym-name other-package)
 	  (import (list (find-symbol sym-name other-package))
-		  package)))))
+		  pkg)))))
     ;; Exports.
     (let ((old-exports nil)
-	  (exports (mapcar #'(lambda (sym-name) (intern sym-name package))
+	  (exports (mapcar #'(lambda (sym-name) (intern sym-name pkg))
 			   exports)))
-      (do-external-symbols (sym package)
+      (do-external-symbols (sym pkg)
 	(push sym old-exports))
-      (export exports package)
+      (export exports pkg)
       (let ((diff (set-difference old-exports exports)))
 	(when diff
 	  (warn "~A also exports the following symbols:~%  ~S" name diff))))
     ;; Documentation
-    ;;(setf (lisp::package-doc-string package) doc-string)
-    package))
+    ;;(setf (lisp::package-doc-string pkg) doc-string)
+    pkg))
 
 (export '(defpackage))

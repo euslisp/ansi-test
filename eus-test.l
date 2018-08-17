@@ -1,10 +1,7 @@
 #!/usr/bin/env irteusgl
 (require :unittest "lib/llib/unittest.l")
 
-;; LOAD CL-compatibility libraries
-(load "auxiliary/eus-multiple-values.l")
-(load "auxiliary/eus-loop.l")
-
+;; LOAD CL-COMPATIBLE LIBRARIES
 (load "auxiliary/eus-character.l")
 (load "auxiliary/eus-iteration.l")
 (load "auxiliary/eus-predicates.l")
@@ -15,6 +12,10 @@
 (load "auxiliary/eus-printer.l")
 (load "auxiliary/eus-handlers.l")
 (load "auxiliary/eus-packages.l")
+
+;; LOAD EUS AUXILIARY
+(load "auxiliary/eus-multiple-values.l")
+(load "auxiliary/eus-loop.l")
 
 (defvar *signals-error* t)
 
