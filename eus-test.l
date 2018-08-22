@@ -111,7 +111,7 @@
 (setf (symbol-function '=in-package) #'in-package)
 
 (defmacro assert (pred &optional (message "") &rest args)
-  (with-gensyms (ret)
+  (let ((ret (gensym)))
     `(let* (failure (ret ,pred))
        (if (not ret)
 	   ;; escape <> for xml
