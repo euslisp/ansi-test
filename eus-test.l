@@ -1,4 +1,4 @@
-#!/usr/bin/env irteusgl
+#!/usr/bin/env eus
 (require :unittest "lib/llib/unittest.l")
 
 ;; LOAD CL-COMPATIBLE LIBRARIES
@@ -56,11 +56,10 @@
     ;; initilize result
     (send *unit-test* :init-result func-sym)
     (send *unit-test* :increment-test func-sym)
-    (setq tm (instance mtimer :init))
-    (send tm :start)
+    (setq tm (now))
     (funcall func)
     (format t "~A~%" func-sym)
-    (send *unit-test* :set-time-to-current-result (send tm :stop))))
+    (send *unit-test* :set-time-to-current-result (send (now) :elapsed tm))))
 
 (defmethod unit-test-container
   (:print-normal-result (&optional (strm t))
@@ -114,7 +113,7 @@
 (alias '=in-package 'in-package)
 
 (defmacro assert (pred &optional (message "") &rest args)
-  (with-gensyms (ret)
+  (let ((ret (gensym)))
     `(let* (failure (ret ,pred))
        (if (not ret)
 	   ;; escape <> for xml
