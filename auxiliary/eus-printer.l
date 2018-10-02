@@ -74,9 +74,4 @@
       (loop for i from 0 to (- size 1) do
            (setf (schar a i) initial-element)))))
 
-(defun code-char
-    "Returns char correspondent to integer n.
-     In our case, chars are numbers"
-  (n) n)
-
-(export '(with-standard-io-syntax code-char))
+(export '(with-standard-io-syntax))

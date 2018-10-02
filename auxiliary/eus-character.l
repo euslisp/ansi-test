@@ -11,6 +11,11 @@
   (assert (and (characterp x) (characterp y)))
   (not (equal x y)))
 
+(defun code-char (n)
+  "Returns char correspondent to integer n.
+     In our case, chars are numbers"
+  n)
+
 (alias 'char< '<)
 (alias 'char= '=)
 (alias 'char> '>)
@@ -24,5 +29,5 @@
 (alias 'char-not-lessp '>=)
 
 (export '(characterp char-int char-code char-equal char-not-equal
-          char-lessp char-greaterp char-not-lessp
+          code-char char-lessp char-greaterp char-not-lessp
           char< char= char> char/= char<= char>=))
