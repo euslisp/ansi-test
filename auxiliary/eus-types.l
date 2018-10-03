@@ -1,7 +1,6 @@
 (in-package "LISP")
 
 
-
 (defmacro typecase (keyform &rest cases)
   "TYPECASE Keyform {(Type Form*)}*
   Evaluates the Forms in the first clause for which TYPEP of Keyform
@@ -43,5 +42,8 @@
 			  (substringp "BYTE" element-str)) :integer)
 		     (t 'vector))))
     (apply #'=make-array dim :element-type elmt args)))
+
+(defun make-string (dim &rest keys)
+  (apply #'make-array dim :element-type 'character keys))
 
 (export '(find-class typecase))
