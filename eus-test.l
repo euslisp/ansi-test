@@ -119,10 +119,6 @@
 	   ;; escape <> for xml
 	   (send *unit-test* :increment-failure ',pred (format nil ,message ,@args) nil)))))
 
-;; The upper exclusive bound on the value returned by the function char-code
-;; at least 96. Actually, 256 but left at 96 for security reasons
-(defvar char-code-limit 96)
-
 ;; *UNIT-TEST*
 (setq *unit-test* (instance unit-test-container :init))
 
@@ -130,7 +126,7 @@
 ;; LOAD AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
 (load "cl-symbol-names.lsp")
-;; (load "universe.lsp")
+(load "universe.lsp")
 
 ;; LOAD TESTS
 (load "symbols/load.lsp")
