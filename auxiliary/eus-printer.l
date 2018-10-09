@@ -63,9 +63,5 @@
     (funcall function)))
 
 
-(defun code-char
-    "Returns char correspondent to integer n.
-     In our case, chars are numbers"
-  (n) n)
+(export '(with-standard-io-syntax))
 
-(export '(with-standard-io-syntax code-char))
