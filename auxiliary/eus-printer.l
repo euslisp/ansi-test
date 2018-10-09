@@ -63,15 +63,4 @@
     (funcall function)))
 
 
-
-;; Shadows make-string so as to accept initial-element
-
-(defun make-string (size &key (initial-element nil))
-  "Make a string of size size whose elements are initialized to initial-elemenent"
-  (prog1
-      (setq a (instantiate string size))
-    (when initial-element
-      (loop for i from 0 to (- size 1) do
-           (setf (schar a i) initial-element)))))
-
 (export '(with-standard-io-syntax))
