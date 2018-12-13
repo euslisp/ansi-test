@@ -22,7 +22,8 @@
   (load "count-if-not.lsp")
   (load "reverse.lsp")
   (load "nreverse.lsp")
-  (load "sort.lsp")
+  ;; (load "sort.lsp") deadlocks in mutex_lock
+  ;; https://github.com/euslisp/EusLisp/pull/309
   (load "stable-sort.lsp")
   (load "length.lsp")
   (load "find.lsp")

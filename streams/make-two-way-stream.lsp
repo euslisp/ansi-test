@@ -39,15 +39,15 @@
       (get-output-stream-string os)))
    t nil t t #\8 "8")
 
-(deftest make-two-way-stream.3
-   (let* ((is (make-string-input-stream "foo"))
-          (os (make-string-output-stream))
-          (s (make-two-way-stream is os)))
-     (values
-      (peek-char nil s)
-      (read-char s)
-      (get-output-stream-string os)))
-   #\f #\f "")
+;; (deftest make-two-way-stream.3
+;;    (let* ((is (make-string-input-stream "foo"))
+;;           (os (make-string-output-stream))
+;;           (s (make-two-way-stream is os)))
+;;      (values
+;;       (peek-char nil s)
+;;       (read-char s)
+;;       (get-output-stream-string os)))
+;;    #\f #\f "")
 
 (deftest make-two-way-stream.4
    (let* ((is (make-string-input-stream "foo"))
