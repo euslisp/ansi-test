@@ -20,12 +20,6 @@
     (error "Number is above char-code-limit"))
   n)
 
-(alias 'char< '<)
-(alias 'char= '=)
-(alias 'char> '>)
-(alias 'char/= '/=)
-(alias 'char<= '<=)
-(alias 'char>= '>=)
 (alias 'char-code 'char-int)
 (alias 'char-equal 'equal)
 (alias 'char-lessp '<)
@@ -33,5 +27,4 @@
 (alias 'char-not-lessp '>=)
 
 (export '(characterp char-int char-code char-equal char-not-equal
-          code-char char-lessp char-greaterp char-not-lessp
-          char< char= char> char/= char<= char>=))
+          code-char char-lessp char-greaterp char-not-lessp))
