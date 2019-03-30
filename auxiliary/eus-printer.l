@@ -7,6 +7,22 @@
 
 (in-package :lisp)
 
+(defun write (obj &key (case *print-case*) (base *print-base*) (circle *print-circle*)
+                       (object *print-object*) (structure *print-structure*)
+                       (level *print-level*) (length *print-length*))
+  (let ((*print-case* case)
+        (*print-base* base)
+        (*print-circle* circle)
+        (*print-object* object)
+        (*print-structure* structure)
+        (*print-level* level)
+        (*print-length* length))
+    (prin1 obj)))
+
+(defun write-to-string (object &rest args)
+  (with-output-to-string (*standard-output*)
+    (apply #'write object args)))
+
 (defvar std-lisp-readtable ()
   "Standard lisp readtable. This is for recovery from broken
    read-tables, and should not normally be user-visible.")
@@ -62,5 +78,5 @@
         ;;(*readtable* std-lisp-readtable))
     (funcall function)))
 
-
-(export '(with-standard-io-syntax))
+;; cannot export `write' because it collides with `unix:write'
+(export '(write-to-string with-standard-io-syntax))
