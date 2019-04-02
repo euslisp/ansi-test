@@ -58,31 +58,52 @@
     (send *unit-test* :increment-test func-sym)
     (setq tm (now))
     (funcall func)
-    (format t "~A~%" func-sym)
+    (if (plusp (send (car (send *unit-test* :result)) :num-successes))
+      (format t "~A~%" func-sym))
     (send *unit-test* :set-time-to-current-result (send (now) :elapsed tm))))
+
+(defclass unit-test-result
+  :super propertied-object
+  :slots (name tests failures skips time))
+(defmethod unit-test-result
+  (:num-skips () (if skips 1 0))
+  (:num-successes () (- (send self :num-tests)
+                        (send self :num-failures)
+                        (send self :num-skips))))
 
 (defmethod unit-test-container
   (:print-normal-result (&optional (strm t))
     (let ((all-tests (apply #'+ (send-all result :num-tests)))
 	  (all-successes (apply #'+ (send-all result :num-successes)))
-	  (all-failures (apply #'+ (send-all result :num-failures))))
+	  (all-failures (apply #'+ (send-all result :num-failures)))
+	  (all-skips (apply #'+ (send-all result :num-skips))))
       (warning-message 2 "~%ALL RESULTS:~%")
-      (format strm "  TEST-NUM: ~A~%" all-tests)
+      (format strm "  TEST-NUM: ~A~%~%" all-tests)
+      ;; PASS
       (format strm "  PASSED:   ~A~%" all-successes)
+      ;; FAIL
       (if (> all-failures 0) (format strm "~C[3~Cm" #x1b 49))
-      (format strm "  FAILURE:  ~A~%~%" all-failures)
+      (format strm "  FAILURE:  ~A~%" all-failures)
       (if (> all-failures 0) (format strm "~C[0m" #x1b))
-      ;; only print failures
+      ;; SKIP
+      (if (> all-skips 0) (format strm "~C[3~Cm" #x1b 49))
+      (format strm "  SKIPPED:  ~A~%~%" all-skips)
+      (if (> all-skips 0) (format strm "~C[0m" #x1b))
+
+      ;; Print all failures
       (dolist (r (reverse (remove-if-not #'(lambda (obj) (unit-test-result-failures obj)) result)))
 	(warning-message 1 "~A " (unit-test-result-name r)))
       (format strm "~%~%")))
-  (:increment-failure
-   (test msg trace)
+  (:increment-failure (test msg trace)
    (when result
      (push (list test msg trace) (unit-test-result-failures (car result)))
      (warning-message 1 "[ERROR] At ~S: " (unit-test-result-name (car result)))
      (when trace
-       (format *error-output* "~C[3~Cmassert failed in ~A.~C[0m~%" #x1b 49 test #x1b)))))
+       (format *error-output* "~C[3~Cmassert failed in ~A.~C[0m~%" #x1b 49 test #x1b))))
+  (:increment-skip (name)
+    (when result
+      (setf (unit-test-result-skips (car result)) name)
+      (warning-message 2 "[SKIP] ~S~%" name))))
 
 (defmacro deftest (name clause &rest res)
   `(progn
@@ -93,6 +114,11 @@
      (send *unit-test* :add-function ',name)
      ',name))
 
+(defmacro defskip (name)
+  `(progn
+     (defun ,name () (send *unit-test* :increment-skip ',name))
+     (send *unit-test* :add-function ',name)
+     ',name))
 
 ;; PREPARE TESTS
 
@@ -110,8 +136,6 @@
       (load (concatenate string "../auxiliary/" (subseq file 15)))
       (load file)))
 
-(alias '=in-package 'in-package)
-
 (defmacro assert (pred &optional (message "") &rest args)
   (let ((ret (gensym)))
     `(let* (failure (ret ,pred))
@@ -121,7 +145,6 @@
 
 ;; *UNIT-TEST*
 (setq *unit-test* (instance unit-test-container :init))
-
 
 ;; LOAD AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
