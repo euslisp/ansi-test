@@ -100,10 +100,12 @@
      (warning-message 1 "[ERROR] At ~S: " (unit-test-result-name (car result)))
      (when trace
        (format *error-output* "~C[3~Cmassert failed in ~A.~C[0m~%" #x1b 49 test #x1b))))
-  (:increment-skip (name)
+  (:increment-skip (name &optional msg)
     (when result
       (setf (unit-test-result-skips (car result)) name)
-      (warning-message 2 "[SKIP] ~S~%" name))))
+      (warning-message 2 "[SKIP] ~S" name)
+      (if msg (format *error-output* "~C[1;3~Cm: ~A~C[0m~%" #x1b 50 msg #x1b))
+      (terpri))))
 
 (defmacro deftest (name clause &rest res)
   `(progn
@@ -114,9 +116,9 @@
      (send *unit-test* :add-function ',name)
      ',name))
 
-(defmacro defskip (name)
+(defmacro defskip (name &optional msg)
   `(progn
-     (defun ,name () (send *unit-test* :increment-skip ',name))
+     (defun ,name () (send *unit-test* :increment-skip ',name ,msg))
      (send *unit-test* :add-function ',name)
      ',name))
 
