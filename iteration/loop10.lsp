@@ -347,6 +347,7 @@
 ;; (deftest loop.10.73
 ;;   (loop for i from 1 to 4 sum (complex i i))
 ;;   #c(10 10))
+(defskip loop.10.73 "complex number")
 
 (deftest loop.10.74
   (loop for i from 1 to 4 sum i fixnum)
@@ -425,6 +426,7 @@
 ;;   (loop for i from 1 to 4
 ;;         sum (complex i (1+ i)) of-type complex)
 ;;   #c(10 14))
+(defskip loop.10.87 "complex number")
 
 (deftest loop.10.88
   (loop for i from 1 to 4

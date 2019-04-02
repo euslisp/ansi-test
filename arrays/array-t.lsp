@@ -11,11 +11,10 @@
   (notnot-mv (typep #() '(array t)))
   t)
 
-(deftest array-t.2.2
+;; (deftest array-t.2.2
 ;;   (notnot-mv (typep #0aX '(array t)))
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;       t)
+(defskip array-t.2.2 "zero-length array")
 
 (deftest array-t.2.3
   (notnot-mv (typep #2a(()) '(array t)))
@@ -39,11 +38,10 @@
   (notnot-mv (typep #() '(array t nil)))
   nil)
 
-(deftest array-t.3.2
+;; (deftest array-t.3.2
 ;;  (notnot-mv (typep #0aX '(array t nil)))
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;       t)
+(defskip array-t.3.2 "zero-length array")
 
 (deftest array-t.3.3
   (typep #2a(()) '(array t nil))
@@ -68,11 +66,10 @@
   (notnot-mv (typep #() '(array t 1)))
   t)
 
-(deftest array-t.4.2
+;; (deftest array-t.4.2
 ;;   (typep #0aX '(array t 1))
-    ;;   nil)
-    (error "segmentation fault")
-  )
+;;       nil)
+(defskip array-t.4.2 "zero-length array")
 
 (deftest array-t.4.3
   (typep #2a(()) '(array t 1))
@@ -96,11 +93,10 @@
   (typep #() '(array t 0))
   nil)
 
-(deftest array-t.5.2
+;; (deftest array-t.5.2
 ;;   (notnot-mv (typep #0aX '(array t 0)))
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;       t)
+(defskip array-t.5.2 "zero-length array")
 
 (deftest array-t.5.3
   (typep #2a(()) '(array t 0))
@@ -124,11 +120,10 @@
   (notnot-mv (typep #() '(array t *)))
   t)
 
-(deftest array-t.6.2
+;; (deftest array-t.6.2
 ;;   (notnot-mv (typep #0aX '(array t *)))
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;       t)
+(defskip array-t.6.2 "zero-length array")
 
 (deftest array-t.6.3
   (notnot-mv (typep #2a(()) '(array t *)))
@@ -152,11 +147,10 @@
   (typep #() '(array t 2))
   nil)
 
-(deftest array-t.7.2
+;; (deftest array-t.7.2
 ;;   (typep #0aX '(array t 2))
-    ;;   nil)
-    (error "segmentation fault")
-  )
+;;       nil)
+(defskip array-t.7.2 "zero-length array")
 
 (deftest array-t.7.3
   (notnot-mv (typep #2a(()) '(array t 2)))

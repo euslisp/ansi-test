@@ -16,6 +16,7 @@
 ;;         when (typep e 'hash-table)
 ;;         collect e)
 ;;   nil)
+(defskip hash-table.2)
 
 ;; (deftest hash-table.3
 ;;   (let ((c (find-class 'hash-table)))
@@ -25,6 +26,7 @@
 ;;           when (typep e c)
 ;;           collect e))
 ;;   nil)
+(defskip hash-table.3)
 
 (deftest hash-table.4
   (notnot-mv (typep (make-hash-table) 'hash-table))

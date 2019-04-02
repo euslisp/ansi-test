@@ -176,26 +176,27 @@
 ;;   (nil :initial-element 'x)
 ;;   (nil)
 ;;   #0ax)
-
+(defskip adjust-array.17 "zero-length array")
 
 ;; (def-adjust-array-test adjust-array.18
 ;;   (nil :initial-element 'x)
 ;;   (nil :initial-contents 'y)
 ;;   #0ay)
+(defskip adjust-array.18 "zero-length array")
 
 ;; (def-adjust-array-test adjust-array.19
 ;;   (nil :initial-element 'x)
 ;;   (nil :initial-element 'y)
 ;;   #0ax)
+(defskip adjust-array.19 "zero-length array")
 
-(deftest adjust-array.20
+;; (deftest adjust-array.20
 ;;   (let* ((a0 (make-array nil :initial-element 'x))
 ;;          (a1 (make-array nil :displaced-to a0))
 ;;          (a2 (adjust-array a1 nil)))
 ;;     a2)
-    ;;   #0ax)
-    (error "segmentation fault")
-  )
+;;       #0ax)
+(defskip adjust-array.20 "zero-length array")
 
 ;; 2-d arrays
 
@@ -574,17 +575,19 @@
 ;;   (nil :initial-element #\x :element-type 'character)
 ;;   (nil)
 ;;   #.(make-array nil :initial-element #\x :element-type 'character))
+(defskip adjust-array.string.17)
 
 ;; (def-adjust-array-test adjust-array.string.18
 ;;   (nil :initial-element #\x :element-type 'character)
 ;;   (nil :initial-contents #\y :element-type 'character)
 ;;   #.(make-array nil :initial-element #\y :element-type 'character))
+(defskip adjust-array.string.18)
 
 ;; (def-adjust-array-test adjust-array.string.19
 ;;   (nil :initial-element #\x :element-type 'character)
 ;;   (nil :initial-element #\y :element-type 'character)
 ;;   #.(make-array nil :initial-element #\x :element-type 'character))
-
+(defskip adjust-array.string.19)
 
 ;; (deftest adjust-array.string.20
 ;;   (let* ((a0 (make-array nil :initial-element #\x :element-type 'character))
@@ -592,6 +595,7 @@
 ;;          (a2 (adjust-array a1 nil :element-type 'character)))
 ;;     a2)
 ;;    #.(make-array nil :initial-element #\x :element-type 'character))
+(defskip adjust-array.string.20)
 
 (def-adjust-array-te;; st adjust-array.string.adjustable.1
    (5 :initial-contents "abcde" :adjustable t :element-type 'character)
@@ -694,6 +698,7 @@
 ;;                                    ,@ body)))
 ;;                        forms2)
 ;;   do (eval `(progn ,@forms3)))
+(defskip adjust-array.string.adjustable.13)
 
 ;; ;; 2-d arrays
 
@@ -843,21 +848,25 @@
 ;;          (a2 (adjust-array a1 5 :displaced-to a0 :element-type 'bit)))
 ;;     a2)
 ;;   #*10110)
+(defskip adjust-array.bit-vector.16)
 
 ;; (def-adjust-array-test adjust-array.bit-vector.17
 ;;   (nil :initial-element 0 :element-type 'bit)
 ;;   (nil)
 ;;   #.(make-array nil :initial-element 0 :element-type 'bit))
+(defskip adjust-array.bit-vector.17)
 
 ;; (def-adjust-array-test adjust-array.bit-vector.18
 ;;   (nil :initial-element 0 :element-type 'bit)
 ;;   (nil :initial-contents 1 :element-type 'bit)
 ;;   #.(make-array nil :initial-element 1 :element-type 'bit))
+(defskip adjust-array.bit-vector.18)
 
 ;; (def-adjust-array-test adjust-array.bit-vector.19
 ;;   (nil :initial-element 1 :element-type 'bit)
 ;;   (nil :initial-element 0 :element-type 'bit)
 ;;   #.(make-array nil :initial-element 1 :element-type 'bit))
+(defskip adjust-array.bit-vector.19)
 
 ;; (deftest adjust-array.bit-vector.20
 ;;   (let* ((a0 (make-array nil :initial-element 1 :element-type 'bit))
@@ -865,6 +874,7 @@
 ;;          (a2 (adjust-array a1 nil :element-type 'bit)))
 ;;     a2)
 ;;    #.(make-array nil :initial-element 1 :element-type 'bit))
+(defskip adjust-array.bit-vector.20)
 
 ;; 2-d arrays
 

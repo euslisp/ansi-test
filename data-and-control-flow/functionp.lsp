@@ -52,6 +52,7 @@
 ;; (deftest functionp.7
 ;;   (not-mv (functionp #'(setf functionp-7-accessor)))
 ;;   nil)
+(defskip funcitonp.7)
 
 (deftest functionp.8
   (not-mv (functionp #'(lambda (x) x)))

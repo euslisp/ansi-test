@@ -30,14 +30,14 @@
          result))))
   (a b c d e f))
 
-(deftest nconc.5
-    (error "infinite loop")
-  ;; (let ((x (list 'a 'b 'c)))
-  ;;   (nconc x x)
-  ;;   (and
-  ;;    (eqt (cdddr x) x)
-  ;;    (null (list-length x))))
-  t)
+;; (deftest nconc.5
+;;   (let ((x (list 'a 'b 'c)))
+;;     (nconc x x)
+;;     (and
+;;      (eqt (cdddr x) x)
+;;      (null (list-length x))))
+;;   t)
+(defskip nconc.5 "infinite loop")
 
 (deftest nconc.6
   (let ((x (list 'a 'b 'c))

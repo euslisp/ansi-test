@@ -53,6 +53,7 @@
 ;; (deftest function.7
 ;;   (not-mv (typep #'(setf function-7-accessor) 'function))
 ;;   nil)
+(defskip function.7)
 
 (deftest function.8
   (not-mv (typep #'(lambda (x) x) 'function))

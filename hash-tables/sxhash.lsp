@@ -113,39 +113,39 @@
 ;;       (eqlt sx1 sx2)))
 ;;  t)
 
-(deftest sxhash.15
-  (error "segmentation fault")
-  (let* ((package-name
-          (loop for i from 0
-                for name = (format nil "PACKAGE-~A" i)
-                for package = (find-package name)
-                unless package do (return name)))
-         (sx1
-          (let* ((package (make-package package-name :nicknames nil :use nil))
-                 (symbol (intern "FOO" package)))
-            (prog1
-               (sxhash symbol)
-              (delete-package package))))
-         (sx2
-          (let* ((package (make-package package-name :nicknames nil :use nil))
-                 (symbol (intern "FOO" package)))
-            (prog1
-               (sxhash symbol)
-              (delete-package package)))))
-    (assert (typep sx1 '(and unsigned-byte fixnum)))
-    (if (= sx1 sx2) :good (list sx1 sx2)))
-  :good)
+;; (deftest sxhash.15
+;;   (let* ((package-name
+;;           (loop for i from 0
+;;                 for name = (format nil "PACKAGE-~A" i)
+;;                 for package = (find-package name)
+;;                 unless package do (return name)))
+;;          (sx1
+;;           (let* ((package (make-package package-name :nicknames nil :use nil))
+;;                  (symbol (intern "FOO" package)))
+;;             (prog1
+;;                (sxhash symbol)
+;;               (delete-package package))))
+;;          (sx2
+;;           (let* ((package (make-package package-name :nicknames nil :use nil))
+;;                  (symbol (intern "FOO" package)))
+;;             (prog1
+;;                (sxhash symbol)
+;;               (delete-package package)))))
+;;     (assert (typep sx1 '(and unsigned-byte fixnum)))
+;;     (if (= sx1 sx2) :good (list sx1 sx2)))
+;;   :good)
+(defskip sxhash.15 "segmentation fault")
 
-(deftest sxhash.16
-  (error "infinite loop")
-  (let ((c1 (list 'a))
-        (c2 (list 'a)))
-    (setf (cdr c1) c1)
-    (setf (cdr c2) c2)
-    (let ((sx1 (sxhash c1))
-          (sx2 (sxhash c2)))
-      (or (eqlt sx1 sx2) (list sx1 sx2))))
-  t)
+;; (deftest sxhash.16
+;;   (let ((c1 (list 'a))
+;;         (c2 (list 'a)))
+;;     (setf (cdr c1) c1)
+;;     (setf (cdr c2) c2)
+;;     (let ((sx1 (sxhash c1))
+;;           (sx2 (sxhash c2)))
+;;       (or (eqlt sx1 sx2) (list sx1 sx2))))
+;;   t)
+(defskip sxhash.16 "infinite loop")
 
 ;;; Since similarity of numbers is 'same type and same mathematical value',
 ;;; and since sxhash must produce the same value for similar numeric arguments,

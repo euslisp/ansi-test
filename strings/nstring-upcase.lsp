@@ -47,13 +47,13 @@
           collect (nstring-upcase (copy-seq s) :start i)))
   ("ABCDEF" "aBCDEF" "abCDEF" "abcDEF" "abcdEF" "abcdeF" "abcdef"))
 
-(deftest nstring-upcase.9
-  (let ((s "abcdef"))
-    (error "at nstring-upcase: number expected at :end")
-    (loop for i from 0 to 6
-          collect
-          (nstring-upcase (copy-seq s) :start i :end nil)))
-  ("ABCDEF" "aBCDEF" "abCDEF" "abcDEF" "abcdEF" "abcdeF" "abcdef"))
+;; (deftest nstring-upcase.9
+;;   (let ((s "abcdef"))
+;;     (loop for i from 0 to 6
+;;           collect
+;;           (nstring-upcase (copy-seq s) :start i :end nil)))
+;;   ("ABCDEF" "aBCDEF" "abCDEF" "abcDEF" "abcdEF" "abcdeF" "abcdef"))
+(defskip nstring-upcase.9 "loop: number expected at :end")
 
 (deftest nstring-upcase.10
   (let ((s "abcde"))

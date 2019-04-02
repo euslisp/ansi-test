@@ -33,6 +33,7 @@
 ;; (deftest fboundp.6
 ;;   (not-mv (fboundp '(setf fboundp-6-accessor)))
 ;;   nil)
+(defskip fboundp.6)
 
 (deftest fboundp.7
   (let ((g (gensym))) (fboundp (list 'setf g)))

@@ -58,6 +58,7 @@
 ;;     (number 'bad)
 ;;     (#.(find-class 'symbol nil) 'good))
 ;;   good)
+(defskip etypecase.12)
 
 (deftest etypecase.13
   (block nil

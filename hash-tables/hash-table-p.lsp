@@ -12,6 +12,7 @@
 ;;         when (hash-table-p e)
 ;;         collect e)
 ;;   nil)
+(defskip hash-table-p.1)
 
 (deftest hash-table-p.2
   (check-type-predicate #'hash-table-p 'hash-table)

@@ -4,11 +4,11 @@
 ;;;; Contains: Tests for AND
 
 
-
+#+:cl-compatible
 (deftest and.1
-    (error "segmentation fault")
-  ;; (and)
+  (and)
   t)
+#-:cl-compatible (defskip and.1)
 
 (deftest and.2
   (and nil)

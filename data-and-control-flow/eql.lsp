@@ -37,6 +37,7 @@
 ;; (deftest eql.8
 ;;   (eqlt #c(1 -2) #c(1 -2))
 ;;   t)
+(defskip eql.8 "complex number")
 
 (deftest eql.9
   (let ((x "abc") (y "abc"))
@@ -50,6 +51,7 @@
 ;; (deftest eql.11
 ;;   (eqlt #c(1 -2) (- #c(-1 2)))
 ;;   t)
+(defskip eql.11 "complex number")
 
 (deftest eql.order.1
   (let ((i 0) x y)

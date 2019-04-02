@@ -18,14 +18,14 @@
 ;; check that list-length returns nil
 ;; on a circular list
 
-(deftest list-length-circular-list
-    (error "infinite list")
-  ;; (let ((x (cons nil nil)))
-  ;;   (let ((y (list* 1 2 3 4 5 6 7 8 9 x)))
-  ;;     (setf (cdr x) y)
-  ;;     (let ((z (list* 'a 'b 'c 'd 'e y)))
-  ;;       (list-length z))))
-  nil)
+;; (deftest list-length-circular-list
+;;   (let ((x (cons nil nil)))
+;;     (let ((y (list* 1 2 3 4 5 6 7 8 9 x)))
+;;       (setf (cdr x) y)
+;;       (let ((z (list* 'a 'b 'c 'd 'e y)))
+;;         (list-length z))))
+;;   nil)
+(defskip list-length-circular-list "infinite-list")
 
 (deftest list-length.order.1
   (let ((i 0))

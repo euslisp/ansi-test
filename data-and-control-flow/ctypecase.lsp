@@ -87,6 +87,7 @@
 ;;                (number 'bad)
 ;;                (#.(find-class 'symbol nil) 'good)))
 ;;   good)
+(defskip ctypecase.13)
 
 (deftest ctypecase.14
   (block done

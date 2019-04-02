@@ -18,19 +18,19 @@
              result))))
   (a b c))
 
-(deftest nbutlast.2
-    (error "segmentation fault")
-  ;; (let ((x (list 'a 'b 'c 'd 'e)))
-  ;;   (let ((result (nbutlast x 5)))
-  ;;     (list x result)))
-  ((a b c d e) nil))
+;; (deftest nbutlast.2
+;;   (let ((x (list 'a 'b 'c 'd 'e)))
+;;     (let ((result (nbutlast x 5)))
+;;       (list x result)))
+;;   ((a b c d e) nil))
+(defskip nbutlast.2 "segmentation fault")
 
-(deftest nbutlast.3
-    (error "segmentation fault")
-  ;; (let ((x (list 'a 'b 'c 'd 'e)))
-  ;;   (let ((result (nbutlast x 500)))
-  ;;     (list x result)))
-  ((a b c d e) nil))
+;; (deftest nbutlast.3
+;;   (let ((x (list 'a 'b 'c 'd 'e)))
+;;     (let ((result (nbutlast x 500)))
+;;       (list x result)))
+;;   ((a b c d e) nil))
+(defskip nbutlast.3 "segmentation fault")
 
 (deftest nbutlast.4
   (let ((x (list* 'a 'b 'c 'd)))
