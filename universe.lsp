@@ -112,7 +112,9 @@
       1.31283d2 834.13812D-45
       8131238.1E14 -4618926.231e-2
       -37818.131F3 81.318231f-19
-      1.31273s3 12361.12S-7
+      ;; short-float notation
+      #+:cl-compatible 1.31273s3
+      #+:cl-compatible 12361.12S-7
       6124.124l0 13123.1L-23)))
 
 (defparameter *ratios*
@@ -343,6 +345,7 @@
 
      ;; Float arrays
      (list
+      #+:cl-compatible
       (make-array '(5) :element-type 'short-float
                   :initial-contents '(1.0s0 2.0s0 3.0s0 4.0s0 5.0s0))
       (make-array '(5) :element-type 'single-float
