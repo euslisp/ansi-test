@@ -358,6 +358,7 @@
 ;;    (assert (null (find -1 v)))
 ;;    (assert (null (find 2 v))))
 ;;   nil)
+(defskip find-vector.34)
 
 ;;; tests on bit vectors
 

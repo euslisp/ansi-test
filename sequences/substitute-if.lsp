@@ -12,12 +12,12 @@
 (deftest substitute-if-list.2
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x) x))
   (b b b c)
-    (a b a c))
+  (a b a c))
 
 (deftest substitute-if-list.3
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count nil) x))
   (b b b c)
-    (a b a c))
+  (a b a c))
 
 (deftest substitute-if-list.4
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 2) x))
@@ -27,7 +27,7 @@
 (deftest substitute-if-list.5
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 1) x))
   (b b a c)
-    (a b a c))
+  (a b a c))
 
 (deftest substitute-if-list.6
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :count 0) x))
@@ -41,7 +41,7 @@
 
 (deftest substitute-if-list.8
   (let ((x '())) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))
-    nil nil)
+  nil nil)
 
 (deftest substitute-if-list.9
   (let ((x '(a b a c))) (values (substitute-if 'b (is-eql-p 'a) x :from-end t) x))

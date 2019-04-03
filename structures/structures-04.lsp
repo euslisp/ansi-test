@@ -26,6 +26,7 @@
 ;;      (struct-include-01b-b obj)
 ;;      (struct-include-01b-c obj)))
 ;;   t t 100 x 100 x 200)
+(defskip struct-include.1)
 
 
 ;; (deftest struct-include.2
@@ -41,6 +42,7 @@
 ;;      (struct-include-01b-d obj)
 ;;      ))
 ;;   t t 1 2 1 2 3 4)
+(defskip struct-include.2)
 
 (defstruct struct-include-02a
   (a 0 :type number))

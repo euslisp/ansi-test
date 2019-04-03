@@ -12,5 +12,4 @@
   (load "load-file.lsp")
   (load "with-compilation-unit.lsp")
   (load "features.lsp")
-  (load "modules.lsp")
-  )
+  (load "modules.lsp"))

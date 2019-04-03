@@ -59,6 +59,7 @@
 (def-fold-test remove-duplicates.fold.1 (remove-duplicates '(1 2 3 3)))
 (def-fold-test remove-duplicates.fold.2 (remove-duplicates #(1 2 3 3)))
 ;; (def-fold-test remove-duplicates.fold.3 (remove-duplicates #*0011))
+(defskip remove-duplicates.fold.3)
 (deftest remove-duplicates.fold.3 (error "mismatch argument ^"))
 (def-fold-test remove-duplicates.fold.4 (remove-duplicates "1233"))
 

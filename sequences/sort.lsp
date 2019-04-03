@@ -146,6 +146,7 @@
 ;;                        :fill-pointer 5)))
 ;;     (sort a #'<))
 ;;   #*00111)
+(defskip sort-bit-vector.3)
 
 (deftest sort-string.1
   (let ((a (copy-seq "10011101")))
@@ -173,6 +174,7 @@
 ;;      (assert (eq s s2))
 ;;      (assert (string= s2 "abcde"))))
 ;;   nil)
+(defskip sort-string.4)
 
 ;;; Order of evaluation tests
 
