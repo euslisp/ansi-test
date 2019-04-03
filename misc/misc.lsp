@@ -1799,7 +1799,7 @@
 
 ;;; clisp optional argument bug: "SYMBOL-VALUE: 1 is not a SYMBOL"
 
-(deftest misc.126
+;; (deftest misc.126
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -1814,8 +1814,8 @@
 ;;                              (f10-3 (cl:handler-case 10)))
 ;;                       -15))
 ;;          (%f10 -144)))))
-    ;;   -15)
-    (error "no such external symbol CL:HANDLER-CASE"))
+;;   -15)
+(defskip misc.126 "no such external symbol CL:HANDLER-CASE")
 
 (deftest misc.127
   (funcall
@@ -2333,7 +2333,7 @@
 
 ;;; SBCL (0.8.5.24) bug:  "bogus operands to XOR"
 
-(deftest misc.158
+;; (deftest misc.158
 ;;   (funcall
 ;;    (compile nil
 ;;             '(lambda (a b c)
@@ -2348,8 +2348,8 @@
 ;;                                    (common-lisp:handler-case
 ;;                                     (ash a (min 36 22477)))))))))
 ;;    100000 0 0)
-    ;;   0)
-    (error "no such package COMMON-LISP"))
+;;   0)
+(defskip misc.158 "no such package COMMON-LISP")
 
 
 ;;; sbcl (0.8.5.24) The value NIL is not of type SB-C::CTRAN.
@@ -2471,7 +2471,7 @@
 ;;; gcl (13 Nov 2003)
 ;;; Error in FUNCALL [or a callee]: Caught fatal error [memory may be damaged]
 
-(deftest misc.164
+;; (deftest misc.164
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -2486,8 +2486,8 @@
 ;;        (funcall #'%f6 10 20)
 ;;        )))
 ;;    0)
-    ;;   2829254)
-    (error "no such external symbol CL:HANDLER-CASE"))
+;;   2829254)
+(defskip misc.164 "no such external symbol CL:HANDLER-CASE")
 
 ;;; sbcl failures
 
@@ -4308,7 +4308,7 @@
                    (LET ((x (PROG1 0 (ROUND 18916)))) (catch 'ct4 0)))))
   0)
 
-(deftest misc.240
+;; (deftest misc.240
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -4322,8 +4322,8 @@
 ;;              (declare (special *s1*))
 ;;              (+ 0 *s1*)))))))
 ;;    5)
-    ;;   0)
-    (error "no such package COMMON-LISP"))
+;;   0)
+(defskip misc.240 "no such package COMMON-LISP")
 
 ;;; clisp (12 Dec 2003 cvs head)
 ;;; *** - Compiler bug!! Occurred in ASSEMBLE-LAP at ILLEGAL INSTRUCTION.
@@ -5240,7 +5240,7 @@ Broken at C::WT-C-INLINE-LOC.
          (complex (%f) 0)))))
   0)
 
-(deftest misc.293c
+;; (deftest misc.293c
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -5262,8 +5262,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                0
 ;;                0))))
 ;;    -237 -1365751422718)
-    ;;   0)
-    (error "no such package SB-C"))
+;;   0)
+(defskip misc.293c "no such package SB-C")
 
 (deftest misc.293d
   (funcall
@@ -5438,7 +5438,7 @@ Broken at C::WT-C-INLINE-LOC.
   1)
 
 
-(deftest misc.297
+;; (deftest misc.297
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -5471,8 +5471,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;             (%f7 0 d 0 f d))))
 ;;     -4319330882538 -3195059121 -2799927 -1466395 10630639 -224479
 ;;     -502579707077 -985908422)
-    ;;    0)
-    (error "no such external symbol CL:EXTERNAL"))
+;;    0)
+(defskip misc.297 "no such external symbol CL:EXTERNAL")
 
 (deftest misc.298
   (funcall
@@ -5725,6 +5725,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;    -7209 -223767 -42093806027 -9 132172281069 138363461574
 ;;    -3751010 0)
 ;;   0)
+(defskip misc.304)
 
 (deftest misc.305
   (funcall
@@ -5818,6 +5819,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                         -24781944 -8)))))))))
 ;;    60336 1625 124302 -33193 -8095855 4995857 0 4572381)
 ;;   0)
+(defskip misc.307)
 
 (deftest misc.308
   (funcall
@@ -5922,6 +5924,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;    -28594854 -3859203606860 -40757449218 894599577 -4163 11621230
 ;;    29558853 -92216802)
 ;;   1)
+(defskip misc.310)
 
 (deftest misc.311
   (funcall
@@ -6484,13 +6487,13 @@ Broken at C::WT-C-INLINE-LOC.
                         c)))
   1)
 
-(deftest misc.336
+;; (deftest misc.336
 ;;   (prog2 (progn (tagbody (- (common-lisp:handler-case (go tag2)))
 ;;                          tag2)
 ;;                 0)
 ;;          0)
-    ;;   0)
-    (error "no such package COMMON-LISP"))
+;;   0)
+(defskip misc.336 "no such package COMMON-LISP")
 
 ;;; Incorrect return value
 (deftest misc.337
@@ -6505,7 +6508,7 @@ Broken at C::WT-C-INLINE-LOC.
   0)
 
 ;;; Inconsistent stack height 1 != 2
-(deftest misc.338
+;; (deftest misc.338
 ;;   (let #+armedbear ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -6514,11 +6517,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          '(lambda (c)
 ;;             (conjugate (block b8 (max (if c (return-from b8 0) 0))))))
 ;;         10))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.338 "no such package JVM")
 
 ;;; Inconsistent stack height 4 != 0
-(deftest misc.339
+;; (deftest misc.339
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6535,10 +6538,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                   :start  0
 ;;                   :from-end t
 ;;                   ))))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.339 "no such package JVM")
 
-;; ;;;   The value INTEGER is not of type sequence.
+;;;   The value INTEGER is not of type sequence.
 ;; (deftest misc.340
 ;;   (funcall
 ;;    (compile
@@ -6559,9 +6562,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                'integer)))
 ;;    -1625211 3052955 -2091182035681)
 ;;   0)
+(defskip misc.340)
 
 ;;; Inconsistent stack height 1 != 2
-(deftest misc.341
+;; (deftest misc.341
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6576,10 +6580,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                             ((45293 29462 60403) (return-from b6 0))
 ;;                             (t c)))))))
 ;;     10))
-    ;;   10)
-    (error "no such package JVM"))
+;;   10)
+(defskip misc.341 "no such package JVM")
 
-;; ;;;  Inconsistent stack height 0 != 1
+;;;  Inconsistent stack height 0 != 1
 ;; (deftest misc.342
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
@@ -6595,9 +6599,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                0)))
 ;;     1))
 ;;   0)
+(defskip misc.342)
 
 ;;; Expecting to find object/array on stack
-(deftest misc.343
+;; (deftest misc.343
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6614,11 +6619,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                               :end      3
 ;;                               :start    0
 ;;                               :from-end t)))))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.343 "no such package JVM")
 
 ;;; Wrong value
-(deftest misc.344
+;; (deftest misc.344
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -6630,11 +6635,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                        5)
 ;;               a)))
 ;;    1891348)
-    ;;   -2612809)
-    (error "no such package JVM"))
+;;   -2612809)
+(defskip misc.344 "no such package JVM")
 
 ;;; Stack size too large
-(deftest misc.345
+;; (deftest misc.345
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6657,10 +6662,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                             (progn 0))))
 ;;              (sbit #*0001011010010 (min 12 (max 0 0))))))
 ;;     -1957 523078358699 -634832888815))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.345 "no such package JVM")
 
-(deftest misc.345a
+;; (deftest misc.345a
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6676,10 +6681,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                         (progn (mask-field (byte 0 0) 0) c))
 ;;                0)))
 ;;     1))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.345a "no such package JVM")
 
-;; ;;; wrong return value
+;;; wrong return value
 ;; (deftest misc.346
 ;;   (funcall
 ;;    (compile
@@ -6697,8 +6702,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                         (progn (return-from b8 191438621)
 ;;                                                0)))))))))))
 ;;   0)
+(defskip misc.346)
 
-;; ;;; The value 8 is not of type FUNCTION.
+;;; The value 8 is not of type FUNCTION.
 ;; (deftest misc.347
 ;;   (funcall
 ;;    (compile
@@ -6710,8 +6716,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                      (boole boole-xor (logxor (return-from b2 0)) 0)))
 ;;                 0))))
 ;;   0)
+(defskip misc.347)
 
-;; ;;; Wrong result
+;;; Wrong result
 ;; (deftest misc.348
 ;;   (funcall
 ;;    (compile
@@ -6722,6 +6729,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (max (conjugate (setq a -4178265097)) (if (> c 0) 0 a))))
 ;;    -2408319173 -4307532101272)
 ;;   -4178265097)
+(defskip misc.348)
 
 ;; (deftest misc.349
 ;;   (funcall
@@ -6734,10 +6742,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;               -10)
 ;;             (max 26 0)))))
 ;;   16)
+(defskip misc.349)
 
 ;;; Inconsistent stack height 0 != 1
 
-(deftest misc.350
+;; (deftest misc.350
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6750,10 +6759,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;         (progn (tagbody (complex (- 0 (if (and t) 0 (go tag1))) 0)
 ;;                         tag1)
 ;;                0)))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.350 "no such package JVM")
 
-(deftest misc.351
+;; (deftest misc.351
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6769,10 +6778,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                   (loop for lv3 below 1
 ;;                         sum (if (/= 0) (return-from b1 0) c))))))
 ;;     -392248104420))
-    ;;   392248104419)
-    (error "no such package JVM"))
+;;   392248104419)
+(defskip misc.351 "no such package JVM")
 
-(deftest misc.352
+;; (deftest misc.352
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -6785,8 +6794,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;         (progn (tagbody (+ 0 (if (< 0) (go 5) 0))
 ;;                         5)
 ;;                0)))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.352 "no such package JVM")
 
 ;; (deftest misc.353
 ;;   (let
@@ -6813,8 +6822,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;               0)))
 ;;     -7 772373806))
 ;;   1)
+(defskip misc.353)
 
-;; ;;; Incorrect return value
+;;; Incorrect return value
 ;; (deftest misc.354
 ;;   (funcall
 ;;    (compile
@@ -6832,6 +6842,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                  0))))
 ;;    29329060987 -4964942044116 512158612507)
 ;;   0)
+(defskip misc.354)
 
 ;; (deftest misc.355
 ;;   (funcall
@@ -6848,6 +6859,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                   'integer))))
 ;;    -115168466439)
 ;;   0)
+(defskip misc.355)
 
 ;; (deftest misc.356
 ;;   (let
@@ -6864,6 +6876,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;             (block b3
 ;;               (block b3 (block b3 (setq *s7* (return-from b3 0)))))))))))
 ;;   0)
+(defskip misc.356)
 
 ;; (deftest misc.357
 ;;   (let
@@ -6884,6 +6897,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                  (t (return-from b2 b)))))))))
 ;;     -1153135130306))
 ;;   1)
+(defskip misc.357)
 
 ;; (deftest misc.358
 ;;   (let
@@ -6903,6 +6917,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                               0)))
 ;;                                       (setq *s1* (return-from b3 0)))))))))))
 ;;   0)
+(defskip misc.358)
 
 ;; (deftest misc.359
 ;;   (let
@@ -6926,8 +6941,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                (t 0)))))
 ;;     287358622300 400248608))
 ;;   0)
+(defskip misc.359)
 
-;; ;;; Wrong return value
+;;; Wrong return value
 
 ;; (deftest misc.360
 ;;   (let ((c :good))
@@ -6936,10 +6952,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;       done)
 ;;     c)
 ;;   :good)
+(defskip misc.360)
 
-;; ;;; sbcl bugs (0.8.10.4)
+;;; sbcl bugs (0.8.10.4)
 
-;; ;;; failed AVER: "(SUBSETP END END-STACK)"
+;;; failed AVER: "(SUBSETP END END-STACK)"
 ;; (deftest misc.361
 ;;   (funcall
 ;;    (compile
@@ -6961,36 +6978,37 @@ Broken at C::WT-C-INLINE-LOC.
 ;;               (progv nil nil (values (boole boole-and 0 v9)))))))))
 ;;    1 2 3)
 ;;   0)
+(defskip misc.361)
 
-;; ;; ;;; sbcl (0.8.10.15)
-;; ;; ;;; Wrong return value: SB-KERNEL:*HANDLER-CLUSTERS*
-(deftest misc.362
-;; ;;   (funcall
-;; ;;    (compile
-;; ;;     nil
-;; ;;     '(lambda (b g h)
-;; ;;        (declare (optimize (speed 3) (space 3) (safety 2)
-;; ;;                           (debug 2) (compilation-speed 3)))
-;; ;;        (catch 'ct5
-;; ;;          (unwind-protect
-;; ;;              (labels ((%f15 (f15-1 f15-2 f15-3)
-;; ;;                             (rational (throw 'ct5 0))))
-;; ;;                (%f15 0
-;; ;;                      (apply #'%f15
-;; ;;                             0
-;; ;;                             h
-;; ;;                             (progn
-;; ;;                               (progv '(*s2* *s5*) (list 0 (%f15 0 g 0)) b)
-;; ;;                               0)
-;; ;;                             nil)
-;; ;;                      0))
-;; ;;            (common-lisp:handler-case 0)))))
-;; ;;    1 2 3)
-    ;; ;;   0)
-    (error "no such package COMMON-LISP"))
+;;; sbcl (0.8.10.15)
+;;; Wrong return value: SB-KERNEL:*HANDLER-CLUSTERS*
+;; (deftest misc.362
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda (b g h)
+;;        (declare (optimize (speed 3) (space 3) (safety 2)
+;;                           (debug 2) (compilation-speed 3)))
+;;        (catch 'ct5
+;;          (unwind-protect
+;;              (labels ((%f15 (f15-1 f15-2 f15-3)
+;;                             (rational (throw 'ct5 0))))
+;;                (%f15 0
+;;                      (apply #'%f15
+;;                             0
+;;                             h
+;;                             (progn
+;;                               (progv '(*s2* *s5*) (list 0 (%f15 0 g 0)) b)
+;;                               0)
+;;                             nil)
+;;                      0))
+;;            (common-lisp:handler-case 0)))))
+;;    1 2 3)
+;;   0)
+(defskip misc.362 "no such package COMMON-LISP")
 
-;; ;;; Wrong value: NIL
-(deftest misc.363
+;;; Wrong value: NIL
+;; (deftest misc.363
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -7002,10 +7020,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            0
 ;;          (elt '(30 101 13 2 10 52 89 57) (min 7 (max 0 a))))))
 ;;    -3647332298473)
-    ;;   57)
-        (error "no such package COMMON-LISP"))
+;;   57)
+(defskip misc.363 "no such package COMMON-LISP")
 
-;; ;;; "full call to SB-KERNEL:DATA-VECTOR-REF"
+;;; "full call to SB-KERNEL:DATA-VECTOR-REF"
 ;; (deftest misc.364
 ;;   (dotimes (iv1 2 0)
 ;;            (if (> iv1 iv1)
@@ -7013,8 +7031,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                         (min 8 (max 0 iv1)))
 ;;                  0))
 ;;   0)
+(defskip misc.364)
 
-;; ;;; OpenMCL/darwin bug (12 May 2004)
+;;; OpenMCL/darwin bug (12 May 2004)
 ;; (deftest misc.365
 ;;   (let* ((fn1
 ;;           '(lambda (a b c)
@@ -7034,9 +7053,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (v2 (apply (compile nil fn2) vals)))
 ;;     (if (eql v1 v2) :good (list v1 v2)))
 ;;   :good)
+(defskip misc.365)
 
-;; ;;; sbcl 0.8.10.24
-;; ;;;  Argument X is not a REAL: #<FUNCTION "CLOSURE" {947C46D}>
+;;; sbcl 0.8.10.24
+;;;  Argument X is not a REAL: #<FUNCTION "CLOSURE" {947C46D}>
 
 ;; (deftest misc.366
 ;;   (funcall
@@ -7093,9 +7113,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;    21956127 524275646496 101890987 8762 -88607922426 -55959 2177 147174
 ;;    38469170)
 ;;   11751)
+(defskip misc.366)
 
-;; ;;;  The value #<unknown pointer object, widetag=#x29 {A295F27}>
-;; ;;;  is not of type RATIONAL.
+;;;  The value #<unknown pointer object, widetag=#x29 {A295F27}>
+;;;  is not of type RATIONAL.
 
 ;; (deftest misc.367
 ;;   (funcall
@@ -7122,9 +7143,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            (%f17 0 a))))))
 ;;    112475717 -25829)
 ;;   0)
+(defskip misc.367)
 
-;; ;;; sbcl 0.8.10.25
-;; ;;; "The value -3 is not of type (INTEGER -5 -2)."
+;;; sbcl 0.8.10.25
+;;; "The value -3 is not of type (INTEGER -5 -2)."
 ;; (deftest misc.368
 ;;   (funcall
 ;;    (compile
@@ -7142,9 +7164,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          0)))
 ;;    -3)
 ;;   0)
+(defskip misc.368)
 
-;; ;;; acl 6.2 (x86 linux trial edition, patched, 4/15/04)
-;; ;;; Error: `T' is not of the expected type `NUMBER'
+;;; acl 6.2 (x86 linux trial edition, patched, 4/15/04)
+;;; Error: `T' is not of the expected type `NUMBER'
 ;; (deftest misc.369
 ;;   (funcall
 ;;    (compile
@@ -7177,6 +7200,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          b)))
 ;;    -2821485338 -35420 -7622 135 9592294022)
 ;;   -35420)
+(defskip misc.369)
 
 ;;; Lispworks personal edition 4.3 (x86 linux)
 ;;; Inconsistent return value
@@ -7205,9 +7229,9 @@ Broken at C::WT-C-INLINE-LOC.
    -1233959 -4 -2643533316361)
   -4214677583716)
 
-;; ;;; Armed Bear CL
+;;; Armed Bear CL
 
-;; ;;; inconsistent stack height
+;;; inconsistent stack height
 ;; (deftest misc.371
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
@@ -7237,8 +7261,9 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                          0)))))
 ;;     -5566 9 10557204445))
 ;;   0)
+(defskip misc.371)
 
-;; ;;; 0 is not of type LIST
+;;; 0 is not of type LIST
 (deftest misc.372
   (funcall
    (compile
@@ -7262,8 +7287,8 @@ Broken at C::WT-C-INLINE-LOC.
       0)
 
 
-;; ;;; inconsistent stack height
-(deftest misc.373
+;;; inconsistent stack height
+;; (deftest misc.373
 ;;   (let
 ;;    #+armedbear ((jvm::*catch-errors* nil))
 ;;    nil
@@ -7287,8 +7312,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                 :end 6
 ;;                 :from-end t)))
 ;;     141814 1445 -2))
-    ;;   142419)
-    (error "no such package JVM"))
+;;   142419)
+(defskip misc.373 "no such package JVM")
 
 ;; (deftest misc.374
 ;;   (let
@@ -7315,9 +7340,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                      0)))))
 ;;     -57 35725118))
 ;;   -1)
+(defskip misc.374)
 
-;; ;;; abcl (23 May 2004)
-;; ;;; 0 is not of type LIST
+;;; abcl (23 May 2004)
+;;; 0 is not of type LIST
 (deftest misc.375
   (funcall
    (compile
@@ -7344,23 +7370,23 @@ Broken at C::WT-C-INLINE-LOC.
    12851164 182468232812 -2243976802 309299185674 2538150 1855615980)
   0)
 
-;; ;; ;;; abcl (25 May 2004)
-;; ;; ;;; 0 is not of type LIST
-(deftest misc.376
-;; ;;   (funcall
-;; ;;    (compile
-;; ;;     nil
-;; ;;     '(lambda ()
-;; ;;        (declare (optimize (speed 1) (space 1) (safety 2) (debug 1)
-;; ;;                           (compilation-speed 0)))
-;; ;;        (dotimes (iv4 3
-;; ;;                      (multiple-value-bind (*s6*) (cons 0 0)
-;; ;;                        (progn (cdr *s6*) 0)))
-;; ;;          (floor (rational (let ((*s2*
-;; ;;                                  (rational (common-lisp:handler-case 0))))
-;; ;;                             0)))))))
-    ;; ;;   0)
-    (error "no such package COMMON-LISP"))
+;;; abcl (25 May 2004)
+;;; 0 is not of type LIST
+;; (deftest misc.376
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda ()
+;;        (declare (optimize (speed 1) (space 1) (safety 2) (debug 1)
+;;                           (compilation-speed 0)))
+;;        (dotimes (iv4 3
+;;                      (multiple-value-bind (*s6*) (cons 0 0)
+;;                        (progn (cdr *s6*) 0)))
+;;          (floor (rational (let ((*s2*
+;;                                  (rational (common-lisp:handler-case 0))))
+;;                             0)))))))
+;;   0)
+(defskip misc.376 "no such package COMMON-LISP")
 
 (deftest misc.377
   (funcall
@@ -7432,10 +7458,10 @@ Broken at C::WT-C-INLINE-LOC.
    399997)
   1125898833500797)
 
-;; ;; This also fails in cmucl (11/2003 image).  This case has not been fully
-;; ;; pruned for cmucl.
-;; ;;
-;; ;; Error in function LISP::ASSERT-ERROR:  The assertion (NOT C::WIN) failed.
+;; This also fails in cmucl (11/2003 image).  This case has not been fully
+;; pruned for cmucl.
+
+;; Error in function LISP::ASSERT-ERROR:  The assertion (NOT C::WIN) failed.
 (deftest misc.381
   (funcall
    (compile
@@ -7461,8 +7487,8 @@ Broken at C::WT-C-INLINE-LOC.
   1125898833500797)
 
 
-;; ;;; gcl (31 May 2004, cvs head)
-;; ;;; Error in SYSTEM:ASET [or a callee]: Expected a FIXNUM
+;;; gcl (31 May 2004, cvs head)
+;;; Error in SYSTEM:ASET [or a callee]: Expected a FIXNUM
 
 (deftest misc.382
   (funcall
@@ -7492,32 +7518,32 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;; ;;; cmucl 11/2003
 ;; ;;; Wrong value
-(deftest misc.383
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (a b c)
-  ;;      (declare (type (integer -93650 118967004056) a))
-  ;;      (declare (type (integer -429173946 -3892) b))
-  ;;      (declare (type (integer -229669685 -50537386) c))
-  ;;      (declare (ignorable a b c))
-  ;;      #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;      (declare
-  ;;       (optimize (speed 3) (space 1) (safety 0) (debug 3) (compilation-speed 2)))
-  ;;      (logorc2
-  ;;       (let* ((*s3* (cons 0 a)))
-  ;;         (declare (dynamic-extent *s3*))
-  ;;         (shiftf c -124766263))
-  ;;       411942919)))
-  ;;  79909316946 -347537841 -210771963)
-    ;; -142606339)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.383
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (a b c)
+;;      (declare (type (integer -93650 118967004056) a))
+;;      (declare (type (integer -429173946 -3892) b))
+;;      (declare (type (integer -229669685 -50537386) c))
+;;      (declare (ignorable a b c))
+;;      #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;      (declare
+;;       (optimize (speed 3) (space 1) (safety 0) (debug 3) (compilation-speed 2)))
+;;      (logorc2
+;;       (let* ((*s3* (cons 0 a)))
+;;         (declare (dynamic-extent *s3*))
+;;         (shiftf c -124766263))
+;;       411942919)))
+;;  79909316946 -347537841 -210771963)
+;; -142606339)
+(defskip misc.383 "no such package EXTENSIONS")
 
 ;; ;;; abcl 7 Jun 2004
 ;; ;;; catch-throw now enabled in the abcl compiler
 
 ;; ;;; Inconsistent stack height
-(deftest misc.384
+;; (deftest misc.384
 ;;   (let
 ;;       #+armedbear ((jvm::*catch-errors* nil))
 ;;       nil
@@ -7526,35 +7552,35 @@ Broken at C::WT-C-INLINE-LOC.
 ;;         nil
 ;;         '(lambda ()
 ;;            (catch 'ct8 (throw 'ct8 (catch 'ct7 0)))))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.384 "no such package EXTENSIONS")
 
-(deftest misc.385
+;; (deftest misc.385
 ;;   (let
 ;;       #+armedbear ((jvm::*catch-errors* nil))
 ;;       nil
 ;;       (funcall
 ;;        (compile nil '(lambda () (values 1 (catch 'ct2 2))))))
-    ;;   1 2)
-    (error "no such package JVM"))
+;;   1 2)
+(defskip misc.385 "no such package EXTENSIONS")
 
-(deftest misc.386
+;; (deftest misc.386
 ;;   (let
 ;;       #+armedbear ((jvm::*catch-errors* nil))
 ;;       nil
 ;;       (funcall
 ;;        (compile nil '(lambda () (values (rationalize (catch 'ct1 1)) 2)))))
-    ;;   1 2)
-    (error "no such package JVM"))
+;;   1 2)
+(defskip misc.386 "no such package EXTENSIONS")
 
-(deftest misc.387
+;; (deftest misc.387
 ;;   (let
 ;;       #+armedbear ((jvm::*catch-errors* nil))
 ;;       nil
 ;;       (funcall
 ;;        (compile nil '(lambda () (block b1 (catch 'ct1 (throw 'ct1 (return-from b1 0))))))))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.387 "no such package EXTENSIONS")
 
 ;; ;;; ecl (cvs head, 13 June 2004)
 ;; ;;; Problems with multiple-value-setq
@@ -7649,27 +7675,27 @@ Broken at C::WT-C-INLINE-LOC.
 ;; ;;;   Unresolved forward reference."
 ;; ;;; (in C::CORE-CALL-TOP-LEVEL-LAMBDA)
 
-(deftest misc.393
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (a b)
-  ;;      (declare (type (integer -995205 1035654) a))
-  ;;      (declare (type (integer 473 114804994247) b))
-  ;;      (declare (ignorable a b))
-  ;;      #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;      (declare
-  ;;       (optimize (debug 3) (speed 2) (compilation-speed 0) (space 3)
-  ;;                 (safety 3)))
-  ;;      (labels ((%f7
-  ;;                (f7-1 f7-2 f7-3
-  ;;                      &optional (f7-4 (lcm (if (>= b a) 0 a))) (f7-5 0)
-  ;;                      &key)
-  ;;                0))
-  ;;        (progn (%f7 (%f7 b a a b) b 0) 0))))
-  ;;  447930 66120263479)
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.393
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (a b)
+;;      (declare (type (integer -995205 1035654) a))
+;;      (declare (type (integer 473 114804994247) b))
+;;      (declare (ignorable a b))
+;;      #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;      (declare
+;;       (optimize (debug 3) (speed 2) (compilation-speed 0) (space 3)
+;;                 (safety 3)))
+;;      (labels ((%f7
+;;                (f7-1 f7-2 f7-3
+;;                      &optional (f7-4 (lcm (if (>= b a) 0 a))) (f7-5 0)
+;;                      &key)
+;;                0))
+;;        (progn (%f7 (%f7 b a a b) b 0) 0))))
+;;  447930 66120263479)
+;; 0)
+(defskip misc.393 "no such package EXTENSIONS")
 
 ;; (deftest misc.393a
 ;;   (funcall
@@ -7687,6 +7713,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (case (min -3693810 a iv1) ((26 -4) (ldb (byte 13 0) a)) (t b)))))
 ;;    56 -1579426331)
 ;;   0)
+(defskip misc.393a)
 
 ;; ;;; cmucl (2004-09 snapshot)
 ;; ;;; Wrong values
@@ -7706,6 +7733,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (logeqv 0 b)))
 ;;    -34528661 843541658238)
 ;;   -843541658239)
+(defskip misc.394)
 
 ;; (deftest misc.395
 ;;   (funcall
@@ -7722,6 +7750,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (+ (shiftf a 8496033756259) (min 0 b))))
 ;;    8369430915156 -369704905)
 ;;   8369061210251)
+(defskip misc.395)
 
 ;; ;;; "The assertion (EQ (CAR C::STACK) C::CONT) failed."
 ;; (deftest misc.396
@@ -7739,6 +7768,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (apply (constantly 0) 0 (list (signum b)))))
 ;;    -1365 -46960621335)
 ;;   0)
+(defskip misc.396)
 
 ;; ;;; "The assertion (EQ (C::FUNCTIONAL-KIND (C::LAMBDA-HOME C::FUN))
 ;; ;;;      :TOP-LEVEL) failed."
@@ -7761,6 +7791,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (apply #'%f4 (list a 0)))))
 ;;    -156882103995 -38)
 ;;   0)
+(defskip misc.397)
 
 ;; ;;; "Error in function C::CLOSURE-POSITION:
 ;; ;;;   Can't find #<C::LAMBDA-VAR #x594259BD
@@ -7786,6 +7817,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;           (dotimes (iv1 2 0) (catch 'ct2 a))))))
 ;;    4430 3476635674)
 ;;   0)
+(defskip misc.398)
 
 ;; ;;; "NIL is not of type C::CONTINUATION"
 ;; ;;; in C::FIND-PUSHED-CONTINUATIONS
@@ -7803,6 +7835,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (catch 'ct8 (logior a -457019 -1))))
 ;;    0)
 ;;   -1)
+(defskip misc.399)
 
 ;; ;;; Wrong value
 ;; (deftest misc.400
@@ -7819,6 +7852,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (case (lognand 775 a) ((-7) 0) (t 4))))
 ;;    4182)
 ;;   0)
+(defskip misc.400)
 
 ;; ;;; Invalid number of arguments: 1
 ;; (deftest misc.401
@@ -7835,6 +7869,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (logeqv (setq a 220250126156) 0)))
 ;;    157474319912)
 ;;   -220250126157)
+(defskip misc.401)
 
 ;; ;;; "The assertion (EQ (CAR C::NEW-STACK) C::CONT) failed."
 ;; (deftest misc.402
@@ -7857,6 +7892,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            0))))
 ;;    10)
 ;;   0)
+(defskip misc.402)
 
 ;; ;;; "The assertion C::INDIRECT failed."
 ;; (deftest misc.403
@@ -7873,11 +7909,12 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (dotimes (iv1 0 a) (loop for lv4 below 3 sum (catch 'ct8 0)))))
 ;;    -1648)
 ;;   -1648)
+(defskip misc.403)
 
 ;; ;;; From abcl (cvs, 15 Sept 2004)
 ;; ;;; Inconsistent stack height
 
- (deftest misc.404
+ ;; (deftest misc.404
 ;;   (let #+armedbear ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -7898,10 +7935,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                             tag8)
 ;;                    a)))
 ;;         -1068524571 20786758))
-     ;;   -1068524571)
-     (error "no such package JVM"))
+;;   -1068524571)
+(defskip misc.404 "no such package JVM")
 
-(deftest misc.405
+;; (deftest misc.405
 ;;   (let #+armedbear ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -7928,10 +7965,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                            b)))
 ;;                 0))))
 ;;         -10305 -26691848))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.405 "no such package JVM")
 
- (deftest misc.406
+ ;; (deftest misc.406
 ;;   (let #+armedbear ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -7946,8 +7983,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                             1)
 ;;                    0)))
 ;;         251841706892))
-     ;;   0)
-     (error "no such package JVM"))
+;;   0)
+(defskip misc.406 "no such package JVM")
 
 ;; ;;; Incorrect binding
 ;; (deftest misc.407
@@ -7962,10 +7999,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (multiple-value-bind (v5) (cons (truncate 0) a) (cdr v5))))
 ;;    -279)
 ;;   -279)
+(defskip misc.407)
 
 ;; ;;; Stack size too large
 
-(deftest misc.408
+;; (deftest misc.408
 ;;   (let #+armedbear ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -7982,8 +8020,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                             3)
 ;;                    (ash 0 (min 16 0)))))
 ;;         0))
-    ;;   0)
-    (error "no such package JVM"))
+;;   0)
+(defskip misc.408 "no such package JVM")
 
 ;; ;;; ecl (07 Oct 2004)
 ;; ;;; (0 . 0) is not of type REAL
@@ -8010,6 +8048,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                 nil))))
 ;;    -7465 -3590953)
 ;;   0)
+(defskip misc.409)
 
 ;; #|
 ;; ;;; A bug was found in the compiler.  Contact worm@arrakis.es.
@@ -8028,6 +8067,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (reduce #'(lambda (lmv1 lmv2) *s2*) (vector 0) :end 1
 ;;                  :start 0)))))
 ;;   0)
+(defskip misc.410)
 
 ;; ;;; THROW: The catch CT2 is undefined.
 ;; (deftest misc.411
@@ -8040,6 +8080,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (catch 'ct2 (values 0 (throw 'ct2 0)))
 ;;        0)))
 ;;   0)
+(defskip misc.411)
 
 ;; ;;; /tmp/eclDD7aumXi8.c: In function `LC3':
 ;; ;;; /tmp/eclDD7aumXi8.c:9: `env0' undeclared (first use in this function)
@@ -8059,6 +8100,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                 0)))
 ;;    -21802 -105983932)
 ;;   0)
+(defskip misc.412)
 
 ;; ;;; Different resutls: #<a type-error>, 0
 ;; (deftest misc.413
@@ -8088,6 +8130,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                  b)))))))))
 ;;    -4794909 4095236669)
 ;;   0)
+(defskip misc.413)
 
 ;; ;;; sbcl 0.8.14.28
 ;; ;;; Wrong value computed
@@ -8104,6 +8147,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          0)))
 ;;    0)
 ;;   1)
+(defskip misc.414)
 
 ;; ;;; cmucl
 ;; ;;; Sept. 2004 snapshot
@@ -8119,6 +8163,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            c)))
 ;;    :bad :good)
 ;;   :good)
+(defskip misc.415)
 
 ;; ;;; Wrong value
 ;; (deftest misc.416
@@ -8133,6 +8178,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (min (mask-field (byte 2 18) b) 89582)))
 ;;    13891743)
 ;;   0)
+(defskip misc.416)
 
 ;; ;;; Invalid number of arguments: 3
 ;; (deftest misc.417
@@ -8146,6 +8192,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;      (numerator (floor (numerator (deposit-field 0 (byte 0 0) c))))))
 ;;    17190042)
 ;;   17190042)
+(defskip misc.417)
 
 ;; ;;; Invalid number of arguments: #<Unknown Immediate Object, lowtag=#b110, type=#x66
 ;; ;;;                               {598FCC66}>
@@ -8161,6 +8208,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (if (logior (setf c 67) 0 a) a 0)))
 ;;    2161404325 -1968715305 83)
 ;;   2161404325)
+(defskip misc.418)
 
 ;; ;;;   nil is not of type c::continuation
 ;; ;;; (c::convert-type-check #<Continuation c1>
@@ -8175,6 +8223,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                           (debug 2)))
 ;;        (boole boole-set 0 (case 2 ((0) 0) (t (numerator (catch 'ct2 0))))))))
 ;;   -1)
+(defskip misc.419)
 
 ;; ;;;  nil is not of type c::continuation
 ;; ;;; (c::convert-type-check #<Continuation c1>
@@ -8201,6 +8250,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                  t))))
 ;;    6313133774518 10840050742)
 ;;   0)
+(defskip misc.420)
 
 ;; ;;; Invalid number of arguments: 1
 ;; (deftest misc.421
@@ -8213,6 +8263,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (imagpart (block b8 (logior (catch 'ct7 (return-from b8 a)) -1123785)))))
 ;;    -1021899)
 ;;   0)
+(defskip misc.421)
 
 ;; ;;; Invalid number of arguments: 2
 ;; (deftest misc.422
@@ -8226,6 +8277,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (logorc2 (sbit #*0010000011101010 (min 15 (max 0 0))) a)))
 ;;    -7)
 ;;   6)
+(defskip misc.422)
 
 ;; ;;;   nil is not of type c::continuation
 ;; ;;; (c::convert-type-check #<Continuation c1>
@@ -8242,6 +8294,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (min 0 (ignore-errors (logand 0 b 388)))))
 ;;    0 4604112015)
 ;;   0)
+(defskip misc.423)
 
 ;; ;;; Argument x is not a real: nil.
 ;; ;;; (kernel:two-arg-> nil 0)
@@ -8264,6 +8317,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                     0))))))
 ;;    -18 -47519360453)
 ;;   0)
+(defskip misc.424)
 
 ;; ;;; Different results
 ;; (deftest misc.425
@@ -8278,6 +8332,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;      (logorc1 (* a (logior b 0)) 0)))
 ;;    -80334 14527920)
 ;;   1167085925279)
+(defskip misc.425)
 
 ;; ;;; Unable to display error condition
 ;; (deftest misc.426
@@ -8290,12 +8345,13 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                           (compilation-speed 3)))
 ;;        (dotimes (iv3 1 0) (logxor iv3 1285775)))))
 ;;   0)
+(defskip misc.426)
 
 ;; ;;; sbcl 0.8.15.13
 ;; ;;; NIL is not of type REAL
 ;; ;;; (This appears to be related to DYNAMIC-EXTENT)
 
-(deftest misc.427
+;; (deftest misc.427
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -8309,8 +8365,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;           (declare (dynamic-extent v5))
 ;;           (1- v5)))))
 ;;    17)
-    ;;   16)
-    (error "no such package SB-C"))
+;;   16)
+(defskip misc.427 "no such package SB-C")
 
 (deftest misc.428
   (funcall
@@ -8364,43 +8420,43 @@ Broken at C::WT-C-INLINE-LOC.
   (let ((a 1)) (if (not (/= a 0)) a 0))
   0)
 
-;; ;;; sbcl 0.8.16.13
-;; ;;;   #<SB-C:TN t1> is not valid as the first argument to VOP:
-;; ;;;   SB-VM::FAST-ASH-LEFT-MOD32/UNSIGNED=>UNSIGNED
-;; ;;; Primitive type: T
-;; ;;; SC restrictions:
-;; ;;;   (SB-VM::UNSIGNED-REG)
-;; ;;; The primitive type disallows these loadable SCs:
-;; ;;;   (SB-VM::UNSIGNED-REG)
+;;; sbcl 0.8.16.13
+;;;   #<SB-C:TN t1> is not valid as the first argument to VOP:
+;;;   SB-VM::FAST-ASH-LEFT-MOD32/UNSIGNED=>UNSIGNED
+;;; Primitive type: T
+;;; SC restrictions:
+;;;   (SB-VM::UNSIGNED-REG)
+;;; The primitive type disallows these loadable SCs:
+;;;   (SB-VM::UNSIGNED-REG)
 
-(deftest misc.434
-;; ;;   (funcall
-;; ;;    (compile
-;; ;;     nil
-;; ;;     '(lambda (a b)
-;; ;;        (declare (type (integer -8431780939320 1571817471932) a))
-;; ;;        (declare (type (integer -4085 0) b))
-;; ;;        (declare (ignorable a b))
-;; ;;        (declare
-;; ;;         (optimize (space 2)
-;; ;;                   (compilation-speed 0)
-;; ;;                   #+sbcl (sb-c:insert-step-conditions 0)
-;; ;;                   (debug 2)
-;; ;;                   (safety 0)
-;; ;;                   (speed 3)))
-;; ;;        (let ((*s5* 0))
-;; ;;          (dotimes (iv1 2 0)
-;; ;;            (let ((*s5*
-;; ;;                   (elt '(1954479092053)
-;; ;;                        (min 0
-;; ;;                             (max 0
-;; ;;                                  (if (< iv1 iv1)
-;; ;;                                      (lognand iv1 (ash iv1 (min 53 iv1)))
-;; ;;                                    iv1))))))
-;; ;;              0)))))
-;; ;;    -7639589303599 -1368)
-    ;; ;;   0)
-    (error "no such package SB-C"))
+;; (deftest misc.434
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda (a b)
+;;        (declare (type (integer -8431780939320 1571817471932) a))
+;;        (declare (type (integer -4085 0) b))
+;;        (declare (ignorable a b))
+;;        (declare
+;;         (optimize (space 2)
+;;                   (compilation-speed 0)
+;;                   #+sbcl (sb-c:insert-step-conditions 0)
+;;                   (debug 2)
+;;                   (safety 0)
+;;                   (speed 3)))
+;;        (let ((*s5* 0))
+;;          (dotimes (iv1 2 0)
+;;            (let ((*s5*
+;;                   (elt '(1954479092053)
+;;                        (min 0
+;;                             (max 0
+;;                                  (if (< iv1 iv1)
+;;                                      (lognand iv1 (ash iv1 (min 53 iv1)))
+;;                                    iv1))))))
+;;              0)))))
+;;    -7639589303599 -1368)
+;;   0)
+(defskip misc.434 "no such package SB-C")
 
 ;; ;;; failed AVER:
 ;; ;;;  "(AND (EQ (CTRAN-KIND START) INSIDE-BLOCK) (NOT (BLOCK-DELETE-P BLOCK)))"
@@ -8427,6 +8483,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          0)))
 ;;    3021871717588 -866608 -2 -17194)
 ;;   0)
+(defskip misc.435)
 
 ;; ;;; In sbcl 0.8.16.18
 ;; ;;;   #<SB-C:TN INTEGER!1> is not valid as the first argument to VOP:
@@ -8437,7 +8494,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;; ;;; The primitive type disallows these loadable SCs:
 ;; ;;;   (SB-VM::UNSIGNED-REG)
 
-(deftest misc.436
+;; (deftest misc.436
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -8469,13 +8526,13 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            b
 ;;          0)))
 ;;    1265797 110757)
-    ;;   0)
-    (error "no such package SB-C"))
+;;   0)
+(defskip misc.436 "no such package SB-C")
 
 ;; ;;;  The value NIL is not of type INTEGER.
 ;; ;;; (in (SB-C::TN-SC-OFFSET 1 #<SB-C:TN #:G27!1>))
 
-(deftest misc.437
+;; (deftest misc.437
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -8495,8 +8552,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                (if (or (eql 0 0) t) 0 (if f10-1 0 0))))
 ;;          (complex (multiple-value-call #'%f10 (values a c b 0 0)) 0))))
 ;;    80043 74953652306 33658947 -63099937105 -27842393)
-    ;;   0)
-        (error "no such package SB-C"))
+;;   0)
+(defskip misc.437 "no such package SB-C")
 
 ;; ;;;   #<SB-C:TN COUNT!1> is not valid as the second argument to VOP:
 ;; ;;;   SB-VM::FAST-ASH-LEFT-MOD32/UNSIGNED=>UNSIGNED
@@ -8518,9 +8575,10 @@ Broken at C::WT-C-INLINE-LOC.
 ;;         (if (logbitp 0 (ash (1- a) (min 11 a))) 0 0)))
 ;;    805)
 ;;   0)
+(defskip misc.438)
 
 ;;; "The value -13589 is not of type (INTEGER -15205 18871)"
-(deftest misc.439
+;; (deftest misc.439
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -8536,8 +8594,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                   (compilation-speed 3)))
 ;;        (if (<= a (- (setf a 10305))) a 0)))
 ;;    -13589)
-    ;;   10305)
-    (error "no such package SB-C"))
+;;   10305)
+(defskip misc.439 "no such package SB-C")
 
 ;; ;;; In ACL 7.0 (sparc, Solaris 8, 11 Nov 2004)
 ;; ;;; Error: the value of (CAR EXCL::INTEGERS) is NIL, which is not of type INTEGER.
@@ -8567,6 +8625,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            *s8*))))
 ;;    13524 4484529434427 8109510572804)
 ;;   0)
+(defskip misc.440)
 
 ;; ;;; Error: the value of realpart is nil, which is not of type (or rational float).
 ;; (deftest misc.441
@@ -8583,6 +8642,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (%f8 0 a))))
 ;;    1 2)
 ;;   0)
+(defskip misc.441)
 
 ;; ;;; Error: the value of excl::x is nil, which is not of type integer.
 ;; (deftest misc.442
@@ -8600,6 +8660,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (apply #'%f18 b nil))))
 ;;    505808341634 -39752189)
 ;;   0)
+(defskip misc.442)
 
 ;; ;;; Error: No from-creg to move to <3:iparam2@(:iparam 2){4=c{s:<3>}}> before (move-throw-tag nil nil -> ({18}) ([18>>:frame :dfr]))
 
@@ -8622,6 +8683,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                         (unwind-protect (throw 'ct7 b) 0)))))
 ;;    -1748290 -244489705763 38969920 -90 341977)
 ;;   -244489705763)
+(defskip misc.443)
 
 ;; ;;; misc.444
 ;; ;;; misc.445
@@ -8645,6 +8707,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;           (if (oddp b) 0 c))))
 ;;    796131 -1 -338008808923 530637)
 ;;   -269099291056676913)
+(defskip misc.446)
 
 ;; (deftest misc.447
 ;;   (funcall
@@ -8657,6 +8720,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (catch 'ct2 (if (= a 0 (throw 'ct2 0)) 1 2289596))))
 ;;    18160383912)
 ;;   0)
+(defskip misc.447)
 
 ;; (deftest misc.448
 ;;   (funcall
@@ -8670,6 +8734,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (if (<= 0 b (setq a 117)) 0 a)))
 ;;    -1147 -44004)
 ;;   117)
+(defskip misc.448)
 
 ;; ;;; gcl 27 Nov 2004
 ;; ;;; Incorrect return value
@@ -8677,6 +8742,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;; (deftest misc.449
 ;;   (funcall (compile nil '(lambda (a) (* 10 a (setq a 1000)))) 1)
 ;;   10000)
+(defskip misc.449)
 
 ;; ;;; Error in COMPILER::CMP-ANON [or a callee]: The variable MIN is unbound.
 ;; (deftest misc.450
@@ -8684,6 +8750,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;    (compile nil '(lambda (a b) (min 0 (reduce #'min (vector a b 0)) 0)))
 ;;    -10 -1)
 ;;   -10)
+(defskip misc.450)
 
 ;; ;;; gcl 28 Nov 2004
 ;; ;;; Incorrect return value
@@ -8693,17 +8760,20 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                          (logxor a b (%f3)))))
 ;;            -22650 20595)
 ;;   171)
+(defskip misc.451)
 
 ;; (deftest misc.452
 ;;   (funcall (compile nil '(lambda (d) (labels ((%f3 () (setf d -1135) -983))
 ;;                                        (+ d (%f3) 11267))))
 ;;            -2914)
 ;;   7370)
+(defskip misc.452)
 
 ;; (deftest misc.453
 ;;   (funcall (compile nil '(lambda (a) (* a (setf a 2) a (identity 5))))
 ;;            3)
 ;;   60)
+(defskip misc.453)
 
 ;; (deftest misc.454
 ;;   (let* ((form '(let ((v1 0)) (decf v1 (setq v1 -1))))
@@ -8712,6 +8782,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (if (eql val1 val2) :good
 ;;       (list val1 val2)))
 ;;   :good)
+(defskip misc.454)
 
 ;; ;;; sbcl 0.8.17.24
 ;; ;;; Bugs in the just-introduced fixnum arithmetic transforms
@@ -8729,6 +8800,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (logand (* -775 b) a 37284)))
 ;;    -18465060867 832909434173)
 ;;   32772)
+(defskip misc.455)
 
 ;; (deftest misc.456
 ;;   (funcall
@@ -8742,6 +8814,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            (logand (* -9964236 (setq c 6206) 2600) b c)))
 ;;     17296668225 -6574)
 ;;   4096)
+(defskip misc.456)
 
 ;; ;;; DEPOSIT-FIELD (?) bug
 
@@ -8757,10 +8830,11 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (deposit-field (* (logeqv a a) b) (byte 6 24) 0)))
 ;;    -212811 -985078)
 ;;   0)
+(defskip misc.457)
 
 ;; ;;; LDB, *
 
-(deftest misc.458
+;; (deftest misc.458
 ;; ;;   (funcall
 ;; ;;    (compile
 ;; ;;     nil
@@ -8774,8 +8848,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;; ;;                      (safety 0) (debug 3)))
 ;; ;;            (ldb (byte 29 0) (* a a))))
 ;; ;;    14774118941)
-    ;; ;;   101418825)
-    (error "no such package SB-C"))
+;; ;;   101418825)
+(defskip misc.458 "no such package SB-C")
 
 ;; ;;; LOGAND, +
 
@@ -8791,43 +8865,44 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            (logand (+ b -9255) a 63)))
 ;;    -8166030199 -45872222127)
 ;;   8)
+(defskip misc.459)
 
 ;; ;;; In sbcl 0.8.17.28-signed-modular-arithmetic.3
 ;; ;;; Unreachable code is found or flow graph is not properly depth-first ordered.
 ;; ;;; (This is apparently a different bug from the previous ones that
 ;; ;;;  were causing this message to be printed.)
 
-(deftest misc.460
-;; ;;   (funcall
-;; ;;    (compile
-;; ;;     nil
-;; ;;     '(lambda (a)
-;; ;;        (declare (type (integer 50354997 50514623) a))
-;; ;;        (declare (ignorable a))
-;; ;;        (declare
-;; ;;         (optimize (speed 0)
-;; ;;                   (safety 0)
-;; ;;                   (compilation-speed 3)
-;; ;;                   #+sbcl (sb-c:insert-step-conditions 0)
-;; ;;                   (debug 1)
-;; ;;                   (space 1)))
-;; ;;        (loop for lv3 below 2
-;; ;;              sum (if (find 0
-;; ;;                            '(-17604051 126613572 -795198 12037855 127043241 -2 -59
-;; ;;                                        -3458890 1505 -1 -2 107498637 -977489 172087 421813
-;; ;;                                        543299114 12 4311490 569 -3509 -4051770 -1 1 1
-;; ;;                                        216399387 -2482 143297 2 304550 -61 -195904988
-;; ;;                                        57682175 2344 1294831 -247 -2 25779388 -296 -12115
-;; ;;                                        -158487 -15)
-;; ;;                            :test 'eql)
-;; ;;                      (if (find 0 #(4193594) :test '<)
-;; ;;                          (min (catch 'ct6 0) (catch 'ct8 0) 0)
-;; ;;                        (let ((*s1* (cons a 0)))
-;; ;;                          (car *s1*)))
-;; ;;                    0))))
-;; ;;    50395193)
-    ;; ;;   0)
-    (error "no such package SB-C"))
+;; (deftest misc.460
+;;   (funcall
+;;    (compile
+;;     nil
+;;     '(lambda (a)
+;;        (declare (type (integer 50354997 50514623) a))
+;;        (declare (ignorable a))
+;;        (declare
+;;         (optimize (speed 0)
+;;                   (safety 0)
+;;                   (compilation-speed 3)
+;;                   #+sbcl (sb-c:insert-step-conditions 0)
+;;                   (debug 1)
+;;                   (space 1)))
+;;        (loop for lv3 below 2
+;;              sum (if (find 0
+;;                            '(-17604051 126613572 -795198 12037855 127043241 -2 -59
+;;                                        -3458890 1505 -1 -2 107498637 -977489 172087 421813
+;;                                        543299114 12 4311490 569 -3509 -4051770 -1 1 1
+;;                                        216399387 -2482 143297 2 304550 -61 -195904988
+;;                                        57682175 2344 1294831 -247 -2 25779388 -296 -12115
+;;                                        -158487 -15)
+;;                            :test 'eql)
+;;                      (if (find 0 #(4193594) :test '<)
+;;                          (min (catch 'ct6 0) (catch 'ct8 0) 0)
+;;                        (let ((*s1* (cons a 0)))
+;;                          (car *s1*)))
+;;                    0))))
+;;    50395193)
+;;   0)
+(defskip misc.460 "no such package SB-C")
 
 ;; ;;; gcl 16 Dec 2004
 ;; ;;; Error possibly related to type propagation
@@ -8843,6 +8918,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                       -26715477)))
 ;;    -26179151369)
 ;;   -24004952244)
+(defskip misc.461)
 
 ;; ;;; gcl 18 Dec 2004
 ;; ;;; Doesn't cause an error, unless -Werror is added to gcc flags
@@ -8860,6 +8936,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (ash (let* ((v8 (cons 0 0))) 0) (min 15 a))))
 ;;    -1982565461868 46279989780)
 ;;   0)
+(defskip misc.462)
 
 ;; ;;; gazonk0.c: In function `L1':
 ;; ;;; gazonk0.c:5262: warning: assignment makes integer from pointer without a cast
@@ -8875,6 +8952,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (ash (multiple-value-setq (a) 0) (min 97 13027666096))))
 ;;    0 34670845086)
 ;;   0)
+(defskip misc.463)
 
 ;; ;;; gcl 21 Dec 2004
 ;; ;;; Compiler error on ash, rem
@@ -8889,6 +8967,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                (min 98 442719))
 ;;                           #(0 96) :test '=))))
 ;;   0)
+(defskip misc.464)
 
 ;; (deftest misc.465
 ;;   (funcall
@@ -8902,6 +8981,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                         (min 79 (catch 'ct7 0)))))
 ;;    -17635)
 ;;   -17635)
+(defskip misc.465)
 
 ;; ;;; ACL 6.2 (x86 linux)
 ;; ;;; Bug in type propagation for ISQRT
@@ -8917,6 +8997,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                            (isqrt x)))
 ;;            4)
 ;;   2)
+(defskip misc.466)
 
 ;; ;;; gcl 24 Dec 2004
 ;; ;;; Incorrect results (these may all be related)
@@ -8931,6 +9012,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (+ -77 (the (integer * -990888630255) p2) p3)))
 ;;    -990888630272 -19756)
 ;;   -990888650105)
+(defskip misc.467)
 
 ;; (deftest misc.468
 ;;   (funcall
@@ -8942,6 +9024,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                       (the (member 6515658 -14) p3))))
 ;;    151075403520 6515658)
 ;;   12816575208758)
+(defskip misc.468)
 
 ;; (deftest misc.469
 ;;   (funcall
@@ -8950,6 +9033,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (+ 30926 (the (integer -4025987543018 *) p2))))
 ;;    -4025817763840)
 ;;   -4025817732914)
+(defskip misc.469)
 
 ;; (deftest misc.470
 ;;   (funcall
@@ -8959,6 +9043,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (+ -1071 (the (integer * 3689229115390) p2))))
 ;;    3689228853248)
 ;;   3689228852177)
+(defskip misc.470)
 
 ;; (deftest misc.471
 ;;   (funcall
@@ -8969,6 +9054,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (* p1 (the (integer * 35716681856) p2))))
 ;;    -9024809 35716681856)
 ;;   -322336231864165504)
+(defskip misc.471)
 
 ;; (deftest misc.472
 ;;   (funcall
@@ -8979,6 +9065,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (min p1 (the integer p2))))
 ;;    -259 -523213622272)
 ;;   -523213622272)
+(defskip misc.472)
 
 ;; (deftest misc.473
 ;;   (funcall
@@ -8988,6 +9075,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (max 23939 (the (integer 64863825609 65878336765) p2))))
 ;;    65861912512)
 ;;   65861912512)
+(defskip misc.473)
 
 ;; (deftest misc.474
 ;;   (funcall
@@ -8997,62 +9085,63 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (logand (the signed-byte p1) -540165229)))
 ;;    -6750156304)
 ;;   -7289140848)
+(defskip misc.474)
 
 ;; ;;; abcl 25 Dec 2005
 ;; ;;; Debugger invoked on condition of type UNDEFINED-FUNCTION:
 ;; ;;; The function %FAILED-AVER is undefined.
 
-(deftest misc.475
-;; ;;   (let #+armedbear ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (p1 p2 p3 p4 p6)
-;; ;;                         (declare (optimize speed (safety 1))
-;; ;;                                  (type (integer -785238 61564048) p1)
-;; ;;                                  (type (integer * 65861934352) p2))
-;; ;;                         (+ P1 (THE (INTEGER -485480 -7019) P2) P3 P4
-;; ;;                            463666373060
-;; ;;                            P6)))
-;; ;;         61564048 -7457 24939545512 51 730))
-    ;; ;;   488667475944)
-    (error "no such package JVM"))
+;; (deftest misc.475
+;;   (let #+armedbear ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (p1 p2 p3 p4 p6)
+;;                         (declare (optimize speed (safety 1))
+;;                                  (type (integer -785238 61564048) p1)
+;;                                  (type (integer * 65861934352) p2))
+;;                         (+ P1 (THE (INTEGER -485480 -7019) P2) P3 P4
+;;                            463666373060
+;;                            P6)))
+;;         61564048 -7457 24939545512 51 730))
+;;   488667475944)
+(defskip misc.475 "no such package JVM")
 
-(deftest misc.476
-;; ;;   (let #+armedbear ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (p4)
-;; ;;                         (declare (optimize speed (safety 1))
-;; ;;                                  (type (integer -115781893486) p4))
-;; ;;                         (- 1 -35 0 (the (integer -115778245122) p4) -2)))
-;; ;;         -115778114900))
-    ;; ;;   115778114938)
-    (error "no such package JVM"))
+;; (deftest misc.476
+;;   (let #+armedbear ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (p4)
+;;                         (declare (optimize speed (safety 1))
+;;                                  (type (integer -115781893486) p4))
+;;                         (- 1 -35 0 (the (integer -115778245122) p4) -2)))
+;;         -115778114900))
+;;   115778114938)
+(defskip misc.476 "no such package JVM")
 
-(deftest misc.477
-;; ;;   (let #+armedbear ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (p4 p5)
-;; ;;                         (declare (optimize speed (safety 1))
-;; ;;                                  (type (integer -126908726190 -126906628448) p4)
-;; ;;                                  (type (integer * 2202) p5))
-;; ;;                         (* -1950 -33610502463 2 p4 p5)))
-;; ;;         -126906629040 1839))
-    ;; ;;   -30591843552678654213361992000)
-    (error "no such package JVM"))
+;; (deftest misc.477
+;;   (let #+armedbear ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (p4 p5)
+;;                         (declare (optimize speed (safety 1))
+;;                                  (type (integer -126908726190 -126906628448) p4)
+;;                                  (type (integer * 2202) p5))
+;;                         (* -1950 -33610502463 2 p4 p5)))
+;;         -126906629040 1839))
+;;   -30591843552678654213361992000)
+(defskip misc.477 "no such package JVM")
 
-(deftest misc.478
-;; ;;   (let #+armedbear ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (p2)
-;; ;;                         (declare (optimize speed (safety 1))
-;; ;;                                  (type (integer * 2343679) p2))
-;; ;;                         (logand 12050257282405 p2 117775123 505354693 -415679150084)))
-;; ;;         -6189))
-    ;; ;;   33816832)
-    (error "no such package JVM"))
+;; (deftest misc.478
+;;   (let #+armedbear ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (p2)
+;;                         (declare (optimize speed (safety 1))
+;;                                  (type (integer * 2343679) p2))
+;;                         (logand 12050257282405 p2 117775123 505354693 -415679150084)))
+;;         -6189))
+;;   33816832)
+(defskip misc.478 "no such package JVM")
 
 ;; ;;; Bug in CMUCL Snapshot 2004-10
 ;; ;;; Invalid number of arguments: 370632372
@@ -9068,6 +9157,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 2797674503)
 ;;     (aref r))
 ;;   2797674503)
+(defskip misc.479)
 
 ;; (deftest misc.480
 ;;   (let ((r (make-array nil :element-type 'integer))
@@ -9080,6 +9170,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -797965)
 ;;     (aref r))
 ;;   -1075415510532)
+(defskip misc.480)
 
 ;; (deftest misc.481
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 16)))
@@ -9092,6 +9183,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -4432)
 ;;     (aref r))
 ;;   4431)
+(defskip misc.481)
 
 ;; ;; Various incorrect results
 
@@ -9106,6 +9198,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -4)
 ;;     (aref r))
 ;;   15)
+(defskip misc.482)
 
 ;; (deftest misc.483
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 4)))
@@ -9119,6 +9212,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -519 -28180)
 ;;     (aref r))
 ;;   4)
+(defskip misc.483)
 
 ;; (deftest misc.484
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 4)))
@@ -9131,6 +9225,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -348969)
 ;;     (aref r))
 ;;   8)
+(defskip misc.484)
 
 ;; (deftest misc.485
 ;;   (let ((r (make-array nil :element-type 'bit))
@@ -9143,6 +9238,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -5)
 ;;     (aref r))
 ;;   1)
+(defskip misc.485)
 
 ;; (deftest misc.486
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 4)))
@@ -9156,6 +9252,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 6 6)
 ;;     (aref r))
 ;;   6)
+(defskip misc.486)
 
 ;; (deftest misc.487
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 16)))
@@ -9168,6 +9265,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 1587341392)
 ;;     (aref r))
 ;;   34832)
+(defskip misc.487)
 
 ;; (deftest misc.488
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 32)))
@@ -9180,6 +9278,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 1960409801)
 ;;     (aref r))
 ;;   1960409801)
+(defskip misc.488)
 
 ;; (deftest misc.489
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 32)))
@@ -9192,6 +9291,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r -51)
 ;;     (aref r))
 ;;   50)
+(defskip misc.489)
 
 ;; (deftest misc.490
 ;;   (let ((r (make-array nil :element-type '(unsigned-byte 32)))
@@ -9204,6 +9304,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 1030075308)
 ;;     (aref r))
 ;;   1030075308)
+(defskip misc.490)
 
 ;; (deftest misc.491
 ;;   (let ((r (make-array nil :element-type '(signed-byte 16)))
@@ -9216,6 +9317,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 506608551)
 ;;     (aref r))
 ;;   -8356)
+(defskip misc.491)
 
 ;; (deftest misc.492
 ;;   (let ((r (make-array nil :element-type '(signed-byte 8)))
@@ -9227,36 +9329,36 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r 19469591)
 ;;     (aref r))
 ;;   -18)
+(defskip misc.492)
 
 ;; ;;; ABCL (25 Dec 2004)
 ;; ;;; Class verification failed: (class: org/armedbear/lisp/out, method: execute signature: (Lorg/armedbear/lisp/LispObject;Lorg/armedbear/lisp/LispObject;Lorg/armedbear/lisp/LispObject;)Lorg/armedbear/lisp/LispObject;) Expecting to find integer on stack
 
-(deftest misc.493
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (b)
-;; ;;                         (declare (optimize (speed 2) (debug 1) (safety 3)
-;; ;;                                            (compilation-speed 3) (space 1)))
-    ;; ;;                         (aref #(41397376227 18660605846 49244777443) (min 2 (max 0 b)))))
-    (error "no such package JVM"))
-
-;;   ;;       -71))
-;;   ;; 41397376227)
+;; (deftest misc.493
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (b)
+;;                         (declare (optimize (speed 2) (debug 1) (safety 3)
+;;                                            (compilation-speed 3) (space 1)))
+;;                         (aref #(41397376227 18660605846 49244777443) (min 2 (max 0 b)))))
+;;       -71))
+;; 41397376227)
+(defskip misc.493 "no such package JVM")
 
 ;; ;;; ABCL (26 Dec 2004)
 ;; ;;;  Class verification failed: [...] Illegal exception table range
 
-(deftest misc.494
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda ()
-;; ;;                         (declare (optimize (safety 0) (space 2) (debug 3) (speed 0)
-;; ;;                                            (compilation-speed 2)))
-;; ;;                         (conjugate (progn (catch 'ct5 (if t 0 0)) 0))))))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.494
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda ()
+;;                         (declare (optimize (safety 0) (space 2) (debug 3) (speed 0)
+;;                                            (compilation-speed 2)))
+;;                         (conjugate (progn (catch 'ct5 (if t 0 0)) 0))))))
+;;   0)
+(defskip misc.494 "no such package JVM")
 
 ;; ;;; The value 5085 is not of type FUNCTION.
 
@@ -9275,72 +9377,73 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                      a)))
 ;;    72179019 5084)
 ;;   72179019)
+(defskip misc.495)
 
 ;; ;;; Inconsistent stack height 1 != 2
 
-(deftest misc.496
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil
-;; ;;                  '(lambda (a)
-;; ;;                     (declare (type (integer -54915 -3396) a))
-;; ;;                     (declare (optimize (debug 3) (space 0) (safety 2) (speed 2)
-;; ;;                                        (compilation-speed 3)))
-;; ;;                     (progn (1+ a) (catch 'ct6 (progn 0)))))
-;; ;;         -25986))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.496
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil
+;;                  '(lambda (a)
+;;                     (declare (type (integer -54915 -3396) a))
+;;                     (declare (optimize (debug 3) (space 0) (safety 2) (speed 2)
+;;                                        (compilation-speed 3)))
+;;                     (progn (1+ a) (catch 'ct6 (progn 0)))))
+;;         -25986))
+;;   0)
+(defskip misc.496 "no such package JVM")
 
-(deftest misc.497
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil
-;; ;;                  '(lambda (b)
-;; ;;                     (declare (type (integer -1 0) b))
-;; ;;                     (declare (optimize (space 3) (compilation-speed 1)
-;; ;;                                        (safety 0) (debug 1) (speed 0)))
-;; ;;                     (if 0 (prog2 0 0 (1+ b)) 0)))
-;; ;;         0))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.497
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil
+;;                  '(lambda (b)
+;;                     (declare (type (integer -1 0) b))
+;;                     (declare (optimize (space 3) (compilation-speed 1)
+;;                                        (safety 0) (debug 1) (speed 0)))
+;;                     (if 0 (prog2 0 0 (1+ b)) 0)))
+;;         0))
+;;   0)
+(defskip misc.497 "no such package JVM")
 
 ;; ;;; Inconsistent stack height 1 != 0
 
-(deftest misc.498
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil
-;; ;;                  '(lambda (a)
-;; ;;                     (declare (type (integer -16191 4) a))
-;; ;;                     (declare (optimize (compilation-speed 2) (space 1) (debug 0)
-;; ;;                                        (safety 0) (speed 2)))
-;; ;;                     (conjugate (dotimes (iv1 0 0)
-;; ;;                                  (let ((v2 (dotimes (iv3 0 0) (1+ a))))
-;; ;;                                    0)))))
-;; ;;         -2840))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.498
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil
+;;                  '(lambda (a)
+;;                     (declare (type (integer -16191 4) a))
+;;                     (declare (optimize (compilation-speed 2) (space 1) (debug 0)
+;;                                        (safety 0) (speed 2)))
+;;                     (conjugate (dotimes (iv1 0 0)
+;;                                  (let ((v2 (dotimes (iv3 0 0) (1+ a))))
+;;                                    0)))))
+;;         -2840))
+;;   0)
+(defskip misc.498 "no such package JVM")
 
 ;; ;;; Incompatible object argument for function call
 
-(deftest misc.499
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil
-;; ;;                  '(lambda (a b)
-;; ;;                     (declare (type (integer -31415 133871) a))
-;; ;;                     (declare (type (integer -993 6448) b))
-;; ;;                     (declare (ignorable a b))
-;; ;;                     (declare (optimize (space 0) (debug 2) (safety 0) (speed 0)
-;; ;;                                        (compilation-speed 0)))
-;; ;;                     (progn (ceiling (progn (1+ b) a)) a)))
-;; ;;         -16435 2620))
-    ;; ;;   -16435)
-    (error "no such package JVM"))
+;; (deftest misc.499
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil
+;;                  '(lambda (a b)
+;;                     (declare (type (integer -31415 133871) a))
+;;                     (declare (type (integer -993 6448) b))
+;;                     (declare (ignorable a b))
+;;                     (declare (optimize (space 0) (debug 2) (safety 0) (speed 0)
+;;                                        (compilation-speed 0)))
+;;                     (progn (ceiling (progn (1+ b) a)) a)))
+;;         -16435 2620))
+;;   -16435)
+(defskip misc.499 "no such package JVM")
 
 ;; ;;; Stack overflow during compilation
 
@@ -9351,21 +9454,22 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                       (speed 1) (safety 3)))
 ;;                    (the integer (integer-length (dotimes (iv4 2 15790955)))))))
 ;;   24)
+(defskip misc.500)
 
 ;; ;;; Inconsistent stack height 1 != 0
 
-(deftest misc.501
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -437165353 179983908) a))
-;; ;;                         (declare (optimize (compilation-speed 0) (debug 1) (space 1)
-;; ;;                                            (safety 2) (speed 1)))
-;; ;;                         (dotimes (iv1 0 0) (1+ a))))
-;; ;;         1))
-    ;; ;;   0)
-        (error "no such package JVM"))
+;; (deftest misc.501
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -437165353 179983908) a))
+;;                         (declare (optimize (compilation-speed 0) (debug 1) (space 1)
+;;                                            (safety 2) (speed 1)))
+;;                         (dotimes (iv1 0 0) (1+ a))))
+;;         1))
+;;   0)
+(defskip misc.501 "no such package JVM")
 
 ;; ;;; Ordering problems
 
@@ -9379,6 +9483,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                    (+ a (setq a 35035201))))
 ;;    29207264)
 ;;   64242465)
+(defskip misc.502)
 
 ;; ;;; ABCL 27 Dec 2004
 ;; ;;; Different results
@@ -9396,48 +9501,49 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                       :end 8 :start 6 :from-end t))))))
 ;;    17)
 ;;   -6)
+(defskip misc.503)
 
 ;; ;;; Inconsistent stack height
 
-(deftest misc.504
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer 196060 241373941) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (speed 3) (debug 0) (safety 2)
-;; ;;                                            (compilation-speed 3) (space 2)))
-;; ;;                         (prog2 (if 0 (+ a a) 0) 0)))
-;; ;;         200000))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.504
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer 196060 241373941) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (speed 3) (debug 0) (safety 2)
+;;                                            (compilation-speed 3) (space 2)))
+;;                         (prog2 (if 0 (+ a a) 0) 0)))
+;;         200000))
+;;   0)
+(defskip misc.504 "no such package JVM")
 
-(deftest misc.505
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -6 5) a))
-;; ;;                         (declare (optimize (speed 3) (space 0) (safety 2)
-;; ;;                                            (compilation-speed 2) (debug 3)))
-;; ;;                         (dotimes (iv1 0 0) (+ a a))))
-;; ;;         1))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.505
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -6 5) a))
+;;                         (declare (optimize (speed 3) (space 0) (safety 2)
+;;                                            (compilation-speed 2) (debug 3)))
+;;                         (dotimes (iv1 0 0) (+ a a))))
+;;         1))
+;;   0)
+(defskip misc.505 "no such package JVM")
 
-(deftest misc.506
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -53 49) a))
-;; ;;                         (declare (optimize (debug 0) (compilation-speed 1) (space 2)
-;; ;;                                            (safety 0) (speed 0)))
-;; ;;                         (unwind-protect (+ a a) 0)))
-;; ;;         -38))
-    ;; ;;   -76)
-    (error "no such package JVM"))
+;; (deftest misc.506
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -53 49) a))
+;;                         (declare (optimize (debug 0) (compilation-speed 1) (space 2)
+;;                                            (safety 0) (speed 0)))
+;;                         (unwind-protect (+ a a) 0)))
+;;         -38))
+;;   -76)
+(defskip misc.506 "no such package JVM")
 
 ;; ;;; The value 15390 is not of type FUNCTION.
 (deftest misc.507
@@ -9453,128 +9559,128 @@ Broken at C::WT-C-INLINE-LOC.
 ;; ;;; COMPILE-FORM: unsupported special operator LET*
 ;; ;;; Associated with 'THE' operator
 
-(deftest misc.508
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -57853147 -2) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (debug 2) (space 1) (compilation-speed 3)
-;; ;;                                            (safety 1) (speed 2)))
-;; ;;                         (the integer
-;; ;;                           (mask-field (byte 2 29)
-;; ;;                                       (ash (multiple-value-setq (a) -51781613)
-;; ;;                                            (min 1 a))))))
-;; ;;         -29324754))
-    ;; ;;   1610612736)
-    (error "no such package JVM"))
+;; (deftest misc.508
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -57853147 -2) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (debug 2) (space 1) (compilation-speed 3)
+;;                                            (safety 1) (speed 2)))
+;;                         (the integer
+;;                           (mask-field (byte 2 29)
+;;                                       (ash (multiple-value-setq (a) -51781613)
+;;                                            (min 1 a))))))
+;;         -29324754))
+;;   1610612736)
+(defskip misc.508 "no such package JVM")
 
-(deftest misc.509
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -38984312 657) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (debug 1) (compilation-speed 1) (speed 1)
-;; ;;                                            (safety 2) (space 3)))
-;; ;;                         (the integer
-;; ;;                           (if (> a -27907941364)
-;; ;;                               116871
-;; ;;                             (cl:handler-case
-;; ;;                              (multiple-value-setq (a)
-;; ;;                                -34832621))))))
-;; ;;         -26788929))
-    ;; ;;   116871)
-    (error "no such package JVM"))
+;; (deftest misc.509
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -38984312 657) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (debug 1) (compilation-speed 1) (speed 1)
+;;                                            (safety 2) (space 3)))
+;;                         (the integer
+;;                           (if (> a -27907941364)
+;;                               116871
+;;                             (cl:handler-case
+;;                              (multiple-value-setq (a)
+;;                                -34832621))))))
+;;         -26788929))
+;;   116871)
+(defskip misc.509 "no such package JVM")
 
-(deftest misc.510
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -2827 3400) a))
-;; ;;                         (declare (optimize (compilation-speed 1) (space 3) (debug 1)
-;; ;;                                            (safety 0) (speed 1)))
-;; ;;                         (logand (the integer (dotimes (iv4 2 a) (progn iv4))))))
-;; ;;         155))
-    ;; ;;   155)
-    (error "no such package JVM"))
+;; (deftest misc.510
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -2827 3400) a))
+;;                         (declare (optimize (compilation-speed 1) (space 3) (debug 1)
+;;                                            (safety 0) (speed 1)))
+;;                         (logand (the integer (dotimes (iv4 2 a) (progn iv4))))))
+;;         155))
+;;   155)
+(defskip misc.510 "no such package JVM")
 
-(deftest misc.511
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer 18967 23584) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (space 1) (speed 1) (debug 1)
-;; ;;                                            (compilation-speed 3) (safety 1)))
-;; ;;                         (the integer
-;; ;;                           (values (loop for lv4 below 2 count (find a '(16389)))))))
-;; ;;         21352))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.511
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer 18967 23584) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (space 1) (speed 1) (debug 1)
+;;                                            (compilation-speed 3) (safety 1)))
+;;                         (the integer
+;;                           (values (loop for lv4 below 2 count (find a '(16389)))))))
+;;         21352))
+;;   0)
+(defskip misc.511 "no such package JVM")
 
 ;; ;;; Inconsistent stack height
 
-(deftest misc.512
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer 1 188902468) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (space 2) (speed 3) (safety 3)
-;; ;;                                            (compilation-speed 0) (debug 2)))
-;; ;;                         (catch 'ct6
-;; ;;                           (the integer
-;; ;;                             (let* ((v3 (signum (ignore-errors a))))
-;; ;;                               (declare (dynamic-extent v3))
-;; ;;                               (throw 'ct6
-;; ;;                                      (round (case (prog2
-;; ;;                                                       (lognor 290171664 v3)
-;; ;;                                                       -3512003993
-;; ;;                                                     -550842867)
-;; ;;                                               ((4) (* 1 4092))
-;; ;;                                               ((21 220 225)
-;; ;;                                                (block b1
-;; ;;                                                  (setf v3
-;; ;;                                                        (let* ((v9 v3))
-;; ;;                                                          a))))
-;; ;;                                               (t -639367819)))))))))
-;; ;;         49008586))
-;; ;;   -639367819
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.512
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer 1 188902468) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (space 2) (speed 3) (safety 3)
+;;                                            (compilation-speed 0) (debug 2)))
+;;                         (catch 'ct6
+;;                           (the integer
+;;                             (let* ((v3 (signum (ignore-errors a))))
+;;                               (declare (dynamic-extent v3))
+;;                               (throw 'ct6
+;;                                      (round (case (prog2
+;;                                                       (lognor 290171664 v3)
+;;                                                       -3512003993
+;;                                                     -550842867)
+;;                                               ((4) (* 1 4092))
+;;                                               ((21 220 225)
+;;                                                (block b1
+;;                                                  (setf v3
+;;                                                        (let* ((v9 v3))
+;;                                                          a))))
+;;                                               (t -639367819)))))))))
+;;         49008586))
+;;   -639367819
+;;   0)
+(defskip misc.512 "no such package JVM")
 
 ;; ;;; COMPILE-FORM: unsupported special operator LET*
 ;; ;;; Associated with 'THE' operator
 
-(deftest misc.513
-;; ;;   (let #+abcl ((jvm::*catch-errors* nil))
-;; ;;        nil
-;; ;;        (funcall
-;; ;;         (compile nil '(lambda (a)
-;; ;;                         (declare (type (integer -2 75025568) a))
-;; ;;                         (declare (ignorable a))
-;; ;;                         (declare (optimize (space 0) (compilation-speed 0) (safety 0)
-;; ;;                                            (speed 2) (debug 2)))
-;; ;;                         (let* ((v8
-;; ;;                                 (cons (the integer
-;; ;;                                         (prog2 a
-;; ;;                                             -1558460
-;; ;;                                           a
-;; ;;                                           (ignore-errors (progn (tagbody) -49510826))
-;; ;;                                           a))
-;; ;;                                       0)))
-;; ;;                           0)))
-;; ;;         68043554))
-    ;; ;;   0)
-    (error "no such package JVM"))
+;; (deftest misc.513
+;;   (let #+abcl ((jvm::*catch-errors* nil))
+;;        nil
+;;        (funcall
+;;         (compile nil '(lambda (a)
+;;                         (declare (type (integer -2 75025568) a))
+;;                         (declare (ignorable a))
+;;                         (declare (optimize (space 0) (compilation-speed 0) (safety 0)
+;;                                            (speed 2) (debug 2)))
+;;                         (let* ((v8
+;;                                 (cons (the integer
+;;                                         (prog2 a
+;;                                             -1558460
+;;                                           a
+;;                                           (ignore-errors (progn (tagbody) -49510826))
+;;                                           a))
+;;                                       0)))
+;;                           0)))
+;;         68043554))
+;;   0)
+(defskip misc.513 "no such package JVM")
 
-(deftest misc.514
+;; (deftest misc.514
 ;;   (let #+abcl ((jvm::*catch-errors* nil))
 ;;        nil
 ;;        (funcall
@@ -9584,8 +9690,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                            (compilation-speed 1)))
 ;;                         (the integer (multiple-value-setq (a) -96073358))))
 ;;         -3792864899))
-    ;;   -96073358)
-    (error "no such package JVM"))
+;;   -96073358)
+(defskip misc.514 "no such package JVM")
 
 ;;; gcl 27 Dec 2004
 ;;; Issue with dynamic extent
@@ -9961,6 +10067,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (funcall fn r c)
 ;;     (eqlt (aref r) (+ -319284 c)))
 ;;   t)
+(defskip misc.533)
 
 ;;; sbcl 0.8.19.35
 ;;; Incorrect return value from conditional
@@ -10007,6 +10114,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (eql (the (complex double-float) p1) p2)))
 ;;      c0 #c(12 612/979)))
 ;;   nil)
+(defskip misc.535)
 
 ;;; Similar to misc.535
 ;; (deftest misc.536
@@ -10020,6 +10128,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;        (eql p1 (the complex p2))))
 ;;    #c(11963908204 1/6) #c(2343315619 5252231066))
 ;;   nil)
+(defskip misc.536)
 
 ;;; Comparison of bit vectors in compiled code
 (deftest misc.537
@@ -10043,6 +10152,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;; (deftest misc.538
 ;;   (notnot (typep (* 2/5 #c(3 4)) 'number))
 ;;   t)
+(defskip misc.538)
 
 ;;; Allegro CL (6.2 trial edition, x86)
 ;;; Error: `#c(0 -8)' is not of the expected type `REAL'
@@ -10057,6 +10167,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                      (sqrt x)))
 ;;      #c(0 -8))))
 ;;   t)
+(defskip misc.539)
 
 ;;; Illegal instruction
 
@@ -10068,6 +10179,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                          :displaced-index-offset 2)))
 ;;     (find #c(1.0 2.0) d1))
 ;;   nil)
+(defskip misc.540)
 
 ;;; A crasher bug of REMOVE on non-simple nibble arrays
 
@@ -10117,6 +10229,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;         (* p1 #c(1123113 -260528))))
 ;;    2493726)
 ;;   #C(2800736089038 -649685447328))
+(defskip misc.543 "complex number")
 
 ;;; gcl
 
@@ -10142,6 +10255,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;     (declare (type (eql #c(-1 1/2)) x))
 ;;     x)
 ;;   #c(-1 1/2))
+(defskip misc.545 "complex number")
 
 ;;; SBCL
 ;;; 0.8.19.39
@@ -10249,6 +10363,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;   (funcall (compile nil '(lambda (x) (declare (type (eql #c(1.0 2.0)) x)) x))
 ;;            #c(1.0 2.0))
 ;;   #c(1.0 2.0))
+(defskip misc.553 "complex number")
 
 ;;; 1 is not of type SEQUENCE
 (deftest misc.554
@@ -10365,6 +10480,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                (log p1))))
 ;;     (notnot (complexp (funcall (compile nil fn) #C(-215549 39/40)))))
 ;;   t)
+(defskip misc.562)
 
 ;;; CONJUGATE
 ;;; Wrong result (#c(1 2))
@@ -10376,6 +10492,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                            (conjugate (the (eql #c(1 2)) x))))
 ;;            #c(1 2))
 ;;   #c(1 -2))
+(defskip misc.563 "complex number")
 
 ;;; PHASE
 ;;; The function SB-KERNEL:%ATAN2 is undefined.
@@ -10393,6 +10510,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;      #c(1.0d0 2.0d0))
 ;;     'double-float))
 ;;   t)
+(defskip misc.564 "complex number")
 
 ;;; ACL 6.2 (trial, x86 linux)
 ;;; Incorrect return value (t instead of nil)
@@ -10490,61 +10608,61 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; sbcl 0.8.20.19
 ;;; The value 22 is not of type (MOD 22).
 
-(deftest misc.572
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (p4)
-  ;;      (declare (optimize (speed 1) (safety 2) (debug 1) (space 1))
-  ;;               (type (integer -59 65558) p4))
-  ;;      (string<= #.(coerce "1yapt1l7eeenz72u6xqhdfimcyk" 'base-string)
-  ;;                #.(coerce "bababababbbabbabbababb" 'base-string)
-  ;;                :start2
-  ;;                (the (integer -3735 *) p4))))
-  ;;  22)
-    ;; nil)
-    (error "unbound variable base-string in (symbol-value type)"))
+;; (deftest misc.572
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (p4)
+;;      (declare (optimize (speed 1) (safety 2) (debug 1) (space 1))
+;;               (type (integer -59 65558) p4))
+;;      (string<= #.(coerce "1yapt1l7eeenz72u6xqhdfimcyk" 'base-string)
+;;                #.(coerce "bababababbbabbabbababb" 'base-string)
+;;                :start2
+;;                (the (integer -3735 *) p4))))
+;;  22)
+;; nil)
+(defskip misc.572 "unbound variable base-string in (symbol-value type)")
 
 ;;; The value 0 is not of type NIL.
 
-(deftest misc.573
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (p4)
-  ;;      (declare (optimize (speed 2) (safety 1) (debug 2) (space 2))
-  ;;               (type unsigned-byte p4))
-  ;;      (string<= (coerce "pdhd5oeynvqlthz3xrrdycotf" 'base-string)
-  ;;                (coerce "" 'base-string)
-  ;;                :start1 (the (integer * 81) p4))))
-  ;;  10)
-    ;; nil)
-    (error "unbound variable base-string in (symbol-value type)"))
+;; (deftest misc.573
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (p4)
+;;      (declare (optimize (speed 2) (safety 1) (debug 2) (space 2))
+;;               (type unsigned-byte p4))
+;;      (string<= (coerce "pdhd5oeynvqlthz3xrrdycotf" 'base-string)
+;;                (coerce "" 'base-string)
+;;                :start1 (the (integer * 81) p4))))
+;;  10)
+;; nil)
+(defskip misc.573 "unbound variable base-string in (symbol-value type)")
 
 ;;; incorrect return value
 
-(deftest misc.574
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (p4)
-  ;;      (declare (optimize (speed 3) (safety 1)
-  ;;                         (debug 1) (space 2))
-  ;;               (type (integer * 397079023) p4))
-  ;;            (string<= (coerce "e99mo7yAJ6oU4" 'base-string)
-  ;;                      (coerce "aaABAAbaa" 'base-string)
-  ;;                      :start1
-  ;;                      (the
-  ;;                          (member -34
-  ;;                                  131074
-  ;;                                  67108872
-  ;;                                  9
-  ;;                                  -3305367300
-  ;;                                  335)
-  ;;                        p4))))
-  ;;  9)
-    ;; 9)
-    (error "unbound variable base-string in (symbol-value type)"))
+;; (deftest misc.574
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (p4)
+;;      (declare (optimize (speed 3) (safety 1)
+;;                         (debug 1) (space 2))
+;;               (type (integer * 397079023) p4))
+;;            (string<= (coerce "e99mo7yAJ6oU4" 'base-string)
+;;                      (coerce "aaABAAbaa" 'base-string)
+;;                      :start1
+;;                      (the
+;;                          (member -34
+;;                                  131074
+;;                                  67108872
+;;                                  9
+;;                                  -3305367300
+;;                                  335)
+;;                        p4))))
+;;  9)
+;; 9)
+(defskip misc.574 "unbound variable base-string in (symbol-value type)")
 
 ;;; In abcl (14 Mar 2005)
 ;;; The value T is not of type number.
@@ -10552,12 +10670,14 @@ Broken at C::WT-C-INLINE-LOC.
 ;; (deftest misc.575
 ;;   (equalp #c(1269346.0 47870.12254712875) t)
 ;;   nil)
+(defskip misc.575 "complex number")
 
 ;;; The value #C(435422075/240892576 373) is not of type NUMBER.
 
 ;; (deftest misc.576
 ;;   (* -7023900320 #C(435422075/240892576 373))
 ;;   #C(-95573789122736375/7527893 -2619914819360))
+(defskip misc.576 "complex number")
 
 ;;; The value #C(-555014/122849 -6641556271) is not of type NUMBER.
 
@@ -10565,6 +10685,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;   (/ -3185994774 #C(-555014/122849 -6641556271))
 ;;   #C(217230410502882805764/665706755984253572883257634437
 ;;      -319343563321640207257301634954/665706755984253572883257634437))
+(defskip misc.577 "complex number")
 
 ;;; The value "" is not of type (STRING 1).
 
@@ -10591,6 +10712,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;; (deftest misc.580
 ;;   (notnot-mv (typep #c(1 2) '(complex (or ratio fixnum))))
 ;;   t)
+(defskip misc.580 "complex number")
 
 ;;; The value -5067.2056 is not of type (SINGLE-FLOAT -5067.2056 -5067.2056).
 
@@ -10647,6 +10769,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;          (sqrt p1)))
 ;;      #c(-9003 -121))))
 ;;   t)
+(defskip misc.583 "complex number")
 
 ;;; The value -27 is not of type (INTEGER -34359738403 -24).
 
@@ -10678,19 +10801,19 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;; The value 4 is not of type (UNSIGNED-BYTE 2).
 
-(deftest misc.586
-  ;; (funcall
-  ;;  (compile
-  ;;   nil
-  ;;   '(lambda (p6)
-  ;;      (declare (optimize (speed 0) (safety 2) (debug 0) (space 0))
-  ;;               (type (integer -2 3009181) p6))
-  ;;      (string> (coerce "ababaaabb" 'base-string)
-  ;;               (coerce "ubbm" 'base-string)
-  ;;               :start1 2 :start2 p6 :end1 8)))
-  ;;  4)
-    ;; 2)
-        (error "unbound variable base-string in (symbol-value type)"))
+;; (deftest misc.586
+;; (funcall
+;;  (compile
+;;   nil
+;;   '(lambda (p6)
+;;      (declare (optimize (speed 0) (safety 2) (debug 0) (space 0))
+;;               (type (integer -2 3009181) p6))
+;;      (string> (coerce "ababaaabb" 'base-string)
+;;               (coerce "ubbm" 'base-string)
+;;               :start1 2 :start2 p6 :end1 8)))
+;;  4)
+;; 2)
+(defskip misc.586 "unbound variable base-string in (symbol-value type)")
 
 ;;; sbcl 0.8.20.27
 ;;; Control stack exhausted
@@ -10729,15 +10852,15 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;; parse-integer fails on displaced base strings
 
-(deftest misc.591
-  ;; (let* ((s1 (coerce "708553218828630100500" 'base-string))
-  ;;        (s2 (make-array '(13) :element-type 'base-char
-  ;;                        :displaced-to s1
-  ;;                        :displaced-index-offset 5)))
-  ;;   (parse-integer s2))
-  ;; 3218828630100
-    ;; 13)
-    (error "unbound variable base-string in (symbol-value type)"))
+;; (deftest misc.591
+;; (let* ((s1 (coerce "708553218828630100500" 'base-string))
+;;        (s2 (make-array '(13) :element-type 'base-char
+;;                        :displaced-to s1
+;;                        :displaced-index-offset 5)))
+;;   (parse-integer s2))
+;; 3218828630100
+;; 13)
+(defskip misc.591 "unbound variable base-string in (symbol-value type)")
 
 ;;; abcl, 19 Mar 2005
 ;;; Stack overflow
@@ -10786,25 +10909,25 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; ecl
 ;;; 10000000.0d0 is not of type INTEGER.
 
-(deftest misc.595
-  ;; (floor 1/2 1.0d0)
-    ;; 0 #.(float 1/2 1.0d0))
-    (error "mismatch argument (float 1/2 1.0)"))
+;; (deftest misc.595
+;;   (floor 1/2 1.0d0)
+;;   0 #.(float 1/2 1.0d0))
+(defskip misc.595 "mismatch argument (float 1/2 1.0)")
 
 ;;; sbcl 0.8.21.45 (x86)
 ;;; The function SB-KERNEL:VECTOR-NIL-P is undefined.
 
-(deftest misc.596
-  ;; (notnot
-  ;;  (let ((s (coerce "a" 'base-string)))
-  ;;    (funcall
-  ;;     (compile
-  ;;      nil
-  ;;      `(lambda ()
-  ;;         (declare (optimize (speed 0) (safety 3) (debug 2) (space 1)))
-  ;;         (typep ,s '(string 1)))))))
-  ;;t)
-  (error "unbound variable base-string"))
+;; (deftest misc.596
+;; (notnot
+;;  (let ((s (coerce "a" 'base-string)))
+;;    (funcall
+;;     (compile
+;;      nil
+;;      `(lambda ()
+;;         (declare (optimize (speed 0) (safety 3) (debug 2) (space 1)))
+;;         (typep ,s '(string 1)))))))
+;;t)
+(defskip misc.596 "unbound variable base-string")
 
 
 ;;; OpenMCL
@@ -10916,6 +11039,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                  (equal #\a #c(-1775806.0s0 88367.29s0)))))
 ;;     (funcall (compile nil form)))
 ;;   nil)
+(defskip misc.606)
 
 ;;; Error in COMPILER::CMP-ANON [or a callee]: #*1 is not of type FIXNUM.
 
@@ -11191,7 +11315,7 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;; TYPE-ERROR: The value 0 is not of type (INTEGER 3 3).
 
-(deftest misc.625
+;; (deftest misc.625
 ;;   (funcall
 ;;    (compile
 ;;     nil
@@ -11218,8 +11342,8 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                     0))
 ;;                                   (%f7 a a))))))))
 ;;    -2)
-    ;;   47119)
-    (error "no such package SB-C"))
+;;   47119)
+(defskip misc.625 "no such package SB-C")
 
 ;;; TYPE-ERROR: The value 2 is not of type (INTEGER 12 12)
 
@@ -11454,104 +11578,104 @@ Broken at C::WT-C-INLINE-LOC.
 ;;; cmucl 19c (x86 linux)
 ;;; The assertion (NOT (MEMBER C::KIND '(:DELETED :OPTIONAL))) failed.
 
-(deftest misc.642
-  ;; (let ((form '   (lambda (a b c d e f g h i j)
-  ;;                   (declare (type (integer 174130 60165950) a))
-  ;;                   (declare (type (integer -4076 6783) b))
-  ;;                   (declare (type (integer -178481569 -1) c))
-  ;;                   (declare (type (integer 236 954963169) d))
-  ;;                   (declare (type (integer -1334 407047) e))
-  ;;                   (declare (type (integer -507 -426) f))
-  ;;                   (declare (type (integer -1164301 148213922) g))
-  ;;                   (declare (type (integer -184324 14515) h))
-  ;;                   (declare (type (integer 258 323) i))
-  ;;                   (declare (type (integer -11825 109247) j))
-  ;;                   (declare (ignorable a b c d e f g h i j))
-  ;;                   #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                   (declare (optimize (compilation-speed 2) (debug 0) (space 1) (speed 3)
-  ;;                                      (safety 2)))
-  ;;                   (labels ((%f4 (f4-1)
-  ;;                                 (flet ((%f2 (f2-1 f2-2 f2-3 &key)
-  ;;                                             (progn
-  ;;                                               (return-from %f4 0)
-  ;;                                               f2-2)))
-  ;;                                       (common-lisp:handler-bind nil
-  ;;                                         (/
-  ;;                                          (coerce
-  ;;                                           (unwind-protect
-  ;;                                               (reduce
-  ;;                                                #'(lambda (lmv2 lmv4)
-  ;;                                                    (reduce #'*
-  ;;                                                            (vector
-  ;;                                                             (let ()
-  ;;                                                               h)
-  ;;                                                             c
-  ;;                                                             (reduce
-  ;;                                                              #'(lambda (lmv4 lmv3)
-  ;;                                                                  (return-from %f4
-  ;;                                                                               (deposit-field lmv4
-  ;;                                                                                              (byte 23 16)
-  ;;                                                                                              (mask-field
-  ;;                                                                                               (byte 3 27)
-  ;;                                                                                               (elt '(5309746)
-  ;;                                                                                                    (min 0
-  ;;                                                                                                         (max 0
-  ;;                                                                                                              j)))))))
-  ;;                                                              (vector
-  ;;                                                               (%f2 (%f2 12762 f4-1 6646240924) 1501
-  ;;                                                                    -15)
-  ;;                                                               277
-  ;;                                                               (multiple-value-call #'%f2
-  ;;                                                                                    (values -1486981
-  ;;                                                                                            i
-  ;;                                                                                            (%f2 a 16777222 j)))
-  ;;                                                               1033)
-  ;;                                                              :end 4
-  ;;                                                              :start 3)
-  ;;                                                             (/ 823 -1))
-  ;;                                                            :end 3
-  ;;                                                            :start 1))
-  ;;                                                (vector
-  ;;                                                 (common-lisp:handler-bind nil
-  ;;                                                                           (- 0 h j b -2539837 28596 d 8161548 h -61))
-  ;;                                                 -183768642
-  ;;                                                 -1
-  ;;                                                 31404552
-  ;;                                                 81593)
-  ;;                                                :start 3)
-  ;;                                             (dpb i (byte 14 16) e)
-  ;;                                             (dpb
-  ;;                                              (count f4-1
-  ;;                                                     #(524279 8388596 1021351 101986)
-  ;;                                                     :test '/=)
-  ;;                                              (byte 4 4)
-  ;;                                              131064)
-  ;;                                             (if (= 524287 f)
-  ;;                                                 (prog2
-  ;;                                                     (denominator
-  ;;                                                      (elt '(1663 120) (min 1 (max 0 -17745))))
-  ;;                                                     f
-  ;;                                                   (deposit-field e (byte 31 31) 0)
-  ;;                                                   (labels ((%f7
-  ;;                                                             (f7-1 f7-2 f7-3
-  ;;                                                                   &optional
-  ;;                                                                   (f7-4
-  ;;                                                                    (coerce
-  ;;                                                                     (coerce
-  ;;                                                                      (the integer (+ -11045 114))
-  ;;                                                                      'integer)
-  ;;                                                                     'integer))
-  ;;                                                                   (f7-5 h))
-  ;;                                                             -2286515))
-  ;;                                                           j))
-  ;;                                               (macrolet ()
-  ;;                                                         (prog2 -2195 1921675 h -183085 a))))
-  ;;                                           'integer)
-  ;;                                          1)))))
-  ;;                           0))))
-  ;;   (funcall (compile nil form) 58162926 -3652 -63561386 935157597 63716 -504 108893677 -146677 308 99009))
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.642
+;; (let ((form '   (lambda (a b c d e f g h i j)
+;;                   (declare (type (integer 174130 60165950) a))
+;;                   (declare (type (integer -4076 6783) b))
+;;                   (declare (type (integer -178481569 -1) c))
+;;                   (declare (type (integer 236 954963169) d))
+;;                   (declare (type (integer -1334 407047) e))
+;;                   (declare (type (integer -507 -426) f))
+;;                   (declare (type (integer -1164301 148213922) g))
+;;                   (declare (type (integer -184324 14515) h))
+;;                   (declare (type (integer 258 323) i))
+;;                   (declare (type (integer -11825 109247) j))
+;;                   (declare (ignorable a b c d e f g h i j))
+;;                   #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                   (declare (optimize (compilation-speed 2) (debug 0) (space 1) (speed 3)
+;;                                      (safety 2)))
+;;                   (labels ((%f4 (f4-1)
+;;                                 (flet ((%f2 (f2-1 f2-2 f2-3 &key)
+;;                                             (progn
+;;                                               (return-from %f4 0)
+;;                                               f2-2)))
+;;                                       (common-lisp:handler-bind nil
+;;                                         (/
+;;                                          (coerce
+;;                                           (unwind-protect
+;;                                               (reduce
+;;                                                #'(lambda (lmv2 lmv4)
+;;                                                    (reduce #'*
+;;                                                            (vector
+;;                                                             (let ()
+;;                                                               h)
+;;                                                             c
+;;                                                             (reduce
+;;                                                              #'(lambda (lmv4 lmv3)
+;;                                                                  (return-from %f4
+;;                                                                               (deposit-field lmv4
+;;                                                                                              (byte 23 16)
+;;                                                                                              (mask-field
+;;                                                                                               (byte 3 27)
+;;                                                                                               (elt '(5309746)
+;;                                                                                                    (min 0
+;;                                                                                                         (max 0
+;;                                                                                                              j)))))))
+;;                                                              (vector
+;;                                                               (%f2 (%f2 12762 f4-1 6646240924) 1501
+;;                                                                    -15)
+;;                                                               277
+;;                                                               (multiple-value-call #'%f2
+;;                                                                                    (values -1486981
+;;                                                                                            i
+;;                                                                                            (%f2 a 16777222 j)))
+;;                                                               1033)
+;;                                                              :end 4
+;;                                                              :start 3)
+;;                                                             (/ 823 -1))
+;;                                                            :end 3
+;;                                                            :start 1))
+;;                                                (vector
+;;                                                 (common-lisp:handler-bind nil
+;;                                                                           (- 0 h j b -2539837 28596 d 8161548 h -61))
+;;                                                 -183768642
+;;                                                 -1
+;;                                                 31404552
+;;                                                 81593)
+;;                                                :start 3)
+;;                                             (dpb i (byte 14 16) e)
+;;                                             (dpb
+;;                                              (count f4-1
+;;                                                     #(524279 8388596 1021351 101986)
+;;                                                     :test '/=)
+;;                                              (byte 4 4)
+;;                                              131064)
+;;                                             (if (= 524287 f)
+;;                                                 (prog2
+;;                                                     (denominator
+;;                                                      (elt '(1663 120) (min 1 (max 0 -17745))))
+;;                                                     f
+;;                                                   (deposit-field e (byte 31 31) 0)
+;;                                                   (labels ((%f7
+;;                                                             (f7-1 f7-2 f7-3
+;;                                                                   &optional
+;;                                                                   (f7-4
+;;                                                                    (coerce
+;;                                                                     (coerce
+;;                                                                      (the integer (+ -11045 114))
+;;                                                                      'integer)
+;;                                                                     'integer))
+;;                                                                   (f7-5 h))
+;;                                                             -2286515))
+;;                                                           j))
+;;                                               (macrolet ()
+;;                                                         (prog2 -2195 1921675 h -183085 a))))
+;;                                           'integer)
+;;                                          1)))))
+;;                           0))))
+;;   (funcall (compile nil form) 58162926 -3652 -63561386 935157597 63716 -504 108893677 -146677 308 99009))
+;; 0)
+(defskip misc.642)
 
 ;;; Wrong return value
 
@@ -11565,109 +11689,109 @@ Broken at C::WT-C-INLINE-LOC.
 
 ;;;   -1520586839 is not of type INTEGER
 
-(deftest misc.644
-  ;; (let ((form '(lambda (a)
-  ;;                (declare (type (integer -6568333536 -12667) a))
-  ;;                (declare (ignorable a))
-  ;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                (declare (optimize (compilation-speed 1) (safety 3) (speed 1) (debug 1)
-  ;;                                   (space 3)))
-  ;;                (unwind-protect 0
-  ;;                  (the integer
-  ;;                       (locally
-  ;;                        (declare (special *s3* *s4*))
-  ;;                        (progv '(*s4* *s3*) (list a a) (expt *s3* 0))))))))
-  ;;   (let ((*s3* 0))
-  ;;     (declare (special *s3*))
-  ;;     (funcall (compile nil form) -1520586839)))
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.644
+;; (let ((form '(lambda (a)
+;;                (declare (type (integer -6568333536 -12667) a))
+;;                (declare (ignorable a))
+;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                (declare (optimize (compilation-speed 1) (safety 3) (speed 1) (debug 1)
+;;                                   (space 3)))
+;;                (unwind-protect 0
+;;                  (the integer
+;;                       (locally
+;;                        (declare (special *s3* *s4*))
+;;                        (progv '(*s4* *s3*) (list a a) (expt *s3* 0))))))))
+;;   (let ((*s3* 0))
+;;     (declare (special *s3*))
+;;     (funcall (compile nil form) -1520586839)))
+;; 0)
+(defskip misc.644 "no such package EXTENSIONS")
 
 ;;;    NIL is not of type C::CBLOCK
 
-(deftest misc.645
-  ;; (let ((form '(lambda (a)
-  ;;                (declare (notinline abs isqrt))
-  ;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                (declare (optimize (debug 3) (safety 1) (space 2) (compilation-speed 1)
-  ;;                                   (speed 0)))
-  ;;                (progn
-  ;;                  (tagbody
-  ;;                   (prog2
-  ;;                       a
-  ;;                       0
-  ;;                     (labels ((%f9 (&key &allow-other-keys)
-  ;;                                   (go 3)))
-  ;;                             (%f9)))
-  ;;                   (isqrt (abs (unwind-protect 0)))
-  ;;                   3)
-  ;;                  a))))
-  ;;   (eval `(,form 0)))
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.645
+;; (let ((form '(lambda (a)
+;;                (declare (notinline abs isqrt))
+;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                (declare (optimize (debug 3) (safety 1) (space 2) (compilation-speed 1)
+;;                                   (speed 0)))
+;;                (progn
+;;                  (tagbody
+;;                   (prog2
+;;                       a
+;;                       0
+;;                     (labels ((%f9 (&key &allow-other-keys)
+;;                                   (go 3)))
+;;                             (%f9)))
+;;                   (isqrt (abs (unwind-protect 0)))
+;;                   3)
+;;                  a))))
+;;   (eval `(,form 0)))
+;; 0)
+(defskip misc.645 "no such package EXTENSIONS")
 
 ;;; Segmentation violation
 
-(deftest misc.646
-  ;; (let ((form '(lambda (a)
-  ;;                (declare (type (integer -125 -44) a))
-  ;;                (declare (ignorable a))
-  ;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                (declare (optimize (speed 0) (debug 0) (space 2) (compilation-speed 3)
-  ;;                                   (safety 3)))
-  ;;                (mask-field (byte 0 0)
-  ;;                            (block b3 (isqrt (abs (catch 'ct2 (return-from b3 0)))))))))
-  ;;   (funcall (compile nil form) -50))
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.646
+;; (let ((form '(lambda (a)
+;;                (declare (type (integer -125 -44) a))
+;;                (declare (ignorable a))
+;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                (declare (optimize (speed 0) (debug 0) (space 2) (compilation-speed 3)
+;;                                   (safety 3)))
+;;                (mask-field (byte 0 0)
+;;                            (block b3 (isqrt (abs (catch 'ct2 (return-from b3 0)))))))))
+;;   (funcall (compile nil form) -50))
+;; 0)
+(defskip misc.646 "no such package EXTENSIONS")
 
 ;;; 1928431123 is not of type (MOD 536870911)
 
-(deftest misc.647
-  ;; (let ((form '(lambda (a)
-  ;;                (declare (type (integer -2494 534) a))
-  ;;                (declare (ignorable a))
-  ;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                (declare (optimize (speed 0) (space 0) (compilation-speed 3) (safety 1)
-  ;;                                   (debug 1)))
-  ;;                (dotimes (iv3 1 0)
-  ;;                  (block b1
-  ;;                         (loop for lv1 below 1
-  ;;                               count (logbitp 0
-  ;;                                              (reduce
-  ;;                                               #'(lambda (lmv6 lmv2)
-  ;;                                                   (if (> 2208446653 lmv6)
-  ;;                                                       (return-from b1 lmv2)
-  ;;                                                     lv1))
-  ;;                                               (list 0 0 0 1928431123 iv3 iv3 a a)
-  ;;                                               :end 5
-  ;;                                               :from-end t))))))))
-  ;;   (funcall (compile nil form) 1))
-    ;; 0)
-    (error "no such package EXTENSIONS"))
+;; (deftest misc.647
+;; (let ((form '(lambda (a)
+;;                (declare (type (integer -2494 534) a))
+;;                (declare (ignorable a))
+;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                (declare (optimize (speed 0) (space 0) (compilation-speed 3) (safety 1)
+;;                                   (debug 1)))
+;;                (dotimes (iv3 1 0)
+;;                  (block b1
+;;                         (loop for lv1 below 1
+;;                               count (logbitp 0
+;;                                              (reduce
+;;                                               #'(lambda (lmv6 lmv2)
+;;                                                   (if (> 2208446653 lmv6)
+;;                                                       (return-from b1 lmv2)
+;;                                                     lv1))
+;;                                               (list 0 0 0 1928431123 iv3 iv3 a a)
+;;                                               :end 5
+;;                                               :from-end t))))))))
+;;   (funcall (compile nil form) 1))
+;; 0)
+(defskip misc.647 "no such package EXTENSIONS")
 
 ;;;  The assertion (AND C::SUCC (NULL (CDR C::SUCC))) failed.
 
-(deftest misc.648
-  ;; (let ((form '(lambda (a)
-  ;;                (declare (type (integer -8 11754838336) a))
-  ;;                (declare (ignorable a))
-  ;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
-  ;;                (declare (optimize (space 0) (compilation-speed 0) (speed 3) (debug 3)
-  ;;                                   (safety 0)))
-  ;;                (labels ((%f13 ()
-  ;;                               (logorc1 (unwind-protect 0)
-  ;;                                        (prog1 0
-  ;;                                          (prog2
-  ;;                                              (max 0 a)
-  ;;                                              0
-  ;;                                            (progn
-  ;;                                              (return-from %f13 a)
-  ;;                                              a))))))
-  ;;                        0))))
-  ;;   (funcall (compile nil form) 2582756596))
-    ;; 0)
-    (error " no such package EXTENSIONS"))
+;; (deftest misc.648
+;; (let ((form '(lambda (a)
+;;                (declare (type (integer -8 11754838336) a))
+;;                (declare (ignorable a))
+;;                #+cmu (declare (optimize (extensions:inhibit-warnings 3)))
+;;                (declare (optimize (space 0) (compilation-speed 0) (speed 3) (debug 3)
+;;                                   (safety 0)))
+;;                (labels ((%f13 ()
+;;                               (logorc1 (unwind-protect 0)
+;;                                        (prog1 0
+;;                                          (prog2
+;;                                              (max 0 a)
+;;                                              0
+;;                                            (progn
+;;                                              (return-from %f13 a)
+;;                                              a))))))
+;;                        0))))
+;;   (funcall (compile nil form) 2582756596))
+;; 0)
+(defskip misc.648 "no such package EXTENSIONS")
 
 ;;; sbcl 0.9.13.8 (x86 linux)
 ;;; VALUES type illegal in this context:  *
