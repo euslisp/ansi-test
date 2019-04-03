@@ -15,6 +15,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "a" (string #\Newline))
 ;;   t)
+(defskip fresh-line.1)
 
 ;; (deftest fresh-line.2
 ;;   (let (result)
@@ -26,6 +27,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "a" (string #\Newline))
 ;;   t)
+(defskip fresh-line.2)
 
 ;; (deftest fresh-line.3
 ;;   (with-output-to-string
@@ -35,6 +37,7 @@
 ;;     (fresh-line s)
 ;;     (write-char #\y s))
 ;;   #.(concatenate 'string "x" (string #\Newline) "y"))
+(defskip fresh-line.3)
 
 (deftest fresh-line.4
   (let (result)
@@ -68,6 +71,7 @@
 ;;       (fresh-line t)
 ;;       (finish-output t)))
 ;;   #.(concatenate 'string (string #\a) (string #\Newline)))
+(defskip fresh-line.6)
 
 ;; (deftest fresh-line.7
 ;;   (with-output-to-string
@@ -75,6 +79,7 @@
 ;;     (write-char #\a nil)
 ;;     (terpri nil))
 ;;   #.(concatenate 'string (string #\a) (string #\Newline)))
+(defskip fresh-line.7)
 
 ;;; Error tests
 

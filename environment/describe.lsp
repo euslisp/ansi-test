@@ -54,7 +54,7 @@
         collect (list x s1 s2))
   nil)
 
-;; ;;; Defining methods for describe-object
+;;; Defining methods for describe-object
 
 ;; (defclass describe-object-test-class-01 () ((s1 :initarg :s1) (s2 :initarg :s2) (s3 :initarg :s3)))
 
@@ -69,6 +69,7 @@
 ;;           :good
 ;;         (list str1 str2))))
 ;;   :good)
+(defskip describe.5)
 
 ;;; Error cases
 

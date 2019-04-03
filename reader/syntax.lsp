@@ -706,6 +706,7 @@
 ;; (def-syntax-array-test syntax.sharp-a.6
 ;;   "#1a#.(coerce \"abcd\" 'simple-base-string)"
 ;;   (make-array '(4) :initial-contents '(#\a #\b #\c #\d)))
+(defskip syntax.sharp-a.6)
 
 (def-syntax-array-test syntax.sharp-a.7
   "#1a#*000110"

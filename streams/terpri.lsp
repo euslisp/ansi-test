@@ -15,6 +15,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "a" (string #\Newline))
 ;;   nil)
+(defskip terpri.1)
 
 ;; (deftest terpri.2
 ;;   (let (result)
@@ -26,6 +27,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "a" (string #\Newline))
 ;;   nil)
+(defskip terpri.2)
 
 ;; (deftest terpri.3
 ;;   (with-output-to-string
@@ -35,6 +37,7 @@
 ;;     (terpri s)
 ;;     (write-char #\y s))
 ;;   #.(concatenate 'string "x" (string #\Newline) (string #\Newline) "y"))
+(defskip terpri.3)
 
 (deftest terpri.4
   (with-output-to-string

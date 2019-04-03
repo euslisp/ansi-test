@@ -76,6 +76,10 @@
 ;;     (def-readtable-case-test :downcase)
 ;;     (def-readtable-case-test :preserve)
 ;;     (def-readtable-case-test :invert)))
+(defskip readtable-case.case-upcase)
+(defskip readtable-case.case-downcase)
+(defskip readtable-case.case-preserve)
+(defskip readtable-case.case-invert)
 
 ;; when readtable was :invert quoted characters may get inverted too
 (deftest readtable.case.invert-char

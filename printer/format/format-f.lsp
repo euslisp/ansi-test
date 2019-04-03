@@ -518,6 +518,7 @@
 ;;      unless (string= s1 s2)
 ;;      collect (list x w d k overflowchar padchar f1 s1 s2)))
 ;;   nil)
+(defskip format.f.42)
 
 ;;; This failed in sbcl 0.8.12.25
 

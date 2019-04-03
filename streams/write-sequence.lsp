@@ -143,6 +143,13 @@
 ;; (def-write-sequence-bv-test write-sequence.bv.6 #*00111010
 ;;   (:start 1 :end nil :end 4) #*0111010)
 
+(defskip write-sequence.bv.1)
+(defskip write-sequence.bv.2)
+(defskip write-sequence.bv.3)
+(defskip write-sequence.bv.4)
+(defskip write-sequence.bv.5)
+(defskip write-sequence.bv.6)
+
 
 ;;; Error tests
 

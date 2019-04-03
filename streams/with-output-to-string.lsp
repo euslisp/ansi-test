@@ -90,19 +90,20 @@
     (write-char #\9 s))
   "049")
 
+#+:cl-aux
 (deftest with-output-to-string.14
-  ;; (let* ((str1 (make-array '(256) :element-type 'base-char :fill-pointer 0))
-  ;;        (str2 (with-output-to-string
-  ;;                (s nil :element-type 'base-char)
-  ;;                (loop for i below 256
-  ;;                      for c = (code-char i)
-  ;;                      when (typep c 'base-char)
-  ;;                      do (progn (write-char c s)
-  ;;                                (vector-push c str1))))))
-  ;;   (if (string= str1 str2) :good
-  ;;     (list str1 str2)))
-    ;; :good)
-    (error "makes use of function defined in another PR"))
+  (let* ((str1 (make-array '(256) :element-type 'base-char :fill-pointer 0))
+         (str2 (with-output-to-string
+                 (s nil :element-type 'base-char)
+                 (loop for i below 256
+                       for c = (code-char i)
+                       when (typep c 'base-char)
+                       do (progn (write-char c s)
+                                 (vector-push c str1))))))
+    (if (string= str1 str2) :good
+      (list str1 str2)))
+  :good)
+#-:cl-aux (defskip with-output-to-string.14)
 
 ;;; Free declaration scope
 

@@ -48,6 +48,7 @@
 ;;       (read-char s)
 ;;       (get-output-stream-string os)))
 ;;    #\f #\f "")
+(defskip make-two-way-stream.3)
 
 (deftest make-two-way-stream.4
    (let* ((is (make-string-input-stream "foo"))
@@ -80,6 +81,7 @@
 ;;       (read-char s)
 ;;       (get-output-stream-string os)))
 ;;    #\+ t #\f #.(coerce (list #\+ #\Newline) 'string))
+(defskip make-two-way-stream.6)
 
 (deftest make-two-way-stream.7
    (let* ((is (make-string-input-stream "foo"))
@@ -120,6 +122,7 @@
 ;;       (write-line "bar" s)
 ;;       (get-output-stream-string os)))
 ;;    "bar" #.(concatenate 'string "bar" '(#\Newline)))
+(defskip make-two-way-stream.10)
 
 (deftest make-two-way-stream.11
   (let* ((is (make-string-input-stream "foo"))

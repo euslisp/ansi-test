@@ -36,6 +36,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "abcde" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.3)
 
 ;; (deftest write-line.4
 ;;   (let (result)
@@ -46,6 +47,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "bcde" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.4)
 
 ;; (deftest write-line.5
 ;;   (let (result)
@@ -57,6 +59,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "bc" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.5)
 
 ;; (deftest write-line.6
 ;;   (let (result)
@@ -68,6 +71,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "bcde" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.6)
 
 ;; (deftest write-line.7
 ;;   (let (result)
@@ -78,6 +82,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "abc" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.7)
 
 ;; (deftest write-line.8
 ;;   (let (result)
@@ -89,6 +94,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "abc" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.8)
 
 ;; (deftest write-line.9
 ;;   (let (result)
@@ -101,6 +107,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "abc" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.9)
 
 ;; (deftest write-line.10
 ;;   (let (result)
@@ -112,6 +119,7 @@
 ;;      result))
 ;;   #.(concatenate 'string "abc" (string #\Newline))
 ;;   ("abcde"))
+(defskip write-line.10)
 
 ;; (deftest write-line.11
 ;;   (with-input-from-string
@@ -122,12 +130,14 @@
 ;;        (write-line "951" t)
 ;;        (close *terminal-io*))))
 ;;   #.(concatenate 'string "951" (string #\Newline)))
+(defskip write-line.11)
 
 ;; (deftest write-line.12
 ;;   (with-output-to-string
 ;;     (*standard-output*)
 ;;     (write-line "-=|!" nil))
 ;;   #.(concatenate 'string "-=|!" (string #\Newline)))
+(defskip write-line.12)
 
 ;; ;;; Specialized string tests
 
@@ -140,6 +150,7 @@
 ;;               (multiple-value-list (write-line "abcde")))
 ;;             #.(concatenate 'string "abcde" (string #\Newline)))))
 ;;   nil)
+(defskip write-line.13)
 
 ;;; Error tests
 

@@ -5,17 +5,18 @@
 
 (in-package :cl-test)
 
+#+:cl-aux
 (deftest write-char.1
-  ;; (loop for i from 0 to 255
-  ;;       for c = (code-char i)
-  ;;       when c
-  ;;       unless (string= (with-output-to-string
-  ;;                         (*standard-output*)
-  ;;                         (write-char c))
-  ;;                       (string c))
-  ;;       collect c)
-    ;; nil)
-    (error "makes use of function defined in another PR"))
+  (loop for i from 0 to 255
+        for c = (code-char i)
+        when c
+        unless (string= (with-output-to-string
+                          (*standard-output*)
+                          (write-char c))
+                        (string c))
+        collect c)
+  nil)
+#-:cl-aux (defskip write-char.1)
 
 (deftest write-char.2
   (with-input-from-string

@@ -14,9 +14,11 @@
 
 ;; (def-format-test format.&.3
 ;;   "X~&" nil #.(concatenate 'string "X" (string #\Newline)))
+(defskip format.&.3)
 
 ;; (def-format-test format.&.4
 ;;   "X~%~&" nil #.(concatenate 'string "X" (string #\Newline)))
+(defskip format.&.4)
 
 (deftest format.&.5
   (loop for i from 1 to 100
@@ -65,6 +67,7 @@
 
 ;; (def-format-test format.&.8
 ;;   "X~v&" (nil) #.(concatenate 'string "X" (string #\Newline)))
+(defskip format.&.8)
 
 (deftest format.&.9
   (loop for i from 1 to 100
@@ -114,3 +117,5 @@
 ;;   "X~#%" ('a 'b 'c) #.(let ((nl (string #\Newline)))
 ;;                         (concatenate 'string "X" nl nl nl))
 ;;   3)
+(defskip format.&.13)
+
