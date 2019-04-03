@@ -20,6 +20,7 @@
 ;;     (or (=t result 1)
 ;;         (eqlt #c(1.0 0.0))))
 ;;   t)
+(defskip cis.1 "complex number")
 
 (deftest cis.2
   (loop for x in '(0.0s0 0.0f0 0.0d0 0.0l0)

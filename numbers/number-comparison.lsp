@@ -97,10 +97,12 @@
 ;; (deftest =.10
 ;;   (=t 0 #c(0 0))
 ;;   t)
+(defskip =.10 "complex number")
 
 ;; (deftest =.11
 ;;   (=t 1 #c(1.0 0.0))
 ;;   t)
+(defskip =.11 "complex number")
 
 (deftest =.12
   (=t -0.0 0.0)
@@ -116,6 +118,7 @@
 ;;                 unless (= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip =.13 "complex number")
 
 ;; (deftest =.14
 ;;   (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
@@ -127,6 +130,7 @@
 ;;                 unless (= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip =.14 "complex number")
 
 ;; (deftest =.15
 ;;   (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
@@ -138,6 +142,7 @@
 ;;                 unless (= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip =.15 "complex number")
 
 (deftest =.16
   (let ((n 60000) (m 30000))
@@ -308,10 +313,12 @@
 ;; (deftest /=.10
 ;;   (/= 0 #c(0 0))
 ;;   nil)
+(defskip /=.10 "complex number")
 
 ;; (deftest /=.11
 ;;   (/= 1 #c(1.0 0.0))
 ;;   nil)
+(defskip /=.11 "complex number")
 
 (deftest /=.12
   (/= -0.0 0.0)
@@ -327,6 +334,7 @@
 ;;                 when (/= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip /=.13 "complex number")
 
 ;; (deftest /=.14
 ;;   (let ((nums '(17 17.0s0 17.0f0 17.0d0 17.0l0
@@ -338,6 +346,7 @@
 ;;                 when (/= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip /=.14 "complex number")
 
 ;; (deftest /=.15
 ;;   (let ((nums '(-17 -17.0s0 -17.0f0 -17.0d0 -17.0l0
@@ -349,6 +358,7 @@
 ;;                 when (/= x y)
 ;;                 collect (list x y))))
 ;;   nil)
+(defskip /=.15 "complex number")
 
 (deftest /=.17
   (loop for x in '(1.0s0 1.0f0 1.0d0 1.0l0)
@@ -559,12 +569,12 @@
 ;;            ))))
 
 
-(deftest <.4
+;; (deftest <.4
 ;;   (loop for (x y result . rest) in *number-less-tests*
 ;;         unless (if (< x y) result (not result))
 ;;         collect (list* x y result rest))
-    ;;   nil)
-    (error "we don't have *number-less-tests*"))
+;;   nil)
+(defskip <.4 "we don't have *number-less-tests*")
 
 (deftest <.5
   (loop for x in *universe*
@@ -819,12 +829,12 @@
 ;;                   (floating-point-underflow () nil))))
 ;;      )))
 
-(deftest <=.4
-  ;; (loop for (x y result . rest) in *number-less-or-equal-tests*
-  ;;       unless (if (<= x y) result (not result))
-  ;;       collect (list* x y result rest))
-    ;; nil)
-    (error "we don't have *number-less-or-equal-tests*"))
+;; (deftest <=.4
+;; (loop for (x y result . rest) in *number-less-or-equal-tests*
+;;       unless (if (<= x y) result (not result))
+;;       collect (list* x y result rest))
+;; nil)
+(defskip <=.4 "we don't have *number-less-or-equal-tests*")
 
 
 (deftest <=.5
@@ -967,12 +977,12 @@
   (let ((a 1) (b 0)) (notnot-mv (> a b)))
   t)
 
-(deftest >.4
-  ;; (loop for (x y result . rest) in *number-less-tests*
-  ;;       unless (if (> y x) result (not result))
-  ;;       collect (list* y x result rest))
-    ;; nil)
-    (error "we don't have *number-less-tests*"))
+;; (deftest >.4
+;; (loop for (x y result . rest) in *number-less-tests*
+;;       unless (if (> y x) result (not result))
+;;       collect (list* y x result rest))
+;; nil)
+(defskip >.4 "we don't have *number-less-tests*")
 
 (deftest >.5
   (loop for x in *universe*
@@ -1105,12 +1115,12 @@
   (let ((a 1) (b 0)) (notnot-mv (>= a b)))
   t)
 
-(deftest >=.4
-  ;; (loop for (x y result . rest) in *number-less-or-equal-tests*
-  ;;       unless (if (>= y x) result (not result))
-  ;;       collect (list* y x result rest))
-    ;; nil)
-    (error "we don't have *number-less-tests*"))
+;; (deftest >=.4
+;; (loop for (x y result . rest) in *number-less-or-equal-tests*
+;;       unless (if (>= y x) result (not result))
+;;       collect (list* y x result rest))
+;; nil)
+(defskip >=.4 "we don't have *number-less-tests*")
 
 (deftest >=.5
   (loop for x in *universe*
@@ -1668,7 +1678,7 @@
 ;;                           (= 0 0 (expand-in-current-env (%m 0)))
 ;;                           )))
 ;;   (t t t t t nil nil nil t t t))
-
+(defskip =.env.1)
 
 ;; (deftest /=.env.1
 ;;   (macrolet ((%m (z) z))
@@ -1691,6 +1701,7 @@
 ;;                           (/= 0 1 (expand-in-current-env (%m 2)))
 ;;                           )))
 ;;   (t nil nil nil nil t t t t t t))
+(defskip /=.env.1)
 
 (deftest <.env.1
   (macrolet ((%m (z) z))

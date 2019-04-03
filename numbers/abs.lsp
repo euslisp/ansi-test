@@ -141,37 +141,45 @@
 ;;   (let ((result (abs #c(3 4))))
 ;;     (=t result 5))
 ;;   t)
+(defskip abs.14 "complex number")
 
 ;; (deftest abs.15
 ;;   (let ((result (abs #c(-3 4))))
 ;;     (=t result 5))
 ;;   t)
+(defskip abs.15 "complex number")
 
 ;; (deftest abs.16
 ;;   (let ((result (abs #c(3 -4))))
 ;;     (=t result 5))
 ;;   t)
+(defskip abs.16 "complex number")
 
 ;; (deftest abs.17
 ;;   (let ((result (abs #c(-3 -4))))
 ;;     (=t result 5))
 ;;   t)
+(defskip abs.17 "complex number")
 
 ;; (deftest abs.18
 ;;   (abs #c(3.0s0 4.0s0))
 ;;   5.0s0)
+(defskip abs.18 "complex number")
 
 ;; (deftest abs.19
 ;;   (abs #c(3.0f0 -4.0f0))
 ;;   5.0f0)
+(defskip abs.19 "complex number")
 
 ;; (deftest abs.20
 ;;   (abs #c(-3.0d0 4.0d0))
 ;;   5.0d0)
+(defskip abs.20 "complex number")
 
 ;; (deftest abs.21
 ;;   (abs #c(-3.0l0 4.0l0))
 ;;   5.0l0)
+(defskip abs.21 "complex number")
 
 (deftest abs.22
   (macrolet ((%m (z) z))

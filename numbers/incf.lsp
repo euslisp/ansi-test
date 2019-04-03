@@ -126,21 +126,25 @@
 ;;   (let ((x 1))
 ;;     (values (incf x #c(0.0s0 0.0s0)) x))
 ;;   #c(1.0s0 0.0s0) #c(1.0s0 0.0s0))
+(defskip incf.18 "complex number")
 
 ;; (deftest incf.19
 ;;   (let ((x 1))
 ;;     (values (incf x #c(0.0f0 2.0f0)) x))
 ;;   #c(1.0f0 2.0f0) #c(1.0f0 2.0f0))
+(defskip incf.19 "complex number")
 
 ;; (deftest incf.20
 ;;   (let ((x 1))
 ;;     (values (incf x #c(0.0d0 2.0d0)) x))
 ;;   #c(1.0d0 2.0d0) #c(1.0d0 2.0d0))
+(defskip incf.20 "complex number")
 
 ;; (deftest incf.21
 ;;   (let ((x 1))
 ;;     (values (incf x #c(0.0l0 -2.0l0)) x))
 ;;   #c(1.0l0 -2.0l0) #c(1.0l0 -2.0l0))
+(defskip incf.21 "complex number")
 
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment

@@ -12,6 +12,7 @@
 ;; (deftest imagpart.error.2
 ;;   (signals-error (imagpart #c(1.0 2.0) nil) program-error)
 ;;   t)
+(defskip imagpart.error.2)
 
 (deftest imagpart.error.3
   (check-type-error #'imagpart #'numberp)

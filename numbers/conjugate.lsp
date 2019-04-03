@@ -37,31 +37,39 @@
 ;; (deftest conjugate.3
 ;;   (eqlt (conjugate #c(0.0s0 0.0s0)) #c(0.0s0 -0.0s0))
 ;;   t)
+(defskip conjugate.3 "complex number")
 
 ;; (deftest conjugate.4
 ;;   (eqlt (conjugate #c(1.0s0 0.0s0)) #c(1.0s0 -0.0s0))
 ;;   t)
+(defskip conjugate.4 "complex number")
 
 ;; (deftest conjugate.5
 ;;   (eqlt (conjugate #c(0.0f0 0.0f0)) #c(0.0f0 -0.0f0))
 ;;   t)
+(defskip conjugate.5 "complex number")
 
 ;; (deftest conjugate.6
 ;;   (eqlt (conjugate #c(1.0f0 0.0f0)) #c(1.0f0 -0.0f0))
 ;;   t)
+(defskip conjugate.6 "complex number")
 
 ;; (deftest conjugate.7
 ;;   (eqlt (conjugate #c(0.0d0 0.0d0)) #c(0.0d0 -0.0d0))
 ;;   t)
+(defskip conjugate.7 "complex number")
 
 ;; (deftest conjugate.8
 ;;   (eqlt (conjugate #c(1.0d0 0.0d0)) #c(1.0d0 -0.0d0))
 ;;   t)
+(defskip conjugate.8 "complex number")
 
 ;; (deftest conjugate.9
 ;;   (eqlt (conjugate #c(0.0l0 0.0l0)) #c(0.0l0 -0.0l0))
 ;;   t)
+(defskip conjugate.9 "complex number")
 
 ;; (deftest conjugate.10
 ;;   (eqlt (conjugate #c(1.0l0 0.0l0)) #c(1.0l0 -0.0l0))
 ;;   t)
+(defskip conjugate.10 "complex number")

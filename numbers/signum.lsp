@@ -93,6 +93,7 @@
 ;;     (or (eqlt c s)
 ;;         (eqlt s #c(0.0 1.0))))
 ;;   t)
+(defskip signum.8 "complex number")
 
 ;; (deftest signum.9
 ;;   (let* ((c (complex 0 -1))
@@ -100,6 +101,7 @@
 ;;     (or (eqlt c s)
 ;;         (eqlt s #c(0.0 -1.0))))
 ;;   t)
+(defskip signum.9 "complex number")
 
 (deftest signum.10
   (let* ((c (complex 3/5 4/5))

@@ -98,10 +98,11 @@
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment
 
+#+:cl-compatible
 (deftest minus.9
-;;   (macrolet ((%m (z) z)) (- (expand-in-current-env (%m 1))))
-    ;;   -1)
-    (error "no such form macrolet"))
+  (macrolet ((%m (z) z)) (- (expand-in-current-env (%m 1))))
+  -1)
+#-:cl-compatible (defskip minus.9)
 
 ;;; Binary minus tests
 
@@ -185,12 +186,13 @@
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment
 
+#+:cl-compatible
 (deftest subtract.6
-;;   (macrolet ((%m (z) z))
-;;             (values
-;;              (- (expand-in-current-env (%m 2)) 1)
-;;              (- 17 (expand-in-current-env (%m 5)))
-;;              (- 1/2 (expand-in-current-env (%m 1/6))
-;;                 (expand-in-current-env (%m 0)))))
-    ;;   1 12 1/3)
-    (error "no such form macrolet"))
+  (macrolet ((%m (z) z))
+            (values
+             (- (expand-in-current-env (%m 2)) 1)
+             (- 17 (expand-in-current-env (%m 5)))
+             (- 1/2 (expand-in-current-env (%m 1/6))
+                (expand-in-current-env (%m 0)))))
+  1 12 1/3)
+#-:cl-compatible (defskip subtract.6)

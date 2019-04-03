@@ -101,6 +101,7 @@
 ;;         repeat 1000
 ;;         always (eql (expt c 0) #c(1.0s0 0.0s0)))
 ;;   t)
+(defskip expt.8 "complex number")
 
 ;; (deftest expt.9
 ;;   (loop for i = (random 1.0f6)
@@ -108,6 +109,7 @@
 ;;         repeat 1000
 ;;         always (eql (expt c 0) #c(1.0f0 0.0f0)))
 ;;   t)
+(defskip expt.9 "complex number")
 
 ;; (deftest expt.10
 ;;   (loop for i = (random 1.0d10)
@@ -115,6 +117,7 @@
 ;;         repeat 1000
 ;;         always (eql (expt c 0) #c(1.0d0 0.0d0)))
 ;;   t)
+(defskip expt.10 "complex number")
 
 ;; (deftest expt.11
 ;;   (loop for i = (random 1.0l10)
@@ -122,6 +125,7 @@
 ;;         repeat 1000
 ;;         always (eql (expt c 0) #c(1.0l0 0.0l0)))
 ;;   t)
+(defskip expt.11 "complex number")
 
 (deftest expt.12
   (loop for x in *numbers*
@@ -141,18 +145,22 @@
 ;; (deftest expt.14
 ;;   (expt #c(0 2) 2)
 ;;   -4)
+(defskip expt.14 "complex number")
 
 ;; (deftest expt.15
 ;;   (expt #c(1 1) 2)
 ;;   #c(0 2))
+(defskip expt.15 "complex number")
 
 ;; (deftest expt.16
 ;;   (expt #c(1/2 1/3) 3)
 ;;   #c(-1/24 23/108))
+(defskip expt.16 "complex number")
 
 ;; (deftest expt.17
 ;;   (expt #c(1 1) -2)
 ;;   #c(0 -1/2))
+(defskip expt.17 "complex number")
 
 (deftest expt.18
   (loop

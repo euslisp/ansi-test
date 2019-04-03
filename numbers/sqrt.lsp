@@ -59,12 +59,14 @@
 ;;;     (=t result (ash 1 5000))
 ;;;      (=t result (float (ash 1 5000) result))))
 ;;;  t)
+(defskip sqrt.6)
 
 ;; (deftest sqrt.7
 ;;   (let ((result (sqrt -1)))
 ;;     (or (eqlt result #c(0 1))
 ;;         (eqlt result #c(0.0 1.0))))
 ;;   t)
+(defskip sqrt.7 "complex number")
 
 (deftest sqrt.8
   (loop for x in *floats*
@@ -77,25 +79,25 @@
         collect (list x s))
   nil)
 
-(deftest sqrt.9
-  ;; (let ((upper (rational most-positive-double-float))
-  ;;       (lower (rational most-negative-double-float)))
-  ;;   (loop for x = (random-fixnum)
-  ;;         repeat 1000
-  ;;         unless (or (< x lower)
-  ;;                    (> x upper)
-  ;;                    (let ((s (sqrt x)))
-  ;;                      (or (and (rationalp s)
-  ;;                               (>= s 0)
-  ;;                               (eql (* s s) x))
-  ;;                          (and (floatp s) (>= x 0))
-  ;;                          (and (complexp s)
-  ;;                               (zerop (realpart s))
-  ;;                               (> (imagpart s) 0)
-  ;;                               (< x 0)))))
-  ;;         collect (list x (sqrt x))))
-    ;; nil)
-    (error "no such function rational"))
+;; (deftest sqrt.9
+;; (let ((upper (rational most-positive-double-float))
+;;       (lower (rational most-negative-double-float)))
+;;   (loop for x = (random-fixnum)
+;;         repeat 1000
+;;         unless (or (< x lower)
+;;                    (> x upper)
+;;                    (let ((s (sqrt x)))
+;;                      (or (and (rationalp s)
+;;                               (>= s 0)
+;;                               (eql (* s s) x))
+;;                          (and (floatp s) (>= x 0))
+;;                          (and (complexp s)
+;;                               (zerop (realpart s))
+;;                               (> (imagpart s) 0)
+;;                               (< x 0)))))
+;;         collect (list x (sqrt x))))
+;; nil)
+(defskip sqrt.9 "no such function rational")
 
 (deftest sqrt.10
   (loop for x from 1 to 1000

@@ -12,16 +12,19 @@
 ;;    (signals-error (/) program-error)
 ;;      t)
 ;;     (error "no such form signals-error"))
+(defskip /.error.1)
 
-;; ;; (deftest /.error.2
-;; ;;   (divide-by-zero-test 0))
+;; (deftest /.error.2
+;;   (divide-by-zero-test 0))
+(defskip /.error.2)
 
 ;; (deftest /.error.3
 ;;   (divide-by-zero-test 1 0))
+(defskip /.error.3)
 
-(deftest /.error.4
-    ;; (divide-by-zero-test 17 10 0 11))
-    (error "no dividing by zero"))
+;; (deftest /.error.4
+;;   (divide-by-zero-test 17 10 0 11))
+(defskip /.error.4)
 
 (deftest /.error.5
   (divide-by-zero-test 0.0s0))
@@ -43,7 +46,7 @@
 
 (deftest /.2
   (/ -1)
-;;   -1)
+  -1)
 
 (deftest /.3
   (loop for i = (random-fixnum)
@@ -174,39 +177,39 @@
 
 ;;; More floating point tests
 
-(deftest /.12
-  ;; (loop for type in '(short-float single-float double-float long-float)
-  ;;       for lower in (mapcar
-  ;;                    #'rational-safely
-  ;;                    (list
-  ;;                     least-positive-short-float least-positive-single-float
-  ;;                     least-positive-double-float least-positive-long-float))
-  ;;       for upper in (mapcar
-  ;;                    #'rational-safely
-  ;;                    (list
-  ;;                     most-positive-short-float most-positive-single-float
-  ;;                     most-positive-double-float most-positive-long-float))
-  ;;       for one = (coerce 1 type)
-  ;;       for radix = (float-radix one)
-  ;;       nconc
-  ;;       (loop
-  ;;        for i from 1
-  ;;        for rpos = radix then (* rpos radix)
-  ;;        for rneg = (/ radix) then (/ rneg radix)
-  ;;        while (<= lower rneg rpos upper)
-  ;;        unless
-  ;;        (let ((frpos (float rpos one))
-  ;;              (frneg (float rneg one)))
-  ;;          (and (eql (/ frpos) (/ one frpos))
-  ;;               (eql (/ frpos) (/ 1.0s0 frpos))
-  ;;               (eql (/ frpos) (/ 1 frpos))
-  ;;               (eql (/ frpos) frneg)
-  ;;               (eql (/ frneg) (/ 1.0s0 frneg))
-  ;;               (eql (/ frneg) (/ 1 frneg))
-  ;;               (eql (/ frneg) frpos)))
-  ;;        collect (list i rpos rneg (float rpos one) (float rneg one))))
-    ;; nil)
-    (error "no such function integer-decode-float"))
+;; (deftest /.12
+;; (loop for type in '(short-float single-float double-float long-float)
+;;       for lower in (mapcar
+;;                    #'rational-safely
+;;                    (list
+;;                     least-positive-short-float least-positive-single-float
+;;                     least-positive-double-float least-positive-long-float))
+;;       for upper in (mapcar
+;;                    #'rational-safely
+;;                    (list
+;;                     most-positive-short-float most-positive-single-float
+;;                     most-positive-double-float most-positive-long-float))
+;;       for one = (coerce 1 type)
+;;       for radix = (float-radix one)
+;;       nconc
+;;       (loop
+;;        for i from 1
+;;        for rpos = radix then (* rpos radix)
+;;        for rneg = (/ radix) then (/ rneg radix)
+;;        while (<= lower rneg rpos upper)
+;;        unless
+;;        (let ((frpos (float rpos one))
+;;              (frneg (float rneg one)))
+;;          (and (eql (/ frpos) (/ one frpos))
+;;               (eql (/ frpos) (/ 1.0s0 frpos))
+;;               (eql (/ frpos) (/ 1 frpos))
+;;               (eql (/ frpos) frneg)
+;;               (eql (/ frneg) (/ 1.0s0 frneg))
+;;               (eql (/ frneg) (/ 1 frneg))
+;;               (eql (/ frneg) frpos)))
+;;        collect (list i rpos rneg (float rpos one) (float rneg one))))
+;; nil)
+(defskip /.12 "no such function integer-decode-float")
 
 ;;; Test that explicit calls to macroexpand in subforms
 ;;; are done in the correct environment

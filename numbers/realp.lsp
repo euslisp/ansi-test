@@ -28,6 +28,7 @@
 ;; (deftest realp.3
 ;;   (realp #c(1 2))
 ;;   nil)
+(defskip realp.3 "complex number")
 
 (deftest realp.4
   (notnot-mv (realp 17/13))

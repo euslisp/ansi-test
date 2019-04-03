@@ -59,21 +59,25 @@
 ;;     (and (eql p1 p2)
 ;;          (approx= p1 (coerce (/ pi 2) 'single-float))))
 ;;   t)
+(defskip phase.10 "complex number")
 
 ;; (deftest phase.11
 ;;   (let ((p (phase #c(0.0d0 1.0d0))))
 ;;     (approx= p (coerce (/ pi 2) 'double-float)))
 ;;   t)
+(defskip phase.11 "complex number")
 
 ;; (deftest phase.12
 ;;   (let ((p (phase #c(0.0s0 1.0s0))))
 ;;     (approx= p (coerce (/ pi 2) 'single-float)))
 ;;   t)
+(defskip phase.12 "complex number")
 
 ;; (deftest phase.13
 ;;   (let ((p (phase #c(0.0l0 1.0l0))))
 ;;     (approx= p (/ pi 2)))
 ;;   t)
+(defskip phase.13 "complex number")
 
 ;; (deftest phase.14
 ;;   (let ((p1 (phase #c(1 1)))
@@ -82,41 +86,49 @@
 ;;          (approx= p1 (coerce (/ pi 4) 'single-float)
 ;;                   (* 2 single-float-epsilon))))
 ;;   t)
+(defskip phase.14 "complex number")
 
 ;; (deftest phase.15
 ;;   (let ((p (phase #c(1.0d0 1.0d0))))
 ;;     (approx= p (coerce (/ pi 4) 'double-float)
 ;;              (* 2 double-float-epsilon)))
 ;;   t)
+(defskip phase.15 "complex number")
 
 ;; (deftest phase.16
 ;;   (let ((p (phase #c(1.0s0 1.0s0))))
 ;;     (approx= p (coerce (/ pi 4) 'single-float)
 ;;              (* 2 short-float-epsilon)))
 ;;   t)
+(defskip phase.16 "complex number")
 
 ;; (deftest phase.17
 ;;   (let ((p (phase #c(1.0l0 1.0l0))))
 ;;     (approx= p (/ pi 4) (* 2 long-float-epsilon)))
 ;;   t)
+(defskip phase.17 "complex number")
 
 ;;; Negative zeros
 ;; (deftest phase.18
 ;;   (or (eqlt -0.0s0 0.0s0)
 ;;       (approx= (phase #c(-1.0 -0.0)) (coerce (- pi) 'short-float)))
 ;;   t)
+(defskip phase.18 "complex number")
 
 ;; (deftest phase.19
 ;;   (or (eqlt -0.0f0 0.0f0)
 ;;       (approx= (phase #c(-1.0 -0.0)) (coerce (- pi) 'single-float)))
 ;;   t)
+(defskip phase.19 "complex number")
 
 ;; (deftest phase.20
 ;;   (or (eqlt -0.0d0 0.0d0)
 ;;       (approx= (phase #c(-1.0 -0.0)) (coerce (- pi) 'double-float)))
 ;;   t)
+(defskip phase.20 "complex number")
 
 ;; (deftest phase.21
 ;;   (or (eqlt -0.0l0 0.0l0)
 ;;       (approx= (phase #c(-1.0 -0.0)) (coerce (- pi) 'long-float)))
 ;;   t)
+(defskip phase.21 "complex number")

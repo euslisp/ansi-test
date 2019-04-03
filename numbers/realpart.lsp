@@ -12,6 +12,7 @@
 ;; (deftest realpart.error.2
 ;;   (signals-error (realpart #c(1.0 2.0) nil) program-error)
 ;;   t)
+(defskip realpart.error.2 "complex number")
 
 (deftest realpart.error.3
   (check-type-error #'realpart #'numberp)

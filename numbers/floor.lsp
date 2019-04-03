@@ -56,27 +56,27 @@
   (floor.9-fn)
   nil)
 
-(deftest floor.10
-  ;; (loop for x in (remove-if #'zerop *reals*)
-  ;;       for (q r) = (multiple-value-list (floor x x))
-  ;;       unless (and (eql q 1)
-  ;;                   (zerop r)
-  ;;                   (if (rationalp x) (eql r 0)
-  ;;                     (eql r (float 0 x))))
-  ;;       collect x)
-    ;; nil)
-    (error "no nuch function rationalp"))
+;; (deftest floor.10
+;; (loop for x in (remove-if #'zerop *reals*)
+;;       for (q r) = (multiple-value-list (floor x x))
+;;       unless (and (eql q 1)
+;;                   (zerop r)
+;;                   (if (rationalp x) (eql r 0)
+;;                     (eql r (float 0 x))))
+;;       collect x)
+;; nil)
+(defskip floor.10 "no such function rationalp")
 
-(deftest floor.11
-  ;; (loop for x in (remove-if #'zerop *reals*)
-  ;;       for (q r) = (multiple-value-list (floor (- x) x))
-  ;;       unless (and (eql q -1)
-  ;;                   (zerop r)
-  ;;                   (if (rationalp x) (eql r 0)
-  ;;                     (eql r (float 0 x))))
-  ;;       collect x)
-    ;; nil)
-    (error "no nuch function rationalp"))
+;; (deftest floor.11
+;; (loop for x in (remove-if #'zerop *reals*)
+;;       for (q r) = (multiple-value-list (floor (- x) x))
+;;       unless (and (eql q -1)
+;;                   (zerop r)
+;;                   (if (rationalp x) (eql r 0)
+;;                     (eql r (float 0 x))))
+;;       collect x)
+;; nil)
+(defskip floor.11 "no such function rationalp")
 
 (deftest floor.12
   (let* ((radix (float-radix 1.0s0))

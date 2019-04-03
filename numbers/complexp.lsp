@@ -16,6 +16,7 @@
 ;; (deftest complexp.error.3
 ;;   (signals-error (complexp #C(1 1) nil) program-error)
 ;;   t)
+(defskip complexp.error.3 "complex number")
 
 (deftest complexp.1
   (check-type-predicate #'complexp 'complex)

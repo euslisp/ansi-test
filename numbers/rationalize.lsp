@@ -21,19 +21,19 @@
   (check-type-error #'rationalize #'realp)
   nil)
 
-(deftest rationalize.1
-  ;; (loop for x in (loop for r in *reals*
-  ;;                      when (or (not (floatp r))
-  ;;                               (<= -1000 (nth-value 1 (integer-decode-float r)) 1000))
-  ;;                      collect r)
-  ;;       for r = (rationalize x)
-  ;;       unless (and (rationalp r)
-  ;;                   (if (floatp x)
-  ;;                       (= (float r x) x)
-  ;;                     (eql x r)))
-  ;;       collect (list x r))
-    ;; nil)
-    (error "no such function integer-decode-float"))
+;; (deftest rationalize.1
+;; (loop for x in (loop for r in *reals*
+;;                      when (or (not (floatp r))
+;;                               (<= -1000 (nth-value 1 (integer-decode-float r)) 1000))
+;;                      collect r)
+;;       for r = (rationalize x)
+;;       unless (and (rationalp r)
+;;                   (if (floatp x)
+;;                       (= (float r x) x)
+;;                     (eql x r)))
+;;       collect (list x r))
+;; nil)
+(defskip rationalize.1 "no such function integer-decode-float")
 
 (deftest rationalize.2
   (loop for type in '(short-float single-float double-float long-float)
