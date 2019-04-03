@@ -148,7 +148,7 @@
 ;; *UNIT-TEST*
 (setq *unit-test* (instance unit-test-container :init))
 
-;; LOAD AUXILIARY
+;; LOAD ANSI AUXILIARY
 (load "auxiliary/ansi-aux.lsp")
 (load "cl-symbol-names.lsp")
 (load "universe.lsp")

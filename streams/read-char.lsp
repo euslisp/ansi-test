@@ -32,7 +32,7 @@
 ;;       (read-char)
 ;;       (read-char)))
 ;;     #\a #.(code-char 0) #\b))
-(deftest read-char.3 (error "^ makes use of function defined in a different PR (code-char)"))
+(defskip read-char.3)
 
 (deftest read-char.4
   (with-input-from-string

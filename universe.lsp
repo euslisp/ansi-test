@@ -179,6 +179,7 @@
 
 
 (defparameter *strings*
+  #+:cl-aux
     (append
      (and (code-char 0)
           (list
@@ -209,7 +210,8 @@
       (make-array 3 :initial-element #\y
                   :adjustable t
                   :element-type 'base-char)
-      )))
+      ))
+    #-:cl-aux nil)
 
 (defparameter *conses*
     (list
@@ -236,6 +238,7 @@
 	;;'#:||
 	))
 (defparameter *cl-test-symbols*
+  #+:cl-aux
     `(,(intern "a" :cl-test)
       ,(intern "" :cl-test)
       ,@(and (code-char 0)
@@ -251,7 +254,8 @@
                (list (intern s :cl-test)
                      (intern s2 :cl-test)
                      (intern s3 :cl-test))))
-      ))
+      )
+    #-:cl-aux nil)
 
 (defparameter *cl-user-symbols*
   '(cl-user::foo
@@ -368,7 +372,7 @@
    (make-hash-table :test #'eq)
    (make-hash-table :test #'eql)
    (make-hash-table :test #'equal)
-   #-(or CMU ECL) (make-hash-table :test #'equalp)
+   #-(or CMU ECL) (make-hash-table :test #'equal)
    ))
 
 ;; (defparameter *pathnames*
