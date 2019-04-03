@@ -449,6 +449,7 @@
 ;;                                  t (nil 0)))
 ;;         collect (list etype result))
 ;;   nil)
+(defskip vector-push-extend.28)
 
 ;;; float tests
 

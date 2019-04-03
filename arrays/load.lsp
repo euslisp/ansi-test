@@ -30,7 +30,7 @@
   (load "array-row-major-index.lsp")
   (load "array-total-size.lsp")
   (load "arrayp.lsp")
-  
+
   (load "fill-pointer.lsp")
   (load "row-major-aref.lsp")
   (load "simple-vector-p.lsp")

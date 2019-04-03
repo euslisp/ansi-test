@@ -597,7 +597,7 @@
 ;;    #.(make-array nil :initial-element #\x :element-type 'character))
 (defskip adjust-array.string.20)
 
-(def-adjust-array-te;; st adjust-array.string.adjustable.1
+(def-adjust-array-test adjust-array.string.adjustable.1
    (5 :initial-contents "abcde" :adjustable t :element-type 'character)
    (4 :element-type 'character)
    "abcd")
@@ -700,7 +700,7 @@
 ;;   do (eval `(progn ,@forms3)))
 (defskip adjust-array.string.adjustable.13)
 
-;; ;; 2-d arrays
+;; 2-d arrays
 
 (def-adjust-array-test adjust-array.string.21
   ('(4 5) :initial-contents '("12345" "34567" "56789" "78912")

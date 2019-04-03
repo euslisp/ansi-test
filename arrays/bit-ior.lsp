@@ -7,47 +7,43 @@
 
 
 
-(deftest bit-ior.1
+;; (deftest bit-ior.1
 ;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 0 :element-type 'bit)))
 ;;     (values (bit-ior s1 s2) s1 s2))
 ;;   #0a0
 ;;   #0a0
-    ;;   #0a0)
-    (error "segmentation fault")
-  )
+;;   #0a0)
+(defskip bit-ior.1 "zero-length array")
 
-(deftest bit-ior.2
+;; (deftest bit-ior.2
 ;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 0 :element-type 'bit)))
 ;;     (values (bit-ior s1 s2) s1 s2))
 ;;   #0a1
 ;;   #0a1
-    ;;   #0a0)
-    (error "segmentation fault")
-  )
+;;   #0a0)
+(defskip bit-ior.2 "zero-length array")
 
-(deftest bit-ior.3
+;; (deftest bit-ior.3
 ;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 1 :element-type 'bit)))
 ;;     (values (bit-ior s1 s2) s1 s2))
 ;;   #0a1
 ;;   #0a0
-    ;;   #0a1)
-    (error "segmentation fault")
-  )
+;;   #0a1)
+(defskip bit-ior.3 "zero-length array")
 
-(deftest bit-ior.4
+;; (deftest bit-ior.4
 ;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 1 :element-type 'bit)))
 ;;     (values (bit-ior s1 s2) s1 s2))
 ;;   #0a1
 ;;   #0a1
-    ;;   #0a1)
-    (error "segmentation fault")
-  )
+;;   #0a1)
+(defskip bit-ior.4 "zero-length array")
 
-(deftest bit-ior.5
+;; (deftest bit-ior.5
 ;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 0 :element-type 'bit))
 ;;          (s3 (make-array nil :initial-element 1 :element-type 'bit))
@@ -57,11 +53,10 @@
 ;;   #0a0
 ;;   #0a0
 ;;   #0a0
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;   t)
+(defskip bit-ior.5 "zero-length array")
 
-(deftest bit-ior.6
+;; (deftest bit-ior.6
 ;;   (let* ((s1 (make-array nil :initial-element 1 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 1 :element-type 'bit))
 ;;          (s3 (make-array nil :initial-element 0 :element-type 'bit))
@@ -71,11 +66,10 @@
 ;;   #0a1
 ;;   #0a1
 ;;   #0a1
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;   t)
+(defskip bit-ior.6 "zero-length array")
 
-(deftest bit-ior.7
+;; (deftest bit-ior.7
 ;;   (let* ((s1 (make-array nil :initial-element 0 :element-type 'bit))
 ;;          (s2 (make-array nil :initial-element 1 :element-type 'bit))
 ;;          (result (bit-ior s1 s2 t)))
@@ -83,9 +77,8 @@
 ;;   #0a1
 ;;   #0a1
 ;;   #0a1
-    ;;   t)
-    (error "segmentation fault")
-  )
+;;   t)
+(defskip bit-ior.7 "zero-length array")
 
 
 ;;; Tests on bit vectors
