@@ -2,24 +2,13 @@
 (require :unittest "lib/llib/unittest.l")
 
 ;; LOAD CL-COMPATIBLE LIBRARIES
-(load "auxiliary/eus-character.l")
-(load "auxiliary/eus-iteration.l")
-(load "auxiliary/eus-predicates.l")
-(load "auxiliary/eus-sequences.l")
-(load "auxiliary/eus-declarations.l")
-(load "auxiliary/eus-numbers.l")
-(load "auxiliary/eus-types.l")
-(load "auxiliary/eus-printer.l")
-(load "auxiliary/eus-handlers.l")
-(load "auxiliary/eus-packages.l")
+#+:cl-aux (load "load-cl-compatible.lsp")
 
 ;; LOAD EUS AUXILIARY
-(load "auxiliary/eus-multiple-values.l")
-(load "auxiliary/eus-loop.l")
+(load "auxiliary/eus_aux/eus-multiple-values.l")
+(load "auxiliary/eus_aux/eus-loop.l")
 
 (defvar *signals-error* t)
-
-(defun single (lst) (and (consp lst) (not (cdr lst))))
 
 ;; OVERWRITES
 
@@ -28,7 +17,6 @@
   (unix:signal unix::sigint 'unittest-sigint-handler)
   (unix:signal unix::sighup 'unittest-sigint-handler)
   t)
-
 
 (defun unittest-error (code msg1 form &optional (msg2))
   (when *signals-error*
@@ -110,7 +98,7 @@
 (defmacro deftest (name clause &rest res)
   `(progn
      (defun ,name ()
-       (assert  ,(if (single res)
+       (assert  ,(if (and (consp res) (not (cdr res)))
 		     `(equal ,clause ',@res)
 		     `(equal (multiple-value-list ,clause) ',res))))
      (send *unit-test* :add-function ',name)
@@ -121,6 +109,7 @@
      (defun ,name () (send *unit-test* :increment-skip ',name ,msg))
      (send *unit-test* :add-function ',name)
      ',name))
+
 
 ;; PREPARE TESTS
 
@@ -135,7 +124,7 @@
 
 (defun compile-and-load (file)
   (if (string= (subseq file 0 15) "ANSI-TESTS:AUX;")
-      (load (concatenate string "../auxiliary/" (subseq file 15)))
+      (load (concatenate-pathnames #.(truename #P"auxiliary/ansi_aux/") (subseq file 15)))
       (load file)))
 
 (defmacro assert (pred &optional (message "") &rest args)
@@ -149,39 +138,16 @@
 (setq *unit-test* (instance unit-test-container :init))
 
 ;; LOAD ANSI AUXILIARY
-(load "auxiliary/ansi-aux.lsp")
-(load "cl-symbol-names.lsp")
-(load "universe.lsp")
+(load "auxiliary/ansi_aux/ansi-aux.lsp")
+(load "auxiliary/ansi_aux/cl-symbol-names.lsp")
+(load "auxiliary/ansi_aux/universe.lsp")
 
 ;; LOAD TESTS
-(load "symbols/load.lsp")
-(load "eval-and-compile/load.lsp")
-(load "data-and-control-flow/load.lsp")
-(load "iteration/load.lsp")
-(load "conditions/load.lsp")
-(load "cons/load.lsp")
-(load "strings/load.lsp")
-(load "characters/load.lsp")
-(load "pathnames/load.lsp")
-(load "files/load.lsp")
-(load "hash-tables/load.lsp")
-(load "arrays/load.lsp")
-(load "environment/load.lsp")
-(load "misc/load.lsp")
-(load "numbers/load.lsp")
-(load "printer/load.lsp")
-(load "reader/load.lsp")
-
-(load "packages/load.lsp")
-(load "streams/load.lsp")
-(load "sequences/load.lsp")
-(load "system-construction/load.lsp")
-(load "structures/load.lsp")
-;; (load "types-and-classes/load.lsp")
-;; (load "objects/load.lsp") **UNSUPPORTED**
+(load "load-tests.lsp")
 
 ;; RUN TESTS
 (init-unit-test)
 
 (terpri)
+(cd "sandbox/")
 (run-all-tests)
