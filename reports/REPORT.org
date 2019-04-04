@@ -1624,7 +1624,7 @@
   - [ ] (deftest with-package-iterator.8
   - [ ] (deftest with-package-iterator.9
   - [ ] (deftest with-package-iterator.10
-  - [ ] (deftest with-package-iterator.11
+  - [X] (deftest with-package-iterator.11
   - [ ] (deftest with-package-iterator.12
   - [ ] (deftest with-package-iterator.13
   - [ ] (deftest with-package-iterator.14
@@ -1638,12 +1638,12 @@
   - [ ] (def-with-package-iterator-test with-package-iterator.21
   - [ ] (deftest with-package-iterator.22
 **** keyword.lsp [0%]
-  - [ ] (deftest keyword.1
+  - [X] (deftest keyword.1
   - [ ] (deftest keyword.4
   - [ ] (deftest keyword.5
   - [ ] (deftest keyword.6
   - [ ] (deftest keyword.2
-  - [ ] (deftest keyword.3
+  - [X] (deftest keyword.3
 **** unuse-package.lsp [0%]
   - [ ] (deftest unuse-package.1
   - [ ] (deftest unuse-package.2
@@ -1668,8 +1668,8 @@
   - [ ] (def-unuse-package-test unuse-package.21
   - [ ] (def-unuse-package-test unuse-package.22
   - [ ] (def-unuse-package-test unuse-package.23
-  - [ ] (deftest unuse-package.error.1
-  - [ ] (deftest unuse-package.error.2
+  - [X] (deftest unuse-package.error.1
+  - [X] (deftest unuse-package.error.2
 **** defpackage.lsp [0%]
   - [ ] (deftest defpackage.1
   - [ ] (deftest defpackage.2
@@ -1707,8 +1707,8 @@
   - [ ] (def-package-use-list-test package-use-list.5
   - [ ] (def-package-use-list-test package-use-list.6
   - [ ] (def-package-use-list-test package-use-list.7
-  - [ ] (deftest package-use-list.error.1
-  - [ ] (deftest package-use-list.error.2
+  - [X] (deftest package-use-list.error.1
+  - [X] (deftest package-use-list.error.2
 **** package-error.lsp [0%]
   - [ ] (deftest package-error.1
   - [ ] (deftest package-error.2
@@ -1726,8 +1726,8 @@
   - [ ] (def-shadowing-import-test shadowing-import.9
   - [ ] (def-shadowing-import-test shadowing-import.10
   - [ ] (def-shadowing-import-test shadowing-import.11
-  - [ ] (deftest shadowing-import.error.1
-  - [ ] (deftest shadowing-import.error.2
+  - [X] (deftest shadowing-import.error.1
+  - [X] (deftest shadowing-import.error.2
 **** export.lsp [0%]
   - [ ] (deftest export.1
   - [ ] (deftest export.2
@@ -1738,7 +1738,7 @@
   - [ ] (deftest export.error.2
 **** find-package.lsp [0%]
   - [ ] (deftest find-package.1
-  - [ ] (deftest find-package.2
+  - [X] (deftest find-package.2
   - [ ] (deftest find-package.3
   - [ ] (deftest find-package.4
   - [ ] (deftest find-package.5
@@ -1747,15 +1747,15 @@
   - [ ] (deftest find-package.8
   - [ ] (deftest find-package.9
   - [ ] (deftest find-package.10
-  - [ ] (deftest find-package.11
+  - [X] (deftest find-package.11
   - [ ] (deftest find-package.12
   - [ ] (deftest find-package.13
   - [ ] (deftest find-package.14
   - [ ] (deftest find-package.15
   - [ ] (deftest find-package.16
   - [ ] (deftest find-package.17
-  - [ ] (deftest find-package.error.1
-  - [ ] (deftest find-package.error.2
+  - [X] (deftest find-package.error.1
+  - [X] (deftest find-package.error.2
 **** use-package.lsp [0%]
   - [ ] (deftest use-package.1
   - [ ] (deftest use-package.2
@@ -1778,7 +1778,7 @@
   - [ ] (def-use-package-test use-package.21
   - [ ] (def-use-package-test use-package.22
   - [ ] (def-use-package-test use-package.23
-  - [ ] (deftest use-package.error.1
+  - [X] (deftest use-package.error.1
   - [ ] (deftest use-package.error.2
 **** unintern.lsp [0%]
   - [ ] (deftest unintern.1
@@ -1797,8 +1797,8 @@
   - [ ] (def-unintern-test unintern.14
   - [ ] (def-unintern-test unintern.15
   - [ ] (def-unintern-test unintern.16
-  - [ ] (deftest unintern.error.1
-  - [ ] (deftest unintern.error.2
+  - [X] (deftest unintern.error.1
+  - [X] (deftest unintern.error.2
 **** package-used-by-list.lsp [0%]
   - [ ] (def-package-used-by-list-test package-used-by-list.1
   - [ ] (def-package-used-by-list-test package-used-by-list.2
@@ -1807,8 +1807,8 @@
   - [ ] (def-package-used-by-list-test package-used-by-list.5
   - [ ] (def-package-used-by-list-test package-used-by-list.6
   - [ ] (def-package-used-by-list-test package-used-by-list.7
-  - [ ] (deftest package-used-by-list.error.1
-  - [ ] (deftest package-used-by-list.error.2
+  - [X] (deftest package-used-by-list.error.1
+  - [X] (deftest package-used-by-list.error.2
 **** package-name.lsp [0%]
   - [ ] (deftest package-name.1
   - [ ] (deftest package-name.2
@@ -1821,11 +1821,11 @@
   - [ ] (deftest package-name.8
   - [ ] (deftest package-name.9
   - [ ] (deftest package-name.10
-  - [ ] (deftest package-name.11
+  - [X] (deftest package-name.11
   - [ ] (deftest package-name.12
   - [ ] (deftest package-name.13
-  - [ ] (deftest package-name.14
-  - [ ] (deftest package-name.15
+  - [X] (deftest package-name.14
+  - [X] (deftest package-name.15
   - [ ] (def-package-name-test package-name.16
   - [ ] (def-package-name-test package-name.17
   - [ ] (def-package-name-test package-name.18
@@ -1833,8 +1833,8 @@
   - [ ] (def-package-name-test package-name.20
   - [ ] (def-package-name-test package-name.21
   - [ ] (def-package-name-test package-name.22
-  - [ ] (deftest package-name.error.1
-  - [ ] (deftest package-name.error.2
+  - [X] (deftest package-name.error.1
+  - [X] (deftest package-name.error.2
   - [ ] (deftest package-name.error.3
 **** do-symbols.lsp [0%]
   - [ ] (deftest do-symbols.1
@@ -1862,7 +1862,7 @@
   - [ ] (deftest unexport.2
   - [ ] (deftest unexport.3
   - [ ] (deftest unexport.4
-  - [ ] (deftest unexport.5
+  - [X] (deftest unexport.5
   - [ ] (deftest unexport.6
   - [ ] (def-unexport-test unexport.7
   - [ ] (def-unexport-test unexport.8
@@ -1871,8 +1871,8 @@
   - [ ] (def-unexport-test unexport.11
   - [ ] (def-unexport-test unexport.12
   - [ ] (def-unexport-test unexport.13
-  - [ ] (deftest unexport.error.1
-  - [ ] (deftest unexport.error.2
+  - [X] (deftest unexport.error.1
+  - [X] (deftest unexport.error.2
 **** shadow.lsp [0%]
   - [ ] (deftest shadow.1
   - [ ] (deftest shadow.2
@@ -1884,8 +1884,8 @@
   - [ ] (deftest shadow.8
   - [ ] (deftest shadow.9
   - [ ] (deftest shadow.10
-  - [ ] (deftest shadow.error.1
-  - [ ] (deftest shadow.error.2
+  - [X] (deftest shadow.error.1
+  - [X] (deftest shadow.error.2
 **** rename-package.lsp [0%]
   - [ ] (deftest rename-package.1
   - [ ] (deftest rename-package.2
@@ -1896,9 +1896,9 @@
   - [ ] (deftest rename-package.7
   - [ ] (deftest rename-package.8
   - [ ] (deftest rename-package.9
-  - [ ] (deftest rename-package.error.1
-  - [ ] (deftest rename-package.error.2
-  - [ ] (deftest rename-package.error.3
+  - [X] (deftest rename-package.error.1
+  - [X] (deftest rename-package.error.2
+  - [X] (deftest rename-package.error.3
 **** do-external-symbols.lsp [0%]
   - [ ] (deftest do-external-symbols.1
   - [ ] (deftest do-external-symbols.2
@@ -1930,8 +1930,8 @@
   - [ ] (deftest find-all-symbols.7
   - [ ] (deftest find-all-symbols.8
   - [ ] (deftest find-all-symbols.9
-  - [ ] (deftest find-all-symbols.error.1
-  - [ ] (deftest find-all-symbols.error.2
+  - [X] (deftest find-all-symbols.error.1
+  - [X] (deftest find-all-symbols.error.2
 **** import.lsp [0%]
   - [ ] (deftest import.1
   - [ ] (deftest import.2
@@ -1945,9 +1945,9 @@
   - [ ] (deftest import.10
   - [ ] (deftest import.11
   - [ ] (deftest import.12
-  - [ ] (deftest import.error.1
-  - [ ] (deftest import.error.2
-  - [ ] (deftest import.error.3
+  - [X] (deftest import.error.1
+  - [X] (deftest import.error.2
+  - [X] (deftest import.error.3
   - [ ] (deftest import.error.4
   - [ ] (deftest import.error.5
 **** package-nicknames.lsp [0%]
@@ -1958,12 +1958,12 @@
   - [ ] (deftest package-nicknames.5
   - [ ] (deftest package-nicknames.6
   - [ ] (deftest package-nicknames.7
-  - [ ] (deftest package-nicknames.8
-  - [ ] (deftest package-nicknames.9
-  - [ ] (deftest package-nicknames.9a
+  - [X] (deftest package-nicknames.8
+  - [X] (deftest package-nicknames.9
+  - [X] (deftest package-nicknames.9a
   - [ ] (deftest package-nicknames.10
   - [ ] (deftest package-nicknames.11
-  - [ ] (deftest package-nicknames.12
+  - [X] (deftest package-nicknames.12
   - [ ] (def-package-nicknames-test package-nicknames.16
   - [ ] (def-package-nicknames-test package-nicknames.17
   - [ ] (def-package-nicknames-test package-nicknames.18
@@ -1971,8 +1971,8 @@
   - [ ] (def-package-nicknames-test package-nicknames.20
   - [ ] (def-package-nicknames-test package-nicknames.21
   - [ ] (def-package-nicknames-test package-nicknames.22
-  - [ ] (deftest package-nicknames.error.1
-  - [ ] (deftest package-nicknames.error.2
+  - [X] (deftest package-nicknames.error.1
+  - [X] (deftest package-nicknames.error.2
   - [ ] (deftest package-nicknames.error.3
 **** make-package.lsp [0%]
   - [ ] (deftest make-package.1
@@ -2019,20 +2019,20 @@
   - [ ] (deftest make-package.error.2
   - [ ] (deftest make-package.error.3
   - [ ] (deftest make-package.error.4
-  - [ ] (deftest make-package.error.5
-  - [ ] (deftest make-package.error.6
-  - [ ] (deftest make-package.error.7
-  - [ ] (deftest make-package.error.8
-  - [ ] (deftest make-package.error.9
-  - [ ] (deftest make-package.error.10
-  - [ ] (deftest make-package.error.11
+  - [X] (deftest make-package.error.5
+  - [X] (deftest make-package.error.6
+  - [X] (deftest make-package.error.7
+  - [X] (deftest make-package.error.8
+  - [X] (deftest make-package.error.9
+  - [X] (deftest make-package.error.10
+  - [X] (deftest make-package.error.11
 **** package-error-package.lsp [0%]
   - [ ] (deftest package-error-package.1
   - [ ] (deftest package-error-package.2
   - [ ] (deftest package-error-package.3
   - [ ] (deftest package-error-package.4
-  - [ ] (deftest package-error-package.error.1
-  - [ ] (deftest package-error-package.error.2
+  - [X] (deftest package-error-package.error.1
+  - [X] (deftest package-error-package.error.2
 **** in-package.lsp [0%]
   - [ ] (deftest in-package.1
   - [ ] (deftest in-package.2
@@ -2055,13 +2055,13 @@
   - [ ] (def-package-shadowing-symbols-test package-shadowing-symbols.5
   - [ ] (def-package-shadowing-symbols-test package-shadowing-symbols.6
   - [ ] (def-package-shadowing-symbols-test package-shadowing-symbols.7
-  - [ ] (deftest package-shadowing-symbols.error.1
-  - [ ] (deftest package-shadowing-symbols.error.2
+  - [X] (deftest package-shadowing-symbols.error.1
+  - [X] (deftest package-shadowing-symbols.error.2
 **** packagep.lsp [0%]
   - [ ] (deftest packagep.1
-  - [ ] (deftest packagep.2
-  - [ ] (deftest packagep.error.1
-  - [ ] (deftest packagep.error.2
+  - [X] (deftest packagep.2
+  - [X] (deftest packagep.error.1
+  - [X] (deftest packagep.error.2
 **** find-symbol.lsp [0%]
   - [ ] (deftest find-symbol.1
   - [ ] (deftest find-symbol.2
@@ -2092,14 +2092,14 @@
 **** list-all-packages.lsp [0%]
   - [ ] (deftest list-all-packages.1
   - [ ] (deftest list-all-packages.2
-  - [ ] (deftest list-all-packages.3
-  - [ ] (deftest list-all-packages.4
-  - [ ] (deftest list-all-packages.error.1
+  - [X] (deftest list-all-packages.3
+  - [X] (deftest list-all-packages.4
+  - [X] (deftest list-all-packages.error.1
 **** do-all-symbols.lsp [0%]
   - [ ] (def-macro-test do-all-symbols.error.1
   - [ ] (deftest do-all-symbols.1
   - [ ] (deftest do-all-symbols.2
-  - [ ] (deftest do-all-symbols.3
+  - [X] (deftest do-all-symbols.3
   - [ ] (deftest do-all-symbols.4
   - [ ] (deftest do-all-symbols.5
   - [ ] (deftest do-all-symbols.6
@@ -2129,7 +2129,7 @@
   - [ ] (def-intern-test intern.16
   - [ ] (def-intern-test intern.17
   - [ ] (def-intern-test intern.18
-  - [ ] (deftest intern.error.1
+  - [X] (deftest intern.error.1
   - [ ] (deftest intern.error.2
 **** delete-package.lsp [0%]
   - [ ] (deftest delete-package.1
@@ -2145,8 +2145,8 @@
   - [ ] (def-delete-package-test delete-package.11
   - [ ] (def-delete-package-test delete-package.12
   - [ ] (def-delete-package-test delete-package.13
-  - [ ] (deftest delete-package.error.1
-  - [ ] (deftest delete-package.error.2
+  - [X] (deftest delete-package.error.1
+  - [X] (deftest delete-package.error.2
 *** data-and-control-flow [0%]
 **** identity.lsp [83%]
   - [ ] (deftest identity.1
@@ -2298,11 +2298,11 @@
   - [X] (deftest defconstant.error.2
   - [X] (deftest defconstant.error.3
 **** equal.lsp [91%]
-  - [ ] (deftest equal.1
+  - [X] (deftest equal.1
   - [X] (deftest equal.2
   - [X] (deftest equal.3
   - [X] (deftest equal.4
-  - [ ] (deftest equal.5
+  - [X] (deftest equal.5
   - [X] (deftest equal.6
   - [X] (deftest equal.7
   - [X] (deftest equal.8
@@ -2667,13 +2667,13 @@
 **** not-and-null.lsp [83%]
   - [X] (deftest null.1
   - [X] (deftest null.2
-  - [ ] (deftest null.3
+  - [X] (deftest null.3
   - [X] (deftest null.4
   - [X] (deftest null.error.1
   - [X] (deftest null.error.2
   - [X] (deftest not.1
   - [X] (deftest not.2
-  - [ ] (deftest not.3
+  - [X] (deftest not.3
   - [X] (deftest not.4
   - [X] (deftest not.error.1
   - [X] (deftest not.error.2
@@ -4175,8 +4175,8 @@
   - [X] (deftest write-to-string.error.2
   - [X] (deftest write-to-string.error.3
 **** print-pathname.lsp [0%]
-  - [ ] (deftest print.pathname.1
-  - [ ] (deftest print.pathname.2
+  - [X] (deftest print.pathname.1
+  - [X] (deftest print.pathname.2
 **** copy-pprint-dispatch.lsp [10%]
   - [ ] (deftest copy-pprint-dispatch.1
   - [ ] (deftest copy-pprint-dispatch.2
@@ -4454,8 +4454,8 @@
   - [X] (deftest pprint-indent.error.1
   - [X] (deftest pprint-indent.error.2
   - [X] (deftest pprint-indent.error.3
-  - [ ] (deftest pprint-indent.error.4
-  - [ ] (deftest pprint-indent.error.4-unsafe
+  - [X] (deftest pprint-indent.error.4
+  - [X] (deftest pprint-indent.error.4-unsafe
 **** pprint-tab.lsp [20%]
   - [ ] (def-pprint-test pprint-tab.non-pretty.1
   - [ ] (def-pprint-test pprint-tab.non-pretty.2
@@ -4475,8 +4475,8 @@
   - [X] (deftest pprint-tab.error.2
   - [X] (deftest pprint-tab.error.3
   - [X] (deftest pprint-tab.error.4
-  - [ ] (deftest pprint-tab.error.5
-  - [ ] (deftest pprint-tab.error.5-unsafe
+  - [X] (deftest pprint-tab.error.5
+  - [X] (deftest pprint-tab.error.5-unsafe
 **** prin1-to-string.lsp [75%]
   - [ ] (deftest prin1-to-string.1
   - [X] (deftest prin1-to-string.2
@@ -6032,7 +6032,7 @@
   - [ ] (deftest file-write-date.2
   - [ ] (deftest file-write-date.3
   - [ ] (deftest file-write-date.4
-  - [ ] (deftest file-write-date.5
+  - [X] (deftest file-write-date.5
   - [ ] (deftest file-write-date.6
   - [X] (deftest file-write-date.error.1
   - [X] (deftest file-write-date.error.2
@@ -7060,7 +7060,7 @@
   - [ ] (deftest structure-1-1
   - [ ] (deftest structure-1-2
   - [ ] (deftest structure-1-3
-  - [ ] (deftest structure-1-4
+  - [X] (deftest structure-1-4
   - [ ] (deftest structure-1-5
   - [ ] (deftest structure-1-6
   - [ ] (deftest structure-1-7
@@ -11093,7 +11093,7 @@
   - [X] (deftest plus.1
   - [ ] (deftest plus.2
   - [ ] (deftest plus.3
-  - [ ] (deftest plus.4
+  - [X] (deftest plus.4
   - [ ] (deftest plus.5
   - [X] (deftest plus.6
   - [ ] (deftest plus.7
@@ -11174,7 +11174,7 @@
   - [X] (deftest oddp.error.1
   - [X] (deftest oddp.error.2
   - [ ] (deftest oddp.error.3
-  - [ ] (deftest oddp.1
+  - [X] (deftest oddp.1
   - [ ] (deftest oddp.3
   - [X] (deftest oddp.4
   - [X] (deftest oddp.5
@@ -11462,7 +11462,7 @@
   - [X] (deftest zerop.error.2
   - [X] (deftest zerop.error.3
   - [ ] (deftest zerop.error.4
-  - [ ] (deftest zerop.1
+  - [X] (deftest zerop.1
   - [X] (deftest zerop.2
   - [X] (deftest zerop.3
   - [X] (deftest zerop.4
@@ -11815,7 +11815,7 @@
   - [ ] (deftest *.1
   - [ ] (deftest *.2
   - [ ] (deftest *.3
-  - [ ] (deftest *.4
+  - [X] (deftest *.4
   - [X] (deftest *.5
   - [X] (deftest *.6
   - [ ] (deftest *.7
@@ -11919,7 +11919,7 @@
   - [X] (deftest float.2
   - [X] (deftest float.3
   - [ ] (deftest float.4
-  - [ ] (deftest float.5
+  - [X] (deftest float.5
   - [ ] (deftest float.6
   - [ ] (deftest float.7
   - [ ] (deftest float.8
@@ -12060,7 +12060,7 @@
   - [X] (deftest evenp.error.1
   - [X] (deftest evenp.error.2
   - [ ] (deftest evenp.error.3
-  - [ ] (deftest evenp.1
+  - [X] (deftest evenp.1
   - [ ] (deftest evenp.3
   - [X] (deftest evenp.4
   - [X] (deftest evenp.5
@@ -12196,8 +12196,8 @@
   - [X] (deftest >.error.1
   - [X] (deftest >=.error.1
   - [ ] (deftest =.1
-  - [ ] (deftest =.2
-  - [ ] (deftest =.3
+  - [X] (deftest =.2
+  - [X] (deftest =.3
   - [ ] (deftest =.4
   - [X] (deftest =.5
   - [X] (deftest =.6
@@ -12218,8 +12218,8 @@
   - [X] (deftest =.order.2
   - [X] (deftest =.order.3
   - [ ] (deftest /=.1
-  - [ ] (deftest /=.2
-  - [ ] (deftest /=.3
+  - [X] (deftest /=.2
+  - [X] (deftest /=.3
   - [ ] (deftest /=.4
   - [ ] (deftest /=.4a
   - [X] (deftest /=.5
@@ -13128,7 +13128,7 @@
   - [ ] (def-macro-test pop.error.1 (pop x))
 **** copy-tree.lsp [50%]
   - [X] (deftest copy-tree.1
-  - [ ] (deftest copy-tree.2
+  - [X] (deftest copy-tree.2
   - [X] (deftest copy-tree.order.1
   - [ ] (def-fold-test copy-tree.fold.1 (copy-tree '(a . b)))
   - [ ] (def-fold-test copy-tree.fold.2 (copy-tree '(a)))
@@ -14012,7 +14012,7 @@
   - [X] (deftest rplaca.error.4
   - [X] (deftest rplaca.error.6
 **** atom.lsp [60%]
-  - [ ] (deftest atom.1
+  - [X] (deftest atom.1
   - [ ] (deftest atom.2
   - [X] (deftest atom.order.1
   - [X] (deftest atom.error.1
@@ -14861,8 +14861,8 @@
 **** output-stream-p.lsp [57%]
   - [X] (deftest output-stream-p.1
   - [X] (deftest output-stream-p.2
-  - [ ] (deftest output-stream-p.3
-  - [ ] (deftest output-stream-p.4
+  - [X] (deftest output-stream-p.3
+  - [X] (deftest output-stream-p.4
   - [X] (deftest output-stream-p.error.1
   - [X] (deftest output-stream-p.error.2
   - [ ] (deftest output-stream-p.error.3
@@ -14924,8 +14924,8 @@
 **** input-stream-p.lsp [57%]
   - [X] (deftest input-stream-p.1
   - [X] (deftest input-stream-p.2
-  - [ ] (deftest input-stream-p.3
-  - [ ] (deftest input-stream-p.4
+  - [X] (deftest input-stream-p.3
+  - [X] (deftest input-stream-p.4
   - [X] (deftest input-stream-p.error.1
   - [X] (deftest input-stream-p.error.2
   - [ ] (deftest input-stream-p.error.3
@@ -15057,8 +15057,8 @@
   - [ ] (deftest make-concatenated-stream.31
   - [ ] (deftest make-concatenated-stream.32
   - [ ] (deftest make-concatenated-stream.33
-  - [ ] (deftest make-concatenated-stream.error.1
-  - [ ] (deftest make-concatenated-stream.error.2
+  - [X] (deftest make-concatenated-stream.error.1
+  - [X] (deftest make-concatenated-stream.error.2
 **** streamp.lsp [66%]
   - [ ] (deftest streamp.1
   - [ ] (deftest streamp.2

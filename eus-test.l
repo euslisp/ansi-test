@@ -47,7 +47,7 @@
     (setq tm (now))
     (funcall func)
     (if (plusp (send (car (send *unit-test* :result)) :num-successes))
-      (format t "~A~%" func-sym))
+      (format #.*standard-output* "~A~%" func-sym))
     (send *unit-test* :set-time-to-current-result (send (now) :elapsed tm))))
 
 (defclass unit-test-result
@@ -60,12 +60,12 @@
                         (send self :num-skips))))
 
 (defmethod unit-test-container
-  (:print-normal-result (&optional (strm t))
+  (:print-normal-result (&optional (strm *error-output*))
     (let ((all-tests (apply #'+ (send-all result :num-tests)))
 	  (all-successes (apply #'+ (send-all result :num-successes)))
 	  (all-failures (apply #'+ (send-all result :num-failures)))
 	  (all-skips (apply #'+ (send-all result :num-skips))))
-      (warning-message 2 "~%ALL RESULTS:~%")
+      (format strm "~%~%~C[4;3~CmALL RESULTS:~C[0m~%" #x1b 50 #x1b)
       (format strm "  TEST-NUM: ~A~%~%" all-tests)
       ;; PASS
       (format strm "  PASSED:   ~A~%" all-successes)
@@ -75,13 +75,14 @@
       (if (> all-failures 0) (format strm "~C[0m" #x1b))
       ;; SKIP
       (if (> all-skips 0) (format strm "~C[3~Cm" #x1b 49))
-      (format strm "  SKIPPED:  ~A~%~%" all-skips)
-      (if (> all-skips 0) (format strm "~C[0m" #x1b))
+      (format strm "  SKIPPED:  ~A~%" all-skips)
+      (format strm "~C[0m~%" #x1b)
 
       ;; Print all failures
-      (dolist (r (reverse (remove-if-not #'(lambda (obj) (unit-test-result-failures obj)) result)))
-	(warning-message 1 "~A " (unit-test-result-name r)))
-      (format strm "~%~%")))
+      ;; (dolist (r (reverse (remove-if-not #'(lambda (obj) (unit-test-result-failures obj)) result)))
+      ;;   (warning-message 1 "~A " (unit-test-result-name r)))
+      ;; (format strm "~%~%")
+      ))
   (:increment-failure (test msg trace)
    (when result
      (push (list test msg trace) (unit-test-result-failures (car result)))
@@ -92,8 +93,10 @@
     (when result
       (setf (unit-test-result-skips (car result)) name)
       (warning-message 2 "[SKIP] ~S" name)
-      (if msg (format *error-output* "~C[1;3~Cm: ~A~C[0m~%" #x1b 50 msg #x1b))
-      (terpri))))
+      (when msg
+        (warning-message 2 ": ")
+        (format *error-output* "~C[1;3~Cm~A~C[0m~%" #x1b 50 msg #x1b))
+      (terpri *error-output*))))
 
 (defmacro deftest (name clause &rest res)
   `(progn
@@ -148,6 +151,12 @@
 ;; RUN TESTS
 (init-unit-test)
 
-(terpri)
+(terpri *error-output*)
+
+;; Save temporary files to `sandbox/'
 (cd "sandbox/")
-(run-all-tests)
+
+;; Set `*standard-output*' exclusively for printing successfull tests,
+;; which is used for generating test reports
+(let ((*standard-output* *error-output*))
+  (run-all-tests))

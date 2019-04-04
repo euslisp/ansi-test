@@ -3,21 +3,19 @@
 #
 # Usage:
 #   Run the tests, putting the results in a file:
-#   $ roseus eus-test.l > test1
-#   You should check whether there are blank lines on the file.
-#   If there are, you should discard those lines prior to running
-#   $ ./update-report.py test1
-#   Running the line above should update the REPORT.org file with the most recent passing/non-passing test info.
+#   $ eus eus-test.l > result
+#   Update the REPORT.org file with the most recent passing/non-passing test info by running:
+#   $ ./update-report.py result
 #
 
 
 import sys
 
 if len(sys.argv) != 2:
-    print("Usage: $ ./update-report.py test-file")
+    print("Usage: $ ./update-report.py result-file")
     exit(0)
 
-test_file   = open("../" + sys.argv[1], "r")
+test_file   = open(sys.argv[1], "r")
 org_file    = open("REPORT.org", "r+")
 org_content = org_file.readlines()
 

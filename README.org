@@ -11,9 +11,9 @@ language.
 Those tests are based on the [[https://common-lisp.net/project/ansi-test/][Ansi-Test]] test suite, which was made to
 test the Common Lisp compliance of different Common Lisp implementations.
 
-To run the tests (assuming you have installed ~euslisp~, perhaps with the ~irt~ extension), issue either ~roseus eus-test.l~, ~irteusgl
-eus-test.l~, (perhaps) ~eus eus-test.l~ or ~./eus-test.l~ (assuming the file has execution
-permissions).
+To run the tests (assuming you have installed ~euslisp~, perhaps with the ~irt~ extension),
+issue either ~roseus eus-test.l~, ~irteusgl eus-test.l~, ~eus eus-test.l~ or ~./eus-test.l~
+(assuming the file has execution permissions).
 
 In order to get precise coverage of the tests (so as to have
 an idea of how much "Common" is EusLisp), you might want to visit the

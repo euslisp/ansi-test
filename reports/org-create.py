@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import re
-import os
 from os import walk
 
 
@@ -10,7 +9,7 @@ fh = open("REPORT.org","w")
 f = []
 
 # Gets dirnames
-root = './..'
+root = '../tests/'
 (_, dirnames, _) = walk(root).next()
 
 # for name in dirnames:
