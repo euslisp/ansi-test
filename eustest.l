@@ -9,7 +9,9 @@
 ;;; who joined the EusLisp ansi-test project in 2018
 ;;;
 
-(load "auxiliary/eus_aux/assert")
+;; LISP OVERWRITES
+(load "auxiliary/eus_aux/load" :package *lisp-package*)
+(load "auxiliary/eus_aux/assert" :package *lisp-package*)
 
 (unless (find-package "EUSTEST")
   (make-package "EUSTEST"))
@@ -41,10 +43,12 @@
 
 ;; CLASS DEFINITIONS
 (defclass eustest-function
-  :slots (name status))
+  :slots (name status dir file))
 (defmethod eustest-function
   (:init (n)
     (setq name n)
+    (setq dir (car *loader-current-directory*))
+    (setq file *loader-current-file*)
     (setq status nil)
     self)
   (:name () name)
