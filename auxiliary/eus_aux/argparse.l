@@ -32,7 +32,6 @@
 (export '(argument-parser))
 
 (defclass argparse-docstring
-  :super propertied-object
   :slots (usage-stream details-stream))
 (defmethod argparse-docstring
   (:init (&optional description)

@@ -3,7 +3,7 @@
 #
 # Usage:
 #   Run the tests, putting the results in a file:
-#   $ eus eus-test.l > result
+#   $ eus run-tests.l > result
 #   Update the REPORT.org file with the most recent passing/non-passing test info by running:
 #   $ ./update-report.py result
 #

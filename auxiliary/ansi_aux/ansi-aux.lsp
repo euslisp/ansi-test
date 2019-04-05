@@ -259,7 +259,8 @@ the condition to go uncaught if it cannot be classified."
 |#
 
 (defmacro signals-error (form &rest ignore)
-  `(let (*signals-error*) (not (catch 0 ,form t))))
+  `(let ((*error-output* (make-string-output-stream)))
+     (not (catch 0 ,form t))))
 
 (defmacro signals-error-always (form error-name)
   `(values

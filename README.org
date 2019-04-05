@@ -12,7 +12,7 @@ Those tests are based on the [[https://common-lisp.net/project/ansi-test/][Ansi-
 test the Common Lisp compliance of different Common Lisp implementations.
 
 To run the tests (assuming you have installed ~euslisp~, perhaps with the ~irt~ extension),
-issue either ~roseus eus-test.l~, ~irteusgl eus-test.l~, ~eus eus-test.l~ or ~./eus-test.l~
+issue either ~roseus run-tests.l~, ~irteusgl run-tests.l~, ~eus run-tests.l~ or ~./run-tests.l~
 (assuming the file has execution permissions).
 
 In order to get precise coverage of the tests (so as to have
