@@ -16,6 +16,8 @@
 (send argparse :add-argument '("--auxiliary" "-aux")
       :callback #'(lambda () (push :cl-aux *features*))
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
+(send argparse :add-argument '("--update-log" "-u")
+      :help "Set to update 'REPORT.org' results")
 (send argparse :parse-args)
 
 ;; PREPARE TESTS
@@ -53,4 +55,11 @@
 ;; Save temporary files to `sandbox/'
 (cd "sandbox/")
 
-(run-all-tests)
+
+(run-all-tests (not (send argparse :update-log)))
+
+(cd "../")
+(format t "Updating 'REPORT.org'...~%")
+(send eustest::*unit-test* :print-log "REPORT.org")
+(format t "... updated.~%")
+(send eustest::*unit-test* :exit)

@@ -10,8 +10,10 @@
 ;;;
 
 ;; LISP OVERWRITES
-(load "auxiliary/eus_aux/load" :package *lisp-package*)
 (load "auxiliary/eus_aux/assert" :package *lisp-package*)
+(load "auxiliary/eus_aux/ratio" :package *lisp-package*)
+(load "auxiliary/eus_aux/load" :package *lisp-package*)
+
 
 (unless (find-package "EUSTEST")
   (make-package "EUSTEST"))
@@ -41,13 +43,48 @@
   (remove-if-not #'(lambda (obj) (funcall test (send obj :get-val place) val))
                  list))
 
+(defun org-level (n stream)
+  (spaces (* 2 n) stream)
+  (format stream "- "))
+
+(defun ensure-directory-namestring (file)
+  (or (directory-namestring file) "./"))
+
+(defun file-namestring (file)
+  (let* ((path (pathname file))
+         (name (send path :name)))
+    (if name
+        (namestring
+         (make-pathname :name (send path :name)
+                        :type (send path :type)))
+        (car (last (send path :directory))))))
+
+(defun childpath-p (child-path parent-path)
+  (flet ((get-dir (path) (send (truename path) :directory)))
+    (let ((child-dir (get-dir child-path))
+          (parent-dir (get-dir parent-path)))
+      (and (>= (length child-dir) (length parent-dir))
+           (every #'identity
+                  (mapcar #'equal parent-dir child-dir))))))
+
+(defmacro maybe-print-log-line (type lvl &optional key)
+  (let ((val (gensym)))
+    `(let ((,val ,(if key `(,key (eustest-function-file test))
+                    '(eustest-function-file test))))
+       (unless (string= ,type ,val)
+         (setq ,type ,val)
+         (org-level ,lvl log)
+         (format log "[[~A][~A]] [~A]~%"
+                 ,type
+                 (file-namestring ,type)
+                 (gethash ,type totals))))))
+
 ;; CLASS DEFINITIONS
 (defclass eustest-function
-  :slots (name status dir file))
+  :slots (name status file))
 (defmethod eustest-function
   (:init (n)
     (setq name n)
-    (setq dir (namestring (truename (car *loader-current-directory*))))
     (setq file *loader-current-file*)
     (setq status nil)
     self)
@@ -122,9 +159,30 @@
   (:get-function (name)
     (find-if #'(lambda (obj) (eql (send obj :name) name)) functions))
   (:get-directory-tests (name)
-    (getproperty (send self :all-tests) 'dir name :test #'string=))
+    (unless (= (elt name (1- (length name))) #\/)
+      (setq name (concatenate string name "/")))
+    (getproperty (send self :all-tests) 'file name :test #'childpath-p))
   (:get-file-tests (name)
-    (getproperty (send self :all-tests) 'file name :test #'string=))
+    (let ((name (namestring (truename name))))
+      (getproperty (send self :all-tests) 'file name :test #'string=)))
+  (:get-totals ()
+    ;; emacs can also calculate the totals in the .org file by using
+    ;; `(let (org-checkbox-hierarchical-statistics) (org-update-checkbox-count t))'
+    ;; calculations are coded in here for performance reasons
+    (let ((hash (make-hash-table :test #'string=)))
+      (flet ((incf-hash (key obj)
+               (unless (gethash key hash) (setf (gethash key hash) (instance ratio :init 0 0)))
+               (incf (ratio-denominator (gethash key hash)))
+               (if (send obj :pass) (incf (ratio-numerator (gethash key hash))))))
+        (mapc #'(lambda (obj)
+                  (let* ((file (eustest-function-file obj))
+                         (dir (ensure-directory-namestring file)))
+                    ;; Directory count
+                    (incf-hash dir obj)
+                    ;; File count
+                    (if file (incf-hash file obj))))
+              functions)
+        hash)))
   (:add-function (name)
     (push (instance eustest-function :init name) functions)
     name)
@@ -163,48 +221,29 @@
   (:print-log (fname)
     (with-open-file (log fname :direction :output :if-exists :supersede)
       ;; print headings
-      (format log "# -*- org-checkbox-hierarchical-statistics: nil -*-~%")
-      (terpri log)
-      (format log "#~%")
-      (format log "# Check README for usage info.~%")
-      (format log "#~%")
-      (terpri log)
-      (format log "- Ansi-tests [~2,1F%]~%"
-              (* 100
-                 (/ (float (length (send self :all-pass)))
-                    (length (send self :all-tests)))))
+      (format log "# USAGE~%")
+      (format log "These .org files are intended to be used with the emacs text editor.~%")
+      (format log "Use *TAB* to FOLD or UNFOLD a list or sublist.~%")
+      (format log "Use *C-c C-o* with the cursor over a test file to open it~%~%")
+      (org-level 0 log)
+      (format log "Ansi-tests [~2,1F%]~%"
+              (* 100 (/ (float (length (send self :all-pass)))
+                        (length (send self :all-tests)))))
 
       ;; print data
-      (let (dir file)
+      (let ((totals (send self :get-totals))
+            dir file)
         (dolist (test (send self :all-tests))
-          (unless (string= dir (eustest-function-dir test))
-            (setq dir (eustest-function-dir test))
-            (let ((tests (send self :get-directory-tests dir)))
-              (format log "  - [[~A][~A]] [~A/~A]~%"
-                      dir
-                      (or (pathname-name dir)
-                          (pathname-name (subseq dir 0 (1- (length dir)))))
-                      (count-if #'(lambda (obj) (send obj :pass)) tests)
-                      (length tests))))
-
-          (unless (string= file (eustest-function-file test))
-            (setq file (eustest-function-file test))
-            (let ((tests (send self :get-file-tests file)))
-              (format log "    - [[~A][~A]] [~A/~A]~%"
-                      (if (pathname-name dir)
-                          (concatenate string dir "/" file)
-                          (concatenate string dir file))
-                      file
-                      (count-if #'(lambda (obj) (send obj :pass)) tests)
-                      (length tests))))
-
-          (format log "      - [~C] ~A~%"
+          (maybe-print-log-line dir 1 ensure-directory-namestring)
+          (maybe-print-log-line file 2)
+          (org-level 3 log)
+          (format log "[~C] ~A~%"
                   (if (send test :pass) #\X #\Space)
-                  (send test :name)))))
-    ;; activate file
-    ;; (unix:system
-    ;;  (format nil "emacs ~A --batch --execute '(let (org-checkbox-hierarchical-statistics) (org-update-checkbox-count t))' -f save-buffer" fname))
-    ))
+                  (send test :name))))))
+  (:exit ()
+    (if (or (send self :all-failures) (send self :all-skips))
+        (exit 1)
+        (exit 0))))
 
 ;; INIT
 (defparameter *unit-test* (instance eustest-container :init))
@@ -212,13 +251,8 @@
 ;; FUNCTIONS
 (defun run-all-tests (&optional (exit t))
   (send *unit-test* :clear)
-  (unwind-protect
-       (send *unit-test* :run-all-tests)
-    (when exit
-      (if (or (send *unit-test* :all-failures)
-              (send *unit-test* :all-skips))
-          (exit 1)
-          (exit 0)))))
+  (send *unit-test* :run-all-tests)
+  (if exit (send *unit-test* :exit)))
 
 ;; MACROS
 (defmacro deftest (name &rest body)
