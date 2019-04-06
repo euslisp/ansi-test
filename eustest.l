@@ -23,6 +23,7 @@
 
 (export '(deftest deferror defskip run-all-tests))
 
+;; HANDLERS
 (defun eustest-error (code msg1 form &optional (msg2))
   (if (and msg2 (zerop (length msg1))) (setq msg1 msg2 msg2 nil))
   (format *error-output* "~C[1;3~Cm~ ~A" #x1b (+ 1 48) msg1)
@@ -35,11 +36,10 @@
   (format *error-output* "eustest-sigint-handler ~A~%" sig)
   (reset))
 
-(defmacro getstatus (status)
-  `(let ((lst
-          (remove-if-not #'(lambda (obj) (eql (eustest-function-status obj) ,status))
-                         functions)))
-     (reverse (send-all lst :name))))
+;; UTILITY
+(defun getproperty (list place val &key (test #'eql))
+  (remove-if-not #'(lambda (obj) (funcall test (send obj :get-val place) val))
+                 list))
 
 ;; CLASS DEFINITIONS
 (defclass eustest-function
@@ -47,7 +47,7 @@
 (defmethod eustest-function
   (:init (n)
     (setq name n)
-    (setq dir (car *loader-current-directory*))
+    (setq dir (namestring (truename (car *loader-current-directory*))))
     (setq file *loader-current-file*)
     (setq status nil)
     self)
@@ -115,12 +115,16 @@
       (unix:signal unix::sighup 'eustest-sigint-handler)
       t))
   (:clear () (send-all functions :clear))
+  (:all-tests () (reverse functions))
+  (:all-pass () (getproperty (send self :all-tests) 'status :pass))
+  (:all-failures () (getproperty (send self :all-tests) 'status :failure))
+  (:all-skips () (getproperty (send self :all-tests) 'status :skip))
   (:get-function (name)
     (find-if #'(lambda (obj) (eql (send obj :name) name)) functions))
-  (:all-tests () (reverse functions))
-  (:all-pass () (getstatus :pass))
-  (:all-failures () (getstatus :failure))
-  (:all-skips () (getstatus :skip))
+  (:get-directory-tests (name)
+    (getproperty (send self :all-tests) 'dir name :test #'string=))
+  (:get-file-tests (name)
+    (getproperty (send self :all-tests) 'file name :test #'string=))
   (:add-function (name)
     (push (instance eustest-function :init name) functions)
     name)
@@ -156,7 +160,51 @@
       (format strm "  SKIPPED:  ~A" skip-num)
       (format strm "~C[0m~%" #x1b)
       (terpri strm)))
-  (:print-log (fname) (error "TODO")))
+  (:print-log (fname)
+    (with-open-file (log fname :direction :output :if-exists :supersede)
+      ;; print headings
+      (format log "# -*- org-checkbox-hierarchical-statistics: nil -*-~%")
+      (terpri log)
+      (format log "#~%")
+      (format log "# Check README for usage info.~%")
+      (format log "#~%")
+      (terpri log)
+      (format log "- Ansi-tests [~2,1F%]~%"
+              (* 100
+                 (/ (float (length (send self :all-pass)))
+                    (length (send self :all-tests)))))
+
+      ;; print data
+      (let (dir file)
+        (dolist (test (send self :all-tests))
+          (unless (string= dir (eustest-function-dir test))
+            (setq dir (eustest-function-dir test))
+            (let ((tests (send self :get-directory-tests dir)))
+              (format log "  - [[~A][~A]] [~A/~A]~%"
+                      dir
+                      (or (pathname-name dir)
+                          (pathname-name (subseq dir 0 (1- (length dir)))))
+                      (count-if #'(lambda (obj) (send obj :pass)) tests)
+                      (length tests))))
+
+          (unless (string= file (eustest-function-file test))
+            (setq file (eustest-function-file test))
+            (let ((tests (send self :get-file-tests file)))
+              (format log "    - [[~A][~A]] [~A/~A]~%"
+                      (if (pathname-name dir)
+                          (concatenate string dir "/" file)
+                          (concatenate string dir file))
+                      file
+                      (count-if #'(lambda (obj) (send obj :pass)) tests)
+                      (length tests))))
+
+          (format log "      - [~C] ~A~%"
+                  (if (send test :pass) #\X #\Space)
+                  (send test :name)))))
+    ;; activate file
+    ;; (unix:system
+    ;;  (format nil "emacs ~A --batch --execute '(let (org-checkbox-hierarchical-statistics) (org-update-checkbox-count t))' -f save-buffer" fname))
+    ))
 
 ;; INIT
 (defparameter *unit-test* (instance eustest-container :init))
