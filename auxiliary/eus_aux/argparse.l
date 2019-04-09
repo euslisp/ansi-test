@@ -41,6 +41,11 @@
 (defun find-any (item-lst seq &rest find-args)
   (dolist (item item-lst)
     (if (apply #'find item seq find-args) (return-from find-any t))))
+(defun comma-separate (lst)
+  (with-output-to-string (s)
+    (princ "{" s)
+    (maplist #'(lambda (a) (format s "~S" (car a)) (if (cdr a) (format s ","))) lst)
+    (princ "}" s)))
 
 (defmacro set-synonyms (&rest names)
   `(progn
@@ -105,10 +110,10 @@
     (if epilog (format stream "~A~%" epilog))))
 
 (defclass argparse-argument
-    :slots (value action const count flagp read required))
+    :slots (value action const choices count flagp read required))
 (defmethod argparse-argument
-  (:init (&key action const default read required)
-    (set-synonyms action const read required)
+  (:init (&key action const default choices read required)
+    (set-synonyms action const choices read required)
     (setq value (case action
                   (:store-true nil)
                   (:store-false t)
@@ -119,12 +124,19 @@
                     (not (not (memq action '(:store-true :store-false :store-const :count))))))
     self)
   (:value () value)
-  (:store (val) (setq value (if read (read-from-string val) val)))
+  (:store (val)
+    (let ((val (if read (read-from-string val) val)))
+      (if (and choices (not (member val choices :test #'equal)))
+          (cli-error "Invalid choice: ~S (choose from ~A)" val (comma-separate choices)))
+      (setq value val)))
   (:store-true () (send self :store t))
   (:store-false () (send self :store nil))
   (:store-const () (send self :store const))
   (:count () (send self :store (incf count)))
-  (:collect (val) (setq value (append value (list (if read (read-from-string val) val))))))
+  (:collect (val)
+    (let ((current value))
+      (send self :store val)
+      (setq value (append current (list value))))))
 
 (defclass argument-parser
   :super propertied-object
@@ -140,15 +152,16 @@
               :dest (gensym)
               :action `(lambda () (send ,docstring :print-help) (exit))))
     self)
-  (:add-argument (flags &key (action :store) const default read required help dest)
+  (:add-argument (flags &key (action :store) const default choices read required help dest)
     (let* ((flags (mklst flags))
            (name (make-flag-dest (or dest (car flags))))
            (arg (instance argparse-argument :init
-                          :default default
-                          :read read
                           :action action
-                          :required required
-                          :const const)))
+                          :const const
+                          :default default
+                          :choices choices
+                          :read read
+                          :required required)))
       ;; check type
       (dolist (a flags)
         (unless (check-flag a)
@@ -164,7 +177,8 @@
         (push (cons a name) flaglst))
       ;; add to docstring
       (send docstring :add-argument flags help (send arg :value) required
-            (unless (argparse-argument-flagp arg) name))
+            (cond (choices (comma-separate choices))
+                  ((not (argparse-argument-flagp arg)) name)))
       ;; add method
       (if (keywordp name)
           (eval `(defmethod argument-parser (,name () (send (get self ,name) :value)))))
