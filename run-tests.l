@@ -9,15 +9,19 @@
 ;; PARSE ARGUMENTS
 (load "auxiliary/eus_aux/argparse.l")
 
-(defvar argparse (instance argparse:argument-parser :init "ANSI test suite for EusLisp"))
+(defvar argparse (instance argparse:argument-parser :init
+                           :prog "run-tests.l"
+                           :description "ANSI test suite for EusLisp"))
 (send argparse :add-argument '("--cl-compatible" "-cl")
-      :callback #'(lambda () (push :cl-compatible *features*))
+      :action #'(lambda () (push :cl-compatible *features*))
       :help "Set when using EusLisp cl-compatible branch")
 (send argparse :add-argument '("--auxiliary" "-aux")
-      :callback #'(lambda () (push :cl-aux *features*))
+      :action #'(lambda () (push :cl-aux *features*))
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
 (send argparse :add-argument '("--update-log" "-u")
-      :help "Set to update 'REPORT.org' results")
+      :dest 'logfile
+      :default "REPORT.org"
+      :help "Set to update log file results")
 (send argparse :parse-args)
 
 ;; PREPARE TESTS
@@ -56,10 +60,10 @@
 (cd "sandbox/")
 
 
-(run-all-tests (not (send argparse :update-log)))
+(run-all-tests (not (send argparse :logfile)))
 
 (cd "../")
-(format t "Updating 'REPORT.org'...~%")
-(send eustest::*unit-test* :print-log "REPORT.org")
+(format t "Updating '~A'...~%" (send argparse :logfile))
+(send eustest::*unit-test* :print-log (send argparse :logfile))
 (format t "... updated.~%")
 (send eustest::*unit-test* :exit)

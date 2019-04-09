@@ -12,14 +12,16 @@
 #|
 (require :argparse "argparse.l")
 
-(defvar argparse (instance argparse:argument-parser :init "Program Description (optional)"))
-(send argparse :add-argument '("--foo" "-f") :help "the foo description")
-(send argparse :add-argument "--bar" :name 'bar-argument
-      :callback #'(lambda () (print "Bar callback!")))
+(defvar argparse (instance argparse:argument-parser :init
+                           :description "Program Description (optional)"))
+(send argparse :add-argument "--foo" :default 10 :read t
+      :help "the foo description")
+(send argparse :add-argument '("--bar" "-b") :action :store-true
+      :help "the bar description")
 
 (send argparse :parse-args)
 (format t "foo: ~A~%" (send argparse :foo))
-(format t "bar: ~A~%" (send argparse :bar-argument))
+(format t "bar: ~A~%" (send argparse :bar))
 (exit)
 |#
 

@@ -4,7 +4,8 @@
 ;;; modified by Guilherme de Campos Affonso to:
 ;;; 1. Continue testing upon program errors
 ;;; 2. Allow to skip and test for errors
-;;; 3. Modify printing
+;;; 3. Track test files
+;;; 4. Modify printing and logging
 ;;; special thanks to Ericles Antonio Aquiles Barbosa Lima,
 ;;; who joined the EusLisp ansi-test project in 2018
 ;;;
@@ -224,7 +225,8 @@
       (format log "# USAGE~%")
       (format log "These .org files are intended to be used with the emacs text editor.~%")
       (format log "Use *TAB* to FOLD or UNFOLD a list or sublist.~%")
-      (format log "Use *C-c C-o* with the cursor over a test file to open it~%~%")
+      (format log "Use *C-c C-o* with the cursor over a test file to open it~%")
+      (format log "An 'X' means the test succeed.~%~%")
       (org-level 0 log)
       (format log "Ansi-tests [~2,1F%]~%"
               (* 100 (/ (float (length (send self :all-pass)))
