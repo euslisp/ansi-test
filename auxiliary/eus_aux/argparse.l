@@ -65,6 +65,7 @@
       obj
       (intern (string-left-trim "-" (string-upcase obj)) *keyword-package*)))
 
+;; Class Definition
 (defclass argparse-docstring
   :slots (usage-stream details-stream description epilog))
 (defmethod argparse-docstring
@@ -98,10 +99,10 @@
     (if epilog (format stream "~A~%" epilog))))
 
 (defclass argparse-argument
-    :slots (value action const count flagp))
+    :slots (value action const read count flagp))
 (defmethod argparse-argument
-  (:init (&key default action const)
-    (set-synonyms action const)
+  (:init (&key default read action const)
+    (set-synonyms action const read)
     (setq value (case action
                   (:store-true nil)
                   (:store-false t)
@@ -112,12 +113,12 @@
                     (not (not (memq action '(:store-true :store-false :store-const :count))))))
     self)
   (:value () value)
-  (:store (val) (setq value val))
+  (:store (val) (setq value (if read (read-from-string val) val)))
   (:store-true () (send self :store t))
   (:store-false () (send self :store nil))
   (:store-const () (send self :store const))
   (:count () (send self :store (incf count)))
-  (:collect (val) (setq value (append value val))))
+  (:collect (val) (setq value (append value (list (if read (read-from-string val) val))))))
 
 (defclass argument-parser
   :super propertied-object
@@ -133,17 +134,18 @@
               :dest (gensym)
               :action `(lambda () (send ,docstring :print-help) (exit))))
     self)
-  (:add-argument (flags &key (action :store) const default dest help) ;;required
+  (:add-argument (flags &key help default read (action :store) dest const) ;;required
     (let* ((flags (mklst flags))
            (name (make-flag-dest (or dest (car flags))))
            (arg (instance argparse-argument :init
                           :default default
+                          :read read
                           :action action
                           :const const)))
       ;; check type
       (dolist (a flags)
         (unless (check-flag a)
-          (cli-error "Invalid argument name in ~S!" a)))
+          (cli-error "Invalid argument name in ~S" a)))
       ;; ensure name is unique
       (if (assoc name (send self :plist))
           (cli-error "Already have argument with name ~S" name)
@@ -169,12 +171,15 @@
           (if arg
               ;; has flag
               (let ((action (argparse-argument-action arg)))
-                (if (functionp action)
-                    (if setp
-                        (funcall action value)
-                        (funcall action))
-                    (if setp
-                        (send arg action value)
-                        (send arg action))))
+                (cond
+                  ((functionp action)
+                   (if setp
+                       (send arg :store (funcall action value))
+                       (send arg :store (funcall action))))
+                  ((memq action (send arg :methods))
+                   (if setp
+                       (send arg action value)
+                       (send arg action)))
+                  (t (cli-error "Action ~A not found!" action))))
               ;; doesn't have flag
-              (warning-message 1 "Argument not found: ~S~%" flag)))))))
+              (warning-message 1 "Argument ~S not found!~%" flag)))))))
