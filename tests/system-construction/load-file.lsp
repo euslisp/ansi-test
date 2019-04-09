@@ -121,7 +121,7 @@
 ;;      (s "(defun f () 'good)")
 ;;      (load-file-test s 'load-test-package::f)))
 ;;   t load-test-package::good)
-(defskip load.15 "no such package COMMON-LISP")
+(defskip load.15 "no such package LOAD-TEST-PACKAGE")
 
 ;; (deftest load.15a
 ;;   (let ((*package* (find-package "CL-TEST")))
@@ -132,7 +132,7 @@
 ;;       (multiple-value-list (load-file-test s 'load-test-package::f)))
 ;;      (read-from-string "GOOD")))
 ;;   (t load-test-package::good) good)
-(defskip load.15a "no such package COMMON-LISP")
+(defskip load.15a "no such package LOAD-TEST-PACKAGE")
 
 (deftest load.16
   (let ((*readtable* (copy-readtable nil)))

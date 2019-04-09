@@ -2349,7 +2349,7 @@
 ;;                                     (ash a (min 36 22477)))))))))
 ;;    100000 0 0)
 ;;   0)
-(defskip misc.158 "no such package COMMON-LISP")
+(defskip misc.158 "no such external symbol CL:HANDLER-CASE")
 
 
 ;;; sbcl (0.8.5.24) The value NIL is not of type SB-C::CTRAN.
@@ -4323,7 +4323,7 @@
 ;;              (+ 0 *s1*)))))))
 ;;    5)
 ;;   0)
-(defskip misc.240 "no such package COMMON-LISP")
+(defskip misc.240 "no such external symbol CL:HANDLER-CASE")
 
 ;;; clisp (12 Dec 2003 cvs head)
 ;;; *** - Compiler bug!! Occurred in ASSEMBLE-LAP at ILLEGAL INSTRUCTION.
@@ -6493,7 +6493,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                 0)
 ;;          0)
 ;;   0)
-(defskip misc.336 "no such package COMMON-LISP")
+(defskip misc.336 "no such external symbol CL:HANDLER-CASE")
 
 ;;; Incorrect return value
 (deftest misc.337
@@ -7005,23 +7005,22 @@ Broken at C::WT-C-INLINE-LOC.
 ;;            (common-lisp:handler-case 0)))))
 ;;    1 2 3)
 ;;   0)
-(defskip misc.362 "no such package COMMON-LISP")
+(defskip misc.362 "no such external symbol CL:HANDLER-CASE")
 
 ;;; Wrong value: NIL
-;; (deftest misc.363
-;;   (funcall
-;;    (compile
-;;     nil
-;;     '(lambda (a)
-;;        (declare (type (integer -17286401550789 15753784105886) a))
-;;        (declare (optimize (speed 2) (space 2) (safety 2)
-;;                           (debug 0) (compilation-speed 3)))
-;;        (if (not (>= 0 (shiftf a 110236462073)))
-;;            0
-;;          (elt '(30 101 13 2 10 52 89 57) (min 7 (max 0 a))))))
-;;    -3647332298473)
-;;   57)
-(defskip misc.363 "no such package COMMON-LISP")
+(deftest misc.363
+  (funcall
+   (compile
+    nil
+    '(lambda (a)
+       (declare (type (integer -17286401550789 15753784105886) a))
+       (declare (optimize (speed 2) (space 2) (safety 2)
+                          (debug 0) (compilation-speed 3)))
+       (if (not (>= 0 (shiftf a 110236462073)))
+           0
+         (elt '(30 101 13 2 10 52 89 57) (min 7 (max 0 a))))))
+   -3647332298473)
+  57)
 
 ;;; "full call to SB-KERNEL:DATA-VECTOR-REF"
 ;; (deftest misc.364
@@ -7386,7 +7385,7 @@ Broken at C::WT-C-INLINE-LOC.
 ;;                                  (rational (common-lisp:handler-case 0))))
 ;;                             0)))))))
 ;;   0)
-(defskip misc.376 "no such package COMMON-LISP")
+(defskip misc.376 "no such external symbol CL:HANDLER-CASE")
 
 (deftest misc.377
   (funcall

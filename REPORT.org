@@ -2,6 +2,7 @@
 These .org files are intended to be used with the emacs text editor.
 Use *TAB* to FOLD or UNFOLD a list or sublist.
 Use *C-c C-o* with the cursor over a test file to open it
+An 'X' means the test succeed.
 
 - Ansi-tests [39.2%]
   - [[/home/affonso/ansi-test/tests/symbols/][symbols]] [1072/1142]
@@ -12198,7 +12199,7 @@ Use *C-c C-o* with the cursor over a test file to open it
       - [ ] syntax.right-paren-error.1
       - [ ] syntax.comma-error.1
       - [ ] syntax.comma-error.2
-  - [[/home/affonso/ansi-test/tests/packages/][packages]] [80/427]
+  - [[/home/affonso/ansi-test/tests/packages/][packages]] [81/427]
     - [[/home/affonso/ansi-test/tests/packages/find-all-symbols.lsp][find-all-symbols.lsp]] [2/11]
       - [ ] find-all-symbols.1
       - [ ] find-all-symbols.2
@@ -12264,14 +12265,14 @@ Use *C-c C-o* with the cursor over a test file to open it
       - [X] package-name.error.1
       - [X] package-name.error.2
       - [ ] package-name.error.3
-    - [[/home/affonso/ansi-test/tests/packages/package-nicknames.lsp][package-nicknames.lsp]] [6/23]
+    - [[/home/affonso/ansi-test/tests/packages/package-nicknames.lsp][package-nicknames.lsp]] [7/23]
       - [ ] package-nicknames.1
       - [ ] package-nicknames.2
       - [ ] package-nicknames.3
       - [ ] package-nicknames.4
       - [ ] package-nicknames.5
       - [ ] package-nicknames.6
-      - [ ] package-nicknames.7
+      - [X] package-nicknames.7
       - [X] package-nicknames.8
       - [X] package-nicknames.9
       - [X] package-nicknames.9a
