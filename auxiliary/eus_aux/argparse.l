@@ -31,89 +31,150 @@
 
 (export '(argument-parser))
 
+;; Utility
+(defun mklst (obj) (if (listp obj) obj (list obj)))
+(defun no-args-p (fn)
+  "Return t if the function has null argument list. Unable to handle compiled functions"
+  (if (symbolp fn) (setq fn (symbol-function fn)))
+  (and (listp fn) (not (nth 4 fn))))
+
+(defmacro set-synonyms (&rest names)
+  `(progn
+     ,@(mapcar #'(lambda (place) `(send self :set-val ',place ,place)) names)))
+(defun cli-error (format-string &rest args)
+  (eval
+   `(let ((lisp::*max-callstack-depth* 0))
+      (let ((*error-output* *standard-output*))
+        (warning-message 1 ,(apply #'format nil format-string args))
+        (terpri *error-output*))
+      (error ,(apply #'format nil format-string args)))))
+
+(defun flag-name-p (str)
+  (and (stringp str) (not (string= (string-left-trim "-" str) "")) (= (elt str 0) #\-)))
+(defun check-flag (str)
+  (and (flag-name-p str) (not (find #\= str))))
+(defun split-flag (str)
+  "Returns name, value, setp"
+  (let ((pos (position #\= str)))
+    (values
+     (if pos (subseq str 0 pos) str)
+     (if pos (subseq str (1+ pos)))
+     (not (not pos)))))
+(defun make-flag-dest (obj)
+  (if (and (symbolp obj) (not (symbol-package obj)))
+      obj
+      (intern (string-left-trim "-" (string-upcase obj)) *keyword-package*)))
+
 (defclass argparse-docstring
-  :slots (usage-stream details-stream))
+  :slots (usage-stream details-stream description epilog))
 (defmethod argparse-docstring
-  (:init (&optional description)
+  (:init (&key prog description epilog)
+    (set-synonyms description epilog)
     (setq usage-stream (make-string-output-stream))
     (setq details-stream (make-string-output-stream))
     ;; print initial message
     (princ "usage:" usage-stream)
-    (if description
-      (format details-stream "~A~%~%" description))
+    (if prog (format usage-stream " ~A" prog))
     (format details-stream "optional arguments:~%")
     self)
-  (:add-argument (args help)
-    (setq args (sort args #'< #'length))
-    (format usage-stream " [~A]" (car args))
+  (:add-argument (flags help default &optional name)
+    (setq flags (sort flags #'< #'length))
+    (if name (setq name (string-upcase name)))
+    (format usage-stream " [~A~A]" (car flags)
+            (if name (format nil "=~A" name) ""))
     (princ "  " details-stream)
     (maplist #'(lambda (a)
-                 (format  details-stream "~A" (car a))
+                 (format details-stream "~A~A" (car a)
+                         (if name (format nil "=~A" name) ""))
                  (if (cdr a) (format details-stream ", ")))
-             args)
+             flags)
     (if help (format details-stream "~T~A" help))
+    (if default (format details-stream "~C(default: ~S)" (if help #\Space #\Tab) default))
     (terpri details-stream))
-  (:print-help (&optional exit)
-    (format t "~A~%~%~A~%"
-            (get-output-stream-string usage-stream)
-            (get-output-stream-string details-stream))
-    (if exit (exit))))
+  (:print-help (&optional (stream *standard-output*))
+    (format stream "~A~%~%" (get-output-stream-string usage-stream))
+    (if description (format stream "~A~%~%" description))
+    (format stream "~A~%" (get-output-stream-string details-stream))
+    (if epilog (format stream "~A~%" epilog))))
+
+(defclass argparse-argument
+    :slots (value action const count flagp))
+(defmethod argparse-argument
+  (:init (&key default action const)
+    (set-synonyms action const)
+    (setq value (case action
+                  (:store-true nil)
+                  (:store-false t)
+                  (t default)))
+    (setq count 0)
+    (setq flagp (if (functionp action)
+                    (no-args-p action)
+                    (not (not (memq action '(:store-true :store-false :store-const :count))))))
+    self)
+  (:value () value)
+  (:store (val) (setq value val))
+  (:store-true () (send self :store t))
+  (:store-false () (send self :store nil))
+  (:store-const () (send self :store const))
+  (:count () (send self :store (incf count)))
+  (:collect (val) (setq value (append value val))))
 
 (defclass argument-parser
   :super propertied-object
-  :slots (flags callbacks docstring))
+  :slots (flaglst docstring))
 (defmethod argument-parser
-  (:init (&optional description)
-    (setq docstring (instance argparse-docstring :init description))
-    (send self :add-argument '("--help" "-h") :help "show this help message and exit" 
-          :name (gensym)
-          :callback `(lambda () (send ,docstring :print-help t)))
+  (:init (&key prog description epilog (add-help t))
+    (setq docstring (instance argparse-docstring :init
+                              :prog prog
+                              :description description
+                              :epilog epilog))
+    (if add-help
+        (send self :add-argument '("--help" "-h") :help "show this help message and exit"
+              :dest (gensym)
+              :action `(lambda () (send ,docstring :print-help) (exit))))
     self)
-  (:check-flag (str)
-    (and (stringp str) (>= (length str) 2)
-         (= (elt str 0) #\-)))
-  (:add-argument (args &key help name callback)
-    (flet ((mklst (obj)
-             (if (listp obj) obj (list obj)))
-           (mkkey (obj)
-             (if (and (symbolp obj) (not (symbol-package obj)))
-                 obj
-                 (intern (string-left-trim "-" (string-upcase obj))
-                         *keyword-package*))))
-      (let* ((args (mklst args))
-             (name (mkkey (or name (car args)))))
-        ;; check `args' type
-        (unless (every #'stringp args)
-          (error "string expected"))
-        ;; ensure name is unique
-        (if (assoc name (send self :plist))
-            (error (format nil "Already have argument with name ~S" name))
-            (setf (get self name) nil))
-        ;; add to flags
-        (dolist (a args)
-          (unless (send self :check-flag a)
-            (error "Arguments must start with '-'"))
-          (if (assoc a flags :test #'string=)
-              (warning-message 1 "Multiple flags for ~S~%" a))
-          (push (cons a name) flags))
-        ;; add to callbacks
-        (if callback
-            (push (cons name callback) callbacks))
-        ;; add to docstring
-        (send docstring :add-argument args help)
-        ;; add method
-        (if (keywordp name)
-            (eval `(defmethod argument-parser (,name () (get self ,name)))))
-        ;; return name
-        name)))
+  (:add-argument (flags &key (action :store) const default dest help) ;;required
+    (let* ((flags (mklst flags))
+           (name (make-flag-dest (or dest (car flags))))
+           (arg (instance argparse-argument :init
+                          :default default
+                          :action action
+                          :const const)))
+      ;; check type
+      (dolist (a flags)
+        (unless (check-flag a)
+          (cli-error "Invalid argument name in ~S!" a)))
+      ;; ensure name is unique
+      (if (assoc name (send self :plist))
+          (cli-error "Already have argument with name ~S" name)
+          (setf (get self name) arg))
+      ;; add to flaglst
+      (dolist (a flags)
+        (if (assoc a flaglst :test #'string=)
+            (cli-error "Multiple flags for ~S" a))
+        (push (cons a name) flaglst))
+      ;; add to docstring
+      (send docstring :add-argument flags help (send arg :value)
+            (unless (argparse-argument-flagp arg) name))
+      ;; add method
+      (if (keywordp name)
+          (eval `(defmethod argument-parser (,name () (send (get self ,name) :value)))))
+      ;; return name
+      name))
   (:parse-args ()
-    (dolist (arg (remove-if-not #'(lambda (a) (send self :check-flag a))
-                                lisp::*eustop-argument*))
-      (let ((name (cdr (assoc arg flags :test #'string=))))
-        (if name
-          ;; has flag
-          (let ((cb (cdr (assoc name callbacks))))
-            (if cb (funcall cb))
-            (setf (get self name) t))
-          ;; doesn't have flag
-          (warning-message 1 "Argument not found: ~S~%" arg))))))
+    (dolist (flag (remove-if-not #'flag-name-p lisp::*eustop-argument*))
+      (multiple-value-bind (name value setp) (split-flag flag)
+        (let* ((arg-name (cdr (assoc name flaglst :test #'string=)))
+               (arg (get self arg-name)))
+          (if arg
+              ;; has flag
+              (let ((action (argparse-argument-action arg)))
+                (if (functionp action)
+                    (if setp
+                        (funcall action value)
+                        (funcall action))
+                    (if setp
+                        (send arg action value)
+                        (send arg action))))
+              ;; doesn't have flag
+              (warning-message 1 "Argument not found: ~S~%" flag)))))))
