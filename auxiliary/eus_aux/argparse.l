@@ -33,6 +33,7 @@
 
 ;; Utility
 (defun mklst (obj) (if (listp obj) obj (list obj)))
+
 (defun no-args-p (fn)
   "Return t if the function has null argument list. Unable to handle compiled functions"
   (if (symbolp fn) (setq fn (symbol-function fn)))
@@ -41,6 +42,7 @@
 (defun find-any (item-lst seq &rest find-args)
   (dolist (item item-lst)
     (if (apply #'find item seq find-args) (return-from find-any t))))
+
 (defun comma-separate (lst)
   (with-output-to-string (s)
     (princ "{" s)
@@ -48,8 +50,8 @@
     (princ "}" s)))
 
 (defmacro set-synonyms (&rest names)
-  `(progn
-     ,@(mapcar #'(lambda (place) `(send self :set-val ',place ,place)) names)))
+  `(progn ,@(mapcar #'(lambda (place) `(send self :set-val ',place ,place)) names)))
+
 (defun cli-error (format-string &rest args)
   (eval
    `(let ((lisp::*max-callstack-depth* 0))
@@ -103,16 +105,26 @@
     (if help (format details-stream "~T~A" help))
     (if default (format details-stream "~C(default: ~S)" (if help #\Space #\Tab) default))
     (terpri details-stream))
+  (:print-usage (&optional (stream *standard-output*))
+    (format stream "~A~%" (get-output-stream-string usage-stream)))
   (:print-help (&optional (stream *standard-output*))
-    (format stream "~A~%~%" (get-output-stream-string usage-stream))
+    (send self :print-usage stream)
+    (terpri stream)
     (if description (format stream "~A~%~%" description))
     (format stream "~A~%" (get-output-stream-string details-stream))
     (if epilog (format stream "~A~%" epilog))))
 
 (defclass argparse-argument
+    :super propertied-object
     :slots (value action const choices count flagp read required))
 (defmethod argparse-argument
   (:init (&key action const default choices read required)
+    ;; check arguments
+    (unless (or (functionp action) (memq action (send self :methods)))
+      (cli-error "Action ~A not found!" action))
+    (unless (listp choices)
+      (cli-error "List expected in :choices!"))
+    ;; set slots
     (set-synonyms action const choices read required)
     (setq value (case action
                   (:store-true nil)
@@ -127,7 +139,10 @@
   (:store (val)
     (let ((val (if read (read-from-string val) val)))
       (if (and choices (not (member val choices :test #'equal)))
-          (cli-error "Invalid choice: ~S (choose from ~A)" val (comma-separate choices)))
+          (cli-error "Invalid choice ~S~A (choose from ~A)"
+                     val
+                     (if (send self :name) (format nil " in ~A" (send self :name)) "")
+                     (comma-separate choices)))
       (setq value val)))
   (:store-true () (send self :store t))
   (:store-false () (send self :store nil))
@@ -162,10 +177,10 @@
                           :choices choices
                           :read read
                           :required required)))
+      (send arg :name name)
       ;; check type
       (dolist (a flags)
-        (unless (check-flag a)
-          (cli-error "Invalid argument name in ~S" a)))
+        (unless (check-flag a) (cli-error "Invalid argument name in ~S" a)))
       ;; ensure name is unique
       (if (assoc name (send self :plist))
           (cli-error "Already have argument with name ~S" name)
@@ -185,29 +200,36 @@
       ;; return name
       name))
   (:parse-args ()
-    (let ((required-args (remove-if-not #'(lambda (obj) (argparse-argument-required (cdr obj)))
-                                        plist)))
-      (dolist (flag (remove-if-not #'flag-name-p lisp::*eustop-argument*))
-        (multiple-value-bind (name value setp) (split-flag flag)
-          (let* ((arg-name (cdr (assoc name flaglst :test #'string=)))
-                 (arg (get self arg-name)))
-            (if arg
-                ;; has flag
-                (let ((action (argparse-argument-action arg)))
-                  (if required-args
-                      (setq required-args (delete arg required-args :count 1 :key #'cdr)))
-                  (cond
-                    ((functionp action)
-                     (if setp
-                         (send arg :store (funcall action value))
-                         (send arg :store (funcall action))))
-                    ((memq action (send arg :methods))
-                     (if setp
-                         (send arg action value)
-                         (send arg action)))
-                    (t (cli-error "Action ~A not found!" action))))
-                ;; doesn't have flag
-                (warning-message 1 "Argument ~S not found!~%" flag)))))
-      ;; check required arguments
-      (when required-args
-        (cli-error "Argument ~A is required!" (caar (last required-args)))))))
+    (let ((required-args
+           (remove-if-not #'(lambda (obj) (argparse-argument-required (cdr obj))) plist)))
+      (flet ((cli-error (&rest args)
+               (send docstring :print-usage)
+               (apply #'cli-error args)))
+        (dolist (flag (remove-if-not #'flag-name-p lisp::*eustop-argument*))
+          (multiple-value-bind (name value setp) (split-flag flag)
+            (let* ((arg-name (cdr (assoc name flaglst :test #'string=)))
+                   (arg (get self arg-name)))
+              (if arg
+                  ;; has flag
+                  (let ((action (argparse-argument-action arg))
+                        (flagp (argparse-argument-flagp arg)))
+                    (if required-args
+                        (setq required-args (delete arg required-args :count 1 :key #'cdr)))
+                    (cond
+                      ((functionp action)
+                       (if setp
+                           (send arg :store (funcall action value))
+                           (send arg :store (funcall action))))
+                      ((and setp flagp)
+                       (cli-error "Argument ~S do not take values!" flag))
+                      ((and (not setp) (not flagp))
+                       (cli-error "Value expected in ~S" flag))
+                      (t
+                       (if setp
+                           (send arg action value)
+                           (send arg action)))))
+                  ;; doesn't have flag
+                  (cli-error "Argument ~S not found!~%" flag)))))
+        ;; check required arguments
+        (when required-args
+          (cli-error "Argument ~A is required!" (caar (last required-args))))))))
