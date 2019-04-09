@@ -38,6 +38,10 @@
   (if (symbolp fn) (setq fn (symbol-function fn)))
   (and (listp fn) (not (nth 4 fn))))
 
+(defun find-any (item-lst seq &rest find-args)
+  (dolist (item item-lst)
+    (if (apply #'find item seq find-args) (return-from find-any t))))
+
 (defmacro set-synonyms (&rest names)
   `(progn
      ,@(mapcar #'(lambda (place) `(send self :set-val ',place ,place)) names)))
@@ -78,11 +82,13 @@
     (if prog (format usage-stream " ~A" prog))
     (format details-stream "optional arguments:~%")
     self)
-  (:add-argument (flags help default &optional name)
+  (:add-argument (flags help default required &optional name)
     (setq flags (sort flags #'< #'length))
     (if name (setq name (string-upcase name)))
-    (format usage-stream " [~A~A]" (car flags)
-            (if name (format nil "=~A" name) ""))
+    (let ((name-str (format nil "~A~A" (car flags) (if name (format nil "=~A" name) ""))))
+      (if required
+          (format usage-stream " ~A" name-str)
+          (format usage-stream " [~A]" name-str)))
     (princ "  " details-stream)
     (maplist #'(lambda (a)
                  (format details-stream "~A~A" (car a)
@@ -99,10 +105,10 @@
     (if epilog (format stream "~A~%" epilog))))
 
 (defclass argparse-argument
-    :slots (value action const read count flagp))
+    :slots (value action const count flagp read required))
 (defmethod argparse-argument
-  (:init (&key default read action const)
-    (set-synonyms action const read)
+  (:init (&key action const default read required)
+    (set-synonyms action const read required)
     (setq value (case action
                   (:store-true nil)
                   (:store-false t)
@@ -134,13 +140,14 @@
               :dest (gensym)
               :action `(lambda () (send ,docstring :print-help) (exit))))
     self)
-  (:add-argument (flags &key help default read (action :store) dest const) ;;required
+  (:add-argument (flags &key (action :store) const default read required help dest)
     (let* ((flags (mklst flags))
            (name (make-flag-dest (or dest (car flags))))
            (arg (instance argparse-argument :init
                           :default default
                           :read read
                           :action action
+                          :required required
                           :const const)))
       ;; check type
       (dolist (a flags)
@@ -156,7 +163,7 @@
             (cli-error "Multiple flags for ~S" a))
         (push (cons a name) flaglst))
       ;; add to docstring
-      (send docstring :add-argument flags help (send arg :value)
+      (send docstring :add-argument flags help (send arg :value) required
             (unless (argparse-argument-flagp arg) name))
       ;; add method
       (if (keywordp name)
@@ -164,22 +171,29 @@
       ;; return name
       name))
   (:parse-args ()
-    (dolist (flag (remove-if-not #'flag-name-p lisp::*eustop-argument*))
-      (multiple-value-bind (name value setp) (split-flag flag)
-        (let* ((arg-name (cdr (assoc name flaglst :test #'string=)))
-               (arg (get self arg-name)))
-          (if arg
-              ;; has flag
-              (let ((action (argparse-argument-action arg)))
-                (cond
-                  ((functionp action)
-                   (if setp
-                       (send arg :store (funcall action value))
-                       (send arg :store (funcall action))))
-                  ((memq action (send arg :methods))
-                   (if setp
-                       (send arg action value)
-                       (send arg action)))
-                  (t (cli-error "Action ~A not found!" action))))
-              ;; doesn't have flag
-              (warning-message 1 "Argument ~S not found!~%" flag)))))))
+    (let ((required-args (remove-if-not #'(lambda (obj) (argparse-argument-required (cdr obj)))
+                                        plist)))
+      (dolist (flag (remove-if-not #'flag-name-p lisp::*eustop-argument*))
+        (multiple-value-bind (name value setp) (split-flag flag)
+          (let* ((arg-name (cdr (assoc name flaglst :test #'string=)))
+                 (arg (get self arg-name)))
+            (if arg
+                ;; has flag
+                (let ((action (argparse-argument-action arg)))
+                  (if required-args
+                      (setq required-args (delete arg required-args :count 1 :key #'cdr)))
+                  (cond
+                    ((functionp action)
+                     (if setp
+                         (send arg :store (funcall action value))
+                         (send arg :store (funcall action))))
+                    ((memq action (send arg :methods))
+                     (if setp
+                         (send arg action value)
+                         (send arg action)))
+                    (t (cli-error "Action ~A not found!" action))))
+                ;; doesn't have flag
+                (warning-message 1 "Argument ~S not found!~%" flag)))))
+      ;; check required arguments
+      (when required-args
+        (cli-error "Argument ~A is required!" (caar (last required-args)))))))
