@@ -6,6 +6,17 @@
 
 (require :eustest "eustest.l")
 
+;; Functions
+(defun passing-tests-list (fname)
+  (let* ((test-str (with-output-to-string (s) (eustest::org-level 3 s) (format s "[X] ")))
+         (test-len (length test-str)))
+    (with-open-file (file fname)
+      (mapcan #'(lambda (str)
+                  (if (and (> (length str) test-len)
+                           (string= (subseq str 0 test-len) test-str))
+                      (list (read-from-string (subseq str test-len)))))
+              (read-lines file)))))
+
 ;; PARSE ARGUMENTS
 (load "auxiliary/eus_aux/argparse.l")
 
@@ -18,10 +29,12 @@
 (send argparse :add-argument '("--auxiliary" "-aux")
       :action #'(lambda () (push :cl-aux *features*))
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
+(send argparse :add-argument '("--ensure-pass" "-e")
+      :dest 'infile
+      :help "Only execute tests marked as successful in the designated log file")
 (send argparse :add-argument '("--update-log" "-u")
-      :dest 'logfile
-      :default "REPORT.org"
-      :help "Set to update log file results")
+      :dest 'outfile
+      :help "Print the test results to the designated log file")
 (send argparse :parse-args)
 
 ;; PREPARE TESTS
@@ -56,14 +69,19 @@
 ;; RUN TESTS
 (terpri *error-output*)
 
-;; Save temporary files to `sandbox/'
-(cd "sandbox/")
+(let* ((infile (send argparse :infile))
+       (outfile (send argparse :outfile))
+       (white-list (and infile (passing-tests-list infile))))
 
+  ;; Save temporary files to `sandbox/' during test execution
+  (cd "sandbox/")
+  (run-all-tests :white-list white-list :exit (not (send argparse :outfile)))
+  (cd "../")
 
-(run-all-tests (not (send argparse :logfile)))
+  ;; Save output log
+  (when outfile
+    (format t "Updating '~A'...~%" outfile)
+    (send eustest::*unit-test* :print-log outfile)
+    (format t "... updated.~%"))
 
-(cd "../")
-(format t "Updating '~A'...~%" (send argparse :logfile))
-(send eustest::*unit-test* :print-log (send argparse :logfile))
-(format t "... updated.~%")
-(send eustest::*unit-test* :exit)
+  (send eustest::*unit-test* :exit))
