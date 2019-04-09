@@ -124,16 +124,18 @@
 
 (defclass argparse-argument
     :super propertied-object
-    :slots (value action const choices count flagp read required))
+    :slots (value action const choices check count flagp read required))
 (defmethod argparse-argument
-  (:init (&key action const default choices read required)
+  (:init (&key action const default choices check read required)
     ;; check arguments
     (unless (or (functionp action) (memq action (send self :methods)))
       (cli-error "Action ~A not found!" action))
     (unless (listp choices)
       (cli-error "List expected in :choices!"))
+    (unless (or (null check) (functionp check))
+      (cli-error "Function expected in :check!"))
     ;; set slots
-    (set-synonyms action const choices read required)
+    (set-synonyms action const choices check read required)
     (setq value (case action
                   (:store-true nil)
                   (:store-false t)
@@ -146,6 +148,9 @@
   (:value () value)
   (:store (val)
     (let ((val (if read (read-from-string val) val)))
+      (if check
+          (unless (funcall check val)
+            (cli-error "Argument check in ~A failed for value ~S" (send self :name) val)))
       (if (and choices (not (member val choices :test #'equal)))
           (cli-error "Invalid choice ~S~A (choose from ~A)"
                      val
@@ -175,7 +180,7 @@
               :dest (gensym)
               :action `(lambda () (send ,docstring :print-help) (exit))))
     self)
-  (:add-argument (flags &key (action :store) const default choices read required help dest)
+  (:add-argument (flags &key (action :store) const default choices check read required help dest)
     (let* ((flags (mklst flags))
            (name (make-flag-dest (or dest (car flags))))
            (arg (instance argparse-argument :init
@@ -183,6 +188,7 @@
                           :const const
                           :default default
                           :choices choices
+                          :check check
                           :read read
                           :required required)))
       (send arg :name name)

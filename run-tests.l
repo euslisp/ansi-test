@@ -31,6 +31,7 @@
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
 (send argparse :add-argument '("--ensure-pass" "-e")
       :dest 'infile
+      :check #'probe-file
       :help "Only execute tests marked as successful in the designated log file")
 (send argparse :add-argument '("--update-log" "-u")
       :dest 'outfile
