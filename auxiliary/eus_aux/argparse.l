@@ -1,7 +1,10 @@
+;; Provisory file
+;; Pull request in https://github.com/euslisp/EusLisp/pull/375
+
 ;;; argparse.l
 
 ;; -------------------
-;; Simple Command Line Argument Parser for EusLisp
+;; Command Line Argument Parser for EusLisp
 ;; Author: Guilherme de Campos Affonso
 ;; Created at 2019
 ;; -------------------

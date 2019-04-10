@@ -1,3 +1,10 @@
+#!/usr/bin/env eus
+
+;; Provisory file
+;; Pull request in https://github.com/euslisp/EusLisp/pull/375
+
+;; test code for argparse
+
 (require :eustest "../../eustest.l")
 (require :argparse "argparse.l")
 
@@ -11,10 +18,9 @@
 
 (defun write-tmp-file (fname send-lst)
   `(with-open-file (test-file ,fname :direction :output :if-exists :supersede)
+     (princ-line "(lisp::install-error-handler #'(lambda (&rest args) (exit 1)))" test-file)
      (princ-line (format nil "(require :argparse ~S)" ,(namestring (truename "argparse.l")))
                  test-file)
-     (terpri test-file)
-     (princ-line "(lisp::install-error-handler #'(lambda (&rest args) (exit 1)))" test-file)
      (terpri test-file)
      (princ-line "(setq argparse (instantiate argparse:argument-parser))" test-file)
      ,@(mapcar

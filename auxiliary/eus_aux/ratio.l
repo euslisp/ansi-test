@@ -1,3 +1,6 @@
+;; Provisory file
+;; Pull request in https://github.com/euslisp/EusLisp/pull/373
+
 (in-package "LISP")
 
 (defmethod ratio
