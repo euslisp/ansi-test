@@ -281,7 +281,7 @@ optional arguments:
   (:add-argument "--arg" :action :store-true :dest :dest))
 
 (defargparse-help help-overall.1
-#"usage: test.l [-h] --arg=ARG --req={1,2,3} [--def=DEF] [-f] [-ff] [-ca=CA] [-cf] [-cc=CC] [-ccf=CCF] [--count] [-a={1,2,3}] [--const]
+#"usage: test.l [-h] --arg=ARG --req={1,2,3} [--def=DEF] [--dest=REMAP] [-f] [-ff] [-ca=CA] [-cf] [-cc=CC] [-ccf=CCF] [--count] [-a={1,2,3}] [--const]
 
 Program Description
 
@@ -292,6 +292,7 @@ required arguments:
 optional arguments:
   -h, --help	show this help message and exit
   --def=DEF	(default: 10)
+  --dest=REMAP
   -f, --flag	The 'flag' argument
   -ff, --flag-false	The 'flag' argument (default: t)
   -ca=CA	Callback with argument
@@ -299,12 +300,13 @@ optional arguments:
   -cc=CC	Callback with compiled function
   -ccf=CCF	Callback with compiled function
   --count
-  -a={1,2,3}, --collect={1,2,3}
+  -a={1,2,3}, --append={1,2,3}
   --const"#
   (:init :description "Program Description" :prog "test.l")
   (:add-argument "--arg" :help "The 'arg' argument" :required t)
   (:add-argument "--req" :help "The 'req' argument" :required t :read t :choices (list 1 2 3))
   (:add-argument "--def" :default 10 :read t :check #'evenp)
+  (:add-argument "--dest" :dest 'remap)
   (:add-argument '("--flag" "-f") :help "The 'flag' argument" :action :store-true)
   (:add-argument '("--flag-false" "-ff") :help "The 'flag' argument" :action :store-false)
   (:add-argument "-ca" :help "Callback with argument"
@@ -316,7 +318,225 @@ optional arguments:
   (:add-argument "-ccf" :help "Callback with compiled function"
                  :action #'lisp-implementation-version)
   (:add-argument "--count" :action :count)
-  (:add-argument '("--collect" "-a") :action :collect :read t :choices (list 1 2 3))
+  (:add-argument '("--append" "-a") :action :append :read t :choices (list 1 2 3))
+  (:add-argument "--const" :const 10 :action :store-const))
+
+
+;; PARSING TESTS
+
+(defargparse-test store.1
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg"))
+
+(defargparse-test store.2
+  ""
+  ((:arg 10))
+  (:init)
+  (:add-argument "--arg" :default 10))
+
+(defargparse-test store.3
+  "--arg=1"
+  ((:arg "1"))
+  (:init)
+  (:add-argument "--arg"))
+
+(defargparse-test store.4
+  "--arg=1"
+  ((:arg 1))
+  (:init)
+  (:add-argument "--arg" :read t))
+
+(defargparse-test store.5
+  "--arg=1"
+  ((:destination "1"))
+  (:init)
+  (:add-argument "--arg" :dest 'destination))
+
+(defargparse-test store.6
+  "--arg=1"
+  ((:arg 1))
+  (:init)
+  (:add-argument "--arg" :read t :choices (list 1 2 3)))
+
+(defargparse-test store.7
+  "--arg=1"
+  ((:arg 1))
+  (:init)
+  (:add-argument "--arg" :read t :check #'integerp))
+
+(defargparse-test store.8
+  "--arg=1"
+  ((:arg "1"))
+  (:init)
+  (:add-argument "--arg" :required t))
+
+(defargparse-test store-true.1
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action :store-true))
+
+(defargparse-test store-true.2
+  "--arg"
+  ((:arg t))
+  (:init)
+  (:add-argument "--arg" :action :store-true))
+
+(defargparse-test store-false.1
+  ""
+  ((:arg t))
+  (:init)
+  (:add-argument "--arg" :action :store-false))
+
+(defargparse-test store-false.2
+  "--arg"
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action :store-false))
+
+(defargparse-test store-const.1
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action :store-const :const 10))
+
+(defargparse-test store-const.2
+  "--arg"
+  ((:arg 10))
+  (:init)
+  (:add-argument "--arg" :action :store-const :const 10))
+
+(defargparse-test count.0
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action :count))
+
+(defargparse-test count.1
+  "--arg"
+  ((:arg 1))
+  (:init)
+  (:add-argument "--arg" :action :count))
+
+(defargparse-test count.2
+  "--arg --arg"
+  ((:arg 2))
+  (:init)
+  (:add-argument "--arg" :action :count))
+
+(defargparse-test count.3
+  "--arg --arg --arg"
+  ((:arg 3))
+  (:init)
+  (:add-argument "--arg" :action :count))
+
+(defargparse-test count.4
+  "--arg"
+  ((:arg 11))
+  (:init)
+  (:add-argument "--arg" :action :count :default 10))
+
+(defargparse-test append.0
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action :append))
+
+(defargparse-test append.1
+  "--arg=a"
+  ((:arg '("a")))
+  (:init)
+  (:add-argument "--arg" :action :append))
+
+(defargparse-test append.2
+  "--arg=a --arg=b"
+  ((:arg '("a" "b")))
+  (:init)
+  (:add-argument "--arg" :action :append))
+
+(defargparse-test append.3
+  "--arg=a --arg=b --arg=c"
+  ((:arg '("a" "b" "c")))
+  (:init)
+  (:add-argument "--arg" :action :append))
+
+(defargparse-test append.4
+  "--arg=b"
+  ((:arg '("a" "b")))
+  (:init)
+  (:add-argument "--arg" :action :append :default (list "a")))
+
+(defargparse-test callback.1
+  ""
+  ((:arg nil))
+  (:init)
+  (:add-argument "--arg" :action #'identity))
+
+(defargparse-test callback.2
+  "--arg=a"
+  ((:arg "a"))
+  (:init)
+  (:add-argument "--arg" :action #'identity))
+
+(defargparse-test callback.3
+  "--arg=1"
+  ((:arg 2))
+  (:init)
+  (:add-argument "--arg" :action #'(lambda (arg) (1+ arg)) :read t))
+
+(defargparse-test callback.4
+  "--arg"
+  ((:arg 10))
+  (:init)
+  (:add-argument "--arg" :action #'(lambda () 10)))
+
+(defargparse-test parse-overall.1
+  "--arg=1 --req=2"
+  ((:arg "1") (:req 2) (:def 10) (:remap nil) (:flag nil) (:flag-false t)
+   (:ca nil) (:cf nil) (:cc nil) (:ccf nil) (:count nil) (:append nil) (:const nil))
+  (:init :description "Program Description" :prog "test.l")
+  (:add-argument "--arg" :help "The 'arg' argument" :required t)
+  (:add-argument "--req" :help "The 'req' argument" :required t :read t :choices (list 1 2 3))
+  (:add-argument "--def" :default 10 :read t :check #'evenp)
+  (:add-argument "--dest" :dest 'remap)
+  (:add-argument '("--flag" "-f") :help "The 'flag' argument" :action :store-true)
+  (:add-argument '("--flag-false" "-ff") :help "The 'flag' argument" :action :store-false)
+  (:add-argument "-ca" :help "Callback with argument"
+                 :action #'(lambda (val) (format t "Callback with value ~S~%" val)))
+  (:add-argument "-cf" :help "Callback without argument"
+                 :action #'(lambda () (format t "Callback!~%")))
+  (:add-argument "-cc" :help "Callback with compiled function"
+                 :action #'print)
+  (:add-argument "-ccf" :help "Callback with compiled function"
+                 :action #'lisp-implementation-version)
+  (:add-argument "--count" :action :count)
+  (:add-argument '("--append" "-a") :action :append :read t :choices (list 1 2 3))
+  (:add-argument "--const" :const 10 :action :store-const))
+
+(defargparse-test parse-overall.2
+  "--arg=a --req=3 --def=2 -ff --dest=b -ccf --count"
+  ((:arg "a") (:req 3) (:def 2) (:remap "b") (:flag nil) (:flag-false nil)
+   (:ca nil) (:cf nil) (:cc nil) (:ccf #.(lisp-implementation-version)) (:count 1)
+   (:append nil) (:const nil))
+  (:init :description "Program Description" :prog "test.l")
+  (:add-argument "--arg" :help "The 'arg' argument" :required t)
+  (:add-argument "--req" :help "The 'req' argument" :required t :read t :choices (list 1 2 3))
+  (:add-argument "--def" :default 10 :read t :check #'evenp)
+  (:add-argument "--dest" :dest 'remap)
+  (:add-argument '("--flag" "-f") :help "The 'flag' argument" :action :store-true)
+  (:add-argument '("--flag-false" "-ff") :help "The 'flag' argument" :action :store-false)
+  (:add-argument "-ca" :help "Callback with argument"
+                 :action #'(lambda (val) (format t "Callback with value ~S~%" val)))
+  (:add-argument "-cf" :help "Callback without argument"
+                 :action #'(lambda () (format t "Callback!~%")))
+  (:add-argument "-cc" :help "Callback with compiled function"
+                 :action #'print)
+  (:add-argument "-ccf" :help "Callback with compiled function"
+                 :action #'lisp-implementation-version)
+  (:add-argument "--count" :action :count)
+  (:add-argument '("--append" "-a") :action :append :read t :choices (list 1 2 3))
   (:add-argument "--const" :const 10 :action :store-const))
 
 (run-all-tests)
