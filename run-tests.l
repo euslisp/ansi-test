@@ -64,6 +64,16 @@
 (load "auxiliary/ansi_aux/cl-symbol-names.lsp")
 (load "auxiliary/ansi_aux/universe.lsp")
 
+;; REDEFINE DEFTEST
+(defmacro deftest (name clause &rest res)
+  `(progn
+     (defun ,name ()
+       (assert  ,(if (and (consp res) (not (cdr res))) ;; single element list
+		     `(equal ,clause ',@res)
+		     `(equal (multiple-value-list ,clause) ',res))))
+     (send eustest::*unit-test* :add-function ',name)
+     ',name))
+
 ;; LOAD TESTS
 (load "load-tests.lsp")
 
@@ -76,7 +86,7 @@
 
   ;; Save temporary files to `sandbox/' during test execution
   (cd "sandbox/")
-  (run-all-tests :white-list white-list :exit (not (send argparse :outfile)))
+  (run-all-tests :white-list white-list :exit (not outfile))
   (cd "../")
 
   ;; Save output log
