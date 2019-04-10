@@ -101,7 +101,7 @@
       (if required
           (format usage-stream " ~A" name-str)
           (format usage-stream " [~A]" name-str))
-      (princ "  " optional-stream)
+      (princ "  " details-stream)
       (maplist #'(lambda (a)
                    (format details-stream "~A~A" (car a)
                            (if name (format nil "=~A" name) ""))
@@ -120,11 +120,11 @@
         ;; Have something more than the initial message 'required arguments:~%'
         (format stream "~A~%" (get-output-stream-string required-stream)))
     (format stream "~A~%" (get-output-stream-string optional-stream))
-    (if epilog (format stream "~A~%" epilog))))
+    (if epilog (format stream "~A~%~%" epilog))))
 
 (defclass argparse-argument
     :super propertied-object
-    :slots (value action const choices check count flagp read required))
+    :slots (value action const choices check flagp read required))
 (defmethod argparse-argument
   (:init (&key action const default choices check read required)
     ;; check arguments
@@ -140,14 +140,13 @@
                   (:store-true nil)
                   (:store-false t)
                   (t default)))
-    (setq count 0)
     (setq flagp (if (functionp action)
                     (no-args-p action)
                     (not (not (memq action '(:store-true :store-false :store-const :count))))))
     self)
   (:value () value)
   (:store (val)
-    (let ((val (if read (read-from-string val) val)))
+    (let ((val (if (and read (not (functionp action))) (read-from-string val) val)))
       (if check
           (unless (funcall check val)
             (cli-error "Argument check in ~A failed for value ~S" (send self :name) val)))
@@ -160,8 +159,8 @@
   (:store-true () (send self :store t))
   (:store-false () (send self :store nil))
   (:store-const () (send self :store const))
-  (:count () (send self :store (incf count)))
-  (:collect (val)
+  (:count () (send self :store (1+ (or value 0))))
+  (:append (val)
     (let ((current value))
       (send self :store val)
       (setq value (append current (list value))))))
@@ -232,7 +231,10 @@
                     (cond
                       ((functionp action)
                        (if setp
-                           (send arg :store (funcall action value))
+                           (send arg :store (funcall action
+                                                     (if (argparse-argument-read arg)
+                                                         (read-from-string value)
+                                                         value)))
                            (send arg :store (funcall action))))
                       ((and setp flagp)
                        (cli-error "Argument ~S do not take values!" flag))
