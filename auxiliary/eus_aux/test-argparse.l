@@ -1,0 +1,57 @@
+(require :eustest "../../eustest.l")
+(require :argparse "argparse.l")
+
+(defun tmp (name &optional suffix)
+  (let ((suffix (and suffix (substitute #\- #\. (string-downcase suffix)))))
+    (concatenate string #+:linux "/tmp/" name suffix ".l")))
+
+(defun write-tmp-file (fname send-lst)
+  `(with-open-file (test-file ,fname :direction :output :if-exists :supersede)
+     (format test-file "(require :argparse ~S)~%~%" ,(namestring (truename "argparse.l")))
+     (format test-file "(lisp::install-error-handler #'(lambda (&rest args) (exit 1)))~%~%")
+     (format test-file "(setq argparse (instantiate argparse:argument-parser))~%")
+     ,@(mapcar
+        #'(lambda (cmd) `(format test-file ,(format nil "~S~~%"`(send argparse ,@cmd))))
+        send-lst)
+     (terpri test-file)
+     (format test-file "(send argparse :parse-args)~%")
+     (format test-file "(print (mapcar #'(lambda (lst) (cons (car lst) ((cdr lst) . value))) (send argparse :plist)))~%")
+     (format test-file "(exit 0)~%")))
+
+(defun read-multi-line-char (s c n)
+  (let (acc c)
+    (while (setq c (read-char s))
+      (if (eq c #\")
+          (if (eq (read-char s) #\#)
+              (return (coerce (nreverse acc) string))
+            (unread-char c s))
+        (push c acc)))))
+(set-dispatch-macro-character #\# #\" #'read-multi-line-char)
+
+(defmacro defargparse-test (name command result &rest send-lst)
+  (let ((testf (tmp "tmp-argparse-test-" name))
+        (resf (tmp "tmp-argparse-result-" name)))
+    `(deftest ,name
+       ,(write-tmp-file testf send-lst)
+       (assert (= 0 (unix:system ,(format nil "eus ~A ~A 2>/dev/null 1>~A" testf command resf))))
+       (let ((alst (read-file ,resf)))
+         ,@(mapcar #'(lambda (res)
+                       `(assert (and (assoc ,(car res) alst)
+                                     (equal (cdr (assoc ,(car res) alst)) ,(cadr res)))))
+                   result)))))
+
+(defmacro defargparse-help (name result &rest send-lst)
+  (let ((testf (tmp "tmp-argparse-test-" name))
+        (resf (tmp "tmp-argparse-result-" name)))
+    `(deftest ,name
+       ,(write-tmp-file testf send-lst)
+       (assert (= 0 (unix:system ,(format nil "eus ~A --help 2>/dev/null 1>~A" testf resf))))
+       (let ((str1 ,result)
+             (str2 (string-right-trim '(#\Space #\Newline) (read-binary-file ,resf))))
+         (assert (string= str1 str2))))))
+
+(defmacro defargparse-error (name command &rest send-lst)
+  (let ((testf (tmp "tmp-argparse-test-" name)))
+    `(deftest ,name
+       ,(write-tmp-file testf send-lst)
+       (assert (= 256 (unix:system ,(format nil "eus ~A ~A 2>/dev/null 1>/dev/null" testf command)))))))
