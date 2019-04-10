@@ -189,6 +189,15 @@ optional arguments:
   (:add-argument "--arg" :dest :dest))
 
 (defargparse-help help-arg.9
+#"usage: [-h] [--arg=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=ARG"#
+  (:init)
+  (:add-argument "--arg" :action #'(lambda (obj) obj)))
+
+(defargparse-help help-arg.10
 #"usage: [-h] --arg=ARG
 
 required arguments:
@@ -199,7 +208,7 @@ optional arguments:
   (:init)
   (:add-argument "--arg" :required t))
 
-(defargparse-help help-arg.10
+(defargparse-help help-arg.11
 #"usage: [-h] [--arg={1,2,3}]
 
 optional arguments:
@@ -279,6 +288,15 @@ optional arguments:
   --arg"#
   (:init)
   (:add-argument "--arg" :action :store-true :dest :dest))
+
+(defargparse-help help-flag.9
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg"#
+  (:init)
+  (:add-argument "--arg" :action #'(lambda () 10)))
 
 (defargparse-help help-overall.1
 #"usage: test.l [-h] --arg=ARG --req={1,2,3} [--def=DEF] [--dest=REMAP] [-f] [-ff] [-ca=CA] [-cf] [-cc=CC] [-ccf=CCF] [--count] [-a={1,2,3}] [--const]
@@ -538,5 +556,101 @@ optional arguments:
   (:add-argument "--count" :action :count)
   (:add-argument '("--append" "-a") :action :append :read t :choices (list 1 2 3))
   (:add-argument "--const" :const 10 :action :store-const))
+
+
+;; ERROR TESTS
+
+(defargparse-error parse-error.1
+  "--help"
+  (:init :add-help nil))
+
+(defargparse-error parse-error.2
+  "--arg"
+  (:init))
+
+(defargparse-error parse-error.3
+  "--arg"
+  (:init)
+  (:add-argument "--arg"))
+
+(defargparse-error parse-error.4
+  "--arg=1"
+  (:init)
+  (:add-argument "--arg" :action :store-true))
+
+(defargparse-error parse-error.5
+  "--arg=1"
+  (:init)
+  (:add-argument "--arg" :action :store-false))
+
+(defargparse-error parse-error.6
+  "--arg=1"
+  (:init)
+  (:add-argument "--arg" :action :count))
+
+(defargparse-error parse-error.7
+  "--arg=1"
+  (:init)
+  (:add-argument "--arg" :action :const 10 :store-const))
+
+(defargparse-error parse-error.8
+  ""
+  (:init)
+  (:add-argument "--arg" :required t))
+
+(defargparse-error parse-error.9
+  "--arg=10"
+  (:init)
+  (:add-argument "--arg" :read t :choices (list 1 2 3)))
+
+(defargparse-error parse-error.10
+  "--arg=1"
+  (:init)
+  (:add-argument "--arg" :read t :check #'evenp))
+
+(defargparse-error instance-error.1
+  ""
+  (:init)
+  (:add-argument '("--arg" "-a"))
+  (:add-argument '("--another" "-a")))
+
+(defargparse-error instance-error.2
+  ""
+  (:init)
+  (:add-argument "--arg")
+  (:add-argument "--another" :dest 'arg))
+
+(defargparse-error instance-error.3
+  ""
+  (:init)
+  (:add-argument "--arg" :action :none))
+
+(defargparse-error instance-error.4
+  ""
+  (:init)
+  (:add-argument "--arg" :choices t))
+
+(defargparse-error instance-error.5
+  ""
+  (:init)
+  (:add-argument "--arg" :check t))
+
+(defargparse-error instance-error.6
+  ""
+  (:init)
+  (:add-argument "arg"))
+
+(defargparse-error instance-error.7
+  ""
+  (:init)
+  (:add-argument "-invalid=argument"))
+
+(defargparse-error instance-error.8
+  ""
+  (:init)
+  (:add-argument 'arg))
+
+
+;; RUN TESTS
 
 (run-all-tests)
