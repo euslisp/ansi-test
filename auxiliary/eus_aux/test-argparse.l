@@ -5,18 +5,25 @@
   (let ((suffix (and suffix (substitute #\- #\. (string-downcase suffix)))))
     (concatenate string #+:linux "/tmp/" name suffix ".l")))
 
+(defun princ-line (obj &optional (stream *standard-output*))
+  (princ obj stream)
+  (terpri stream))
+
 (defun write-tmp-file (fname send-lst)
   `(with-open-file (test-file ,fname :direction :output :if-exists :supersede)
-     (format test-file "(require :argparse ~S)~%~%" ,(namestring (truename "argparse.l")))
-     (format test-file "(lisp::install-error-handler #'(lambda (&rest args) (exit 1)))~%~%")
-     (format test-file "(setq argparse (instantiate argparse:argument-parser))~%")
+     (princ-line (format nil "(require :argparse ~S)" ,(namestring (truename "argparse.l")))
+                 test-file)
+     (terpri test-file)
+     (princ-line "(lisp::install-error-handler #'(lambda (&rest args) (exit 1)))" test-file)
+     (terpri test-file)
+     (princ-line "(setq argparse (instantiate argparse:argument-parser))" test-file)
      ,@(mapcar
-        #'(lambda (cmd) `(format test-file ,(format nil "~S~~%"`(send argparse ,@cmd))))
+        #'(lambda (cmd) `(princ-line ,(format nil "~S"`(send argparse ,@cmd)) test-file))
         send-lst)
      (terpri test-file)
-     (format test-file "(send argparse :parse-args)~%")
-     (format test-file "(print (mapcar #'(lambda (lst) (cons (car lst) ((cdr lst) . value))) (send argparse :plist)))~%")
-     (format test-file "(exit 0)~%")))
+     (princ-line "(send argparse :parse-args)" test-file)
+     (princ-line "(print (mapcar #'(lambda (lst) (cons (car lst) ((cdr lst) . value))) (send argparse :plist)))" test-file)
+     (princ-line "(exit 0)" test-file)))
 
 (defun read-multi-line-char (s c n)
   (let (acc c)
@@ -55,3 +62,261 @@
     `(deftest ,name
        ,(write-tmp-file testf send-lst)
        (assert (= 256 (unix:system ,(format nil "eus ~A ~A 2>/dev/null 1>/dev/null" testf command)))))))
+
+
+;; HELP TESTS
+
+(defargparse-help help-init.1
+#"usage: [-h]
+
+optional arguments:
+  -h, --help	show this help message and exit"#
+  (:init))
+
+(defargparse-help help-init.2
+#"usage: [-h]
+
+Program Description
+
+optional arguments:
+  -h, --help	show this help message and exit"#
+  (:init :description "Program Description"))
+
+(defargparse-help help-init.3
+#"usage: [-h]
+
+optional arguments:
+  -h, --help	show this help message and exit
+
+Program Epilog"#
+  (:init :epilog "Program Epilog"))
+
+(defargparse-help help-init.4
+#"usage: help-init.4 [-h]
+
+optional arguments:
+  -h, --help	show this help message and exit"#
+  (:init :prog "help-init.4"))
+
+(defargparse-help help-init.5
+#"usage: help-init.5 [-h]
+
+optional arguments:
+  -h, --help	show this help message and exit"#
+  (:init :prog 'help-init.5))
+
+(defargparse-help help-init.6
+#"usage: help-init.6 [-h]
+
+Program Description
+
+optional arguments:
+  -h, --help	show this help message and exit
+
+Program Epilog"#
+  (:init :prog "help-init.6" :description "Program Description" :epilog "Program Epilog"))
+
+(defargparse-help help-arg.1
+#"usage: [-h] [--arg=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=ARG"#
+  (:init)
+  (:add-argument "--arg"))
+
+(defargparse-help help-arg.2
+#"usage: [-h] [--arg=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=ARG	the arg help"#
+  (:init)
+  (:add-argument "--arg" :help "the arg help"))
+
+(defargparse-help help-arg.3
+#"usage: [-h] [--arg=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=ARG	(default: 10)"#
+  (:init)
+  (:add-argument "--arg" :default 10))
+
+(defargparse-help help-arg.4
+#"usage: [-h] [--arg=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=ARG	the arg help (default: 10)"#
+  (:init)
+  (:add-argument "--arg" :help "the arg help" :default 10))
+
+(defargparse-help help-arg.5
+#"usage: [-h] [-a=ARG]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  -a=ARG, --arg=ARG"#
+  (:init)
+  (:add-argument '("--arg" "-a")))
+
+(defargparse-help help-arg.6
+#"usage: [-h] [--arg=DEST]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=DEST"#
+  (:init)
+  (:add-argument "--arg" :dest "dest"))
+
+(defargparse-help help-arg.7
+#"usage: [-h] [--arg=DEST]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=DEST"#
+  (:init)
+  (:add-argument "--arg" :dest 'dest))
+
+(defargparse-help help-arg.8
+#"usage: [-h] [--arg=DEST]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg=DEST"#
+  (:init)
+  (:add-argument "--arg" :dest :dest))
+
+(defargparse-help help-arg.9
+#"usage: [-h] --arg=ARG
+
+required arguments:
+  --arg=ARG
+
+optional arguments:
+  -h, --help	show this help message and exit"#
+  (:init)
+  (:add-argument "--arg" :required t))
+
+(defargparse-help help-arg.10
+#"usage: [-h] [--arg={1,2,3}]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg={1,2,3}"#
+  (:init)
+  (:add-argument "--arg" :choices (list 1 2 3)))
+
+(defargparse-help help-flag.1
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg"#
+  (:init)
+  (:add-argument "--arg" :action :store-true))
+
+(defargparse-help help-flag.2
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg	the arg help"#
+  (:init)
+  (:add-argument "--arg" :action :store-true :help "the arg help"))
+
+(defargparse-help help-flag.3
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg	(default: t)"#
+  (:init)
+  (:add-argument "--arg" :action :store-false))
+
+(defargparse-help help-flag.4
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg	the arg help (default: t)"#
+  (:init)
+  (:add-argument "--arg" :action :store-false :help "the arg help"))
+
+(defargparse-help help-flag.5
+#"usage: [-h] [-a]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  -a, --arg"#
+  (:init)
+  (:add-argument '("--arg" "-a") :action :store-true))
+
+(defargparse-help help-flag.6
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg"#
+  (:init)
+  (:add-argument "--arg" :action :store-true :dest "dest"))
+
+(defargparse-help help-flag.7
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg"#
+  (:init)
+  (:add-argument "--arg" :action :store-true :dest 'dest))
+
+(defargparse-help help-flag.8
+#"usage: [-h] [--arg]
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --arg"#
+  (:init)
+  (:add-argument "--arg" :action :store-true :dest :dest))
+
+(defargparse-help help-overall.1
+#"usage: test.l [-h] --arg=ARG --req={1,2,3} [--def=DEF] [-f] [-ff] [-ca=CA] [-cf] [-cc=CC] [-ccf=CCF] [--count] [-a={1,2,3}] [--const]
+
+Program Description
+
+required arguments:
+  --arg=ARG	The 'arg' argument
+  --req={1,2,3}	The 'req' argument
+
+optional arguments:
+  -h, --help	show this help message and exit
+  --def=DEF	(default: 10)
+  -f, --flag	The 'flag' argument
+  -ff, --flag-false	The 'flag' argument (default: t)
+  -ca=CA	Callback with argument
+  -cf	Callback without argument
+  -cc=CC	Callback with compiled function
+  -ccf=CCF	Callback with compiled function
+  --count
+  -a={1,2,3}, --collect={1,2,3}
+  --const"#
+  (:init :description "Program Description" :prog "test.l")
+  (:add-argument "--arg" :help "The 'arg' argument" :required t)
+  (:add-argument "--req" :help "The 'req' argument" :required t :read t :choices (list 1 2 3))
+  (:add-argument "--def" :default 10 :read t :check #'evenp)
+  (:add-argument '("--flag" "-f") :help "The 'flag' argument" :action :store-true)
+  (:add-argument '("--flag-false" "-ff") :help "The 'flag' argument" :action :store-false)
+  (:add-argument "-ca" :help "Callback with argument"
+                 :action #'(lambda (val) (format t "Callback with value ~S~%" val)))
+  (:add-argument "-cf" :help "Callback without argument"
+                 :action #'(lambda () (format t "Callback!~%")))
+  (:add-argument "-cc" :help "Callback with compiled function"
+                 :action #'print)
+  (:add-argument "-ccf" :help "Callback with compiled function"
+                 :action #'lisp-implementation-version)
+  (:add-argument "--count" :action :count)
+  (:add-argument '("--collect" "-a") :action :collect :read t :choices (list 1 2 3))
+  (:add-argument "--const" :const 10 :action :store-const))
+
+(run-all-tests)
