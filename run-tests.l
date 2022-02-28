@@ -36,6 +36,9 @@
 (send argparse :add-argument '("--update-log" "-u")
       :dest 'outfile
       :help "Print the test results to the designated log file")
+(send argparse :add-argument '("--interactive" "-i")
+      :action :store-true
+      :help "Set to start the euslisp interpreter with the loaded test suite")
 (send argparse :add-argument '("--quiet" "-q")
       :action :store-true
       :help "Set to inhibit printing failed tests in the end")
@@ -83,20 +86,21 @@
 ;; RUN TESTS
 (terpri *error-output*)
 
-(let* ((infile (send argparse :infile))
-       (outfile (send argparse :outfile))
-       (quiet (send argparse :quiet))
-       (white-list (and infile (passing-tests-list infile))))
+(unless (send argparse :interactive)
+  (let* ((infile (send argparse :infile))
+         (outfile (send argparse :outfile))
+         (quiet (send argparse :quiet))
+         (white-list (and infile (passing-tests-list infile))))
 
-  ;; Save temporary files to `sandbox/' during test execution
-  (cd "sandbox/")
-  (run-all-tests :white-list white-list :exit (not outfile) :log-failures (not quiet))
-  (cd "../")
+    ;; Save temporary files to `sandbox/' during test execution
+    (cd "sandbox/")
+    (run-all-tests :white-list white-list :exit (not outfile) :log-failures (not quiet))
+    (cd "../")
 
-  ;; Save output log
-  (when outfile
-    (format t "Updating '~A'...~%" outfile)
-    (send eustest::*unit-test* :print-log outfile)
-    (format t "... updated.~%"))
+    ;; Save output log
+    (when outfile
+      (format t "Updating '~A'...~%" outfile)
+      (send eustest::*unit-test* :print-log outfile)
+      (format t "... updated.~%"))
 
-  (send eustest::*unit-test* :exit))
+    (send eustest::*unit-test* :exit)))
