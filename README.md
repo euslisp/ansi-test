@@ -19,8 +19,12 @@ optional arguments:
   -h, --help	show this help message and exit
   -cl, --cl-compatible	Set when using EusLisp cl-compatible branch
   -aux, --auxiliary	Set to load cl-compatible libraries on 'auxiliary/cl_comp/'
+  -r=WHITE-LIST, --run-test=WHITE-LIST	Run a certain test or type of test
+  -s=BLACK-LIST, --skip-test=BLACK-LIST	Skip a certain test or type of test
   -e=INFILE, --ensure-pass=INFILE	Only execute tests marked as successful in the designated log file
   -u=OUTFILE, --update-log=OUTFILE	Print the test results to the designated log file
+  -i, --interactive	Set to start the euslisp interpreter with the loaded test suite
+  -q, --quiet	Set to inhibit printing failed tests in the end
 ```
 
 ## Results
