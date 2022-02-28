@@ -18,7 +18,7 @@
               (read-lines file)))))
 
 ;; PARSE ARGUMENTS
-(load "auxiliary/eus_aux/argparse.l")
+(require :argparse "lib/llib/argparse.l")
 
 (defvar argparse (instance argparse:argument-parser :init
                            :prog "run-tests.l"
