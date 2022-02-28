@@ -253,9 +253,13 @@
 (defparameter *unit-test* (instance eustest-container :init))
 
 ;; FUNCTIONS
-(defun run-all-tests (&key white-list black-list (exit t))
+(defun run-all-tests (&key white-list black-list log-failures (exit t))
   (send *unit-test* :clear)
   (send *unit-test* :run-all-tests :white-list white-list :black-list black-list)
+  (when log-failures
+    (dolist (f (send *unit-test* :all-failures))
+      (warning-message 1 "~A " (send f :name)))
+    (terpri *error-output*))
   (if exit (send *unit-test* :exit)))
 
 ;; MACROS

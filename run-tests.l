@@ -36,6 +36,9 @@
 (send argparse :add-argument '("--update-log" "-u")
       :dest 'outfile
       :help "Print the test results to the designated log file")
+(send argparse :add-argument '("--quiet" "-q")
+      :action :store-true
+      :help "Set to inhibit printing failed tests in the end")
 (send argparse :parse-args)
 
 ;; PREPARE TESTS
@@ -82,11 +85,12 @@
 
 (let* ((infile (send argparse :infile))
        (outfile (send argparse :outfile))
+       (quiet (send argparse :quiet))
        (white-list (and infile (passing-tests-list infile))))
 
   ;; Save temporary files to `sandbox/' during test execution
   (cd "sandbox/")
-  (run-all-tests :white-list white-list :exit (not outfile))
+  (run-all-tests :white-list white-list :exit (not outfile) :log-failures (not quiet))
   (cd "../")
 
   ;; Save output log
