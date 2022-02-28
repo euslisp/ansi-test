@@ -29,6 +29,14 @@
 (send argparse :add-argument '("--auxiliary" "-aux")
       :action #'(lambda () (push :cl-aux *features*))
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
+(send argparse :add-argument '("--run-test" "-r")
+      :action :append
+      :dest 'white-list
+      :help "Run a certain test or type of test")
+(send argparse :add-argument '("--skip-test" "-s")
+      :action :append
+      :dest 'black-list
+      :help "Skip a certain test or type of test")
 (send argparse :add-argument '("--ensure-pass" "-e")
       :dest 'infile
       :check #'probe-file
@@ -90,11 +98,21 @@
   (let* ((infile (send argparse :infile))
          (outfile (send argparse :outfile))
          (quiet (send argparse :quiet))
-         (white-list (and infile (passing-tests-list infile))))
+         (white-list (send argparse :white-list))
+         (black-list (send argparse :black-list))
+         (infile-list (and infile (passing-tests-list infile))))
 
     ;; Save temporary files to `sandbox/' during test execution
     (cd "sandbox/")
-    (run-all-tests :white-list white-list :exit (not outfile) :log-failures (not quiet))
+
+    ;; Prioritize infile over manually assigned tests
+    (if infile-list (setq white-list infile-list))
+
+    ;; Run tests
+    (run-all-tests :white-list white-list
+                   :black-list black-list
+                   :exit (not outfile)
+                   :log-failures (not quiet))
     (cd "../")
 
     ;; Save output log
