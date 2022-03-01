@@ -209,8 +209,10 @@
               (catch 0 (send test :run) (return-from run-test))
               (send test :increment-failure)))
    (send self :setup)
-   (if (stringp (car white-list))
-       (setq white-list (send* self :get-tests white-list)))
+   (when (stringp (car white-list))
+     (setq white-list (send* self :get-tests white-list))
+     (unless white-list
+       (error "No tests found!")))
    (if black-list (setq black-list (send* self :get-tests black-list)))
    (dolist (test (send self :all-tests))
      (if (and (or (null white-list) (memq (send test :name) white-list))
