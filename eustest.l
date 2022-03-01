@@ -101,7 +101,8 @@
     (if msg
         (warning-message 1 ": ~A" msg)
         (terpri *error-output*)))
-  (:run ()
+  (:run (&key compile)
+    (if compile (compile name))
     (let* (pass
            (msg (with-output-to-string (*error-output*)
                   (setq pass (catch 0 (funcall name) t)))))
@@ -124,7 +125,7 @@
       (format *error-output* "~C[1;3~Cm~A~C[0m~%" #x1b 50 msg #x1b))
     (unless msg
       (terpri *error-output*)))
-  (:run ()
+  (:run (&key compile)
     (send self :increment-skip)))
 
 (defclass eustest-error-function
@@ -204,9 +205,11 @@
   (:add-error-function (name)
     (push (instance eustest-error-function :init name) functions)
     name)
-  (:run-all-tests (&key white-list black-list)
+  (:run-all-tests (&key white-list black-list compile)
    (labels ((run-test (test)
-              (catch 0 (send test :run) (return-from run-test))
+              (catch 0
+                (send test :run :compile compile)
+                (return-from run-test))
               (send test :increment-failure)))
    (send self :setup)
    (when (stringp (car white-list))
@@ -269,9 +272,10 @@
 (defparameter *unit-test* (instance eustest-container :init))
 
 ;; FUNCTIONS
-(defun run-all-tests (&key white-list black-list exit (log-failures t))
+(defun run-all-tests (&key white-list black-list compile exit (log-failures t))
   (send *unit-test* :clear)
-  (send *unit-test* :run-all-tests :white-list white-list :black-list black-list)
+  (send *unit-test* :run-all-tests :white-list white-list :black-list black-list
+        :compile compile)
   (when log-failures
     (dolist (f (send *unit-test* :all-failures))
       (warning-message 1 "~A " (send f :name)))

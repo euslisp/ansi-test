@@ -29,6 +29,9 @@
 (send argparse :add-argument '("--auxiliary" "-aux")
       :action #'(lambda () (push :cl-aux *features*))
       :help "Set to load cl-compatible libraries on 'auxiliary/cl_comp/'")
+(send argparse :add-argument '("--compile" "-c")
+      :action :store-true
+      :help "Set to test compiled functions")
 (send argparse :add-argument '("--run-test" "-r")
       :action :append
       :dest 'white-list
@@ -98,6 +101,7 @@
   (let* ((infile (send argparse :infile))
          (outfile (send argparse :outfile))
          (quiet (send argparse :quiet))
+         (compile (send argparse :compile))
          (white-list (send argparse :white-list))
          (black-list (send argparse :black-list))
          (infile-list (and infile (passing-tests-list infile))))
@@ -111,6 +115,7 @@
     ;; Run tests
     (run-all-tests :white-list white-list
                    :black-list black-list
+                   :compile compile
                    :exit (not outfile)
                    :log-failures (not quiet))
     (cd "../")
