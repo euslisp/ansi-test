@@ -269,7 +269,7 @@
 (defparameter *unit-test* (instance eustest-container :init))
 
 ;; FUNCTIONS
-(defun run-all-tests (&key white-list black-list log-failures (exit t))
+(defun run-all-tests (&key white-list black-list exit (log-failures t))
   (send *unit-test* :clear)
   (send *unit-test* :run-all-tests :white-list white-list :black-list black-list)
   (when log-failures
