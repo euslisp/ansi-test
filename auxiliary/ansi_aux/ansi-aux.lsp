@@ -1013,7 +1013,8 @@ the condition to go uncaught if it cannot be classified."
 
 (defun sequencep (x) (typep x 'sequence))
 
-(defun typef (type) #'(lambda (x) (typep x type)))
+;; (defun typef (type) #'(lambda (x) (typep x type)))
+(defun typef (type) (error "require closure implementation"))
 
 (defun package-designator-p (x)
   "TRUE if x could be a package designator.  The package need not
