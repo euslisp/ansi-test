@@ -81,7 +81,7 @@
       (format t "Package ~S~%" p)
       (not (with-package-iterator-internal (list p))))
     (error (c)
-           (format "Error ~S on package ~A~%" c p)
+           (format t "Error ~S on package ~A~%" c p)
            t)))
   0)
 
@@ -93,7 +93,7 @@
       (format t "Package ~S~%" p)
       (not (with-package-iterator-external (list p))))
     (error (c)
-           (format "Error ~S on package ~A~%" c p)
+           (format t "Error ~S on package ~A~%" c p)
            t)))
   0)
 
