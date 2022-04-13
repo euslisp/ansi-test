@@ -14,7 +14,10 @@
       (return-from OOtypecase (eval (cadr el))))))
 
 
-(defun find-class (obj &optional error-p) (class obj))
+(defun find-class (obj &optional error-p)
+  (let ((cls (symbol-value obj)))
+    (assert (classp cls))
+    cls))
 
 (defun sym-class (type)
   (cond
