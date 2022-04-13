@@ -215,7 +215,8 @@
    (when (stringp (car white-list))
      (setq white-list (send* self :get-tests white-list))
      (unless white-list
-       (error "No tests found!")))
+       (warning-message 1 "No tests found!~%")
+       (exit 1)))
    (if black-list (setq black-list (send* self :get-tests black-list)))
    (dolist (test (send self :all-tests))
      (if (and (or (null white-list) (memq (send test :name) white-list))
