@@ -5,6 +5,7 @@
 
 (defmacro locally (&rest body) `(progn ,@body))
 ;;(defmacro handler-case (form &rest args) form)
+#-:cl-aux
 (defun typep (obj type) (eq (class obj) (symbol-value type)))
 
 ;;; A function for coercing truth values to BOOLEAN

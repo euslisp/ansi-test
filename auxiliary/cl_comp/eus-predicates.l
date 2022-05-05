@@ -7,19 +7,21 @@
 
 (defun typep (obj type)
   "Returns T if OBJECT is of type TYPE."
-  (cond ((numberp obj)
-         (or
-          (eq type 'number)
-          (and (integerp obj) (eq type 'integer))
-          (and (integerp obj) (>= obj 0) (or
-                                          (eq type 'natural)
-                                          (eq type 'character))) 
-          (and (floatp obj) (eq type 'float))
-          (eq type 'ratio)))
-        ((consp obj) (or (eq type 'cons) (eq type 'list)))
+  (cond ((not (class obj))
+         (case type
+           ('number (numberp obj))
+           ('integer (integerp obj))
+           ('float (floatp obj))
+           ('natural (and (integerp obj) (plusp obj)))
+           ('character (characterp obj))))
+        ((eq type 'list)
+         (listp obj))
         (t
-         (and (boundp type)
-              (derivedp obj (symbol-value type))))))
+         (cond
+           ((and (symbolp type) (boundp type))
+            (derivedp obj (symbol-value type)))
+           ((classp type)
+            (derivedp obj type))))))
 
 ;;; EQUALP -- public.
 ;;
